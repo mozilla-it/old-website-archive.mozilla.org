@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>Exposing HTML/DOM via ATK/AT-SPI</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<meta content="IBM WebSphere Studio Homepage Builder V6.0.2 for Windows" name="GENERATOR">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</meta></meta></link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="new-atk-historic.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="new-atk-historic.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<h1 id="page-title">EXPOSING HTML/DOM VIA ATK/AT-SPI</h1>
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<div style="margin-left: 40px;"><span style="font-style: italic;">Contributors</span><br>
+</br></div>
+<div style="margin-left: 40px;">Will Walker, Sun Microsystems<br>
+Aaron Leventhal, IBM<br>
+Cathy Laws, IBM<br>
+Larry Weiss, IBM<br>
+Pete Brunet, IBM<br>
+Bill Haneman, Sun Microsystems<br>
+</br></br></br></br></br></br></div>
+<h2>OVERVIEW</h2>
+This document specifies different ways that document
+content can be efficiently exposed using the existing ATK/AT-SPI
+with minimum modifications to the ATK/AT-SPI specifications. It
+does so by effectively creating a containment hierarchy based upon a
+relevant subset of the DOM, where each container has an accessible
+role which is mapped to AtkRoleTypes from the
+associated element type (e.g., "html:h1", "html:h2", "html:a", html:p",
+etc.). Contiguous regions of text typically appear as children that are
+accessible text objects, and other components (e.g., widgets inside
+forms) appear as their associated ATK/AT-SPI counterparts. Furthermore,
+CSS attributes will be represented as AT-SPI text
+attributes.
+<h2>PROBLEM STATEMENT</h2>
+Screen reader users need the ability to:<br>
+<ol>
+<li>Navigate documents by higher level structure</li>
+<li>Know where they are within the current document's structure</li>
+</ol>
+Although requirement 1 can be filled by an improved caret navigation
+capability, that would force synchronization of the screen reader and
+the document's point of regard, which is not always possible -- for
+example, the Firefox
+caret cannot be set within a list of options, for example. The caret
+browsing system is difficult to maintain because the two can be out of
+sync.<br>
+<br>
+Furthermore, requirement 2 really means that the screen reader needs to
+be able to determine document structure anyway.<br>
+<br>
+The current ATK implementation in Gecko  has the following
+problems, when exposing document structure:<br>
+<ol>
+<li>It does not expose headings, quotations, paragraphs, forms,
+list containers and other structural objects </li>
+<li>It is not possible to differentiate sequential or nested
+lists from each other or even from a single large list. The list items
+are simply exposed one after the next.</li>
+<li>There is confusion about embedded objects. They are
+currently exposed out of order relative to where they actually exist in
+the document. Gecko must do extra error-prone work to expose them in
+the new order, and the AT must unravel that. In addition, the extra
+work in the Gecko implementation makes code reuse with the Windows/MSAA
+implementation difficult. </li>
+<li>There is confusion about links. In HTML links can span
+entire paragraphs or a complex set of objects. This is not modeled well
+with the current system.</li>
+</ol>
+<h2>PROPOSAL</h2>
+<p>The proposal is relatively simple:</p>
+<ol>
+<li>Continue to map HTML constructs to
+existing AT-SPI roles.</li>
+<li> Expose
+structural HTML element roles as AtkObject attributes. The
+corresponding attribute name will be "html:role", and the value of that
+attribute will be the actual HTML tag.<br>
+</br></li>
+<li>Treat container elements as containers which can have children.
+Embedded objects, links and other containers will appear as
+children of these
+containers. Furthermore, objects embedded within text content
+will be exposed via an AtkHypertext implementation on the containing
+text object.  (In some cases the text object will have empty text
+content, and AT clients should be prepared to handle those cases).
+  </li>
+<li>Expose text with one of 3 methods:</li>
+<ol style="list-style-type: lower-alpha;">
+<li>[currently not recommended] expose text as child text leaf nodes with a role of "text",
+or</li>
+<li>[currently not recommended] Expose contatenated text on the container for the text,
+using
+unicode 0xfffc to indicate embedded objects. A general rule is:
+if something exposing AccessibleText has children, then each child will
+be marked in the text with 0xfffc </li>
+<li>[preferred as of 3-29-06] Implement AtkHypertext on text containing embedded content as
+well as text containing HTML anchors. Treat all children as AtkHyperlinks, even if they're not technically links.</li>
+</ol>
+<li>Treate image maps as a container image which implements
+AtkHyperlink objects with multiple anchors.</li>
+<li>Implement the AtkHyperlinks returned by AtkHypertext as
+full-fledged AtkObjects, and expose them as children of the
+AtkHypertext parent.<br>
+</br></li>
+<li>The following interfaces would be supported: AccessibleAction,
+AccessibleComponent, AccessibleHyperText, AccessibleText, AccessibleEditableText,
+AccessibleImage, AccessibleSelection, AccessibleTable, AccessibleValue,
+AccessibleRelation</li>
+<li>AccessibleTable would be implemented on the &lt;table&gt; object,
+and the children could also be obtained by walking the regular
+hierarchy.</li>
+</ol>
+<ol>
+</ol>
+<h2>NEW API<br>
+</br></h2>
+ATK_ROLE_FORM may be needed as an enhancement. We may also need
+ATK_RELATION_DESCRIPTION_FOR/DESCRIBED_BY in order to better map to
+MSAA.<br>
+<p>All items that can be interacted with via the keyboard will support
+the FOCUSABLE, FOCUSED, ENABLED and SENSITIVE states, and will
+emit "focus:" events when
+they receive focus. All items that display text will
+implement Accessibility_Text. Furthermore, "object:text-caret-moved"
+events should be emitted by the associated text object as the caret
+moves. Items within combos and selectable lists will have
+SELECTABLE, and lists supporting multiple selections will have
+MULTISELECT. Read-only objects of types or exposing interfaces
+which are ordinarily editable will have the READONLY state.
+REQUIRED will be exposed as appropriate.<br>
+</br></p>
+<p>NOTE: The sttribute pattern of "html:role=tag" can also be carried
+over to
+other XML specifications, such as SVG, MATHML, ODF, etc. The
+general pattern is "namespaceabbrev:role=tag".</p>
+<h2>ADVANTAGES</h2>
+<ol>
+<li>Document structure exposed. Screen reader can get info it
+needs.</li>
+<li>Simplfies implementation both for Gecko and for screen
+readers</li>
+<li>Backwards-compatible with GOK</li>
+<li>Synchronizes ATK
+implementation with MSAA implementation, making an
+implementation for advanced text interfaces on Windows much easier down
+the road,
+by allowing reuse of all the classes which implement special interfaces
+(text, tables, etc.). With this huge difference removed, most of the
+important code to implement those interfaces can be moved into the
+cross-platform implenentation.</li>
+</ol>
+<h2> Q &amp; A</h2>
+<p> Q. How is the checkable state of a menuitem, treeitem or listitem
+exposed?<br>
+A. See ATK_STATE_CHECKED, AtkAction, and ATK_ROLE_CHECK_BOX, etc.<br>
+</br></br></p>
+<p>Q. How do I support the valuechange event? It is
+too difficult to find the old value. <br>
+A. The spec doesn't actually say what detail1 &amp; detail2 are for the
+valuechange event. The AT does not need them. It gets everything it
+needs from AccessibleValue, so disregard those detail1 and detail2 for
+valuechange events. However, the atk-bridge should be updated,
+and the spec enhanced, to add the new and old values to the "any"
+struct currently dispatched with change events, and provide
+Accessibility::ValueChangeEvent_getValues(), similar to what it now
+does with TextChangeEvent_getChangeString().<br>
+</br></br></p>
+<p> Q; How do I expose the indeterminate state of a progressbar?<br>
+A. Expose ATK_STATE_INDETERMINATE on the progressbar.</br></p>
+<p> Q. How can an AT like a magnifier scroll to a particular piece of
+text?<br>
+A. Set the caret before the word you want to scroll to [this is a
+policy proposal that is not yet defined.]<br>
+</br></br></p>
+<p> Q. How should an application indicate that an alert, which will not
+receive focus, has become visible?<br>
+A. Use the children-changed event, and use ATK_ROLE_ALERT on the newly
+created alert object. If the alert has its own window, then the
+"window:create" event should be emitted to indicate when
+an alert becomes visible or a state-change event for the visible
+state. <br>
+</br></br></p>
+<p>Q: What's visible-data-changed?<br>
+A: It's a sort of catch-all that says "the onscreen content of this
+object has changed in a way that is not efficiently conveyed via
+bounds-changed, text-changed, selection-changed, or similar more
+specific events"... mostly it says to the AT, "refresh all your cached
+info about this object's onscreen representation".<span style="font-style: italic;"> [Note that there is also a
+model-change-event I think, which may sometimes be more
+appropriate? Need to check this]</span><br>
+</br></br></p>
+<p><br>
+Q. How do we expose the visited state for a link?<br>
+A. For now you need to use ATK_STATE_CHECKED, but in the future we hope
+to add ATK_STATE_VISITED to the API (mapping to MSAA TRAVERSED)</br></br></p>
+<p> Q. Should an assistive technology use role indentifiers or role
+strings?<br>
+A. ATs should use the enumerated role identifiers in virtually
+all cases.<span style="font-weight: bold;"> <br>
+</br></span></br></p>
+<h2>ISSUES TO BE RESOLVED</h2>
+<ol>
+<li>This proposal currently does not yet provide a way to expose tag
+names for all
+elements, DOM attribute/value pairs, computed
+style attribute/value
+pairs associated with individual elements, such as the size of
+a table cell's border. Do we need to add a getProperty(name) method to
+the Accessibility_Accessible
+interface? Do we need an Accessibility_DOMNode interface?</li>
+<ol>
+<li>ANSWER: We already have
+Accessibility_Accessible::getAttributes, so this problem is solved in
+theory.<br>
+</br></li>
+</ol>
+<li>Need to document how text selection is exposed</li>
+<ol>
+<li>ANSWER: See the AtkText interface docs, in particular the
+text-selection-changed events, and atk_text_get_selection and
+atk_text_get_nselections.</li>
+</ol>
+<li>This proposal does not deal with multiple roles from DHTML.
+Presumably the html:role attribute value could consist of a list of
+role names with some delimiters between them. </li>
+<li>Should a separate role or text attribute be maintained for text
+which is inserted
+by the rendering environment, such as list bullet text, :before/:after
+styled text? In MSAA the separate "static text" role is used.</li>
+<ol>
+<li>ANSWER: This should be exposed as a text attribute, potentially
+called "static".<br>
+</br></li>
+</ol>
+<li>Should we remove the "html:" prefix from common roles that we'll
+want
+to reuse for ODF, such as "h1"?</li>
+<ol>
+<li>ANSWER: Probably not, but we may wish to expose common
+attributes such as "heading level=1" in addition to the html tag name
+literal.<br>
+</br></li>
+</ol>
+<li>Is it currently possible to get the URL, mime type or doctype for
+a document?</li>
+<ol>
+<li>ANSWER: Yes - either via AtkDocument:;getDocumentAttributes, or
+(preferably) by implementing AtkStreamableContent on the document
+container.<br>
+</br></li>
+</ol>
+</ol>
+<h2>EXAMPLES</h2>
+<p>The following examples provide a mapping between HTML and the ATK
+representation.
+In each of the following examples, an ATK accessible object is
+encapsulated
+in braces ("{}"), and meaningful ATK interfaces and attributes,
+including specializations, are represented as name/value pairs inside
+the
+braces. For convenience, accessible text is shown merely as
+'text="contents
+of the text"'.</p>
+To do: HTML table &amp; DHTML role example<br>
+<br>
+Note: everything supports AtkObject and AtkComponent <br>
+<table border="1" cellpadding="2" cellspacing="2">
+<tbody>
+<tr>
+<th>HTML content</th>
+<th>HTML source</th>
+<th>ATK <br>
+with text in leaves</br></th>
+<th style="width: 8px; text-align: center;"> ATK<br>
+with text in containers</br></th>
+<td style="vertical-align: top; text-align: center;"><span style="font-weight: bold;">ATK </span><br style="font-weight: bold;">
+<span style="font-weight: bold;">using Hypertext and Hyperlink
+children</span><br>
+</br></br></td>
+</tr>
+<tr>
+<td>
+<h1>This is a heading</h1>
+<p> This is a paragraph with an <img alt="some image" src="https://www.mozilla.org/access/unix/image.gif"> image in it. </img></p>
+<h2>This is another heading</h2>
+</td>
+<td>
+<pre>&lt;h1&gt;This is a heading&lt;/h1&gt;<br>&lt;p&gt;<br>  This is a paragraph with an<br>  &lt;image src="image.gif"<br>         alt="some image"/&gt;<br>  image in it.<br>&lt;/p&gt;<br>&lt;h2&gt;This is another heading&lt;/h2&gt;<br> </br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:h1"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="This is a heading"}<br>{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="This is a paragraph with an"}<br>  {child AtkImage, role=ATK_ROLE_IMAGE, <br>   AccName/ImageDescription ="some image"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="image in it."}<br>{parent role="html:h2"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="This is another heading"}</br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:h1",<br>   text="This is a heading"}<br>{parent AtkText, role="html:p",<br> text="This is a paragraph with an ? image in it"}<br>  {child AtkImage, role=ATK_ROLE_IMAGE, <br>   AccName/ImageDescription ="some image"}<br>{parent AtkText, role="html:h2",<br>   text="This is another heading"}<br/></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent AtkText, role=ATK_ROLE_HEADING, attr="xhtml:role=h1",<br>   text-attributes="css:font-size=LARGER",<br>   text="This is a heading"}<br>{parent AtkHypertext, role=ATK_ROLE_PARAGRAPH, attr="xhtml:role=p"<br> text="This is a paragraph with an  image in it"}<br>  {child AtkImage, AtkHyperlink, role=ATK_ROLE_IMAGE, <br>   ImageDescription ="some image",<br>   AccessibleName = "" <span style="font-style: italic;">[the HTML title attribute, if present]</span><br>   hyperlink-range=[28,28]}<br>{parent AtkText, role=ATK_ROLE_HEADING, attr="xhtml-role:h2",<br>   text-attributes="css:font-size=LARGE",<br>   text="This is another heading"}</br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<p>Hey!<br>
+Tell me something.</br></p>
+</td>
+<td>
+<pre>&lt;p&gt;Hey!&lt;br&gt;Tell me something.&lt;/p&gt;<br/></pre>
+</td>
+<td>
+<pre>{parent role="html:p"}<br>   {child AtkText, role=ATK_ROLE_TEXT, <br>    text="Hey!"}<br>    {child role="html:br"}<br>    {child AtkText, role=ATK_ROLE_TEXT, <br>     text="Tell me something."}<br/></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:p"}<br> text="Hey!?Tell me something"}<br>   {child role="html:br"}<br/></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent AtkText, role=ATK_ROLE_PARAGRAPH, attr="xhtml:role=p"}<br> text="Hey!\nTell me something"}<br>   </br></br></pre>
+</td>
+</tr>
+<tr style="font-size: 12pt; font-family: Times New Roman;">
+<td><a href="http://www.google.com/">Hey!<br>
+Tell me something.</br></a></td>
+<td>
+<pre><span style="font-size: 10pt;">&lt;a href="http://www.google.com"&gt;Hey!<br>&lt;br&gt;Tell me something.&lt;/a&gt;</br></span></pre>
+</td>
+<td>
+<pre><span style="font-size: 10pt;">
+{parent role="html:a"}
+  {child AtkHypertext, AtkAction,
+   AtkText, role=ATK_ROLE_TEXT, text="Hey!"
+  {child role="html:br"}
+  {child AtkHypertext, AtkAction,
+   AtkText, role=ATK_ROLE_TEXT,
+   text="Tell me something."}</span></pre>
+<br>
+</br></td>
+<td style="width: 8px;"> <span style="font-size: 10pt; font-family: Courier New;">
+<pre>{parent AtkText, AtkAction,<br> role="html:a", AtkHypertext,<br> text="Hey!?Tell me something"}<br>   {child role="html:br"}<br/></br></br></br></pre>
+</span> </td>
+<td style="vertical-align: top;"><span style="font-size: 10pt; font-family: Courier New;">
+<pre>{parent AtkHyperlink, AtkText, role=ATK_ROLE_LINK<br> attr="xhtml:role=a;link-type=anchor", <br> text="Hey!\nTell me something",<br> hyperlink-range=<span style="font-style: italic;">[depends on the containing context]</span>,<br> hyperlink-URI="http://www.google.com",<br> hyperlink-Object=AtkText}</br></br></br></br></br></pre>
+</span></td>
+</tr>
+<tr style="font-size: 12pt;">
+<td>
+<p>Hey</p>
+<hr>
+<p>Tell me something</p>
+</hr></td>
+<td>
+<pre><span style="font-size: 10pt;">&lt;p&gt;Hey&lt;/p&gt;&lt;hr/&gt;<br>&lt;p&gt;Tell me something&lt;/p&gt;</br></span></pre>
+</td>
+<td>
+<pre><span style="font-size: 10pt;">{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="Hey"}<br>
+  {parent role=ATK_ROLE_SEPARATOR}<br>{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="Tell me something"}</br></br></br></br></br></br></span></pre>
+</td>
+<td style="width: 8px;"> <span style="font-size: 10pt;"><span style="font-family: Courier New;">{parent AtkText, role="html:p",<br>
+ text="Hey"}<br>
+{parent role=ATK_ROLE_SEPARATOR}<br>
+{parent AtkText, role="html:p", <br>
+ text="Tell me something"}</br></br></br></br></span><br>
+</br></span> </td>
+<td style="vertical-align: top; font-family: monospace;"><span style="font-size: 10pt;">{parent1 AtkText, role=ATK_ROLE_PARAGRAPH,<br>
+ text="Hey"}<br>
+{parent2 role=ATK_ROLE_SEPARATOR,<br>
+ <span style="font-style: italic;">[note: AtkState doesn't include
+ATK_STATE_VERTICAL, <br>
+       to distinguish from vsep]</br></span>}<br>
+{parent3 AtkText, role=ATK_ROLE_PARAGRAPH, <br>
+ text="Tell me something"}</br></br></br></br></br></span></td>
+</tr>
+<tr>
+<td>
+<p>You <em>are</em> a nice person.</p>
+</td>
+<td>
+<pre>&lt;p&gt;<br>  You &lt;em&gt;are&lt;/em&gt; a nice person.<br>&lt;/p&gt;</br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:p"}<br>  {child AtkText,<br>   role=ATK_ROLE_TEXT, text="You "}<br>  {child AtkText,<br>   role=ATK_ROLE_TEXT, text="are", <br>   attr_style="italic"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text=" a nice person."}</br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;"> <span style="font-size: 10pt;"><span style="font-family: Courier New;">{parent AtkText, role="html:p", <br>
+ text="You are a nice person",<br>
+ attribute run for "are"}</br></br></span><br>
+</br></span> </td>
+<td style="vertical-align: top;"><span style="font-size: 10pt;"><span style="font-family: monospace;">{parent AtkText,
+role=ATK_ROLE_PARAGRAPH, attr="html:role=p", </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">  text="You are a nice
+person",</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">  attribute run for
+"are", with textattr="em=true, css:text-style=oblique"}</span><br>
+<br style="font-style: italic;">
+<span style="font-style: italic;">[note that text attributes 'em'
+and
+'oblique' are not entirely redundant - one is semantic, the other is
+presentational, so we include both.  Not sure what the namespaces
+for
+semantic tags such as 'em', 'samp' and 'cite' should be.]</span></br></br></br></br></span></td>
+</tr>
+<tr>
+<td>
+<p>Here is a <a href="http://foo.bar.com/">bartending
+site</a>.</p>
+</td>
+<td>
+<pre>&lt;p&gt;<br>  Here is a<br>  &lt;a href="http://foo.bar.com"&gt;<br>    bartending site<br>  &lt;/a&gt;<br> .<br>&lt;/p&gt; </br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="Here is a "}<br>  {child role="html:a",<br>    {grandchild AtkHypertext, AtkText, <br>     role=ATK_ROLE_TEXT, text="bartending site",<br>     URI="http://foo.bar.com"}<br><br>  {child AtkText,<br>   role=ATK_ROLE_TEXT, text="."}</br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;"> <span style="font-size: 10pt; font-family: Courier New;">{parent AtkText,
+role="html:p", <br>
+  text="Here is a ?."}<br>
+   {child AtkText,  AtkHypertext,<br>
+       role="html:a", text="bartending site",<br>
+     URI="http://foo.bar.com"}<br>
+</br></br></br></br></br></span> </td>
+<td style="vertical-align: top; font-family: monospace;"><span style="font-size: 10pt;">{parent AtkHypertext,
+role=ATK_ROLE_PARAGRAPH, attr="html:role=p"<br>
+  text="Here is a bartending site.",<br>
+  attribute run for "bartending site." with
+textattr="link=true,     <br>
+  css:text-decoration=underline, css:color=(0,0,255)"}<br>
+   {child AtkText,  AtkHyperlink,<br>
+     role=ATK_ROLE_LINK, attr="html:role=a,
+link-type:anchor", <br>
+     text="bartending site",<br>
+     hyperlink-indices=[10,26]<br>
+     hyperlink-URI="http://foo.bar.com"}</br></br></br></br></br></br></br></br></span></td>
+</tr>
+<tr>
+<td>
+<p>Here is a <a href="http://foo.bar.com/"> <img alt="beer glass" src="https://www.mozilla.org/access/unix/beerglass.GIF">bartending site</img></a>.</p>
+</td>
+<td>
+<pre>&lt;p&gt;<br>  Here is a<br>  &lt;a href="http://foo.bar.com"&gt;<br>    &lt;image src="beerglass.GIF"<br>           alt="beer glass"/&gt;<br>    bartending site<br>  &lt;/a&gt;<br>  .<br>&lt;/p&gt;</br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="Here is a "}<br>  {child role="html:a"}<br>    {grandchild AtkHypertext,  <br>     AtkImage, role=ATK_ROLE_IMAGE, <br>     AccName/ImageDescription="beer glass", <br>     URI="http://foo.bar.com"}<br>    {grandchild AtkHypertext,  <br>     AtkText, role=ATK_ROLE_TEXT,<br>     text/name="bartending site", <br>     URI="http://foo.bar.com" }<br>  {child AtkText,<br>   role=ATK_ROLE_TEXT, text="."}</br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+Problem: How to expose the image filename in ATK?<br>
+Proposal: add method to AtkImage</br></td>
+<td style="width: 8px;"> <span style="font-size: 10pt; font-family: Courier New;">{parent AtkText,
+role="html:p", <br>
+ text="Here is a ?."}<br>
+   {child AtkText, <br>
+    AtkHypertext, <br>
+     role="html:a",<br>
+     text="? bartending site",<br>
+     URI="http://foo.bar.com"}<br>
+         {grandchild AtkImage,<br>
+           role=ATK_ROLE_IMAGE, <br>
+        AccName/ImageDescription="beer glass"}<br>
+</br></br></br></br></br></br></br></br></br></br></span> <br>
+</br></td>
+<td style="vertical-align: top;"><span style="font-family: monospace;">{parent AtkHypertext,
+role=ATK_ROLE_PARAGRAPH, attr="html:role=p"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">  text="Here is a
+bartending site."<br>
+</br></span><span style="font-size: 10pt;"> <span style="font-family: monospace;">attribute run for "bartending site."
+with textattr="link=true,     </span><br style="font-family: monospace;">
+<span style="font-family: monospace;"> 
+css:text-decoration=underline, css:color=(0,0,255)"}</span></br></span><span style="font-family: monospace;"></span><br style="font-family: monospace;">
+<span style="font-family: monospace;">   {child
+AtkHypertext, </span><span style="font-family: monospace;">AtkHyperlink,
+      </span><br style="font-family: monospace;">
+<span style="font-family: monospace;">     
+role=ATK_ROLE_LINK,</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">     
+text="bartending site" <br>
+          
+hypertext-indices=[10,26],<br>
+</br></br></span><small style="font-family: sans-serif;"><span style="font-style: italic;">[not sure if we need to dup textattrs
+here, or add them to defaulttextattrs]</span></small><span style="font-family: monospace;">,</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">     
+hypertext-URI="http://foo.bar.com"}</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">       
+  {grandchild AtkImage, AtkHyperlink</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">      
+     role=ATK_ROLE_IMAGE, attr="html:role=img,
+link-type=image"</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">     
+   AccName/ImageDescription="beer glass",<br>
+            
+hyperlink-indices=[0,0]<br style="font-family: monospace;">
+</br></br></span><span style="font-family: monospace;">       
+hyperlink-URI="beerglass.GIF"}</span><small><br style="font-family: monospace; font-style: italic;">
+<span style="font-style: italic;">[don't know if the URIs should
+always be fully specified, or if omitting the base URI is OK]</span></br></small>
+</br></br></br></br></br></br></br></br></td>
+</tr>
+<tr>
+<td style="height: 238px;">
+<p> Here is a <img alt="beer glass" src="https://www.mozilla.org/access/unix/beerglass.GIF"> <a href="http://foo.bar.com/"> bartending site</a> . </img></p>
+</td>
+<td style="height: 238px;">
+<pre>&lt;p&gt;<br>  Here is a<br>  &lt;image src="beerglass.GIF"<br>         alt="beer glass"/&gt;<br>  &lt;a href="http://foo.bar.com"&gt;<br>    bartending site<br>  &lt;/a&gt;<br>  .<br>&lt;/p&gt;</br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="height: 238px;">
+<pre>{parent role="html:p"}<br>  {child AtkText, role=ATK_ROLE_TEXT, <br>   text="Here is a "}<br>  {child AtkImage,<br>   role=ATK_ROLE_IMAGE, <br>   AccName/ImageDescription="beer glass"}<br>  {child role="html:a"}<br>    {grandchild AtkHypertext,<br>     AtkAction, AtkText,<br>     role=ATK_ROLE_TEXT,<br>     text/name="bartending site", <br>     URI="http://foo.bar.com" }<br>  {child AtkText, <br>   role=ATK_ROLE_TEXT, text="."}</br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px; height: 238px;"> <span style="font-size: 10pt; font-family: Courier New;">{parent AtkText,
+role="html:p", <br>
+  text="Here is a ??"}<br>
+    {child AtkImage,<br>
+     role=ATK_ROLE_IMAGE, <br>
+     AccName/ImageDescription="beer glass"}<br>
+   {child AtkText, <br>
+    AtkHypertext, role="html:a",<br>
+     text="bartending site",<br>
+     URI="http://foo.bar.com"}<br>
+</br></br></br></br></br></br></br></br></br></span> <br>
+</br></td>
+<td style="vertical-align: top;"><span style="font-size: 10pt; font-family: monospace;">{parent AtkHypertext,
+role=ATK_ROLE_PARAGRAPH, attr="html:role=p", <br>
+  text="Here is a bartending site."}<br>
+   {child AtkImage, AtkHyperlink,<br>
+     role=ATK_ROLE_IMAGE, attr="html:role=img,
+link-type=image"<br>
+     AccName/ImageDescription="beer glass",<br>
+     hyperlink-indices=[10,10]<br>
+     hyperlink-URI="beerglass.GIF"}<br>
+   {child AtkText, AtkHyperlink, AtkAction,<br>
+    AtkHypertext, role=ATK_ROLE_LINK,<br>
+     action-names="activate", </br></br></br></br></br></br></br></br></br></span><span style="font-size: 10pt; font-family: sans-serif;"><span style="font-style: italic;">[others?]</span></span><span style="font-size: 10pt; font-family: monospace;"><br>
+     attr="html:role=a, link-type=anchor"<br>
+     text="bartending site",<br>
+     textattr=</br></br></br></span><span style="font-size: 10pt; font-family: sans-serif;"><span style="font-style: italic;">[as
+in above examples]</span></span><span style="font-size: 10pt; font-family: monospace;"><br>
+     hypertext-indices=[10,26],<br>
+     hypertext-URI="http://foo.bar.com"}</br></br></span></td>
+</tr>
+<tr>
+<td><br>
+</br></td>
+<td>
+<pre>&lt;p&gt;<br>  &lt;IMG SRC="sitemap.gif" <br>       ALT="Site map"<br>       USEMAP="#mymap"&gt;&lt;/p&gt;<br>  &lt;MAP NAME="mymap" title="site map"&gt;<br>    &lt;AREA HREF="1.html" ALT="Bar"<br>          COORDS="5,5,95,195"&gt;<br>    &lt;AREA HREF="2.html" ALT="Baz"<br>          COORDS="105,5,195,195"&gt;<br>    &lt;AREA HREF="3.html" ALT="Fu"<br>          COORDS="205,5,295,195"&gt;<br>  &lt;/MAP&gt;<br>&lt;/p&gt;</br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:p"}<br>  {child AtkImage,<br>   role="html:map", <br>   AccName and ImageDescription="Site map",<br>   AccDescription="site map"}<br>    {grandchild AtkHypertext, AtkAction,  <br>     role="html:area", URI="1.html", name="Bar"}<br>    {grandchild AtkHypertext, AtkAction, <br>     role="html:area", URI="2.html", name="Baz"}<br>    {grandchild AtkHypertext, AtkAction,<br>     role="html:area", URI="3.html", name="Fu"}</br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:p",<br> AtkText="?"}<br>  {child AtkImage,<br>   role="html:map", <br>   AccName and ImageDescription="Site map"}<br>    {grandchild AtkHypertext, AtkAction,  <br>     role="html:area", URI="1.html", name="Bar"}<br>    {grandchild AtkHypertext, AtkAction, <br>     role="html:area", URI="2.html", name="Baz"}<br>    {grandchild AtkHypertext, AtkAction,<br>     role="html:area", URI="3.html", name="Fu"}</br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent AtkHypertext, role=ATK_ROLE_PARAGRAPH,<br> text=""}<br>  {child AtkImage, AtkHypertext,<br>   role=ATK_ROLE_IMAGE_MAP,<br>   attr="html:role=map",<br>   hyperlink-URI="sitemap.gif",<br>   ImageBounds=<span style="font-style: italic;">[entire map area] </span><br>   AccName and ImageDescription="Site map"}<br>    {grandchild AtkHyperlink, AtkAction, <br>     action-names="click", role=ATK_ROLE_LINK, <br>     attr="html:role=area", hyperlink-URI="1.html", name="Bar"}<br>    {grandchild AtkHyperlink, AtkAction, <br>     action-names="click", role=ATK_ROLE_LINK,<br>     attr="html:role=area", hyperlink-URI="2.html", name="Baz"}<br>    {grandchild AtkHyperlink, AtkAction,<br>     action-names="click", role=ATK_ROLE_LINK,<br>     attr="html:role=area", hyperlink-URI="3.html", name="Fu"}<br><small><span style="font-style: italic; font-family: sans-serif;">[note that the component bounds of the areas correspond to their rectangular bounding boxes]</span></small></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<ul>
+<li>This is a list item.</li>
+<li>This is another list item.</li>
+</ul>
+</td>
+<td>
+<pre>&lt;ul&gt;<br>  &lt;li&gt;This is a list item.&lt;/li&gt;<br>  &lt;li&gt;This is another list item.&lt;/li&gt;<br>&lt;/ul&gt;</br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:ul"}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text="This is a list item."}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text="This is another list item."}</br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:ul", text="??"}<br>  {child AtkText, role="html:li",<br>   text="&lt;&lt;&lt;bullet&gt;&gt;&gt; This is a list item."}<br>  {child AtkText, role="html:li",<br>   text="&lt;&lt;&lt;bullet&gt;&gt;&gt; This is another list item."}<br/></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre><br>{parent AtkObject, role=ATK_ROLE_LIST, attr="css:list-style-type=disc"}<br>  {child AtkText, role=ATK_ROLE_LIST_ITEM,<br>   text="This is a list item.", attribute run "static" first 2 chars}<br>  {child AtkText, role=ATK_ROLE_LIST_ITEM,<br>   text="This is another list item.", attribute run "static" first 2 chars}<small><br/></small></br></br></br></br></br></pre>
+<small style="font-style: italic;"><br>
+[we
+should be able to support list-style=image, and
+"list-style-image=URL()", etc. this way.  In the above example,
+it's
+not clear whether the bullet should be a unicode char or just omitted
+and implied by the list style..  my guess is the latter (i.e.
+bullets
+don't appear in the text)]</br></small></td>
+</tr>
+<tr>
+<td>
+<ol>
+<li>This is a list item.</li>
+<li>This is another list item.</li>
+</ol>
+</td>
+<td>
+<pre>&lt;ol&gt;<br>  &lt;li&gt;This is a list item.&lt;/li&gt;<br>  &lt;li&gt;This is another list item.&lt;/li&gt;<br>&lt;/ol&gt;</br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:ol"}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text="1."}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text="This is a list item."}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text="2."}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text="This is another list item."}</br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:ol", text="??"}<br>  {child AtkText, role="html:li",<br>   text="1. This is a list item."}<br>  {child AtkText, role="html:li",<br>   text="2. This is another list item."}<br/></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;"><br>
+<pre>{parent AtkObject, role=ATK_ROLE_LIST, attr="html:role=ol, css:list-style-type:decimal"}<br>  {child AtkText, role=ATK_ROLE_LIST_ITEM,<br>   text="1. This is a list item.", attribute run "static" first 3 chars}<br>  {child AtkText, role=ATK_ROLE_LIST_ITEM,<br>   text="2. This is another list item.", attribute run "static" first 3 chars}<br><br><small style="font-family: sans-serif;"><span style="font-style: italic;">[we should clearly define a text attribute which means "this text is</span><br style="font-style: italic;"><span style="font-style: italic;">not explicit in the content, but was added by the presentation/user agent.  I </span><br style="font-style: italic;"><span style="font-style: italic;">believe MSAA/IE uses "static" ?]</span></br></br></small></br></br></br></br></br></br></pre>
+<br>
+</br></br></td>
+</tr>
+<tr>
+<td style="height: 545px;">
+<ul>
+<li>This is a list item
+          <ul>
+<li>Nested item 1. </li>
+<li>Nested item 2.<br>
+</br></li>
+</ul>
+</li>
+<li>This is another list item.</li>
+</ul>
+</td>
+<td style="height: 545px;">
+<pre>&lt;ul&gt;<br>  &lt;li&gt;<br>    This is a list item.<br>    &lt;ul&gt;<br>      &lt;li&gt;Nested item 1&lt;/li&gt;<br>      &lt;li&gt;Nested item 2&lt;/li&gt;<br>    &lt;/ul&gt;<br>  &lt;/li&gt;<br>  &lt;li&gt;This is another list item.&lt;/li&gt;<br>&lt;/ul&gt;</br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="height: 545px;">
+<pre>{parent role="html:ul"}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>    {grandchild AtkText,<br>      role=ATK_ROLE_TEXT, <br>      text="This is a list item."}<br>    {grandchild role="html:ul"}<br>      {great-grandchild role="html:li"}<br>        {great-great-grandchild AtkText,<br>         role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>        {great-great-grandchild AtkText, <br>         role=ATK_ROLE_TEXT, text="Nested item 1"}<br>      {great-grandchild role="html:li"}<br>        {great-great-grandchild AtkText,<br>         role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>        {great-great-grandchild AtkText, <br>         role=ATK_ROLE_TEXT, <br>         text="Nested item 2"}<br>  {child role="html:li"}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, text=&lt;&lt;&lt;bullet&gt;&gt;&gt;}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text="This is another list item."}</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px; height: 545px;">
+<pre>{parent AtkText, role="html:ul",<br> text="??"}<br>  {child AtkText, role="html:li",<br>   text="&lt;&lt;&lt;bullet&gt;&gt;&gt; This is a list item.?"}<br>     {grandchild AtkText, role="html:ul",<br>      text="??"}<br>        {great-grand-child AtkText,<br>         role="html:li",<br>         text="&lt;&lt;&lt;bullet&gt;&gt;&gt; Nested item 1"}<br>        {great-grand-child AtkText,<br>         role="html:li",<br>         text="&lt;&lt;&lt;bullet&gt;&gt;&gt; Nested item 2"}      <br><br>  {child AtkText, role="html:li",<br>   text="&lt;&lt;&lt;bullet&gt;&gt;&gt; This is another list item."}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre><br><br>{parent AtkObject, role=ATK_ROLE_LIST, attr="html:role=ul, css:list-style-type=disc"}<br>  {child AtkHypertext, role=ATK_ROLE_LIST_ITEM,<br>   text="This is a list item."}<br>     {grandchild AtkObject, AtkHyperlink, role=ATK_ROLE_LIST,<br>      attr="html:role=ul, css:list-style-type=circle, link-type=child",<br>      hyperlink-indices=[20,20],<br>      hyperlink-URI="", <small><span style="font-style: italic; font-family: sans-serif;">[Hmm, degenerate case here...] </span><span style="font-family: sans-serif;">}</span></small><br>    	{great-grandchild AtkText, role=ATK_ROLE_LIST_ITEM, attr="html:role=li"<br>         text="Nested item 1"}<br>    	{great-grandchild AtkText, role=ATK_ROLE_LIST_ITEM, attr="html:role=li"<br>         text="Nested item 2"}<br>   {child AtkText, role=ATK_ROLE_LIST_ITEM,<br>    text="This is another list item."}<small><br/></small><small style="font-style: italic;"><br/></small><small><br style="font-family: sans-serif;"><span style="font-style: italic; font-family: sans-serif;">[Note that unlike user interface ATK_ROLE_LIST objects, these lists don't <br>implement AtkSelection, and the list items' AtkStateSets do not include <br>ATK_STATE_SELECTABLE.  There is a question here as to whether &lt;ul&gt; and &lt;ol&gt; elements<br>should always implement AtkText or not.  I think it would be better if they did not, unless they had <br>non-empty text content, but this may prove impractical.]</br></br></br></br></span></br></small></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<div><label for="self"> Tell me a little more: </label></div>
+<div><textarea> I am a monkey
+with a long tail. I like to swing from trees and eat bananas. I've
+recently taken up typing and plan to write my memoirs. </textarea></div>
+</form>
+</td>
+<td>
+<pre>&lt;form&gt;<br>  &lt;div&gt;<br>    &lt;label for="self"/&gt;<br>      Tell me a little more:<br>    &lt;/label&gt;<br>  &lt;/div&gt;<br>  &lt;div&gt;<br>    &lt;textarea&gt;<br>      I am a monkey with a long <br>      tail. I like to swing from <br>      trees and eat bananas. I've <br>      recently taken up typing <br>      and plan to write my memoirs.<br>    &lt;/textarea&gt;<br>  &lt;/div&gt;<br>&lt;/form&gt;</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:form"}<br>  {child role="html:div"}<br>    {grandchild AtkRelation,<br>     role=ATK_ROLE_LABEL, <br>     ATK_RELATION_LABEL_FOR} <br>      {great-grandchild AtkText, role=ATK_ROLE_TEXT, <br>       text/name="Tell me a little more:"}<br>  {child role="html:div"}<br>    {grandchild AtkEditableText,<br>     AtkRelation, AtkStateSet, AtkAction,<br>     or ATK_ROLE_ENTRY,<br>     text="I am a monkey with ..."}, <br>     ATK_RELATION_LABELLED_BY,<br>     STATE_MULTILINE,<br><br>     STATE_REQUIRED allowed}</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText, role="html:form", text="??"}<br>  {child AtkText, role="html:div",<br>   text="?"}<br>     {grandchild AtkText,<br>      role=ATK_ROLE_LABEL,<br>      ATK_RELATION_LABEL_FOR,<br>      text="Tell me a little more:"}<br>  {child role="html:div"}<br>    {grandchild AtkEditableText,<br>     AtkRelation, AtkStateSet, AtkAction,<br>     ATK_ROLE_ENTRY,<br>     text="I am a monkey with ..."}, <br>     ATK_RELATION_LABELLED_BY,<br>     STATE_MULTILINE,<br>     STATE_REQUIRED allowed}</br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent AtkObject, role=ATK_ROLE_FORM, text=""}<br>  {child1 AtkObject, role=ATK_ROLE_SECTION? <small style="font-family: sans-serif;"><span style="font-style: italic;">[or should we use ATK_ROLE_PANE?]</span></small>}<br>     {grandchild AtkText,<br>      role=ATK_ROLE_LABEL,<br>      ATK_RELATION_LABEL_FOR=child2,<br>      text="Tell me a little more:"}<br>  {child2 role=ATK_ROLE_SECTION?}<br>    {grandchild AtkEditableText,<br>     AtkRelation, AtkStateSet, AtkAction,<br>     ATK_ROLE_ENTRY,<br>     text="I am a monkey with ..."}, <br>     ATK_RELATION_LABELLED_BY=child1,<br>     STATE_MULTILINE,<br>     STATE_REQUIRED allowed}<br><small><br style="font-style: italic; font-family: sans-serif;"><span style="font-style: italic; font-family: sans-serif;">[ attribute run over the portion of the text scrolled into view?</span><br style="font-style: italic; font-family: sans-serif;"><span style="font-style: italic; font-family: sans-serif;">  CONTROLLER_FOR/CONTROLLED_BY for the scrollbar/viewport? <br>  Alternative would be to treat all the text content as though it were visible, but that's no good<br>  for magnifiers and ATs for the mobility-impaired.  Probably the textarea needs to be expanded somewhat,<br>  or at least fitted with AtkActions for scrolling plus text attribution for determining what parts of the text are<br>  currently scrolled into view, without the AT client having to resort to bounds checking in the<br>  "screen review" fashion.  This is, however, a general problem with multiline text in viewports.<br>The relatively new AtkText getBoundedRanges API reduces the pain somewhat since you can<br>feed it the AtkComponent bounds and it will give you back the visible text.]</br></br></br></br></br></br></br></span></br></br></small></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<p>Check one or more: <input id="cb1" type="checkbox"><label for="cb1">Red</label> <input id="cb2" type="checkbox"><label for="cb2">Blue</label>
+<input id="cb3" type="checkbox"><label for="cb3">Green</label> </input></input></input></p>
+</form>
+</td>
+<td>
+<pre>&lt;form aaa:describedby="checkhelp"&gt; <br>  &lt;p&gt;<br>    &lt;span<br>     x2:role="wairole:description"<br>     id="checkhelp"&gt;<br>        Check one or more:<br>    &lt;/span&gt;<br>    &lt;input id="cb1" type="checkbox"/&gt;<br>    &lt;label for="cb1"&gt;Red&lt;/label&gt;<br>    &lt;input id="cb2" type="checkbox"/&gt;<br>    &lt;label for="cb2"&gt;Blue&lt;/label&gt;<br>    &lt;input id="cb3" type="checkbox"/&gt;<br>    &lt;label for="cb3"&gt;Green&lt;/label&gt;<br>  &lt;/p&gt;<br>&lt;/form&gt;</br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:form",<br> accDescription="Check one or more:"}<br>  {child role="html:p"}<br>    {grandchild role="wairole:description"}<br>       {great-grandchild AtkText, <br>        role=ATK_ROLE_TEXT,<br>        text="Check one or more:"}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Red", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Red", <br>     ATK_RELATION_LABEL_FOR}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Blue", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Blue", <br>     ATK_RELATION_LABEL_FOR}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Green", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Green", <br>     ATK_RELATION_LABEL_FOR}<br>
+<span style="font-family: Times New Roman;">Problem: need ATK_RELATION_DESCRIBED_BY<br>  and  ATK_RELATION_DESCRIPTION_FOR to match MSAA/DHTML</br></span><br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText,<br> role="html:form",<br> accDescription="Check one or more:",<br> text="?"}<br>  {child AtkText,<br>   role="html:p", text="???????"}<br>    {grandchild AtkText,<br>     role="wairole:description"}<br>       {great-grandchild AtkText, <br>        role=ATK_ROLE_TEXT,<br>        text="Check one or more:"}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Red", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Red", <br>     ATK_RELATION_LABEL_FOR}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Blue", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Blue", <br>     ATK_RELATION_LABEL_FOR}<br>    {grandchild AtkRelation, AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     name="Green", ATK_RELATION_LABELLED_BY}<br>    {grandchild AtkRelation, AtkText, <br>     role=ATK_ROLE_LABEL, text="Green", <br>     ATK_RELATION_LABEL_FOR}<br>
+<span style="font-family: Times New Roman;">Problem: need ATK_RELATION_DESCRIBED_BY<br>  and  ATK_RELATION_DESCRIPTION_FOR to match MSAA/DHTML</br></span><br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent AtkObject,<br> role=ATK_ROLE_FORM,<br> attr="html:role=form",<br> RELATION_DESCRIBED_BY=grandchild1,<br> text="?"}<br>  {child AtkText,<br>   role=ATK_ROLE_PARAGRAPH, attr="html:role=p", text=""}<br>    {grandchild1 AtkText,<br>     role=ATK_ROLE_LABEL,<br>     RELATION_DESCRIPTION_FOR=parent,<br>     attr="html:role=wairole:description"}<br>     text="Check one or more:"}<br>    {grandchild2 AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     attr="html:role=input", <small><span style="font-style: italic; font-family: sans-serif;">[and same with other elements, expose html:role]<br>                            [note also that these objects do NOT have accessible names, because they are labelled;<br>                             accessible-name would presumably come from the HTML title attribute or other attribute.<br>                             This is mainly to make it easier for ATs to avoid highly redundant speech in these cases.]<br/></br></br></br></span></small>     ATK_RELATION_LABELLED_BY=grandchild3}<br>    {grandchild3 AtkText, <br>     role=ATK_ROLE_LABEL, text="Red", <br>     ATK_RELATION_LABEL_FOR=grandchild2}<br>    {grandchild4 AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     ATK_RELATION_LABELLED_BY=grandchild5}<br>    {grandchild5 AtkText, <br>     role=ATK_ROLE_LABEL, text="Blue", <br>     ATK_RELATION_LABEL_FOR=grandchild4}<br>    {grandchild6 AtkAction, <br>     AtkStateSet, role=ATK_ROLE_CHECK_BOX, <br>     ATK_RELATION_LABELLED_BY=grandchild7}<br>    {grandchild7 AtkText, <br>     role=ATK_ROLE_LABEL, text="Green", <br>     ATK_RELATION_LABEL_FOR=grandchild6}<br><br><small><span style="font-style: italic; font-family: sans-serif;">[RFE: add ATK_RELATION_DESCRIBED_BY<br>  and  ATK_RELATION_DESCRIPTION_FOR to match MSAA/DHTML.  Also, I thought we had <br>  ATK_ROLE_FORM, but it seems not to be there.  Did I miss something?]</br></br></span></small></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<form> <label for="beverage">Make a selection:</label>
+<select id="beverage">
+<option>Water</option>
+<option>Wine</option>
+<option>Whiskey</option>
+</select>
+</form>
+</td>
+<td>
+<pre>&lt;form&gt;<br>  &lt;label for="beverage"&gt;<br>    Make a selection:<br>  &lt;/label&gt;<br>  &lt;select id="beverage"&gt;<br>    &lt;option&gt;Water&lt;/option&gt;<br>    &lt;option&gt;Wine&lt;/option&gt;<br>    &lt;option&gt;Whiskey&lt;/option&gt;<br>  &lt;/select&gt;<br>&lt;/form&gt;<br/></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:form"}<br>  {child AtkRelation,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR}<br>     {grandchild AtkText,<br>      role=ATK_ROLE_TEXT, <br>      text="Make a selection:",}  <br>  {child AtkAction,<br>   AtkStateSet, AtkRelation, <br>   AtkSelection, role=ATK_ROLE_COMBO_BOX, <br>   ATK_RELATION_LABELLED_BY}<br>    {grandchild role=ATK_ENTRY, AtkAction}<br>    {grandchild role=ATK_LIST}<br>      {great-grandchild AtkAction,<br>       AtkStateSet, AtkText,<br>       role=ATK_ROLE_LIST_ITEM, text="Water"}<br>      {great-grandchild AtkAction,<br>       AtkStateSet, AtkText,<br>       role=ATK_ROLE_LIST_ITEM, text="Wine"}<br>      {great-grandchild AtkAction, AtkStateSet, <br>       AtkText, role=ATK_ROLE_LIST_ITEM,<br>       text="Whiskey"}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent role="html:form"}<br>  {child AtkText,<br>   AtkRelation,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR,<br>   text="Make a selection:"}  <br>  {child AtkAction,<br>   AtkStateSet, AtkRelation,  AtkText, <br>   AtkSelection, role=ATK_ROLE_COMBO_BOX, <br>   ATK_RELATION_LABELLED_BY,<br>   text="??"}<br>    {grandchild role=ATK_ENTRY, AtkAction}<br>    {grandchild role=ATK_LIST, AtkText,<br>     text="???"}<br>       {great-grandchild AtkAction,<br>        AtkStateSet, AtkText,<br>        role=ATK_ROLE_LIST_ITEM, text="Water"}<br>       {great-grandchild AtkAction,<br>        AtkStateSet, AtkText,<br>        role=ATK_ROLE_LIST_ITEM, text="Wine"}<br>       {great-grandchild AtkAction, AtkStateSet, <br>        AtkText, role=ATK_ROLE_LIST_ITEM,<br>        text="Whiskey"}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent role=ATK_ROLE_FORM?}<br>  {child AtkText,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR=child,<br>   text="Make a selection:"}  <br>  {child AtkAction,<br>   AtkStateSet, AtkSelection, <br>   attr="html:role=select",<br>   role=ATK_ROLE_COMBO_BOX, <br>   ATK_RELATION_LABELLED_BY}<br>       {grandchild, <br>	AtkText,	<br> 	AtkStateSet=...SELECTABLE, SELECTED..., <br>	attr="html:role=option",<br>        role=ATK_ROLE_LIST_ITEM, text="Water"}<br>       {grandchild,<br>	AtkText,<br> 	AtkStateSet=...SELECTABLE..., <br>	attr="html:role=option",<br> 	role=ATK_ROLE_LIST_ITEM, text="Wine"}<br>       {grandchild AtkText, <br>	AtkStateSet=...SELECTABLE...,<br>	role=ATK_ROLE_LIST_ITEM,<br>	attr="html:role=option",<br>        text="Whiskey"}<br><small style="font-family: sans-serif;"><br style="font-style: italic;"><span style="font-style: italic;">[note that because the entry field is not editable, but just displays the current </span><br style="font-style: italic;"><span style="font-style: italic;">selection, I think it should not be exposed (especially since it represents a node</span><br style="font-style: italic;"><span style="font-style: italic;"> which is not present in the HTML DOM.  The list items need not implement AtkAction,</span><br style="font-style: italic;"><span style="font-style: italic;">since the AtkSelection interface is used by the client to select among them.]</span></br></br></br></br></small></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+<tr>
+<td>
+<form>
+<p>Which sports do you like?<br>
+<select multiple="multiple" name="sports" size="3">
+<option>Hockey</option>
+<option>Basketball</option>
+<option>Football</option>
+<option>Baseball</option>
+</select>
+</br></p>
+</form>
+</td>
+<td>
+<pre>&lt;form&gt;<br>  &lt;label for="sports"&gt;<br>    Which sports do you like: <br>    &lt;br&gt;<br>    &lt;select id="sports"<br>            multiple="multiple"<br>            size="3"&gt;<br>      &lt;option&gt;<br>        &lt;img src="beerglass.gif" <br>             alt="Beer"/&gt;<br>        Baseball<br>      &lt;/option&gt;<br>      &lt;option&gt;Basketball&lt;/option&gt;<br>      &lt;option&gt;Football&lt;/option&gt;<br>    &lt;/select&gt;<br>  &lt;/label&gt;<br>&lt;/form&gt;</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td>
+<pre>{parent role="html:form"}<br>  {child AtkRelation,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR}<br>    {grandchild AtkText,<br>     role=ATK_ROLE_TEXT, <br>     text/name="Which sports do you like:" }<br>    {grandchild role="html:br"}<br>    {grandchild AtkAction,<br>     AtkStateSet, AtkRelation, <br>     AtkSelection, role=ATK_ROLE_LIST,<br>     ATK_RELATION_LABELLED_BY}<br>        {great-grandchild AtkAction, AtkStateSet,<br>         role=ATK_ROLE_LIST_ITEM},<br>            {gggg-child AtkImage,<br>             name="Beer"} <br>            {gggg-child AtkText,<br>             text="Baseball"} <br>        {great-grandchild AtkAction, AtkStateSet,<br>         AtkText, role=ATK_ROLE_LIST_ITEM, <br>         text="Basketball"}<br>        {great-grandchild AtkAction, AtkStateSet,<br>         AtkText, role=ATK_ROLE_LIST_ITEM, <br>         text="Football"}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="width: 8px;">
+<pre>{parent AtkText,<br> role="html:form".<br> text="?"}<br>  {child AtkText,<br>   AtkRelation,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR,<br>   text="Which sports do you like:??"}<br>    {grandchild role="html:br"}<br>    {grandchild AtkAction,<br>     AtkStateSet, AtkRelation, AtkText,<br>     AtkSelection, role=ATK_ROLE_LIST,<br>     ATK_RELATION_LABELLED_BY,<br>     text="???"}<br>       {great-grandchild AtkAction,<br>        AtkStateSet, AtkText,<br>        role=ATK_ROLE_LIST_ITEM, <br>        text="?Baseball"}<br>          {gggg-child AtkImage,<br>           name="Beer"} <br>       {great-grandchild AtkAction, AtkStateSet,<br>        AtkText, role=ATK_ROLE_LIST_ITEM, <br>        text="Basketball"}<br>       {great-grandchild AtkAction, AtkStateSet,<br>        AtkText, role=ATK_ROLE_LIST_ITEM, <br>        text="Football"}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+<td style="vertical-align: top;">
+<pre>{parent role=ATK_ROLE_FORM?}<br>  {child1 AtkText,<br>   role=ATK_ROLE_LABEL, <br>   ATK_RELATION_LABEL_FOR=child2,<br>   text="Which sports do you like:\n"}  <br>  {child2 AtkObject,<br>   accessible-name="sports" <small><span style="font-style: italic; font-family: sans-serif;">[not sure exposing the id is a good idea though],</span></small><br>   AtkSelection, <br>   AtkStateSet=...MULTISELECT...<br>   attr="html:role=select",<br>   role=ATK_ROLE_LIST, <br>   ATK_RELATION_LABELLED_BY=child2}<br>       {grandchild1, <br>	AtkHyperText,	<br> 	AtkStateSet=...SELECTABLE, SELECTED..., <br>	attr="html:role=option",<br>        role=ATK_ROLE_LIST_ITEM, text="Baseball"}<br>	  {great-grandchild AtkImage, AtkHyperlink,<br>	   role=ATK_ROLE_IMAGE,<br>           attr="html:role=img, link-type=image",<br>	   hyperlink-URI="beerglass.gif",<br>	   hyperlink-indices=[0,0]}<br>       {grandchild2,<br>	AtkText,<br> 	AtkStateSet=...SELECTABLE..., <br>	attr="html:role=option",<br> 	role=ATK_ROLE_LIST_ITEM, text="Basketball"}<br>       {grandchild3 AtkText, <br>	AtkStateSet=...SELECTABLE...,<br>	role=ATK_ROLE_LIST_ITEM,<br>	attr="html:role=option",<br>        text="Football"}<br/></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></pre>
+</td>
+</tr>
+</tbody>
+</table>
+</br></br></br></br></br></br></br></br></br></br></div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/new-atk-historic.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

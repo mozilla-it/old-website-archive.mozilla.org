@@ -1,0 +1,124 @@
+1
+00:00:03,000 --> 00:00:06,800
+By 2004, the Internet had become a part of everyday life.
+
+2
+00:00:07,200 --> 00:00:11,500
+It was a place for connecting, learning, sharing and collaborating.
+
+3
+00:00:12,000 --> 00:00:14,000
+But something wasn’t right. 
+
+4
+00:00:14,500 --> 00:00:19,500
+Web users wanted to explore without being spied on, preyed on, or ripped off, 
+
+5
+00:00:20,000 --> 00:00:24,500
+but viruses, spyware, popups and adware were everywhere.
+
+6
+00:00:25,000 --> 00:00:31,500
+The only thing personalized about the experience was the information being gathered about users without their knowledge.
+
+7
+00:00:32,300 --> 00:00:36,500
+It was time to take back the web so it could serve its original purpose: 
+
+8
+00:00:37,000 --> 00:00:39,500
+…enriching the lives of individuals. 
+
+9
+00:00:40,000 --> 00:00:43,500
+From this simple, powerful desire… came Firefox,
+
+10
+00:00:44,000 --> 00:00:46,500
+specifically built to make the web better,  
+
+10
+00:00:47,000 --> 00:00:48,300
+born of an open system 
+
+11
+00:00:48,300 --> 00:00:52,800
+where the design of the software could be shared, customized and improved upon…
+
+12
+00:00:52,900 --> 00:00:55,000
+by anyone, anywhere, anytime.
+
+13
+00:00:56,600 --> 00:01:00,000
+As word and code spread, Firefox inspired a community
+
+14
+00:01:00,000 --> 00:01:05,000
+that sees the web as a living thing that must be nurtured to grow and thrive.
+
+15
+00:01:06,000 --> 00:01:12,300
+People worldwide are embracing this ecology of ideas and supporting a system that’s all about their needs and interests 
+
+16
+00:01:12,400 --> 00:01:19,000
+and keeping the internet a vibrant, exciting place. Designed by everyone, it’s for everyone. 
+
+17
+00:01:19,600 --> 00:01:22,000
+Over one billion downloads later
+
+18
+00:01:22,000 --> 00:01:24,500
+it shows no signs of slowing down.
+
+19
+00:01:25,300 --> 00:01:29,000
+With Firefox, life online can reflect who users really are.
+
+20
+00:01:30,000 --> 00:01:32,000
+From how they see it 
+
+21
+00:01:32,000 --> 00:01:33,000
+connect with it
+
+22
+00:01:33,200 --> 00:01:34,400
+share it
+
+23
+00:01:34,500 --> 00:01:36,500
+to how they grow with it.
+
+24
+00:01:37,000 --> 00:01:40,000
+Firefox is here to help them find their own way
+
+25
+00:01:40,000 --> 00:01:42,500
+moving at the speed of their imagination.
+
+26
+00:01:43,000 --> 00:01:46,000
+We’ve come so far in just five years
+
+27
+00:01:46,000 --> 00:01:49,000
+imagine what we can do together in the next five.
+
+28
+00:01:49,600 --> 00:01:52,000
+Let’s keep the Internet healthy, open
+
+29
+00:01:52,200 --> 00:01:55,000
+and the creative fires burning bright.
+
+29
+00:01:55,700 --> 00:01:59,000
+Light the world with Firefox.
+

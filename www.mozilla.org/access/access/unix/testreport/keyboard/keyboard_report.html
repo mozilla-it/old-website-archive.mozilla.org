@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>keyboard_report</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="keyboard_report.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="keyboard_report.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<h1 align="Center">Test Report - Keyboard Support </h1>
+<br>
+<ul>
+<li>
+<h4><a href="keyboard_report.html#keyboard">Test Report - Keyboard Support for All Mozilla
+Windows</a>
+</h4>
+</li>
+<li>
+<h4><a href="https://www.mozilla.org/access/unix/testreport/keyboard/moz_shortcuts.html">Test Report
+- Mozilla Shortcuts</a>
+</h4>
+</li>
+</ul>
+<hr size="2" width="100%"><br>
+<div align="Center">
+<h2><a name="keyboard"></a>
+<b>keyboard support for all mozilla windows</b></h2>
+</div>
+<br>
+<table border="1" cellpadding="1" cellspacing="1" width="90%">
+<tbody>
+<tr align="Center">
+<td style="background-color: rgb(204,204,255); "><b>Window</b><br>
+</br></td>
+<td style="background-color: rgb(204,204,255); font-weight: bold; text-align: center; " valign="Top">
+         Items<br>
+</br></td>
+<td bgcolor="#ccccff" valign="Top"><b>Results</b><br>
+</br></td>
+<td bgcolor="#ccccff" valign="Top"><b>Actions</b><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="13" valign="Top"><b>Browser<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></br></br></br></br></b><br>
+<br>
+</br></br></td>
+<td valign="Top">focus on File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+underlined letters<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">navigate in File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Arrow key<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Back<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">Alt+Left Arrow<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Forward<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">Alt+Right Arrow<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Reload<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+R<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Stop<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Esc<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Search <br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+Shift+F<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Print<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+P<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Input URL<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Click the right top icon to go to the mozilla home
+ page<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+Home<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">move scroll bar<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Arrow key<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">open a new browser in a new tab<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+T<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">close tab<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+W<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top"><b>Open Web Location<br>
+<br>
+<br>
+</br></br></br></b></td>
+<td valign="Top">textarea(Input address)<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">select items in menulist<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="7" valign="Top"><b>-Choose File <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></b></td>
+<td valign="Top">select directory<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">input file name<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">select file type<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">buttons<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">checkbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Tab, space<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort as Name,Size,Last modified<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Open File<br>
+</br></b></td>
+<td valign="Top">same as "Choose File" dialog<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="6" valign="Top"><b>Page Setup<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></b></td>
+<td valign="Top">radio button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">checkbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">text area<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">menulist<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+Tab<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top"><b>Print Preview<br>
+<br>
+<br>
+</br></br></br></b></td>
+<td valign="Top">input page number,then go to<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">close print preview page<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">click arrow icons to next,previous,first,last page<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>Print <span style="color: rgb(0,102,0); "></span><br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">radio button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">text area<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">menu list<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Print Properties<br>
+</br></b></td>
+<td valign="Top">same as "Print" dialog<span style="color: rgb(0,102,0); "></span><br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="8" valign="Top"><b>Preferences<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></br></b></td>
+<td valign="Top">tree<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">checkbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">radio button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">menulist<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">listbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">colorpicker<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">link<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-New Type<br>
+</br></b></td>
+<td valign="Top">text area,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-LDAP Directory Servers<br>
+</br></b></td>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>--Directory Server Properties<br>
+</br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>-Cookie Manager<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">button,checkbox,<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort treeitems<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">hide or show tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Image Manager<br>
+</br></b></td>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Form Manager<br>
+</br></b></td>
+<td valign="Top">menulist,tree,textarea,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>-Form Manager <br>
+<br>
+</br></br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button,listbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Password Manager<br>
+</br></b></td>
+<td valign="Top">same as "Form Manager" dialog<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Change Master Password<br>
+</br></b></td>
+<td valign="Top">textarea,menulist,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-SSL:Edit Ciphers<br>
+</br></b></td>
+<td valign="Top">checkbox,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>-Certificate Manager <br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort treeitems<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">hide or show tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Device Manager<br>
+</br></b></td>
+<td valign="Top">tree,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>--Load **Device<br>
+</br></b></td>
+<td valign="Top">textarea,button,choose file dialog<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Manage CRLs<br>
+</br></b></td>
+<td valign="Top">same as "Certificate Manager" dialog<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b><br>
+</br></b></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Add Bookmark<br>
+</br></b></td>
+<td valign="Top">textarea,checkbox,button,tree<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Create New Folder<br>
+</br></b></td>
+<td valign="Top">textarea,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top"><b>Manage Bookmark<br>
+<br>
+<br>
+</br></br></br></b></td>
+<td valign="Top">file menu, tree,<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort <br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">hide or show tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>-Properties<br>
+<br>
+</br></br></b></td>
+<td valign="Top">switch tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">textarea,button,menulist,checkbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Find Bookmarks<br>
+</br></b></td>
+<td valign="Top">menulist,textarea,checkbox,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top"><b>Download Manager<br>
+<br>
+<br>
+</br></br></br></b></td>
+<td valign="Top">toolbar focus<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Java Console<br>
+</br></b></td>
+<td valign="Top">same as "JavaScript console" dialog<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>JavaScript Console<br>
+<br>
+</br></br></b></td>
+<td valign="Top">toolbar actions<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">textarea,link,File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>DOM Inspector<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">switch viewing between <br>
+    1.DOM nodes;<br>
+    2.Stylesheets;<br>
+    3.JavaScript Objects<br>
+</br></br></br></br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">input address to inspect<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="7" valign="Top"><b>JavaScript Debugger<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></b></td>
+<td valign="Top">File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Stop<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">F4<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Continue<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">F5<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Step Over<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">F10<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Step Into<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">F11<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Step Out<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+F11<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b><br>
+</br></b></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="15" valign="Top"><b>Mail<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></b></td>
+<td valign="Top">focus on file menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">focus on mail/news folder<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">focus on messages<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">quick search<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Get Msgs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+T<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Compose<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+M<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Reply<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+R<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Reply All<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+Shift+R<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Forward<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+L<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Sort through File Menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">resize 3 panels<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">expand and collapse in mail header<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">focus on attachment and save it<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">select mails not next to<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>New Folder<br>
+</br></b></td>
+<td valign="Top">textarea, menulist, radio button, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>New Account<br>
+</br></b></td>
+<td valign="Top">radio button, button, textarea<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>New Card<br>
+<br>
+</br></br></b></td>
+<td valign="Top">textarea, menulist, button, <br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">ctrl+tab<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top"><b>Subscribe<br>
+<br>
+<br>
+</br></br></br></b></td>
+<td valign="Top">menulist, checkbox, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Rename Folder<br>
+</br></b></td>
+<td valign="Top">textarea, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Download and Sync Messages<br>
+</br></b></td>
+<td valign="Top">checkbox, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>-Items for Offline Use<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">sort folders<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">select one folder<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">expand and collapse folders<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>Folder Properties<br>
+<br>
+</br></br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">ctrl+tab(can't back)<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">menulist, checkbox, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>Mail/news group Account 
+ Settins<br>
+<br>
+</br></br></b></td>
+<td valign="Top">text area, checkbox, button, tree, radio button,
+menulist<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">expand and collaps account items<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Advanced Account Settins<br>
+</br></b></td>
+<td valign="Top">menulist, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Adcanced IMAP Server Settings<br>
+</br></b></td>
+<td valign="Top">textarea, checkbox, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Message Security<br>
+</br></b></td>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>Customize Character Coding<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">add item<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">remove item<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">move up/down item<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>Search Messages<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">menulist, checkbox, radiobox, textarea<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">resize two panes<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide tree items<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Advanced Address Book Search<br>
+</br></b></td>
+<td valign="Top">same as above<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Top"><b>Message Filters<br>
+<br>
+<br>
+<br>
+</br></br></br></br></b></td>
+<td valign="Top">menulist,button, tree,<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">enable or disable<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">move up or move down<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">sort as filter names<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>-Filter Rules<br>
+</br></b></td>
+<td valign="Top">textarea, radio button, menulist, check box, <br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>--Customize Headers<br>
+</br></b></td>
+<td valign="Top">textarea, button, listbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Import<br>
+</br></b></td>
+<td valign="Top">radio button, button, listbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b><br>
+</br></b></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>Composer<br>
+<br>
+</br></br></b></td>
+<td valign="Top">File Menu Focus<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+underlined letter<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">navigate in file menu<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">arrow keys<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>Publish Page<br>
+<br>
+</br></br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">textarea, checkbox, button, radiobutton, menulist<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Find and Replace<br>
+</br></b></td>
+<td valign="Top">textarea, checkbox,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Publish Settings<br>
+</br></b></td>
+<td valign="Top">textarea, checkbox, button, listbox<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Insert Table<br>
+</br></b></td>
+<td valign="Top">textarea, menulist, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Top"><b>-Advanced Property editor<br>
+<br>
+</br></br></b></td>
+<td valign="Top">switch between tabs<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">listbox,menulist,textarea, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Link Properties<br>
+</br></b></td>
+<td valign="Top">textares, menulist,button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b><br>
+</br></b></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="7" valign="Top"><b>Sidebar<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></b><br>
+<br>
+</br></br></td>
+<td valign="Top">Open/Close Sidebar<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">F9<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Switch to Next sidebar Panel<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+PageDown<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Switch to Previous Sidebar Panel<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Alt+PageUp<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">show or hide sidebar's items and one item show or 
+hide its subitems<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">go to customize sidebar<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">resize sidebar<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">button action in bookmark in sidebar<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b>Customize Sidebar<br>
+</br></b></td>
+<td valign="Top">listbox, button<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><b><br>
+</br></b></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="9" valign="Top"><b>Help<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></br></br></b></td>
+<td valign="Top">Navigate Links within content pane(right pane)<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">tab<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Switch between Content Pane and Search/contents/Index/Glossary<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">F6<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Naviate Indwx Terms(while Index Pane is selected)<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Up/Down Arrow<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Scroll Pane(Content,Table of Contents,or Index)<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Up/Down Arrow<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Expand/Collapse table of Contents Tree Structure<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Left/Right Arrow<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Print Page<br>
+</br></td>
+<td valign="Top"><font color="#006600">pass</font><br>
+</br></td>
+<td valign="Top">Ctrl+P<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Go Back to Previous Page<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">Alt+Left Arrow Key<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Go forward One Page<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top">Alt+Right Arrow Key<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">Go help home<br>
+</br></td>
+<td valign="Top"><font color="#990000">FAIL</font><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<br>
+</br></br></br></br></br></hr></br></div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/testreport/keyboard/keyboard_report.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

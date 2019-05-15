@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /Apathy/ # Be the Differnce

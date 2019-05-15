@@ -1,0 +1,250 @@
+<!DOCTYPE HTML>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta content="width=1024" name="viewport">
+<title>Mozilla Firefox for Android Release Notes</title>
+<meta content="/img/firefox-100.jpg?2013-06" name="og:image">
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBlack';
+        src: url('../../../../img/fonts/MetaWebPro-Black.eot');
+        src: local('☺'), url('../../../../img/fonts/MetaWebPro-Black.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<link href="../../../../includes/min/min.css%3Fg=css&amp;_d=20120207.css" rel="stylesheet">
+<link href="../../../../tabzilla/media/css/tabzilla.css" rel="stylesheet">
+<script src="../../../../includes/min/min.js%3Fg=js"></script>
+<link href="../../../../style/covehead/mobile-release-notes.css" media="screen" rel="stylesheet"/>
+<link href="../../../../style/covehead/mozilla-expanders.css" media="screen" rel="stylesheet"/>
+<script src="../../../../js/mozilla-expanders.js.html"></script>
+<style>
+#download #update-notice { display: none; }
+
+#update-notice {
+    background: rgb(20,20,20);
+    background: rgba(38, 38, 38, 0.95);
+    border-bottom: 2px solid #686868;
+    text-shadow: 0 1px #000;
+    -moz-text-shadow: 0 1px #000;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    z-index: 99;
+    line-height: 1;
+}
+
+#update-notice.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#update-notice .container {
+    text-align: left;
+    padding: 15px 10px 15px 140px;
+    width: 800px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(../../../../img/covehead/firefox/update-creature.png) 0 100% no-repeat;
+    position: relative;
+}
+
+#update-notice .message {
+    float: left;
+    width: 600px;
+}
+
+#update-notice h2 {
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 18px;
+    font-style: normal;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+#update-notice p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+#update-notice p.action {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    float: right;
+}
+
+#home #update-notice p.action {
+    display: none;
+}
+
+#update-notice p.action span {
+    display: block;
+}
+
+#update-notice p.action span a {
+    color: #6ba4ff;
+}
+
+#update-notice .button {
+    display: inline-block;
+    padding: 6px 16px 8px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1),
+                0 -2px rgba(0, 0, 0, 0.1) inset;
+    background:-moz-linear-gradient(top, #84C63C, #489615);
+    background-color: #489615;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+}
+
+#update-notice .close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(../../../../img/covehead/firefox/update-close.png) 0 0 no-repeat;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+#update-notice .close:hover,
+#update-notice .close:focus {
+    background-position: -25px 0;
+}
+
+</style>
+<script>
+var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-36116321-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    var prefix = ('https:' == document.location.protocol ? 'https://ssl' :
+                  'http://www');
+    ga.src = prefix + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</link></link></meta></meta></meta><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="firefox-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2014-02-12.</div>
+<script>// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+    document.body.className = 'js';
+} else {
+    document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+    document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+    document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+    document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="index.html#nav-main">skip to Navigation</a>
+<a href="index.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1>
+<a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Mozilla Firefox</a>
+</h1>
+<a class="mozilla" href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+<!-- start menu #nav-main -->
+<div id="nav-main" role="navigation">
+<ul role="menubar">
+<li class="first" id="nav-main-features"><a aria-haspopup="true" aria-owns="nav-main-features-submenu" href="http://www.mozilla.org/en-US/firefox/features/" tabindex="0">Desktop</a><ul aria-expanded="false" id="nav-main-features-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/features/" tabindex="-1">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/" tabindex="-1">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/" tabindex="-1">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/" tabindex="-1">Technology</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/security/" tabindex="-1">Privacy &amp; Security</a></li></ul></li>
+<li id="nav-main-mobile"><a aria-haspopup="true" aria-owns="nav-main-mobile-submenu" href="http://www.mozilla.org/en-US/mobile/" tabindex="0">Mobile</a><ul aria-expanded="false" id="nav-main-mobile-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/mobile/" tabindex="-1">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/" tabindex="-1">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured" tabindex="-1">Customize</a></li><li class="last"><a href="http://www.mozilla.org/en-US/mobile/faq/" tabindex="-1">FAQ</a></li></ul></li>
+<li id="nav-main-releases"><a aria-haspopup="true" aria-owns="nav-main-releases-submenu" href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="0">Releases</a><ul aria-expanded="false" id="nav-main-releases-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="-1">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/" tabindex="-1">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/" tabindex="-1">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/" tabindex="-1">Firefox</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/organizations/" tabindex="-1">Firefox for Organizations</a></li></ul></li>
+<li id="nav-main-addons"><a aria-haspopup="true" aria-owns="nav-main-addons-submenu" href="https://addons.mozilla.org/" tabindex="0">Add-ons</a><ul aria-expanded="false" id="nav-main-addons-submenu"><li class="first"><a href="https://addons.mozilla.org/firefox/" tabindex="-1">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/" tabindex="-1">Mobile Add-ons</a></li><li class="last"><a href="http://www.getpersonas.com/" tabindex="-1">Personas</a></li></ul></li>
+<li id="nav-main-support"><a aria-haspopup="true" aria-owns="nav-main-support-submenu" href="http://support.mozilla.org/" tabindex="0">Support</a><ul aria-expanded="false" id="nav-main-support-submenu"><li class="first"><a href="http://support.mozilla.org/en-US/kb/" tabindex="-1">Desktop Support</a></li><li class="last"><a href="http://support.mozilla.org/mobile" tabindex="-1">Mobile Support</a></li></ul></li>
+<li class="last" id="nav-main-about"><a aria-haspopup="true" aria-owns="nav-main-about-submenu" href="http://www.mozilla.org/en-US/firefox/about/" tabindex="0">About</a><ul aria-expanded="false" id="nav-main-about-submenu"><li class="first"><a href="http://blog.mozilla.com/" tabindex="-1">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/" tabindex="-1">About Firefox</a></li><li><a href="http://www.mozilla.org/join" tabindex="-1">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/" tabindex="-1">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/" tabindex="-1">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/" tabindex="-1">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html" tabindex="-1">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html" tabindex="-1">Partnerships</a></li><li class="last"><a href="http://www.mozilla.org/en-US/about/contact.html" tabindex="-1">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #nav-main -->
+</div>
+</div>
+<!-- end #header -->
+<!-- start breadcrumbs #breadcrumbs -->
+<p id="breadcrumbs"><a class="home" href="http://www.mozilla.org/en-US/">Home</a> <b>»</b>
+<a href="http://www.mozilla.org/en-US/mobile">Mobile</a> <b>»</b>
+<span>Release Notes</span>
+</p>
+<!-- end breadcrumbs #breadcrumbs -->
+<div id="main-feature">
+<h2>Firefox for Android<span>Release Notes</span></h2>
+<p>
+      Take your Firefox anywhere. Firefox for Android is
+      built on the same technology platform as Firefox for desktop computers, just
+      optimized for browsing on a mobile device.  Check out the new
+      and improved features, known issues, and frequently-asked questions.
+    </p>
+<p>
+      As always, you’re encouraged to <a href="http://input.mozilla.com/ideas">provide
+      suggestions</a> to improve Firefox for
+      mobile or <a href="https://bugzilla.mozilla.org/">file a bug  in Bugzilla</a>.
+      If you need help, go to the <a href="http://support.mozilla.org/mobile">Firefox Mobile support website</a>.
+    </p>
+</div>
+<div id="main-content">
+<div id="sidebar">
+<div id="get-involved">
+<h3>Get Involved</h3>
+<p>Want to become part of the Mozilla project?</p>
+<a href="http://www.mozilla.org/contribute/">Find out how you can help</a>
+</div>
+</div>
+<div class="expander expander-odd" id="whatsnew2">
+<h3 class="expander-header">What's New in Firefox for Android </h3>
+<div class="expander-content">
+<p>
+The latest version of Firefox for Android has the following changes:
+</p>
+<ul>
+<li>Getting you to the web faster:</li>
+<ul>
+<li>The <a href="https://wiki.mozilla.org/Fennec/Features/disc"> new first-run experience</a> gets you directly to the home page and briefly shows you browser features in the side panels. Firefox starts up faster and uses less memory.</li>
+</ul>
+<li>Creating a better web experience:
+    <ul>
+<li>Higher-quality image scaling (on devices with NEON-compatible processors). Smoother zooming, less pixelation, crisper display of logos.</li>
+<li>First wave of improvements for large-screen tablets: Optimizing Firefox for larger tablet devices, e.g. by adjusting UI elements, buttons, font size. We will be releasing more significant tablet optimizations within the next few releases.</li>
+<li>Better integration of </li></ul></li></ul></div></div></div></div></div></div></body></html>

@@ -1,0 +1,867 @@
+<!DOCTYPE HTML>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta content="width=1024" name="viewport">
+<title>Mozilla Firefox 2.0.0.6 Release Notes</title>
+<meta content="/img/firefox-100.jpg?2013-06" name="og:image">
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBlack';
+        src: url('../../../../img/fonts/MetaWebPro-Black.eot');
+        src: local('☺'), url('../../../../img/fonts/MetaWebPro-Black.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<link href="../../../../includes/min/min.css%3Fg=css&amp;_d=20120207.css" rel="stylesheet">
+<link href="../../../../tabzilla/media/css/tabzilla.css" rel="stylesheet">
+<script src="../../../../includes/min/min.js%3Fg=js"></script>
+<link href="../../../../style/covehead/release-notes.css" media="screen" rel="stylesheet"/>
+<style>
+#download #update-notice { display: none; }
+
+#update-notice {
+    background: rgb(20,20,20);
+    background: rgba(38, 38, 38, 0.95);
+    border-bottom: 2px solid #686868;
+    text-shadow: 0 1px #000;
+    -moz-text-shadow: 0 1px #000;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    z-index: 99;
+    line-height: 1;
+}
+
+#update-notice.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#update-notice .container {
+    text-align: left;
+    padding: 15px 10px 15px 140px;
+    width: 800px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(../../../../img/covehead/firefox/update-creature.png) 0 100% no-repeat;
+    position: relative;
+}
+
+#update-notice .message {
+    float: left;
+    width: 600px;
+}
+
+#update-notice h2 {
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 18px;
+    font-style: normal;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+#update-notice p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+#update-notice p.action {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    float: right;
+}
+
+#home #update-notice p.action {
+    display: none;
+}
+
+#update-notice p.action span {
+    display: block;
+}
+
+#update-notice p.action span a {
+    color: #6ba4ff;
+}
+
+#update-notice .button {
+    display: inline-block;
+    padding: 6px 16px 8px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1),
+                0 -2px rgba(0, 0, 0, 0.1) inset;
+    background:-moz-linear-gradient(top, #84C63C, #489615);
+    background-color: #489615;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+}
+
+#update-notice .close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(../../../../img/covehead/firefox/update-close.png) 0 0 no-repeat;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+#update-notice .close:hover,
+#update-notice .close:focus {
+    background-position: -25px 0;
+}
+
+</style>
+<script>
+var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-36116321-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    var prefix = ('https:' == document.location.protocol ? 'https://ssl' :
+                  'http://www');
+    ga.src = prefix + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</link></link></meta></meta></meta><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="firefox-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2014-02-12.</div>
+<script>// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+    document.body.className = 'js';
+} else {
+    document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+    document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+    document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+    document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="index.html#nav-main">skip to Navigation</a>
+<a href="index.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1>
+<a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Mozilla Firefox</a>
+</h1>
+<a class="mozilla" href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+<!-- start menu #nav-main -->
+<div id="nav-main" role="navigation">
+<ul role="menubar">
+<li class="first" id="nav-main-features"><a aria-haspopup="true" aria-owns="nav-main-features-submenu" href="http://www.mozilla.org/en-US/firefox/features/" tabindex="0">Desktop</a><ul aria-expanded="false" id="nav-main-features-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/features/" tabindex="-1">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/" tabindex="-1">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/" tabindex="-1">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/" tabindex="-1">Technology</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/security/" tabindex="-1">Privacy &amp; Security</a></li></ul></li>
+<li id="nav-main-mobile"><a aria-haspopup="true" aria-owns="nav-main-mobile-submenu" href="http://www.mozilla.org/en-US/mobile/" tabindex="0">Mobile</a><ul aria-expanded="false" id="nav-main-mobile-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/mobile/" tabindex="-1">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/" tabindex="-1">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured" tabindex="-1">Customize</a></li><li class="last"><a href="http://www.mozilla.org/en-US/mobile/faq/" tabindex="-1">FAQ</a></li></ul></li>
+<li id="nav-main-releases"><a aria-haspopup="true" aria-owns="nav-main-releases-submenu" href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="0">Releases</a><ul aria-expanded="false" id="nav-main-releases-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="-1">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/" tabindex="-1">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/" tabindex="-1">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/" tabindex="-1">Firefox</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/organizations/" tabindex="-1">Firefox for Organizations</a></li></ul></li>
+<li id="nav-main-addons"><a aria-haspopup="true" aria-owns="nav-main-addons-submenu" href="https://addons.mozilla.org/" tabindex="0">Add-ons</a><ul aria-expanded="false" id="nav-main-addons-submenu"><li class="first"><a href="https://addons.mozilla.org/firefox/" tabindex="-1">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/" tabindex="-1">Mobile Add-ons</a></li><li class="last"><a href="http://www.getpersonas.com/" tabindex="-1">Personas</a></li></ul></li>
+<li id="nav-main-support"><a aria-haspopup="true" aria-owns="nav-main-support-submenu" href="http://support.mozilla.org/" tabindex="0">Support</a><ul aria-expanded="false" id="nav-main-support-submenu"><li class="first"><a href="http://support.mozilla.org/en-US/kb/" tabindex="-1">Desktop Support</a></li><li class="last"><a href="http://support.mozilla.org/mobile" tabindex="-1">Mobile Support</a></li></ul></li>
+<li class="last" id="nav-main-about"><a aria-haspopup="true" aria-owns="nav-main-about-submenu" href="http://www.mozilla.org/en-US/firefox/about/" tabindex="0">About</a><ul aria-expanded="false" id="nav-main-about-submenu"><li class="first"><a href="http://blog.mozilla.com/" tabindex="-1">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/" tabindex="-1">About Firefox</a></li><li><a href="http://www.mozilla.org/join" tabindex="-1">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/" tabindex="-1">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/" tabindex="-1">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/" tabindex="-1">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html" tabindex="-1">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html" tabindex="-1">Partnerships</a></li><li class="last"><a href="http://www.mozilla.org/en-US/about/contact.html" tabindex="-1">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #nav-main -->
+</div>
+</div>
+<!-- end #header -->
+<!-- start breadcrumbs #breadcrumbs -->
+<p id="breadcrumbs"><a class="home" href="http://www.mozilla.org/en-US/">Home</a> <b>»</b>
+<span>Release Notes</span>
+</p>
+<!-- end breadcrumbs #breadcrumbs -->
+<div id="main-feature">
+<h2>Firefox Release Notes</h2>
+<p>Firefox 2 is the next-generation release of the award-winning Firefox web browser from Mozilla.</p>
+</div>
+<div id="main-content">
+<p>These Release Notes cover <a href="index.html#whatsnew">what's new</a>, <a href="index.html#download">download</a> and <a href="index.html#install">installation instructions</a>, <a href="index.html#issues">known issues</a> and <a href="index.html#FAQ">frequently asked questions</a> for Firefox 2. Please read these notes and the <a href="http://www.mozilla.org/support/firefox/bugs">bug filing instructions</a> before reporting any bugs to <a href="https://bugzilla.mozilla.org/">Bugzilla</a>.</p>
+<p>Give us your feedback through this <a href="http://feedback.mozilla.org">feedback form</a>.</p>
+<!-- What's New -->
+<h2 id="whatsnew">What's New in Firefox 2.0.0.6</h2>
+<dl>
+<dt>Release Date:</dt>
+<dd>July 30, 2007</dd>
+<dt>Security Update:</dt>
+<dd>The following <a href="http://www.mozilla.org/projects/security/known-vulnerabilities.html#firefox2.0.0.6">security issues</a> have been fixed.</dd>
+<dt>Earlier Changes:</dt>
+<dd>For information about previous changes, please see the <a href="../../2.0.0.5/releasenotes/index.html">Firefox 2.0.0.5 Release Notes</a>.</dd>
+<dt>Firefox 2 Features:</dt>
+<dd>For an overview, please see <a href="http://www.mozilla.org/en-US/firefox/features.html">Firefox 2 Features</a>.</dd>
+</dl>
+<h2 id="downloadandinstall">Downloading and Installing</h2>
+<h3 id="requirements">System Requirements</h3>
+<p>Before installing, make sure your computer meets the <a href="http://www.mozilla.org/en-US/firefox/2.0.0.6/system-requirements/">system requirements</a>.</p>
+<h3 id="download">Downloading Firefox 2</h3>
+<p>Mozilla provides Firefox 2 for Windows, Linux, and Mac OS X in a variety of languages. You can <a href="http://www.mozilla.org/en-US/firefox/all.html">get the latest version of Firefox 2 here</a>. For builds for other systems and languages not provided by Mozilla.org, see the Contributed Builds section at the end of this document.</p>
+<h3 id="install">Installing Firefox 2</h3>
+<p>Please note that installing Firefox 2 <em>will overwrite</em> your existing installation of Firefox. You won't lose any of your bookmarks or browsing history, but some of your extensions and other add-ons might not work until updates for them are made available.</p>
+<h3 id="uninstall">Removing Firefox 2</h3>
+<p>You can remove Firefox 2 through the <tt>Control Panel</tt> in the <tt>Start Menu</tt> on Windows, by removing the <tt>Firefox</tt> application on OS X, or by removing the <tt>firefox</tt> folder on Linux.</p>
+<p>Removing Firefox 2 won't remove your bookmarks, web browsing history, extensions or other add-ons. This data is stored in your <em>profile folder</em>, which is located in one of the following locations depending on your operating system:</p>
+<table border="1" cellspacing="0" style="font-size: small;">
+<tr>
+<td>Windows Vista</td>
+<td>Users\&lt;UserName&gt;\AppData\Roaming\Mozilla\Firefox</td>
+</tr>
+<tr>
+<td>Windows 2000, XP, Server 2003</td>
+<td>Documents and Settings\&lt;UserName&gt;\Application Data\Mozilla\Firefox</td>
+</tr>
+<tr>
+<td>Windows NT</td>
+<td>WINNT\Profiles\&lt;UserName&gt;\Application Data\Mozilla\Firefox</td>
+</tr>
+<tr>
+<td>Windows 98, ME</td>
+<td>Windows\Application Data\Mozilla\Firefox</td>
+</tr>
+<tr>
+<td>Mac OS X</td>
+<td>~/Library/Application Support/Firefox</td>
+</tr>
+<tr>
+<td>Linux and Unix systems</td>
+<td>~/.mozilla/firefox</td>
+</tr>
+</table>
+<p>Any version of Firefox that you install after removing Firefox 2 will continue to use the data from this profile folder.</p>
+<h3 id="extensions">Extensions and Themes</h3>
+<p>Extensions installed under Firefox 1.5 may be incompatible and/or require updates to work with Firefox 2. Please report any issues to the maintainer of the extension.  When you install Firefox 2 all of your Extensions and Themes will be disabled until Firefox 2 determines that either a) they are compatible with the Firefox 2 release or b) there are newer versions available that are compatible.</p>
+<h2 id="issues">Known Issues</h2>
+<p>This list covers some of the known problems with Firefox 2. Please read this before reporting any new bugs.</p>
+<dl>
+<dt>All Systems</dt>
+<dd>
+<ul class="spaced">
+<li>Window bounces and shakes. There have been <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=247116">reports in Bugzilla</a> and MozillaZine forums of windows either bouncing or shaking when no items are in the toolbar and in other cases. As a workaround, there are some instructions at MozillaZine that can help <a href="http://kb.mozillazine.org/Window_shakes">resolve this problem</a>.</li>
+<li>Some firewall software may silently block Firefox from running. This often happens immediately after Firefox has been installed or updated from a previous version. There are <a href="http://kb.mozillazine.org/Firewalls">configuration instructions</a> available for most popular firewall programs to help you ensure that Firefox is allowed to connect to the Internet.</li>
+<li>Dictionaries for several locales can't be packaged with the builds, and must be manually downloaded by right-clicking in a text area and selecting "Add Dictionaries..." from the shortcut menu. New dictionaries are regularly being added to Mozilla Add-ons, so if you don't see the particular dictionary you need, check back later.</li>
+<li>Access key definitions provided by web pages can now be triggered using Alt+Shift+key on Windows, Ctrl+key on Mac OS X, and Ctrl+Shift+key on Unix.</li>
+<li>The Session Restore functionality provided in Firefox 2 will restore connections to services which use session cookies to maintain login state such as GMail. It is recommended that users with concerns about the privacy implications of this behavior change the value of <tt>browser.sessionstore.resume_from_crash</tt> to false.</li>
+<li>The option for "Shrink to fit" has been removed in Firefox 2. If you wish to change this from the value you had set in your previous version of Firefox, change the value of <tt>browser.enable_automatic_image_resizing</tt>.</li>
+<li>Software Update will not work if Firefox is installed to a location on your disk to which you do not have write access, since Software Update needs to replace or create files in this location.</li>
+<li>Some financial institutions use port 563 for secure logins, which results in an error message. If you encounter this error, make sure that <tt>network.security.ports.banned.override</tt> includes 563 in the comma-separated list of banned network ports to override.</li>
+</ul>
+</dd>
+<dt id="vista">Windows &amp; Windows Vista</dt>
+<dd>
+<ul class="spaced">
+<li>The Java Console extension that came with Java SE 6.0u1 (J2SE6.0.01) is incompatible with Firefox <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=364390">as reported in Bugzilla</a>. Java should work as expected, but the menu item "Java Console" will not be available in the Tools menu. This issue has been fixed in Java SE 6.0u2 (J2SE6.0.02) and later versions and is available for download from <a href="http://java.sun.com/javase/downloads/index.jsp">the Java website</a>.</li>
+<li>Clicking links in some applications (e.g. some instant messaging programs) might not open them in Firefox, even if you have set it as your default browser. To workaround this problem, go to Start -&gt; Default Programs -&gt; Set default programs for this computer, expand custom, select the radio button next to the app you want to set as the system wide default app (e.g. Firefox, etc.), and apply.</li>
+<li>A Windows Media Player (WMP) plugin is not provided with Windows Vista. As a workaround, in order to view Windows Media content, you can follow <a href="http://kb.mozillazine.org/Windows_Media_Player#Missing_plugin">these instructions</a>. Note that after installing you may have to get a security update and apply it before you can see the content in the browser.</li>
+<li>Vista Parental Controls are not completely honored. In particular, file downloads <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=355554">do not honor</a> Vista's parental control settings. This will be addressed in an upcoming Firefox release.</li>
+<li>When migrating from Internet Explorer 7 to Firefox, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=369910">cookies</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=369916">saved form history</a> are not imported.</li>
+</ul>
+</dd>
+<dt>Mac OS X</dt>
+<dd>
+<ul class="spaced">
+<li>The "Close Other Tabs" action on the shortcut menu of a tab can fail with an error when more than 20 tabs are open.</li>
+<li>Some users have reported problems viewing Macromedia Flash content on Intel Mac computers. To work around this problem, users can remove or move the PowerPC version of "Flash Player Enabler.plugin from <tt>/Library/Internet Plug-Ins</tt>.</li>
+<li>After installing a new plug-in, Firefox may continue to display information for the older version of the plug-in in about:plugins. If this happens, quit Firefox, delete the "pluginreg.dat" file from your <a href="http://kb.mozillazine.org/Profile_folder">profile folder</a>, and relaunch Firefox.</li>
+<li>Java does not run on Intel Core processors under Rosetta.</li>
+<li>There is no Talkback on Intel-based Macs when running natively or under Rosetta. The Apple Crash report program should launch  in the event of application crashes.</li>
+</ul>
+</dd>
+<dt>Linux and Unix</dt>
+<dd>
+<ul class="spaced">
+<li>If Firefox is installed to a location with spaces in the path, it may not be able to set itself as default browser and may keep prompting at startup. The work around is to install into a path without spaces.</li>
+<li>GNOME integration does not work properly with Fedora Core 3. Users of Fedora Core 3 will need to download and install <a href="http://download.fedora.redhat.com/pub/fedora/linux/core/2/i386/os/Fedora/RPMS/linc-1.0.3-3.1.i386.rpm">linc-1.0.3-3.1.i386.rpm</a>. After installing the RPM, perform the following command in the directory in which you installed Firefox (you will need write permission):
+            <p>
+<code>touch .autoreg</code>
+</p>
+            The next time you start Firefox, GNOME integration should be functional.
+          </li>
+</ul>
+</dd>
+</dl>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul class="spaced">
+<li>Poorly designed or incompatible extensions can cause problems with your browser, including make it crash, slow down page display, etc. If you encounter strange problems relating to parts of the browser no longer working, the browser not starting, windows with strange or distorted appearance, degraded performance, etc, you may be suffering from Extension or Theme trouble. Restart the browser in Safe Mode. On Windows, start using the "Safe Mode" shortcut created in your Start menu or by running <code>firefox.exe -safe-mode</code>. On Linux, start with <code>./firefox -safe-mode</code> and on Mac OS X, run:
+        <p><code>
+          cd /Applications/Firefox.app/Contents/MacOS/<br/>
+          ./firefox-bin -safe-mode
+        </code></p>
+        When started in Safe Mode all extensions are disabled and the Default theme is used. Disable the Extension/Theme that is causing trouble and then start normally.
+      </li>
+<li>If you uninstall an extension that is installed with your user profile (i.e. you installed it from a Web page) and then wish to install it for all user profiles using the -install-global-extension command line flag, you must restart the browser once to cleanse the profile extensions datasource of traces of that extension before installing with the switch. If you do not do this you may end up with a jammed entry in the Extensions list and will be unable to install the extension globally.</li>
+<li>If you encounter strange problems relating to bookmarks, downloads, window placement, toolbars, history, or other settings, it is recommended that you try creating a new profile and attempting to reproduce the problem before filing bugs. Create a new profile by running Firefox with the -P command line argument, choose the "Manage Profiles" button and then choose "Create Profile...". Migrate your settings files (Bookmarks, Saved Passwords, etc) over one by one, checking each time to see if the problems resurface. If you do find a particular profile data file is causing a problem, file a bug and attach the file.</li>
+</ul>
+<h2 id="FAQ">Frequently Asked Questions</h2>
+<ol class="faq">
+<li>What can I do to help?
+        <p>We need help from developers and the testing community to provide as much feedback as possible to make Firefox even better. Please read these notes and the <a href="http://www.mozilla.org/support/firefox/bugs">bug filing instructions</a> before reporting any bugs to <a href="https://bugzilla.mozilla.org/">Bugzilla</a>. You can also give us your feedback through this <a href="http://feedback.mozilla.org/">feedback form</a>.</p>
+</li>
+<li>Why haven't you responded to the mail I sent you?
+        <p>Use the <a href="http://forums.mozillazine.org/index.php?c=4">forums</a>. The Firefox team reads them regularly. We all get a lot of email and your email may get lost.</p>
+</li>
+<li>Where can I get extensions and themes (add-ons)?
+        <p><a href="https://addons.mozilla.org/en-US/firefox/">Firefox Add-ons</a>.</p>
+</li>
+<li>Who makes Firefox 2?
+        <p>Lots of people. See Help-&gt;About Mozilla Firefox, Credits for a list of some of the people who have contributed to Firefox 2.</p>
+</li>
+<li>Where's the Firefox 2 source code?
+        <p>A tarball of the Firefox 2 source code is available for <a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/source/">download</a>. The latest development code can be obtained by <a href="http://developer.mozilla.org/en/docs/Mozilla_Source_Code_Via_CVS">cvs</a>. Firefox-specific source is in "mozilla/browser", "mozilla/toolkit", and "mozilla/chrome". Please follow the <a href="http://developer.mozilla.org/en/docs/Build_Documentation">build instructions</a>.</p>
+</li>
+<li>Where is the mail client?
+        <p>Firefox 2 works with whatever mail client is the default on your system. However, we recommend <a href="http://www.mozilla.org/en-US/thunderbird/">Mozilla Thunderbird</a>, our next-generation email client and the perfect complement to Firefox.</p>
+</li>
+</ol>
+<h2 id="localizedbuilds">Localized Builds</h2>
+<p>Firefox is available in Beta form for the following languages.</p>
+<ul>
+<li>Georgian (ka) - <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=win&amp;lang=ka">Windows</a>, <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=linux&amp;lang=ka">Linux</a></li>
+<li>Kurdish (ku) - <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=win&amp;lang=ku">Windows</a>, <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=osx&amp;lang=ku">Mac</a>, <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=linux&amp;lang=ku">Linux</a></li>
+<li>Romanian (ro) - <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=win&amp;lang=ro">Windows</a>, <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=osx&amp;lang=ro">Mac</a>, <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-2.0.0.6&amp;os=linux&amp;lang=ro">Linux</a></li>
+</ul>
+<h2 id="contributedbuilds">Contributed Builds</h2>
+<p>Many localized builds are now produced and distributed by Mozilla.org on behalf of <a href="http://wiki.mozilla.org/L10n:Localization_Teams" title="Mozilla Localization Teams">their authors</a>. These are available on the <a href="http://www.mozilla.org/en-US/firefox/all.html">Firefox 2 download page</a>.</p>
+<p>Builds that have not yet been certified as official Firefox 2 localizations are available by browsing the <a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib-localized/">FTP site</a>.</p>
+<p>These are unofficial builds and may be configured differently than the official Mozilla.org builds. They may also be optimized and/or tested for specific platforms.</p>
+<h3 id="solarisbuilds">Solaris (contributed by SUN Desktop Beijing Team)</h3>
+<p><strong><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/README.txt">README</a></strong></p>
+<p><strong>Tarball format</strong></p>
+<ul>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris10-i386.tar.bz2">firefox-2.0.0.6.en-US.solaris10-i386.tar.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris10-i386.tar.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris10-sparc.tar.bz2">firefox-2.0.0.6.en-US.solaris10-sparc.tar.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris10-sparc.tar.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris8-i386-gtk1.tar.bz2">firefox-2.0.0.6.en-US.solaris8-i386-gtk1.tar.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris8-i386-gtk1.tar.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris8-sparc-gtk1.tar.bz2">firefox-2.0.0.6.en-US.solaris8-sparc-gtk1.tar.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_tarball/firefox-2.0.0.6.en-US.solaris8-sparc-gtk1.tar.bz2.cksum">cksum</a>)<br/></li>
+</ul>
+<p><strong>Pkgadd format</strong></p>
+<ul>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris10-i386-pkg.bz2">firefox-2.0.0.6.en-US.solaris10-i386-pkg.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris10-i386-pkg.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris10-sparc-pkg.bz2">firefox-2.0.0.6.en-US.solaris10-sparc-pkg.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris10-sparc-pkg.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris8-i386-gtk1-pkg.bz2">firefox-2.0.0.6.en-US.solaris8-i386-gtk1-pkg.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris8-i386-gtk1-pkg.bz2.cksum">cksum</a>)<br/></li>
+<li><a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris8-sparc-gtk1-pkg.bz2">firefox-2.0.0.6.en-US.solaris8-sparc-gtk1-pkg.bz2</a> (<a href="http://releases.mozilla.org/pub/mozilla.org/firefox/releases/2.0.0.6/contrib/solaris_pkgadd/firefox-2.0.0.6.en-US.solaris8-sparc-gtk1-pkg.bz2.cksum">cksum</a>)<br/></li>
+</ul>
+<!-- Put Solaris Builds Here-->
+<!--
+            Build contributors, please put your builds under:
+              pub/mozilla.org/firefox/releases/<version>/contrib/
+
+            Your build file name should match the pattern set by official builds and include a README explaining any build peculiarities and identifying yourself as the contributor. Thanks.
+          -->
+<h2 id="links">Other Resources and Links</h2>
+<p>The following resources contain useful information about Firefox 2:</p>
+<ul class="spaced">
+<!-- <li>Unofficial <a href="http://www.squarefree.com/burningedge/releases/2.0.0.6.html">list of notable changes since Firefox 2.0</a>.</li> -->
+<li><a href="http://wiki.mozilla.org/Firefox2">Firefox 2 Project Page</a></li>
+<li><a href="http://kb.mozillazine.org/">MozillaZine's Knowledge Base</a></li>
+<li><a href="http://www.mozilla.org/projects/firefox/">Developer Information</a></li>
+</ul>
+</div>
+</div><!-- end #doc -->
+</div><!-- end #wrapper -->
+</div><!-- end #outer-wrapper -->
+<div class="clear"></div>
+<!-- start #footer -->
+<div id="sub-footer">
+<div id="sub-footer-contents">
+<h3>Let’s be <span>friends!</span></h3>
+<ul>
+<li id="footer-twitter">
+<a href="http://twitter.com/firefox">Twitter</a>
+</li>
+<li id="footer-facebook">
+<a href="http://facebook.com/Firefox">Facebook</a>
+</li>
+<li id="footer-affiliates">
+<a href="https://affiliates.mozilla.org/">Firefox Affiliates</a>
+</li>
+</ul>
+<div id="sub-footer-newsletter">
+<div class="newsletter-signup " id="newsletter">
+<div class="container">
+<form action="https://www.mozilla.org/en-US/firefox/2.0.0.6/releasenotes/#subscribe-form" class="email-form inline-email-form" method="post">
+<input name="target" type="hidden" value="inline"/>
+<input name="mozilla-and-you" type="hidden" value="Y"/>
+<ul class="">
+<li class="open-pane" data-wt_ti="" data-wt_uri="">
+<h3>Get Monthly News</h3>
+<div class="email-field field">
+<span class="error-wrapper ">
+<input class="email placeholder" name="email" placeholder="Your Email Address" type="email" value="">
+</input></span>
+<a class="email-open" href="http://www.mozilla.org/en-US/newsletter/">»</a>
+</div>
+</li>
+<li class="form-pane">
+<div class="form-details">
+<div class="field country-field">
+<select class="country" name="country">
+<option value="">Select country</option>
+<option value="af">Afghanistan</option>
+<option value="al">Albania</option>
+<option value="dz">Algeria</option>
+<option value="as">American Samoa</option>
+<option value="ad">Andorra</option>
+<option value="ao">Angola</option>
+<option value="ai">Anguilla</option>
+<option value="aq">Antarctica</option>
+<option value="ag">Antigua and Barbuda</option>
+<option value="ar">Argentina</option>
+<option value="am">Armenia</option>
+<option value="aw">Aruba</option>
+<option value="au">Australia</option>
+<option value="at">Austria</option>
+<option value="az">Azerbaijan</option>
+<option value="bs">Bahamas</option>
+<option value="bh">Bahrain</option>
+<option value="bd">Bangladesh</option>
+<option value="bb">Barbados</option>
+<option value="by">Belarus</option>
+<option value="be">Belgium</option>
+<option value="bz">Belize</option>
+<option value="bj">Benin</option>
+<option value="bm">Bermuda</option>
+<option value="bt">Bhutan</option>
+<option value="bo">Bolivia</option>
+<option value="ba">Bosnia and Herzegovina</option>
+<option value="bw">Botswana</option>
+<option value="bv">Bouvet Island</option>
+<option value="br">Brazil</option>
+<option value="io">British Indian Ocean Territory</option>
+<option value="vg">British Virgin Islands</option>
+<option value="bn">Brunei Darussalam</option>
+<option value="bg">Bulgaria</option>
+<option value="bf">Burkina Faso</option>
+<option value="bi">Burundi</option>
+<option value="kh">Cambodia</option>
+<option value="cm">Cameroon</option>
+<option value="ca">Canada</option>
+<option value="cv">Cape Verde</option>
+<option value="ky">Cayman Islands</option>
+<option value="cf">Central African Republic</option>
+<option value="td">Chad</option>
+<option value="cl">Chile</option>
+<option value="cn">China</option>
+<option value="cx">Christmas Island</option>
+<option value="cc">Cocos (Keeling) Islands</option>
+<option value="co">Colombia</option>
+<option value="km">Comoros</option>
+<option value="cg">Congo-Brazzaville</option>
+<option value="cd">Congo-Kinshasa</option>
+<option value="ck">Cook Islands</option>
+<option value="cr">Costa Rica</option>
+<option value="hr">Croatia</option>
+<option value="cu">Cuba</option>
+<option value="cy">Cyprus</option>
+<option value="cz">Czech Republic</option>
+<option value="dk">Denmark</option>
+<option value="dj">Djibouti</option>
+<option value="dm">Dominica</option>
+<option value="do">Dominican Republic</option>
+<option value="ec">Ecuador</option>
+<option value="eg">Egypt</option>
+<option value="sv">El Salvador</option>
+<option value="gq">Equatorial Guinea</option>
+<option value="er">Eritrea</option>
+<option value="ee">Estonia</option>
+<option value="et">Ethiopia</option>
+<option value="fk">Falkland Islands (Malvinas)</option>
+<option value="fo">Faroe Islands</option>
+<option value="fj">Fiji</option>
+<option value="fi">Finland</option>
+<option value="fr">France</option>
+<option value="gf">French Guiana</option>
+<option value="pf">French Polynesia</option>
+<option value="tf">French Southern Territories</option>
+<option value="ga">Gabon</option>
+<option value="gm">Gambia</option>
+<option value="ge">Georgia</option>
+<option value="de">Germany</option>
+<option value="gh">Ghana</option>
+<option value="gi">Gibraltar</option>
+<option value="gr">Greece</option>
+<option value="gl">Greenland</option>
+<option value="gd">Grenada</option>
+<option value="gp">Guadeloupe</option>
+<option value="gu">Guam</option>
+<option value="gt">Guatemala</option>
+<option value="gg">Guernsey</option>
+<option value="gn">Guinea</option>
+<option value="gw">Guinea-Bissau</option>
+<option value="gy">Guyana</option>
+<option value="ht">Haiti</option>
+<option value="hm">Heard Island and McDonald Islands</option>
+<option value="hn">Honduras</option>
+<option value="hk">Hong Kong</option>
+<option value="hu">Hungary</option>
+<option value="is">Iceland</option>
+<option value="in">India</option>
+<option value="id">Indonesia</option>
+<option value="ir">Iran</option>
+<option value="iq">Iraq</option>
+<option value="ie">Ireland</option>
+<option value="im">Isle of Man</option>
+<option value="il">Israel</option>
+<option value="it">Italy</option>
+<option value="ci">Ivory Coast</option>
+<option value="jm">Jamaica</option>
+<option value="jp">Japan</option>
+<option value="je">Jersey</option>
+<option value="jo">Jordan</option>
+<option value="kz">Kazakhstan</option>
+<option value="ke">Kenya</option>
+<option value="ki">Kiribati</option>
+<option value="kw">Kuwait</option>
+<option value="kg">Kyrgyzstan</option>
+<option value="la">Laos</option>
+<option value="lv">Latvia</option>
+<option value="lb">Lebanon</option>
+<option value="ls">Lesotho</option>
+<option value="lr">Liberia</option>
+<option value="ly">Libya</option>
+<option value="li">Liechtenstein</option>
+<option value="lt">Lithuania</option>
+<option value="lu">Luxembourg</option>
+<option value="mo">Macao</option>
+<option value="mk">Macedonia, F.Y.R. of</option>
+<option value="mg">Madagascar</option>
+<option value="mw">Malawi</option>
+<option value="my">Malaysia</option>
+<option value="mv">Maldives</option>
+<option value="ml">Mali</option>
+<option value="mt">Malta</option>
+<option value="mh">Marshall Islands</option>
+<option value="mq">Martinique</option>
+<option value="mr">Mauritania</option>
+<option value="mu">Mauritius</option>
+<option value="yt">Mayotte</option>
+<option value="mx">Mexico</option>
+<option value="fm">Micronesia</option>
+<option value="md">Moldova</option>
+<option value="mc">Monaco</option>
+<option value="mn">Mongolia</option>
+<option value="me">Montenegro</option>
+<option value="ms">Montserrat</option>
+<option value="ma">Morocco</option>
+<option value="mz">Mozambique</option>
+<option value="mm">Myanmar</option>
+<option value="na">Namibia</option>
+<option value="nr">Nauru</option>
+<option value="np">Nepal</option>
+<option value="nl">Netherlands</option>
+<option value="an">Netherlands Antilles</option>
+<option value="nc">New Caledonia</option>
+<option value="nz">New Zealand</option>
+<option value="ni">Nicaragua</option>
+<option value="ne">Niger</option>
+<option value="ng">Nigeria</option>
+<option value="nu">Niue</option>
+<option value="nf">Norfolk Island</option>
+<option value="kp">North Korea</option>
+<option value="mp">Northern Mariana Islands</option>
+<option value="no">Norway</option>
+<option value="ps">Occupied Palestinian Territory</option>
+<option value="om">Oman</option>
+<option value="pk">Pakistan</option>
+<option value="pw">Palau</option>
+<option value="pa">Panama</option>
+<option value="pg">Papua New Guinea</option>
+<option value="py">Paraguay</option>
+<option value="pe">Peru</option>
+<option value="ph">Philippines</option>
+<option value="pn">Pitcairn</option>
+<option value="pl">Poland</option>
+<option value="pt">Portugal</option>
+<option value="pr">Puerto Rico</option>
+<option value="qa">Qatar</option>
+<option value="re">Reunion</option>
+<option value="ro">Romania</option>
+<option value="ru">Russian Federation</option>
+<option value="rw">Rwanda</option>
+<option value="bl">Saint Barthélemy</option>
+<option value="sh">Saint Helena</option>
+<option value="kn">Saint Kitts and Nevis</option>
+<option value="lc">Saint Lucia</option>
+<option value="mf">Saint Martin</option>
+<option value="pm">Saint Pierre and Miquelon</option>
+<option value="vc">Saint Vincent and the Grenadines</option>
+<option value="ws">Samoa</option>
+<option value="sm">San Marino</option>
+<option value="st">Sao Tome and Principe</option>
+<option value="sa">Saudi Arabia</option>
+<option value="sn">Senegal</option>
+<option value="rs">Serbia</option>
+<option value="sc">Seychelles</option>
+<option value="sl">Sierra Leone</option>
+<option value="sg">Singapore</option>
+<option value="sk">Slovakia</option>
+<option value="si">Slovenia</option>
+<option value="sb">Solomon Islands</option>
+<option value="so">Somalia</option>
+<option value="za">South Africa</option>
+<option value="gs">South Georgia and the South Sandwich Islands</option>
+<option value="kr">South Korea</option>
+<option value="es">Spain</option>
+<option value="lk">Sri Lanka</option>
+<option value="sd">Sudan</option>
+<option value="sr">Suriname</option>
+<option value="sj">Svalbard and Jan Mayen</option>
+<option value="sz">Swaziland</option>
+<option value="se">Sweden</option>
+<option value="ch">Switzerland</option>
+<option value="sy">Syria</option>
+<option value="tw">Taiwan</option>
+<option value="tj">Tajikistan</option>
+<option value="tz">Tanzania</option>
+<option value="th">Thailand</option>
+<option value="tl">Timor-Leste</option>
+<option value="tg">Togo</option>
+<option value="tk">Tokelau</option>
+<option value="to">Tonga</option>
+<option value="tt">Trinidad and Tobago</option>
+<option value="tn">Tunisia</option>
+<option value="tr">Turkey</option>
+<option value="tm">Turkmenistan</option>
+<option value="tc">Turks and Caicos Islands</option>
+<option value="tv">Tuvalu</option>
+<option value="ae">U.A.E.</option>
+<option value="vi">U.S. Virgin Islands</option>
+<option value="ug">Uganda</option>
+<option value="ua">Ukraine</option>
+<option value="gb">United Kingdom</option>
+<option selected="selected" value="us">United States</option>
+<option value="um">United States Minor Outlying Islands</option>
+<option value="uy">Uruguay</option>
+<option value="uz">Uzbekistan</option>
+<option value="vu">Vanuatu</option>
+<option value="va">Vatican City</option>
+<option value="ve">Venezuela</option>
+<option value="vn">Vietnam</option>
+<option value="wf">Wallis and Futuna</option>
+<option value="eh">Western Sahara</option>
+<option value="ye">Yemen</option>
+<option value="zm">Zambia</option>
+<option value="zw">Zimbabwe</option>
+<option value="ax">Åland Islands</option>
+</select>
+</div>
+<div class="field format-field">
+<div class="field-radios">
+<span class="radio-wrapper"><input checked="checked" class="html-format" id="inline-html-format" name="format" type="radio" value="html"/></span>
+<label for="inline-html-format">HTML</label>
+<span class="radio-wrapper"><input class="text-format" id="inline-text-format" name="format" type="radio" value="text"/></span>
+<label for="inline-text-format">Text</label> 
+              </div>
+</div>
+<div class="privacy-field">
+<label class="privacy-check-label" for="inline-privacy-check">
+<span class="error-wrapper ">
+<input class="privacy-check" id="inline-privacy-check" name="privacy" type="checkbox">
+</input></span>
+                I agree to the <a href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>
+</label>
+</div>
+<input class="subscribe" name="submit" type="submit" value="Sign me up!">
+<p class="footnote">We will only send you Mozilla-related information.</p>
+</input></div>
+</li>
+<li class="success-pane">
+<h3>Thanks for Subscribing!</h3>
+<p>We look forward to soon begin sharing tips &amp; tricks on getting the most out of Firefox, as well as exciting news about Mozilla and how we’re working to create a better Web.</p>
+</li>
+</ul>
+</form>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-contents" role="contentinfo">
+<div id="footer-right">
+<form dir="ltr" id="lang_form" method="get"><div>
+<label for="flang">Other Languages</label>
+<select dir="ltr" id="flang" name="flang" onchange="this.form.submit()"> <option value="ach">Acholi</option>
+<option value="af">Afrikaans</option>
+<option value="an">Aragonés</option>
+<option value="ak">Akan</option>
+<option value="ar">عربي</option>
+<option value="as">অসমীয়া</option>
+<option value="ast">Asturianu</option>
+<option value="be">Беларуская</option>
+<option value="bg">Български</option>
+<option value="bn-BD">বাংলা (বাংলাদেশ)</option>
+<option value="bn-IN">বাংলা</option>
+<option value="br">Brezhoneg</option>
+<option value="bs">Bosanski</option>
+<option value="ca">Català</option>
+<option value="cs">Čeština</option>
+<option value="csb">Kaszëbsczi</option>
+<option value="cy">Cymraeg</option>
+<option value="da">Dansk</option>
+<option value="de">Deutsch</option>
+<option value="el">Ελληνικά</option>
+<option value="en-ZA">English (South African)</option>
+<option value="eo">Esperanto</option>
+<option value="es-AR">Español (Argentina)</option>
+<option value="es-CL">Español (Chile)</option>
+<option value="es-ES">Español (España)</option>
+<option value="es-MX">Español (México)</option>
+<option value="et">Eesti keel</option>
+<option value="eu">Euskara</option>
+<option value="en-GB">English (British)</option>
+<option selected="selected" value="en-US">English (US)</option>
+<option value="fa">فارسی</option>
+<option value="ff">Pulaar-Fulfulde</option>
+<option value="fi">Suomi</option>
+<option value="fr">Français</option>
+<option value="fy-NL">Frysk</option>
+<option value="ga-IE">Gaeilge</option>
+<option value="gd">Gàidhlig</option>
+<option value="gl">Galego</option>
+<option value="gu-IN">ગુજરાતી</option>
+<option value="he">עברית</option>
+<option value="hi-IN">हिन्दी (भारत)</option>
+<option value="hy-AM">Հայերեն</option>
+<option value="hr">Hrvatski</option>
+<option value="hu">magyar</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="is">Íslenska</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ka">ქართული ენა</option>
+<option value="kk">Қазақ</option>
+<option value="kn">闠늨跠늨</option>
+<option value="km">ភាសាខ្មែរ</option>
+<option value="ko">한국어</option>
+<option value="ku">Kurdî</option>
+<option value="lg">Luganda</option>
+<option value="lij">Ligure</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviešu</option>
+<option value="mk">Македонски</option>
+<option value="ml">മലയാളം</option>
+<option value="mn">Монгол</option>
+<option value="mr">मराठी</option>
+<option value="ms">Bahasa Malaysia</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk bokmål</option>
+<option value="nso">Sesotho sa leboa</option>
+<option value="oc">occitan (lengadocian)</option>
+<option value="pa-IN">ਪੰਜਾਬੀ</option>
+<option value="pl">Polski</option>
+<option value="pt-BR">Português (do Brasil)</option>
+<option value="pt-PT">Português (Europeu)</option>
+<option value="rm">Rumantsch</option>
+<option value="ro">Română</option>
+<option value="ru">Русский</option>
+<option value="sk">Slovenčina</option>
+<option value="si">සිංහල</option>
+<option value="sl">slovensko</option>
+<option value="son">Soŋay</option>
+<option value="sq">Shqip</option>
+<option value="sr">Српски</option>
+<option value="sv-SE">Svenska</option>
+<option value="ta">தமிழ்</option>
+<option value="ta-LK">Tamil (Sri Lanka)</option>
+<option value="te">ꓠ놆닠놁韠놁</option>
+<option value="th">ภาษาไทย</option>
+<option value="tr">Türkçe</option>
+<option value="uk">Українська</option>
+<option value="vi">Tiếng Việt</option>
+<option value="zh-CN">中文 (简体)</option>
+<option value="zh-TW">正體中文 (繁體)</option>
+<option value="zu">isiZulu</option>
+</select>
+<noscript>
+<div><input id="lang_submit" type="submit" value="Go"/></div>
+</noscript>
+</div></form>
+</div>
+<h3 id="footer-logo"><a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Firefox</a></h3>
+<!-- start menu #footer-menu -->
+<div id="footer-menu" role="navigation">
+<ul>
+<li><a href="http://www.mozilla.org/en-US/firefox/features/">Desktop</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/features/">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/">Technology</a></li><li><a href="http://www.mozilla.org/en-US/firefox/security/">Privacy &amp; Security</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/mobile/">Mobile</a><ul><li><a href="http://www.mozilla.org/en-US/mobile/">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured">Customize</a></li><li><a href="http://www.mozilla.org/en-US/mobile/faq/">FAQ</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/channel/">Releases</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/channel/">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/">Firefox</a></li><li><a href="http://www.mozilla.org/en-US/firefox/organizations/">Firefox for Organizations</a></li></ul></li>
+<li><a href="https://addons.mozilla.org/">Add-ons</a><ul><li><a href="https://addons.mozilla.org/firefox/">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/">Mobile Add-ons</a></li><li><a href="http://www.getpersonas.com/">Personas</a></li></ul></li>
+<li><a href="http://support.mozilla.org/">Support</a><ul><li><a href="http://support.mozilla.org/en-US/kb/">Desktop Support</a></li><li><a href="http://support.mozilla.org/mobile">Mobile Support</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/about/">About</a><ul><li><a href="http://blog.mozilla.com/">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/">About Firefox</a></li><li><a href="http://www.mozilla.org/join">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html">Partnerships</a></li><li><a href="http://www.mozilla.org/en-US/about/contact.html">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #footer-menu -->
+<div id="copyright">
+<p id="footer-links"><a href="http://www.mozilla.org/en-US/privacy-policy.html">Privacy Policy</a>  | 
+			<a href="http://www.mozilla.org/en-US/about/legal.html">Legal Notices</a>  | 
+                        <a href="http://www.mozilla.org/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a></p>
+<p>Except where otherwise <a href="http://www.mozilla.org/en-US/about/legal.html#site">noted</a>, content on this site is licensed under the <br/><a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.</p>
+</div>
+</div>
+</div>
+<!-- end #footer -->
+<script type="text/javascript">
+function dcsMultiTrack() {
+    return false;
+}
+</script>
+<script src="../../../tabzilla/media/js/tabzilla.js"></script>
+<script>
+    // <![CDATA[
+
+    // Firefox 3.x update notice. Only show for Firefox 3.x, don't show for
+    // cousins that say they are Firefox 3.x.
+    var isOldVersion = (navigator.userAgent &&
+        navigator.userAgent.indexOf('Firefox/3.') !== -1 &&
+        navigator.userAgent.indexOf('Camino') === -1 &&
+        navigator.userAgent.indexOf('SeaMonkey') === -1);
+
+    if (isOldVersion) {
+        var oldOnload = window.onload;
+        window.onload = function() {
+            var script = document.createElement('script');
+            script.src = '/js/update-v3.js';
+            document.body.appendChild(script);
+            if (typeof oldOnload == 'function') {
+                oldOnload();
+            }
+        }
+    }
+
+    // ]]>
+    </script>
+</body>
+</html>

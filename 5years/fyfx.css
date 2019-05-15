@@ -1,0 +1,1044 @@
+@charset "UTF-8";
+@import url("reset.css");
+
+/* 25-Oct-09
+ * Zemoga Inc
+ * Andres Garcia
+ * Sebastian Romero   
+ */
+
+/*
+  =======================================
+		1. Fonts
+		2. Titles and paragraph
+		3. Links
+		4. Layout
+			4.1 Specific header
+			4.2 Specific footer
+		5. Boxes
+		6. Wishes component
+		7. Light the world component
+		8. Video component
+		9. Stay in touch
+		10. Forms
+		11. Community
+		12. Gallery
+		13. Promo boxes
+		14. Share this widget
+		15. RTL fixes
+  =======================================
+*/
+
+
+/* 1. Fonts ---------------- */
+
+@font-face {
+	font-family:"Folk solid";
+	src: url(./Folksolid6.otf) format("opentype");
+}
+
+@font-face {
+	font-family: 'Droid Sans Fallback Regular';
+	src: url('./DroidSansFallback-subset.eot');
+	src: local('Droid Sans Fallback Regular'), local('DroidSansFallback'), url('./DroidSansFallback-subset.otf') format('opentype');
+}
+
+/* 2. Titles and paragraph ---------------- */
+
+h1{
+	background: url(./firefox_logo.png) no-repeat scroll 0 20px;
+	font-family:"Folk solid", Georgia, serif;
+	height:146px;
+	font-size:5.7em;
+	padding-left:145px;
+	text-transform:uppercase;
+}
+
+h2{
+	font-family:"Folk solid", Georgia, serif;
+	font-size:3.2em;
+	text-transform:uppercase;
+}
+
+body.safe-font h1, body.safe-font h2{
+	font-family:'Droid Sans Fallback Regular', Georgia, serif;
+}
+
+body.safe-font h1{
+	font-size:3.9em;
+}
+
+body.safe-font h1 span.firefox-text{
+	font-family:"Folk solid", Georgia, serif;
+	font-size:2.4em;
+}
+
+h1 span.firefox-text {
+	font-size:1.7em;
+	position:relative;
+	top:13px;
+}
+
+h3{
+	font-size:1.5em;
+	font-weight:bold;
+	line-height:0.9em;
+}
+
+p{
+	font-size:1.17em;
+}
+
+/* 3. Links ----------------------- */
+
+a, a:link, a:visited {
+    color: #235987;
+	font-weight:bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2D76B7;
+    text-decoration: underline;
+}
+
+/* 4. Layout ---------------- */
+
+body {
+    background: url(./home_background.jpg);
+	color:#4d4433;
+	font:0.75em Georgia, serif;
+}
+
+#container{
+	background: url(./container_background.jpg) center top no-repeat;
+	height:768px;
+	min-width:950px;
+	width:100%;
+}
+
+#wrapper{
+	background: url(./main_background.jpg) no-repeat center 215px;
+	margin:0 auto;
+	width:100%;
+}
+
+#header{
+	margin:0 auto;
+	width:940px;
+	position:relative;
+}
+
+#main-content{
+	margin:108px auto 0;
+	width:950px;
+}
+
+.main-content-left{
+	float:left;
+	width:572px;
+}
+
+.main-content-right{
+	float:left;
+}
+
+/* 4.1 Specific Header ---------------- */
+
+#heading{
+	height:162px;
+	margin:0 auto;
+	width:945px;
+	position:relative;
+}
+
+#title-container{
+	position:absolute;
+	width:990px;
+}
+
+#title-container p {
+	font:1.24em Georgia, serif;
+	margin-left:144px;
+	margin-top:-20px;
+}
+
+#header ul#header-menu{
+	margin:0 0 -6px 134px;
+	overflow:hidden;
+}
+
+#header ul#header-menu a{
+	font-size:1.17em;
+	line-height:28px;
+}
+
+#header li{
+	background: url(./header_menu.png) no-repeat;
+	
+	
+	float:left;
+	height:33px;
+	margin-left:3px;
+	text-align:center;
+	vertical-align:top;
+	width:148px;
+}
+
+#header li.spreadfirefox-button{
+	background: url(./spread-firefox_button.jpg) no-repeat;
+	height:50px;
+	margin-left:79px;
+	text-align:left;
+	width:255px;
+}
+
+#header ul#header-menu li.spreadfirefox-button a{
+	color:#C43A0C;
+	font-size:1em;
+	margin-left:49px;
+	text-decoration:none;
+	
+}
+
+#header ul#header-menu li.spreadfirefox-button a span.spreadfirefox-text{
+	visibility:hidden;
+}
+
+/* 4.2 Specific Footer ---------------- */
+
+#footer {
+	clear:both;
+    height: 100px;
+    background: url(./footer_background.gif);
+    padding-top:37px;
+}
+
+#footer div.footer-wrapper{
+	width:950px;
+	margin:0 auto;
+}
+
+#footer ul.footer-nav li{
+	background: url(./footer-nav_line.gif) no-repeat left center;
+	display:inline-block;
+	padding:0 5px 0 8px;
+}
+
+#footer ul.footer-nav li:first-child{
+	background:none;
+}
+
+#footer .copyright{
+	display:block;
+	font-size:1em;
+	margin:10px 0 0 7px;
+}
+
+
+#footer .footer-content{
+	 background: url(./mozilla_logo.gif) no-repeat;
+	 height:53px;
+	 margin-left:15px;
+	 padding-left:70px;
+	 width:620px;
+}
+
+/* 5. Boxes ----------------------- */
+
+.linebox{
+	background:url(./linebox_background.gif);
+	border:1px solid #A79968;
+	padding:1px;
+	position:relative;
+}
+
+.linebox div.linebox-content{
+	background:url(./linebox-dark_background.gif);
+	overflow:hidden;
+}
+
+.lineboxshadow{
+	background-color:#000000;
+	height:2px;
+	position:absolute;
+	width:100%;
+	background: url(./shadow_background.gif);
+	bottom:-3px;
+	font-size:1px;
+	
+}
+
+/* 6. Wishes component ---------------- */
+
+.wishes{
+	margin-left:32px;
+	overflow:hidden;
+	padding-top:5px;
+	width:338px;
+}
+
+.wishes h3, 
+.wishes p{
+	margin:0 8px 0 15px;
+}
+
+.wishes ul{
+	margin:23px 0 0;
+}
+
+.wishes li{
+	background: url(./tweetup_background.gif) no-repeat;
+	background-color:#DDF8FE;
+	margin-bottom:4px;
+	overflow:hidden;
+	padding-top:6px;
+	width:327px;
+}
+
+.wishes li a.wishes-tweet{
+	background: url(./tweeter_icon.gif) left center no-repeat;
+	display:block;
+	float:right;
+	margin-right:6px;
+	padding-left:20px;
+}
+
+.wishes li span.wishes-wish{
+	display:block;
+	float:left;
+	line-height:1em;
+	margin-left:10px;
+	width:160px;		
+}
+
+.tweet-down{
+	background: url(./tweetdown_background.gif) no-repeat;
+	clear:both;
+	display:block;
+	height:8px;
+	width:327px;
+}
+
+a.twitter-add, 
+a.facebook-add{
+	display:block;
+	float:right;
+	height:16px;
+	padding-left:20px;
+}
+
+a.twitter-add{
+	background: url(./tweeter-add_icon.gif) no-repeat;
+	margin:0 9px 0 9px;
+}
+
+a.facebook-add{
+	background: url(./facebook-add_icon.gif) no-repeat;
+}
+
+a.become-facebook-fan, 
+a.follow-tweets{
+	color:#ffffff !important;
+	display:block;
+	font-size:0.9em;
+	/*height:24px;*/
+	padding-top:8px;
+	text-align:center;
+	
+}
+
+a.become-facebook-fan span{
+	background: url(./become-facebook-fan_down_btn.gif) no-repeat;
+	width:185px;
+}
+a.follow-tweets span{
+	background: url(./follow-tweets_down_btn.gif) no-repeat;
+	width:136px;
+}
+a.become-facebook-fan span, 
+a.follow-tweets span{
+	display:block;
+	height:9px;
+}
+
+a.become-facebook-fan{
+	background: url(./become-facebook-fan_bg_btn.gif) no-repeat;
+	float:left;
+	margin:0 5px 0 0;
+	width:185px;
+}
+
+a.follow-tweets{
+	background: url(./follow-tweets_bg_btn.gif) no-repeat;
+	float:left;
+	width:136px;
+}
+
+/* 7. Light the world component ---------------- */
+
+.lighttheworld{
+	float:left;
+	margin-top:80px;
+	width:544px !important;
+}
+
+.lighttheworld div.linebox-content{
+	padding:5px;
+}
+
+.lighttheworld img{
+	cursor:pointer;
+	float:left;
+}
+
+.lighttheworld h2{
+	margin:10px 0 0 10px;
+}
+
+.lighttheworld p{
+	margin:0 0 0 10px;
+}
+
+.lighttheworld small{
+	display:block;
+	font-size:0.8em;
+	margin:10px;
+}
+
+a.lighttheworld-1,
+a.lighttheworld-2,
+a.lighttheworld-3{
+	display:block;
+	height:161px;
+	float:left;
+	text-indent:-9999px;
+}
+
+.lighttheworld-1:hover,
+.lighttheworld-2:hover,
+.lighttheworld-3:hover{
+	background-position:0 -161px !important; 
+}
+
+.lighttheworld-1{
+	background:url(./lighttheworld1_pic.gif) no-repeat;
+	width:178px;	
+}
+.lighttheworld-2{
+	background:url(./lighttheworld2_pic.gif) no-repeat;
+	width:175px;	
+}
+.lighttheworld-3{
+	background:url(./lighttheworld3_pic.gif) no-repeat;
+	width:174px;	
+}
+
+
+.spotlight{
+	background-color:#ffffff;
+	border-left:1px solid #C0AE7C;
+	border-bottom:2px solid #C0AE7C;
+	border-right:1px solid #C0AE7C;
+	margin-top:20px;
+	padding:10px;
+	position:relative;
+	width:510px;
+}
+
+.spotlight-pics{
+	overflow:hidden;
+}
+
+.spotlight-arrow{
+	background: url(./spotlight_arrow.gif) no-repeat;
+	height:17px;
+	left:73px;
+	position:absolute;
+	width:35px;
+	top:-17px;
+}
+
+.spotlight p{
+	margin:0px;
+	margin-top:5px;
+}
+
+.spotlight-descriptions{
+	overflow:hidden;
+	position:relative;
+	width:505px;
+}
+
+.spotlight-descriptions-wrapper{
+	position:relative;
+	width:1535px;
+}
+
+.spotlight-descriptions-item{
+	float:left;
+	margin-right:3px;
+	width:507px;
+}
+
+/* 8. Video component ----------------------- */
+
+a.download-video{
+	float:left;
+}
+
+div.video-container {
+    background: url(./video_container_background.gif) no-repeat;
+    display: block;
+	height: 388px;
+    padding: 2px 2px 2px 2px;
+	margin-left:46px;
+	width: 509px;
+}
+
+div.video-container div.video-dashboard{
+	display:block;
+	width:460px;
+	margin:25px 25px 0 25px;
+}
+div.video-container div.video-dashboard select{
+	float:left;
+	margin:-4px 0 0 5px;
+}
+div.video-container div.video-dashboard span{
+	text-transform:uppercase;
+	font-size:0.8em;
+}
+div.video-dashboard label{
+	padding:10px 0 0;
+	display:block;
+}
+div.video-extra{
+	
+	margin:26px 0 0;
+	padding:7px 0 0;
+	background:url(./line_background.gif) no-repeat top center;
+}
+.share-this{
+	float:right;
+}
+.share-this span{
+	float:left;
+}
+
+.share-this span.share-label{
+	margin-top:5px;
+}
+.share-this a.share {
+	background:url(./share_background.gif) no-repeat;
+	float:left;
+	width:21px;
+	height:20px;
+	text-indent:-5000px;
+	margin:0 1px 0;
+}
+ul.share-it {
+	float:left;
+	margin:0 0 0 5px;
+}
+ul.share-it li{
+	display:inline;
+}
+div.video-extra a.share.twitter:hover {
+	background-position:0px -22px;
+}
+div.video-extra a.share.facebook {
+	background-position:-23px 0;
+}
+div.video-extra a.share.facebook:hover {
+	background-position:-23px -22px;
+}
+div.video-extra a.share.something {
+	background-position:-46px 0;
+}
+div.video-extra a.share.something:hover {
+	background-position:-46px -22px;
+}
+div.video-extra a.share.shareit {
+	background-position:-68px 0;
+}
+div.video-extra a.share.shareit:hover {
+	background-position:-68px -22px;
+}
+div.video-counter{
+    display: none;
+	float:right;
+	margin:-6px 0 0;	
+}
+div.video-counter strong{
+	font-size:1.6em;
+	font-weight:bold;
+}
+div.video-counter span{
+	margin:0 0 0 5px;
+}
+
+div.video-container div.video-dashboard .language{
+	float:left;
+}
+
+div.video-container div.video {
+    background: url(./video_thumb.jpg) no-repeat;
+    display: block;
+    position: relative;
+	height: 284px;
+    width: 505px;
+}
+
+a.play-video {
+    background: url(./play_video_button.gif) no-repeat;
+    height: 116px;
+    left: 50%;
+    margin: -38px 0 0 -39px;
+	position: absolute;
+	top: 50%;
+	width: 78px;
+}
+
+a:hover.play-video {
+    background-position: 0 -117px;
+}
+
+a.play-video span {
+    display: none;
+}
+
+p.closed-caption {
+	background:url(./closed_caption_background.png);
+	bottom:0;
+	color:#FFFFFF;
+	display:none;
+	font-size:1.17em;
+	padding:10px 0;
+	position:absolute;
+	text-align:center;
+	width:100%;
+}
+
+/* 9. Stay in Touch ----------------------- */
+
+div.stay-touch {
+	float:left;
+	width:544px;
+	margin:10px 0;
+}
+
+div.stay-touch div.going-on {
+	background:url(./pencil_icon.gif) no-repeat left center;
+	height:79px;
+	padding:15px 10px 10px 60px;
+	width:225px;
+}
+
+div.stay-touch div.going-on p {
+	margin:5px 0 0;	
+}
+div.stay-touch div.going-on, div.stay-touch form {
+	float:left;
+}
+
+div.stay-touch form {
+	margin:15px 0;
+	width:245px;
+}
+
+div.stay-touch form a.submit {
+	font-size:1.1em;
+	margin:0 0 0 10px;
+}
+div.stay-touch form label {
+	display:block;
+	margin:6px 0;
+	width:202px;
+}
+div.stay-touch form label input {
+	margin:0 5px 0 0;
+}
+
+/* 10. Forms ----------------------- */
+
+div.error_bubble{
+	background:#D7700E;
+	border-left:1px solid #9B510B;
+	border-top:1px solid #9B510B;
+	display:none;
+	z-index:2;
+}
+
+button {
+	background:none;
+	color:#2D76B7;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+div.error_bubble{
+	position:absolute;
+	padding:10px;
+	color:#FFFFFF;
+	width:203px;
+}
+
+div.error_bubble .flag{
+	background:url(./warning_bubble_background.gif) no-repeat;
+	bottom:-7px;
+	display:block;
+	height:7px;
+	position:absolute;
+	width:14px;
+}
+
+input[type="text"] {
+	background:url(./field_background.gif) repeat-x;
+	border:1px solid #A09679;
+	color:#4d4433;
+	height:17px;
+	padding:3px 0 0 3px;
+	width:158px;
+}
+
+a.selector {
+	background:url(./select_background.gif) no-repeat;
+	display:block;
+	height:18px;
+	padding:4px 7px;
+	width:148px;
+}
+
+ul.options{
+	background:#FFFFFF;
+	border:1px solid #DBCD92;
+	border-top:none;
+	display:block;
+	height:110px;
+	overflow:auto;
+	position:absolute;
+	width:160px;
+	z-index:3;
+}
+
+ul.options li {
+	height:15px;
+	padding:2px 4px;
+	overflow:hidden;
+	position:relative;
+}
+.form-style{
+	float:left;
+	margin:-5px 0 0 10px;
+}
+.form-style select {
+	display:none;
+}
+
+/* 11. Community ----------------------- */
+
+div.community {
+	margin:240px 0 0 0;
+}
+
+div.community p {
+	width:310px;
+	margin:0 0 20px;
+}
+div.community .view-more{
+	bottom:-30px;
+	position:absolute;
+	width:120px;
+	right:0;
+}
+.tape-top{
+	position:absolute;
+	width:145px;
+	height:51px;
+	background:url(./tape_top.png) no-repeat;
+	left:254px;
+	top:50px;
+	z-index:2;
+}
+.tape-bottom{
+	position:absolute;
+	width:51px;
+	height:145px;
+	background:url(./tape_bottom.png) no-repeat;
+	left:27px;
+	top:300px;
+	z-index:2;
+}
+.firefox-sticker{
+	position:absolute;
+	width:103px;
+	height:105px;
+	background:url(./firefox_sticker.png) no-repeat;
+	left:236px;
+	top:228px;
+	z-index:2;
+}
+div.photo {
+	background:url(./photo_background.png) repeat-y;
+	position:absolute;
+	width:182px;
+	clear:both;
+}
+div.photo .photo-top {
+	background:url(./photo_top_background.png) no-repeat;
+	display:block;
+	height:4px;
+}
+div.photo .photo-bottom {
+	background:url(./photo_bottom_background.png) no-repeat;
+	position:absolute;
+	display:block;
+	height:6px;
+	width:182px;
+	bottom:-6px;
+}
+div.photo.first{
+	top:50px;
+	left:50px;
+}
+div.photo.second{
+	top:80px;
+	left:200px;
+}
+div.photo.third{
+	top:260px;
+	left:50px;
+}
+div.photo.fourth{
+	top:396px;
+	left:200px;
+	z-index:2;
+}
+div.photo.fifth{
+	top:465px;
+	left:50px;
+}
+div.photo.sixth{
+	left:519px;
+	top:177px;
+}
+div.photo.seventh{
+	left:110px;
+	top:222px;
+}
+div.photo .photo-content {
+	position:relative;
+	margin:11px 0 8px 0;
+	text-align:center;
+	min-height:137px;
+	height:137px;
+	background:transparent url(./loader_images.gif) no-repeat center center;
+}
+div.photo .photo-content img {
+	/*margin-left:-5000px;*/
+}
+img.effect {
+	position:absolute;	
+}
+div.community-flickr{
+	margin-left:-24px;
+	background:transparent url(./community_background.jpg) no-repeat scroll 0 0;
+	position:relative;
+	height:670px;
+	width:377px;
+}
+/* 12. Gallery ----------------------- */
+div.galleryBottom {
+	clear:both;
+	background:transparent url(./footer_gallery_image_background.jpg) no-repeat center top;
+	height:458px;
+}
+.super-fan{
+	position:absolute;
+	background:transparent url(./super_fan.gif) no-repeat;
+	width:313px;
+	height:335px;
+	z-index:-1;
+}
+.gallery-content{
+	width:923px;
+	margin:0 auto;
+	height:335px;
+	position:relative;
+}
+
+/* 13. Promo boxes ----------------------- */
+
+div.promos{
+	float:left;
+	margin:10px 0 0;
+}
+div.promo-box{
+	background:transparent url(./promo_badges_background.gif) repeat-y;
+	width:178px;
+	position:relative;
+	float:left;
+	margin:0 7px 0 0;
+}
+div.promo-box p {
+	margin:5px 0 0;
+}
+div.promo-box h3 {
+	width:80px;
+}
+div.promo-box .promo-box-top{
+	display:block;
+	height:62px;
+	width:178px;
+	position:absolute;
+	top:0;
+}
+div.promo-box .promo-box-bottom{
+	display:block;
+	height:47px;
+	width:178px;
+	position:absolute;
+	bottom:0;
+}
+.box-left .promo-box-top{
+	background:transparent url(./promo_badges_first_top_background.gif) repeat-y;
+}
+.box-left .promo-box-bottom{
+	background:transparent url(./promo_badges_first_bottom_background.gif) repeat-y;
+}
+.box-center .promo-box-top{
+	background:transparent url(./promo_badges_second_top_background.gif) repeat-y;
+}
+.box-center .promo-box-bottom{
+	background:transparent url(./promo_badges_second_bottom_background.gif) repeat-y;
+}
+.box-right .promo-box-top{
+	background:transparent url(./promo_badges_third_top_background.gif) repeat-y;
+}
+.box-right .promo-box-bottom{
+	background:transparent url(./promo_badges_third_bottom_background.gif) repeat-y;
+}
+div.promo-box .promo-box-content {
+	display:block;
+	position:relative;
+	z-index:1;
+	padding:15px 18px;
+}
+.no-javascript{
+	position:absolute;
+	z-index:2;
+	color:#FFFFFF;
+	margin:5px;
+}
+.no-javascript small{
+	display:block;
+}
+
+/* 14. Share this widget ----------------------- */
+
+span.sharethis_0{
+	float:none;
+}
+
+a.stbutton {
+	background:transparent url(./share_background.gif) no-repeat scroll -69px 0 !important;
+	padding:0 !important;
+	display:block;
+	width:21px;
+	height:20px;
+	text-indent:-5000px;
+	margin:0 1px;
+	float:left;
+}
+
+a.stbutton:hover {
+	background-position:-69px -21px;
+}
+.reset{
+	margin:0 !important;
+}
+.buffering{
+	color:#000000;
+	background:url(./video_loader.gif) no-repeat !important;
+	text-indent:30px;
+	height:30px;
+}
+
+/* 15. RTL fixes ----------------------- */
+
+/* Language chooser */
+body.rtl div.video-container div.video-dashboard .language,
+body.rtl .form-style {
+    float: right;
+}
+body.rtl div.video-counter  {
+    float: left;
+}
+
+/* Tweets */
+body.rtl .wishes h3, 
+body.rtl .wishes p {
+    margin: 0 15px 0 0;
+}
+body.rtl .wishes li span.wishes-wish {
+    float:right;
+    margin-right:10px;
+}
+body.rtl .wishes li a.wishes-tweet {
+    background:url("./tweeter_icon.gif") no-repeat scroll right center transparent;
+    padding-left: 0;
+    padding-right:20px;
+}
+
+/* Andres Garcia: Additional Tweets added on 11-08-09 */
+
+body.rtl .wishes{
+	margin-left:22px;
+}
+
+body.rtl a.become-facebook-fan{
+	margin:0 5px 0 11px;
+}
+
+body.rtl div.video-container{
+	margin-left:0;
+	margin-right:13px;
+}
+
+body.rtl title-container {
+	width:930px;
+}
+
+/* Spotlight text cropping */
+body.rtl .spotlight p {
+	margin: 5px 3px 0 0;
+}
+
+body.rtl .spotlight h3 {
+	margin-right: 3px;
+}
+
+/* cn Icons */
+body.cn .share-this a.share{
+	background-image:url(./share-cn_background.gif);
+}
+
+body.cn a.facebook-add{
+	background-image:url(./facebook-add-cn_icon.gif);
+}
+
+body.cn a.twitter-add{
+	background-image:url(./tweeter-add-cn_icon.gif);
+}
+
+body.cn .wishes li a.wishes-tweet{
+	background-image:url(./tweeter-cn_icon.gif);
+}
+
+body.cn a.stbutton {
+	background:transparent url(./share-cn_background.gif) no-repeat scroll -69px 0 !important;
+}
+#archive { margin: 0; padding: 5px; position: relative; text-align: center; padding: 14px 10px 15px 10px; color: #f5f3ed; background-color: #4d5151;  }
+#archive_text { margin-left: auto ; margin-right: auto ; width: 740px; text-align: center; font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; line-height: 1.2em;}
+#archive_text a, #archive_text a:hover { color: #fff; text-decoration: underline; }

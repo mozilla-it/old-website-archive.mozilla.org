@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>html testing page</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="index.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="index.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<h1 style="text-align: center;">HTML Testing Page</h1>
+<h2>Contents: </h2>
+<ul>
+<li><a href="index.html#Single_line_text_input_test_cases">Single line text
+input test cases</a></li>
+<li><a href="index.html#Text_Area_Test_Cases">Text Area Test Cases</a></li>
+<li><a href="index.html#HyperText_Test_Cases"><span style="font-weight: bold;"></span>HyperText
+Test Cases</a></li>
+<li><a href="index.html#Button_Test_Cases"><span style="font-weight: bold;"></span>Button
+Test Cases</a></li>
+<li><a href="index.html#CheckBox_Test_Cases"><span style="font-weight: bold;"></span>CheckBox
+Test Cases </a></li>
+<li><a href="index.html#Radio_Button_Test_Cases"><span style="font-weight: bold;"></span>Radio Button Test Cases</a></li>
+<li><a href="index.html#ListBox_Test_Cases"><span style="font-weight: bold;"></span>ListBox
+Test Cases</a></li>
+<li><a href="index.html#DropdownListbox_Test_Cases"><span style="font-weight: bold;"></span>DropdownListbox Test Cases</a></li>
+<li><a href="index.html#Image_Test_Cases"><span style="font-weight: bold;"></span>Image
+Test Cases</a></li>
+<li><a href="index.html#Table_Test_Cases"><span style="font-weight: bold;"></span>Table
+Test Cases</a></li>
+<li><a href="index.html#Frame_Test_Case">Frame Test Cases</a></li>
+</ul>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Single_line_text_input_test_cases"></a>Single line text
+input test cases</h3>
+<b>With "LABEL" tag:</b>
+<form action="https://www.mozilla.org/access/unix/testcase/HTML/..." method="post">
+<p> <label accesskey="F" for="firstname">First name: </label> <input id="firstname" name="firstname" type="text"><br>
+<label for="lastname">Last name: </label> <input id="lastname" name="lastname" type="text"><br>
+<label for="email">email: </label> <input id="email" name="email" type="text"> </input></br></input></br></input></p>
+</form>
+<b>Others:</b>
+<table border="1" cellpadding="2" cellspacing="2" summary="Other test cases" width="100%">
+<tbody>
+<tr>
+<td valign="top"><label for="normal">normal</label>
+<input id="normal" name="blank" size="25" type="text"><br>
+</br></input></td>
+</tr>
+<tr>
+<td valign="top">With initial value<br>
+<label for="value">value</label>
+<input id="value" name="value" size="25" type="text" value="BAZ"><br>
+</br></input></br></td>
+</tr>
+<tr>
+<td valign="top">
+<p>If you type into the following box, input should be masked: </p>
+<p><label for="password">Password</label>
+<input id="password" type="password">
+</input></p>
+</td>
+</tr>
+<tr>
+<td valign="top">Birth Date:<br>
+<lable for="year">Year
+<input id="year" maxlength="4" name="BirthYear" size="5" type="text" value="1900">
+<lable for="month">Month<input id="month" maxlength="2" name="BirthMonth" size="3" type="text" value="00">
+<lable for="day">Day<input id="day" maxlength="2" name="BirthDay" size="3" type="text" value="00"><br>
+</br></input></lable></input></lable></input></lable></br></td>
+</tr>
+<tr>
+<td valign="top">
+<lable for="onlyread">readonly<input id="onlyread" name="hello" readonly="readonly" type="text" value="hello"><br>
+</br></input></lable></td>
+</tr>
+<tr>
+<td valign="top">
+<label for="dis">Disabled</label>
+<input disabled="disabled" id="dis" name="disabled" type="text"><br>
+</br></input></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Text_Area_Test_Cases"></a>Text Area Test Cases </h3>
+<table border="1" cellpadding="2" cellspacing="2" summary="textarea testcases" width="100%">
+<tbody>
+<tr>
+<td valign="top"><label for="nor">Normal</label>
+<textarea accesskey="c" cols="65" id="nor" name="TextArea1" rows="6" wrap="hard">asdddd</textarea><br>
+<br>
+</br></br></td>
+</tr>
+<tr>
+<td valign="top"><label for="nothing">Nothing in the textarea</label>
+<textarea accesskey="d" cols="10" id="nothing" name="TextArea2" rows="3" wrap="hard"></textarea><br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><label for="rea">Readonly</label>
+<textarea cols="30" id="rea" name="readonly" readonly="readonly" rows="5">This
+text can't be edited.</textarea><br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><label for="nouse">Disabled</label>
+<textarea cols="30" disabled="disabled" id="nouse" name="disabled" rows="5">This
+text can't be edited.</textarea> </td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="HyperText_Test_Cases"></a>HyperText Test Cases</h3>
+1. Jump to another location in the same page: <a href="index.html#end"> Link to
+the end </a> <br>
+<br>
+2. Open in the same window: <a href="http://www.yahoo.com/">
+http://www.yahoo.com/</a> <br>
+<br>
+3. Open in a new window:<a href="http://www.mozilla.org" target="_blank">
+http://www.mozilla.org</a> <br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Button_Test_Cases"></a>Button Test Cases</h3>
+<table border="1" cellpadding="2" cellspacing="2" summary="Button test cases" width="100%">
+<tbody>
+<tr>
+<th bgcolor="#ccccff" valign="top">Type or State<br>
+</br></th>
+<th bgcolor="#ccccff" valign="top">Buttons<br>
+</br></th>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="2" valign="middle">normal<br>
+</br></td>
+<td valign="top"> <button name="B1" onclick="alert('click on the button type here')">Type Here </button><br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><input name="B2" onclick="alert('click on the button')" type="button" value="Button"/></td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="2" valign="middle">submit<br>
+</br></td>
+<td valign="top"><input name="B3" onclick="alert('click on the button submit')" type="submit" value="Submit"><br>
+</br></input></td>
+</tr>
+<tr>
+<td valign="top">
+<form action="http://www.mozilla.org" method="post"> <button name="submit" type="submit">Click here to submit this form</button> </form>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="1" rowspan="2" valign="middle">reset<br>
+</br></td>
+<td valign="top"><input name="B4" onclick="alert('click on the button reset')" type="reset" value="Reset"><br>
+</br></input></td>
+</tr>
+<tr>
+<td valign="top">
+<form action="http://wetnap/cgi-bin/echo-form.cgi" method="post">
+<p>The button below has a type of "reset"; click it to reset
+           this form after entering some text in the text control box below. </p>
+<p><input name="test" type="text"> </input></p>
+<p><button name="reset" type="reset">Click here to reset this form.</button></p>
+</form>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top">file<br>
+</br></td>
+<td valign="top"><input name="B5" size="20" type="file"><br>
+</br></input></td>
+</tr>
+<tr>
+<td align="center" valign="top">disabled<br>
+</br></td>
+<td valign="top"><button disabled="disabled" name="button2">This
+               is a disabled button.</button><br>
+</br></td>
+</tr>
+<tr>
+<td align="center" valign="center">image<br>
+</br></td>
+<td valign="top">
+<form action="http://wetnap/cgi-bin/echo-form.cgi" method="post">
+<p>The following line contains an image that will submit this
+            form when clicked. </p>
+<p><input alt="Click here to submit this form!" src="https://www.mozilla.org/access/unix/testcase/HTML/images/input_type_image.gif" type="image"> </input></p>
+</form>
+</td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="CheckBox_Test_Cases"></a>CheckBox Test Cases</h3>
+<ul>
+<br>
+<li><label accesskey="C" for="checkbox1">Checkbox1</label> <input checked="checked" id="checkbox1" name="Checkbox1" type="checkbox" value="ON"/></li>
+<br>
+<li><label accesskey="h" for="checkbox2">Checkbox2</label> <input id="checkbox2" name="Checkbox2" type="checkbox" value="ON"/></li>
+</br></br></ul>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Radio_Button_Test_Cases"></a>Radio Button Test Cases</h3>
+<ul>
+<form action="http://survey.sina.com.cn/cgi-bin/internal/top/vote" method="post" onsubmit="windowOpener('')" target="surveywin"> Radiobuttons in Group A<br>
+<input id="rbutton1" name="A" type="radio" value="1">
+<label for="rbutton1">RadioButton1</label><br>
+<input checked="checked" id="rbutton2" name="A" type="radio" value="2">
+<label for="rbutton2">RadioButton2</label><br>
+<input id="rbutton3" name="A" type="radio" value="3">
+<label for="rbutton3">RadioButton3</label><br>
+<br>
+Radiobuttons in Group B<br>
+<input id="rbutton4" name="B" type="radio" value="11">
+<label for="rbutton4">RadioButton4</label><br>
+<input id="rbutton5" name="B" type="radio" value="12">
+<label for="rbutton5">RadioButton5</label><br>
+<br>
+<fieldset style="padding: 2px;"><legend> Group box</legend>
+<input id="rbutton6" name="C" type="radio" value="1">
+<label for="rbutton6">RadioButton6</label><br>
+<input checked="checked" id="rbutton7" name="C" type="radio" value="2">
+<label for="rbutton7">RadioButton7</label><br>
+<input id="rbutton8" name="C" type="radio" value="3">
+<label for="rbutton8">RadioButton8</label><br>
+</br></input></br></input></br></input></fieldset>
+</br></br></input></br></input></br></br></br></input></br></input></br></input></br></form>
+</ul>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="ListBox_Test_Cases"></a>ListBox Test Cases</h3>
+<table border="1" cellpadding="1" cellspacing="1">
+<tbody>
+<tr>
+<td valign="middle">Single Selection<br>
+</br></td>
+<td valign="top"> <label accesskey="o" for="components">Components:</label>
+<select id="components" name="Listbox1" size="5" style="width: 12em;">
+<option value="Build config">Build config</option>
+<option value="Documentation">Documentation</option>
+<option value="General">General</option>
+<option value="GTK2 Port">GTK2 Port</option>
+<option value="Interfaces">Interfaces</option>
+<option value="MAI">MAI </option>
+<option value="Test Case">Test Case</option>
+<option value="Test Tool">Test Tool</option>
+</select>
+<br>
+</br></td>
+</tr>
+<tr>
+<td align="right" valign="top" width="190">
+<div align="center"><br>
+<div align="left"> Multiple Selections<br>
+<i><span class="note">press Ctrl or Shift may select multiple
+Items</span></i></br></div>
+</br></div>
+</td>
+<td valign="top" width="159"> <label for="city">Cities:</label>
+<select id="city" multiple="multiple" name="Listbox2" size="6" style="width: 12em;">
+<option value="5">Beijing</option>
+<option value="10">Changchun</option>
+<option value="15">Changsha</option>
+<option value="18">Changzhou</option>
+<option value="20">Chengdu</option>
+<option value="25">Chongqing</option>
+<option value="30">Dalian</option>
+<option value="225">Dongguan</option>
+<option value="35">Fuzhou</option>
+<option value="40">Guangzhou</option>
+<option value="42">Guilin</option>
+<option value="45">Guiyang</option>
+<option value="50">Haikou</option>
+<option value="55">Hangzhou</option>
+<option value="60">Harbin</option>
+<option value="65">Hefei</option>
+<option value="70">Hohhot</option>
+<option value="75">Jinan</option>
+<option value="78">Kaifeng</option>
+<option value="80">Kunming</option>
+<option value="85">Lanzhou</option>
+<option value="90">Lhasa</option>
+<option value="92">Luoyang</option>
+<option value="95">Nanchang</option>
+<option value="185">Hongkong</option>
+<option value="190">Macau</option>
+<option value="195">Taiwan</option>
+<option value="200">Other</option>
+</select>
+</td>
+</tr>
+<tr>
+<td valign="middle">Disabled<br>
+</br></td>
+<td valign="top"> <label for="flavor">Flavor:</label>
+<select disabled="disabled" id="flavor" name="flavor" size="6" style="width: 12em;">
+<option>Vanilla</option>
+<option>Chocolate</option>
+<option>Strawberry</option>
+<option>Kiwi</option>
+<option>Coffee</option>
+<option>Peanut Butter</option>
+</select>
+<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="DropdownListbox_Test_Cases"></a>DropdownListbox Test Cases</h3>
+<table border="1" cellpadding="2" cellspacing="2" summary="Drop down listbox test cases" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="60%"> No Scrollbar:</td>
+<td valign="top"> <label for="options">Options:</label>
+<select id="options" name="Select list" size="1">
+<option checked="" selected="selected" value="sina">option1 </option>
+<option value="href">option2 </option>
+<option value="avcn">option3 </option>
+<option value="newsft">option4</option>
+<option value="stock">option5</option>
+<option value="down">option6</option>
+<option value="game">option7 </option>
+<option value="dict">option8 </option>
+<option value="home">option9</option>
+</select>
+<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top" width="60%"> Having Scrollbar: </td>
+<td valign="top"> <label for="os">OS:</label>
+<select id="os" name="op_sys">
+<option value="All">All </option>
+<option value="Windows 3.1">Windows 3.1 </option>
+<option value="Windows 95">Windows 95 </option>
+<option value="Windows 98">Windows 98 </option>
+<option value="Windows ME">Windows ME </option>
+<option value="Windows 2000">Windows 2000 </option>
+<option value="Windows NT">Windows NT </option>
+<option value="Windows XP">Windows XP </option>
+<option value="Mac System 7">Mac System 7 </option>
+<option value="Mac System 7.5">Mac System 7.5 </option>
+<option value="Mac System 7.6.1">Mac System 7.6.1 </option>
+<option value="Mac System 8.0">Mac System 8.0 </option>
+<option value="Mac System 8.5">Mac System 8.5 </option>
+<option value="Mac System 8.6">Mac System 8.6 </option>
+<option value="Mac System 9.x">Mac System 9.x </option>
+<option value="MacOS X">MacOS X </option>
+<option value="Linux">Linux </option>
+<option value="BSDI">BSDI </option>
+<option value="FreeBSD">FreeBSD </option>
+<option value="NetBSD">NetBSD </option>
+<option value="OpenBSD">OpenBSD </option>
+<option value="AIX">AIX </option>
+<option value="BeOS">BeOS </option>
+<option value="HP-UX">HP-UX </option>
+<option value="IRIX">IRIX </option>
+<option value="Neutrino">Neutrino </option>
+<option value="OpenVMS">OpenVMS </option>
+<option value="OS/2">OS/2 </option>
+<option value="OSF/1">OSF/1 </option>
+<option value="Solaris">Solaris </option>
+<option selected="selected" value="SunOS">SunOS </option>
+<option value="other">other </option>
+</select>
+<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top" width="60%">
+<p>The option 'Banana' is disabled. The user should not be able
+to select
+it</p>
+</td>
+<td valign="top">
+<form action="index.html" method="post">
+<label for="onedisabled">One disabled</label>
+<select id="onedisabled" name="test">
+<option>ocolate </option>
+<option disabled="disabled">Banana </option>
+<option>Tutti Frutti </option>
+<option>Coconut Cre </option>
+</select>
+</form>
+</td>
+</tr>
+<tr>
+<td valign="top">optgroup supported<br>
+</br></td>
+<td valign="top"> <label for="versions">Versions:</label>
+<select id="versions" name="versions">
+<optgroup label="Communicator 4.5 Versions">
+<option>acintosh PPC </option>
+<option>Windows 95 </option>
+<option>Windows NT </option>
+<option>UNIX </option>
+</optgroup><optgroup label="Communicator 4.0.8 Versions">
+<option>Macintosh PPC </option>
+<option>Windows 95 </option>
+<option>Windows NT </option>
+<option>UNIX</option>
+</optgroup>
+</select>
+</td>
+</tr>
+<tr>
+<td valign="top">optgroup disabled<br>
+</br></td>
+<td valign="top"> <label for="disabled">Disabled:</label>
+<select id="disabled" name="disabled">
+<optgroup disabled="disabled" name="Favorite Flavors of iMac">
+<option>Chocolate </option>
+<option>Banana </option>
+<option>Tutti Frutti </option>
+<option>Coconut Cream </option>
+</optgroup>
+</select>
+<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Image_Test_Cases"></a> Image Test Cases</h3>
+<p><b>a simple image:</b><br>
+<img alt="Drawing of a house." src="https://www.mozilla.org/access/unix/testcase/HTML/images/home.gif">
+</img></br></p><p>
+<b>image as a link:</b><br>
+<a href="https://www.mozilla.org/access/unix/testcase/HTML/home.htm">
+<img alt="Link to the Home page." src="https://www.mozilla.org/access/unix/testcase/HTML/images/home.gif">
+</img></a>
+</br></p><p>
+<b>with a long description:</b><br>
+<img alt="3-d sales chart." longdesc="graph1.htm" src="https://www.mozilla.org/access/unix/testcase/HTML/images/graph1.gif">
+</img></br></p><p>
+<b>use the OBJECT element to place an image:</b><br>
+<object data="https://www.mozilla.org/access/unix/testcase/HTML/images/home.gif" height="100" type="image/gif" width="100">
+Here is the long description for this image.
+</object>
+</br></p>
+<b>an image map:</b><br>
+<map name="map">
+<area alt="finance" coords="0,0,60,52" href="http://finance.yahoo.com/?u">
+<area alt="messenger" coords="61,0,130,52" href="http://messenger.yahoo.com/">
+<area alt="mail" coords="131,0,210,52" href="http://mail.yahoo.com/?.intl=us">
+<area alt="new" coords="450,0,530,52" href="http://dir.yahoo.com/new/">
+<area alt="personal" coords="531,0,605,52" href="http://my.yahoo.com/">
+<area alt="help" coords="606,0,668,52" href="http://help.yahoo.com/">
+</area></area></area></area></area></area></map>
+<img alt="Yahoo Navigator Bar" border="0" height="53" src="https://www.mozilla.org/access/unix/testcase/HTML/images/m5v9.gif" usemap="#map" width="668">
+<br>
+<p><b>text equivalent for graphical representations of text (including symbols).</b><br>
+<img alt="Web Accessibility Initiative" src="https://www.mozilla.org/access/unix/testcase/HTML/images/wai-lg.gif">
+</img></br></p>
+<p><b>a text equivalent for image map regions.</b><br>
+for server side image maps:<br>
+<a href="http://www.w3.org/WAI/wcag-curric/img/imgmap1.map">
+<img alt="Please use the following links instead of this imagemap." ismap src="https://www.mozilla.org/access/unix/testcase/HTML/images/imgmap1.gif">
+</img></a><br>
+[ <a href="https://www.mozilla.org/access/unix/testcase/HTML/a.htm">Section A</a> | <a href="https://www.mozilla.org/access/unix/testcase/HTML/b.htm">Section B</a> | <a href="https://www.mozilla.org/access/unix/testcase/HTML/c.htm">Section C</a> | <a href="https://www.mozilla.org/access/unix/testcase/HTML/d.htm">Section D</a> | <a href="https://www.mozilla.org/access/unix/testcase/HTML/e.htm">Section E</a> ]
+</br></br></br></p>
+<p>for client side image maps:<br>
+<img alt="Image map: please use the alternative links provided with the map." border="0" src="https://www.mozilla.org/access/unix/testcase/HTML/images/imgmap2.gif" title="Various icons relating to disability" usemap="#map1">
+<map name="map1">
+<area alt="Link to section A of the site. " coords="0,0,39,39" href="https://www.mozilla.org/access/unix/testcase/HTML/a.htm">
+<area alt="Link to section B of the site. " coords="40,0,79,39" href="https://www.mozilla.org/access/unix/testcase/HTML/b.htm">
+<area alt="Link to section C of the site. " coords="80,0,120,39" href="https://www.mozilla.org/access/unix/testcase/HTML/c.htm">
+<area alt="Link to section D of the site. " coords="121,0,160,39" href="https://www.mozilla.org/access/unix/testcase/HTML/d.htm">
+</area></area></area></area></map>
+<map name="map2">
+[ <a href="https://www.mozilla.org/access/unix/testcase/HTML/a.htm">Section A</a>
+| <a href="https://www.mozilla.org/access/unix/testcase/HTML/b.htm">Section B</a>
+| <a href="https://www.mozilla.org/access/unix/testcase/HTML/c.htm">Section C</a>
+| <a href="https://www.mozilla.org/access/unix/testcase/HTML/d.htm">Section D</a> ]
+</map>
+</img></br></p>
+<p><b>a text equivalent for animations (e.g., animated GIFs).</b><br>
+<img alt="An animated expanding and bursting balloon." src="https://www.mozilla.org/access/unix/testcase/HTML/images/ani-bal.gif">
+</img></br></p>
+<p><b>a text equivalent for applets and programmatic objects.</b><br>
+<applet alt="Java applet: dancing text." code="https://www.mozilla.org/access/unix/testcase/HTML/Blink.class" height="40" width="500">
+If you were using a Java-enabled browser, you would see the text "It was the best of times, it was the worst of times..." dancing across the screen, instead of this paragraph.
+</applet>
+</br></p>
+<p><b>a text equivalent for stand-alone audio files.</b><br>
+<a href="https://www.mozilla.org/access/unix/testcase/HTML/work-e.wav">
+<img alt="Sound file: Let's work together for accessibility. " src="https://www.mozilla.org/access/unix/testcase/HTML/images/xi-audio.gif">
+Listen to a message from the author. </img></a>
+</br></p>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Table_Test_Cases"></a> Table Test Cases</h3>
+<table bgcolor="#ffffcc" border="5" frame="border" rules="groups" summary="This is the table's summary" title="table1" width="66%">
+<caption>This is the Table1's Caption</caption> <tbody>
+<tr bgcolor="#9999ff">
+<th abbr="blank" bgcolor="#ffffcc"><br>
+</br></th>
+<th abbr="button"><input name="button" onclick="test2( )" type="button" value="Column1"/></th>
+<th abbr="column2">Column2 </th>
+<th abbr="column3">Column3 </th>
+</tr>
+</tbody><tbody>
+<tr>
+<th abbr="button2" bgcolor="#cc66cc" valign="top"><input name="button" onclick="test1( )" type="button" value="Row1"/></th>
+<td valign="top">Row1 Column1<br>
+</br></td>
+<td valign="top">Row1 Column2<br>
+</br></td>
+<td bgcolor="#ffffff" valign="top">Row1 Column3<br>
+</br></td>
+</tr>
+<tr>
+<th abbr="text" bgcolor="#cc66cc" valign="top"><label for="text">text</label><input id="text" type="text" value="Row2"><br>
+</br></input></th>
+<td colspan="2" rowspan="1" valign="top">join (R2 C1) and (R2 C2)<br>
+</br></td>
+<td valign="top">Row2 Column3<br>
+</br></td>
+</tr>
+<tr>
+<th abbr="row3" bgcolor="#cc66cc" valign="top">Row3<br>
+</br></th>
+<td valign="top">Row3 Column1<br>
+</br></td>
+<td colspan="1" rowspan="2" valign="top">join (R3 C2) and (R4 C2)<br>
+</br></td>
+<td valign="top">Row3 Column3<br>
+</br></td>
+</tr>
+<tr>
+<th abbr="row4" bgcolor="#cc66cc"><label for="row4">Row4</label><input id="row4" type="checkbox"/></th>
+<td valign="top">Row4 Column1<br>
+</br></td>
+<td valign="top">Row4 Column3<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" summary="this is the second table" title="Table2" width="100%">
+<caption align="bottom"><input name="F1" onclick="alert('You have clicked the button which is the table caption')" size="20" type="button" value="Table's Caption on the bottom"><br>
+</br></input></caption><tbody>
+<tr>
+<td valign="top"><a href="index.html#end"><img alt="gif" height="50" src="https://www.mozilla.org/access/unix/testcase/HTML/images/prize10050.gif" width="100"> </img></a> </td>
+<td valign="top"><label for="ch1">Checkbox1</label><input checked="checked" id="ch1" name="Checkbox1" type="checkbox" value="ON"/></td>
+<td valign="top">Row1 Column3<br>
+</br></td>
+<td valign="top">Row1 Column4<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><label file" for="file&gt;file&lt;/lable&gt;&lt;input type=" id="file" name="F1" size="20"><br>
+</br></label></td>
+<td valign="top">Row2 Column2<br>
+</br></td>
+<td valign="top">
+<form action="http://survey.sina.com.cn/cgi-bin/internal/top/vote" method="post" onsubmit="windowOpener('')" target="surveywin"> Radiobuttons in Group A<br>
+<input id="radio1" name="A" type="radio" value="1">
+<label for="radio1">RadioButton1</label><br>
+<input checked="checked" id="radio2" name="A" type="radio" value="2">
+<label for="radio2">RadioButton2</label><br>
+<input id="radio3" name="A" type="radio" value="3">
+<label for="radio3">RadioButton3</label></input></br></input></br></input></br></form>
+</td>
+<td valign="top">Row2 Column4<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top">
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<caption>Embedded table</caption><tbody>
+<tr>
+<td valign="top"><label for="1checkbox1">1Checkbox1</label>
+<input checked="checked" id="1checkbox1" name="Checkbox1" type="checkbox" value="ON"><br>
+</br></input></td>
+<td valign="top">2<input name="button" onclick="test3()" type="button" value="Button"><br>
+</br></input></td>
+</tr>
+<tr>
+<td valign=" top="> 3<br>
+</br></td>
+<td valign="top">4<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="2" rowspan="1" valign="top">5  6<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+</br></td>
+<td valign="top">Row3 Column2<br>
+</br></td>
+<td valign="top">Row3 Column3<br>
+</br></td>
+<td valign="top">Row3 Column4<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top">Row4 Column1<br>
+</br></td>
+<td valign="top">Row4 Column2<br>
+</br></td>
+<td valign="top"><a href="index.html#end">Link
+to the end</a> <br>
+</br></td>
+<td valign="top">Row4 Column4<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top">Row5 Column1<br>
+</br></td>
+<td valign="top"> <label for="opt">options:</label>
+<select id="opt" name="option" size="1">
+<option checked="" selected="selected" value="sina">option1 </option>
+<option value="href">option2 </option>
+<option value="avcn">option3 </option>
+<option value="newsft">option4</option>
+<option value="stock">option5</option>
+<option value="down">option6</option>
+<option value="game">option7 </option>
+<option value="dict">option8 </option>
+<option value="home">option9</option>
+</select>
+<br>
+</br></td>
+<td valign="top"><br>
+</br></td>
+<td valign="top">Row5 Column4<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<hr style="width: 100%; height: 2px;">
+<h3><a name="Frame_Test_Case"></a>Frame Test Case:</h3>
+<a href="https://www.mozilla.org/access/unix/testcase/HTML/frame.html">test case</a>
+<br><br>
+<hr style="width: 100%; height: 2px;">
+<br>
+<div style="text-align: left;"><a name="end"></a>the end of the test
+case<br>
+</br></div>
+<br>
+<small><i>Created by Jessie Li<br>
+2003-08-13</br></i>
+<br>
+<br>
+</br></br></small>
+</br></br></hr></br></br></hr></br></br></br></hr></br></br></img></br></hr></br></hr></br></hr></br></hr></br></hr></br></br></hr></br></br></br></br></br></br></hr></br></hr></br></hr></br></div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/testcase/HTML/index.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

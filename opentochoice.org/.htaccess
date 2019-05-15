@@ -1,0 +1,11 @@
+Options  None +FollowSymLinks
+Order    Allow,Deny
+Allow    from all
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^$ en [R=301,L]
+  RewriteBase /opentochoice.org
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule (.*) $1.html [L]
+</IfModule>

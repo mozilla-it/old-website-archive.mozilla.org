@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+
+<html class="redesign no-js" data-ffo-opensans="false" data-ffo-opensanslight="false" dir="ltr" lang="en-US">
+<head prefix="og: http://ogp.me/ns#">
+<meta charset="utf-8">
+<meta content="IE=Edge" http-equiv="X-UA-Compatible"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgAEV1RTGwABU1NSAAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:23,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:10,2:9,3:7,4:11,5:3,6:24,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],6:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:10,2:9,3:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],7:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=(t(1),t("ee").create()),i=t(2)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:24,2:25,ee:"QJf3ax",gos:"7eSDFh"}],8:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:25,2:24,ee:"QJf3ax"}],9:[function(t,e){var n=(t(2),t("ee").create()),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:25,2:24,ee:"QJf3ax"}],10:[function(t,e){function n(t,e,n){t[0]=o(t[0],"fn-",null,n)}var r=(t(2),t("ee").create()),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:25,2:24,ee:"QJf3ax"}],11:[function(t,e){function n(){f.inPlace(this,p,"fn-")}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:7,2:25,ee:"QJf3ax"}],12:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:13,3:11,4:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],13:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],14:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:23,2:24,handle:"D5DuLP"}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):(o[t]||(o[t]=[]),void o[t].push(e))}var r=t("ee").create(),o={};e.exports=n,n.ee=r,r.q=o},{ee:"QJf3ax"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=(t(2),window),f=c.document,u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-632.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:23,2:14,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],23:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],24:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],25:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:24,ee:"QJf3ax"}]},{},["G9z0Bl",4,12,6,5]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":1,"licenseKey":"42869b6ed3","agent":"js-agent.newrelic.com/nr-632.min.js","transactionName":"b1QHMUtVDRdSW0YKXVYeIxBXVxcNXFYdCEdVUEsSUF8KSkVRVxRBAlUKBkxZBgpH","applicationID":"3172075","errorBeacon":"bam.nr-data.net","applicationTime":131}</script>
+<script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+<title>Accessibility | MDN</title>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="index, follow" name="robots">
+<link href="https://developer.mozilla.org/en-US/" rel="home">
+<link href="https://developer.mozilla.org/en-US/docs/Web/index.html#copyright" rel="copyright">
+<link href="https://developer.cdn.mozilla.net/media/css/mdn-min.css?build=727ab69" media="all" rel="stylesheet"/>
+<link href="https://developer.cdn.mozilla.net/media/css/wiki-min.css?build=727ab69" media="all" rel="stylesheet"/>
+<!-- common social tags -->
+<meta content="website" property="og:type">
+<meta content="https://developer.mozilla.org/media/img/opengraph-logo.png" property="og:image">
+<meta content="Mozilla Developer Network" property="og:site_name">
+<meta content="summary" name="twitter:card">
+<meta content="https://developer.mozilla.org/media/img/opengraph-logo.png" name="twitter:image">
+<meta content="@MozDevNet" name="twitter:site">
+<meta content="@MozDevNet" name="twitter:creator">
+<link href="https://developer.mozilla.org/en-US/search/xml" rel="search" title="Mozilla Developer Network" type="application/opensearchdescription+xml">
+<!-- third-generation iPad with high-resolution Retina display: -->
+<link href="https://developer.cdn.mozilla.net/media/img/favicon144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+<!-- iPhone with high-resolution Retina display: -->
+<link href="https://developer.cdn.mozilla.net/media/img/favicon114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+<!-- first- and second-generation iPad: -->
+<link href="https://developer.cdn.mozilla.net/media/img/favicon72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+<!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link href="https://developer.cdn.mozilla.net/media/img/favicon57.png" rel="apple-touch-icon-precomposed">
+<!-- basic favicon -->
+<link href="https://developer.cdn.mozilla.net/media/img/favicon32.png" rel="shortcut icon">
+<!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script src="https://developer.cdn.mozilla.net/media/js/libs/html5.js"></script>
+  <![endif]-->
+<link href="https://developer.mozilla.org/en-US/docs/Web/Accessibility$json" rel="alternate" type="application/json">
+<link href="https://developer.mozilla.org/en-US/docs/Web/index.html" rel="canonical">
+<link href="https://developer.mozilla.org/ar/docs/Web/Accessibility" hreflang="ar" rel="alternate" title="Accessibility">
+<link href="https://developer.mozilla.org/bn-BD/docs/Web/Accessibility" hreflang="bn-BD" rel="alternate" title="ব্যবহারযোগ্যতা">
+<link href="https://developer.mozilla.org/cs/docs/Web/P%C5%99%C3%ADstupnost" hreflang="cs" rel="alternate" title="Přístupnost">
+<link href="https://developer.mozilla.org/de/docs/Web/Barrierefreiheit" hreflang="de" rel="alternate" title="Barrierefreiheit">
+<link href="https://developer.mozilla.org/es/docs/Web/Accesibilidad" hreflang="es" rel="alternate" title="Accesibilidad">
+<link href="https://developer.mozilla.org/fr/docs/Accessibilit%C3%A9" hreflang="fr" rel="alternate" title="Accessibilité">
+<link href="https://developer.mozilla.org/id/docs/Web/Accessibility" hreflang="id" rel="alternate" title="Accessibility">
+<link href="https://developer.mozilla.org/it/docs/Web/Accessibility" hreflang="it" rel="alternate" title="Accessibilità">
+<link href="https://developer.mozilla.org/ja/docs/Web/Accessibility" hreflang="ja" rel="alternate" title="Accessibility">
+<link href="https://developer.mozilla.org/ka/docs/Web/Accessibility" hreflang="ka" rel="alternate" title="ხელმისაწვდომობა">
+<link href="https://developer.mozilla.org/ko/docs/Web/Accessibility" hreflang="ko" rel="alternate" title="Accessibility">
+<link href="https://developer.mozilla.org/nl/docs/Web/Accessibility" hreflang="nl" rel="alternate" title="Accessibility">
+<link href="https://developer.mozilla.org/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87" hreflang="pl" rel="alternate" title="Dostępność">
+<link href="https://developer.mozilla.org/pt-BR/docs/Web/Acessibilidade" hreflang="pt-BR" rel="alternate" title="Acessibilidade">
+<link href="https://developer.mozilla.org/pt-PT/docs/Web/Acessibilidade" hreflang="pt-PT" rel="alternate" title="Acessibilidade">
+<link href="https://developer.mozilla.org/ru/docs/Web/Accessibility" hreflang="ru" rel="alternate" title="Доступность">
+<link href="https://developer.mozilla.org/zh-CN/docs/Web/Accessibility" hreflang="zh-CN" rel="alternate" title="可访问性">
+<link href="https://developer.mozilla.org/zh-TW/docs/Web/Accessibility" hreflang="zh-TW" rel="alternate" title="Accessibility">
+<!-- document-specific social tags -->
+<meta content="Accessibility" property="og:title">
+<meta content="https://developer.mozilla.org/en-US/docs/Web/Accessibility" property="og:url">
+<meta content="https://developer.mozilla.org/en-US/docs/Web/Accessibility" name="twitter:url">
+<meta content="Accessibility" name="twitter:title">
+<meta content="Accessibility in Web development means enabling as many people as possible to use Web sites, even when those people's abilities are limited in some way. Here we provide information on developing content to be accessible." property="og:description">
+<meta content="Accessibility in Web development means enabling as many people as possible to use Web sites, even when those people's abilities are limited in some way. Here we provide information on developing content to be accessible." name="description">
+<meta content="Accessibility in Web development means enabling as many people as possible to use Web sites, even when those people's abilities are limited in some way. Here we provide information on developing content to be accessible." name="twitter:description">
+<script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36116321-5', 'mozilla.org');
+    ga('set', 'anonymizeIp', true);
+
+    
+            // dimension4 == "top contributors"
+        ga('set', 'dimension4', 'Yes');
+    
+    
+    (function() {
+        // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+        var win = window;
+        var removeUtms = function(){
+            var location = win.location;
+            if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                win.history.replaceState({}, '', location.pathname);
+            }
+        };
+
+        ga('send', 'pageview', {'hitCallback': removeUtms});
+    })();
+</script>
+</meta></meta></meta></meta></meta></meta></meta></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></link></meta></meta></meta></meta></meta></meta></meta></link></link></meta></meta></meta></meta><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="document " contextmenu="edit-history-menu" data-slug="Web/Accessibility"><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-04.</div>
+<script type="text/javascript">
+    (function(win) {
+        'use strict';
+
+                    (function(){
+  var FLAGS = {
+    'dirtiness_tracking': true,'fellowship_applications_open': false,'header_feedback': false,'header_tools': false,'helpfulness': false,'kumaediting': false,'mdn10_logo': true,'mdn10_tile': true,'page_move': false,'promote_script': false,'redirect_messages': false,'registration_disabled': false,'search_explanation': false,'search_suggestions': false,'share_links': false,'top_contributors': true,'wiki_samples': false,'wiki_spellcheck': false
+    },
+    SWITCHES = {
+    'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': false,'store_revision_ips': true,'dumb_doc_urls': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+                
+        // This represents the site configuration
+        win.mdn = {
+            build: '727ab69',
+            // Properties and settings for CKEditor will go here
+            ckeditor: {},
+            // Feature test results and methods will be placed here
+            features: {},
+            // The path to media (images, CSS, JS) in MDN
+            mediaPath: 'https://developer.cdn.mozilla.net/media/',
+            // Optimizely API
+            optimizely: win['optimizely'] || [],
+            // Site notifications
+                        notifications: [],
+                        // Wiki-specific settings will be placed here
+            wiki: {
+                autosuggestTitleUrl: '/en-US/docs/get-documents'
+            }
+        };
+
+        // Ensures gettext always returns something, is always set
+        win.gettext = function(x) {
+            return x;
+        }
+    })(window);
+</script>
+<ul id="nav-access">
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#document-main" id="skip-main">Skip to main content</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#language" id="skip-language">Select language</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#q" id="skip-search">Skip to search</a></li>
+</ul>
+<!-- Header -->
+<header id="main-header"><div class="center">
+<div id="tabzilla">
+<a class="no-track" href="https://www.mozilla.org/">mozilla</a>
+</div>
+<div class="clear header-clear"></div>
+<a class="logo logo-mdn10" href="https://developer.mozilla.org/en-US/">Mozilla Developer Network</a>
+<div id="nav-sec">
+<form>
+<div class="oauth-login-container">
+<div class="oauth-login-options" tabindex="0">
+<span class="oauth-login-options-text">
+<span class="oauth-login-options-text-icons">Sign in with</span>
+<span class="oauth-login-options-text-no-icons">Sign in</span>
+</span>
+<span class="oauth-icon oauth-persona launch-persona-login" data-next="/en-US/docs/Web/Accessibility" data-service="Persona" title="Persona"><i aria-hidden="true" class="icon-user"></i></span>
+<span class="oauth-icon oauth-github" data-href="/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FAccessibility" data-service="GitHub" title="GitHub"><i aria-hidden="true" class="icon-github"></i></span>
+</div>
+<div aria-hidden="true" class="oauth-login-picker">
+<ul>
+<li><a class="login-link launch-persona-login" data-next="/en-US/docs/Web/Accessibility" data-service="Persona" href="https://developer.mozilla.org/en-US/users/signin"><i aria-hidden="true" class="icon-user"></i>Persona</a></li>
+<li><a class="login-link" data-service="GitHub" href="https://developer.mozilla.org/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FAccessibility"><i aria-hidden="true" class="icon-github"></i>GitHub</a></li>
+</ul>
+</div>
+</div>
+</form>
+</div>
+<nav id="main-nav" role="navigation"><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web">Web Platform<i aria-hidden="true" class="icon-caret-down"></i></a>
+<div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu">
+<div class="submenu-column">
+<div class="title">Technologies</div>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API">APIs / DOM</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Apps">Apps</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a></li>
+</ul>
+</div><div class="submenu-column last">
+<div class="title">References &amp; Guides</div>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn">Learn the Web</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">Tutorials</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Reference">References</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide">Developer Guides</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/index.html">Accessibility</a></li>
+<li><a href="https://developer.mozilla.org/en-US/demos/">Demos</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web">...more docs</a></li>
+</ul>
+</div>
+</div>
+</li><li><a href="https://developer.mozilla.org/en-US/docs/Zones">Mozilla Docs<i aria-hidden="true" class="icon-caret-down"></i></a>
+<div class="submenu js-submenu" id="nav-zones-submenu">
+<div class="submenu-column">
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons">Add-ons</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Firefox">Firefox</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Marketplace">Firefox Marketplace</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Firefox_OS">Firefox OS</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Persona">Persona</a></li>
+</ul>
+</div>
+</div>
+</li><li><a href="https://developer.mozilla.org/en-US/docs/Tools">Developer Tools</a></li><li><a href="https://developer.mozilla.org/en-US/demos/">Demos</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Connect">Connect</a></li><li class="nav-search-link"><a href="https://developer.mozilla.org/en-US/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="https://developer.mozilla.org/en-US/search" method="get" role="search">
+<div class="search-wrap">
+<label class="offscreen" for="main-q">Search</label>
+<input data-value="" id="main-q" name="q" placeholder="Search" type="search" value=""/>
+<span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span> 
+          <button class="offscreen" type="submit">Search</button>
+</div>
+</form></li></ul></nav>
+</div></header>
+<!-- Content will go here -->
+<main id="content"><div class="center clear">
+<!-- end is_zone -->
+<div class="wiki-main-content" id="document-main"><div class="center">
+<div class="article-meta">
+<!-- action buttons -->
+<ul class="page-buttons" data-sticky="false"><li><button aria-expanded="false" aria-haspopup="true" aria-owns="languages-menu-submenu" class="transparent" id="languages-menu"><span>Languages</span><i aria-hidden="true" class="icon-globe"></i></button>
+<div class="submenu js-submenu" id="languages-menu-submenu">
+<div class="submenu-column">
+<ul id="translations">
+<li><bdi><a href="https://developer.mozilla.org/ar/docs/Web/Accessibility" rel="internal" title="Accessibility">عربي</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/bn-BD/docs/Web/Accessibility" rel="internal" title="ব্যবহারযোগ্যতা">বাংলা (বাংলাদেশ)</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/cs/docs/Web/P%C5%99%C3%ADstupnost" rel="internal" title="Přístupnost">Čeština</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/de/docs/Web/Barrierefreiheit" rel="internal" title="Barrierefreiheit">Deutsch</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/es/docs/Web/Accesibilidad" rel="internal" title="Accesibilidad">Español</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/fr/docs/Accessibilit%C3%A9" rel="internal" title="Accessibilité">Français</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/id/docs/Web/Accessibility" rel="internal" title="Accessibility">Bahasa Indonesia</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/it/docs/Web/Accessibility" rel="internal" title="Accessibilità">Italiano</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/ja/docs/Web/Accessibility" rel="internal" title="Accessibility">日本語</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/ka/docs/Web/Accessibility" rel="internal" title="ხელმისაწვდომობა">ქართული</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/ko/docs/Web/Accessibility" rel="internal" title="Accessibility">한국어</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/nl/docs/Web/Accessibility" rel="internal" title="Accessibility">Nederlands</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87" rel="internal" title="Dostępność">Polski</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/pt-BR/docs/Web/Acessibilidade" rel="internal" title="Acessibilidade">Português (do Brasil)</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/pt-PT/docs/Web/Acessibilidade" rel="internal" title="Acessibilidade">Português (Europeu)</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/ru/docs/Web/Accessibility" rel="internal" title="Доступность">Русский</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/zh-CN/docs/Web/Accessibility" rel="internal" title="可访问性">中文 (简体)</a></bdi></li>
+<li><bdi><a href="https://developer.mozilla.org/zh-TW/docs/Web/Accessibility" rel="internal" title="Accessibility">正體中文 (繁體)</a></bdi></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility$locales" id="translations-add" rel="nofollow, noindex">Add a translation</a></li>
+</ul>
+</div>
+</div></li><li class="page-buttons-edit"><a class="button" data-optimizely-hook="button-edit-doc" href="https://developer.mozilla.org/en-US/docs/Web/Accessibility$edit" id="edit-button">Edit<i aria-hidden="true" class="icon-pencil"></i></a></li><li><button aria-expanded="false" aria-haspopup="true" aria-owns="advanced-menu-submenu" class="only-icon" id="advanced-menu"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></button>
+<div class="submenu js-submenu" id="advanced-menu-submenu">
+<!-- this page -->
+<div class="submenu-column">
+<div class="title">Advanced</div>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility$history" rel="nofollow, noindex">History</a></li>
+<li class="page-print"><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#" onclick="return window.print();">Print this page</a></li>
+</ul>
+</div>
+</div>
+</li></ul>
+<!-- crumbs -->
+<nav class="crumbs" role="navigation"><ol aria-label="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+<li typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US" property="v:title" rel="v:url">MDN</a></li>
+<li class="crumb" typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US/docs/Web" property="v:title" rel="v:url">Web technology for developers</a></li>
+<li class="crumb" property="v:title" typeof="v:Breadcrumb">Accessibility</li>
+</ol></nav>
+</div>
+<!-- heading -->
+<div class="document-head" id="wiki-document-head">
+<span class="from-search-previous-box">
+<a class="button from-search-previous only-icon disabled" data-empty-title="No Previous Search Result" title="Previous Search Result"><i aria-hidden="true" class="icon-chevron-left"></i></a>
+</span>
+<span class="from-search-navigate-wrap">
+<a class="from-search-navigate" href="https://developer.mozilla.org/en-US/docs/Web/index.html#"><span class="from-search-navigate-up"><i aria-hidden="true" class="icon-double-angle-up"></i></span><span class="from-search-navigate-down"><i aria-hidden="true" class="icon-double-angle-down"></i></span></a>
+</span>
+<div class="from-search-toc submenu">
+<span class="title">Your Search Results</span>
+<ol></ol>
+</div>
+<span class="from-search-next-box">
+<a class="button from-search-next only-icon disabled" data-empty-title="No Previous Search Result" title="Next Search Result"><i aria-hidden="true" class="icon-chevron-right"></i></a>
+</span>
+<h1>Accessibility</h1>
+<div class="contributor-avatars" data-all-text="Show all…&lt;span class='hidden'&gt;contributors&lt;/span&gt;" data-has-hidden="1">
+<span class="quickstat">
+            by 29 contributors:            </span>
+<ul>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/boa0332" title="View profile: boa0332">
+<noscript data-alt="boa0332" data-class="avatar" data-src="https://secure.gravatar.com/avatar/275c4dbecf95d283c994420482e46b59?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">boa0332</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/atique" title="View profile: atique">
+<noscript data-alt="atique" data-class="avatar" data-src="https://secure.gravatar.com/avatar/96da9d76484b9bf61f861672df72e2af?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">atique</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/xfq" title="View profile: xfq">
+<noscript data-alt="xfq" data-class="avatar" data-src="https://secure.gravatar.com/avatar/d37eb6e5701cb30b871077f04cf2ebb7?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">xfq</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/chrisdavidmills" title="View profile: chrisdavidmills">
+<noscript data-alt="chrisdavidmills" data-class="avatar" data-src="https://secure.gravatar.com/avatar/deeea0ba82390bd5acc539703c4b0cfb?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">chrisdavidmills</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/FabioMagnoni" title="View profile: FabioMagnoni">
+<noscript data-alt="FabioMagnoni" data-class="avatar" data-src="https://secure.gravatar.com/avatar/0d3a2ed4ac4a9840b7f6deb50e30e7e0?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">FabioMagnoni</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/jwt72" title="View profile: jwt72">
+<noscript data-alt="jwt72" data-class="avatar" data-src="https://secure.gravatar.com/avatar/4297bb8dfd3bb7f94f20f176501e9e0d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">jwt72</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/Priyanka13" title="View profile: Priyanka13">
+<noscript data-alt="Priyanka13" data-class="avatar" data-src="https://secure.gravatar.com/avatar/750c3c33fb0504d5b05b901148ae6999?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Priyanka13</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/Sheppy" title="View profile: Sheppy">
+<noscript data-alt="Sheppy" data-class="avatar" data-src="https://secure.gravatar.com/avatar/945076feb88f2d7003891ffbf06f32bf?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Sheppy</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/fscholz" title="View profile: fscholz">
+<noscript data-alt="fscholz" data-class="avatar" data-src="https://secure.gravatar.com/avatar/e24391c9174352988d819a9b9ea77c9e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">fscholz</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/jswisher" title="View profile: jswisher">
+<noscript data-alt="jswisher" data-class="avatar" data-src="https://secure.gravatar.com/avatar/38185c2812cbcae186ebbe4a82910661?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">jswisher</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/satdav" title="View profile: satdav">
+<noscript data-alt="satdav" data-class="avatar" data-src="https://secure.gravatar.com/avatar/cf97a4b3ce63beadf8bf33a245cd120b?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">satdav</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/MoniqueB" title="View profile: MoniqueB">
+<noscript data-alt="MoniqueB" data-class="avatar" data-src="https://secure.gravatar.com/avatar/671c37900f89732b622b9ec88aea25e5?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">MoniqueB</noscript></a>
+</li>
+<li class="shown">
+<a href="https://developer.mozilla.org/en-US/profiles/Jeremie" title="View profile: Jeremie">
+<noscript data-alt="Jeremie" data-class="avatar" data-src="https://secure.gravatar.com/avatar/ea74cf7f528273838138e9ae407cd8ef?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Jeremie</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/ethertank" title="View profile: ethertank">
+<noscript data-alt="ethertank" data-class="avatar" data-src="https://secure.gravatar.com/avatar/abac73ba2093b500bf7599c76d80280c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">ethertank</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Ken%20Saundders" title="View profile: Ken Saundders">
+<noscript data-alt="Ken Saundders" data-class="avatar" data-src="https://secure.gravatar.com/avatar/34b2b2764cd9b375de7c7e8292daed39?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Ken Saundders</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Surkov.alexander" title="View profile: Surkov.alexander">
+<noscript data-alt="Surkov.alexander" data-class="avatar" data-src="https://secure.gravatar.com/avatar/e675fc38177990b696f3b055d3a34c4a?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Surkov.alexander</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/DavidBolter" title="View profile: DavidBolter">
+<noscript data-alt="DavidBolter" data-class="avatar" data-src="https://secure.gravatar.com/avatar/3a871bd6c600f7aeacd81952d222f02c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">DavidBolter</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Aaronlev" title="View profile: Aaronlev">
+<noscript data-alt="Aaronlev" data-class="avatar" data-src="https://secure.gravatar.com/avatar/0a70d1c771b2ad1172300265e17f1b58?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Aaronlev</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/SteveLee" title="View profile: SteveLee">
+<noscript data-alt="SteveLee" data-class="avatar" data-src="https://secure.gravatar.com/avatar/9cf3b2625e7daf7aa5d01542fbedb2c5?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">SteveLee</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Mgjbot" title="View profile: Mgjbot">
+<noscript data-alt="Mgjbot" data-class="avatar" data-src="https://secure.gravatar.com/avatar/cde356a1ca3e38301f29fda3dbd5de53?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Mgjbot</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/MarkPilgrim" title="View profile: MarkPilgrim">
+<noscript data-alt="MarkPilgrim" data-class="avatar" data-src="https://secure.gravatar.com/avatar/a6a4a57e2861928f71748a6a05e91235?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">MarkPilgrim</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Callek" title="View profile: Callek">
+<noscript data-alt="Callek" data-class="avatar" data-src="https://secure.gravatar.com/avatar/43019d61aee011f7ed2abd4af1524fcb?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Callek</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Flashcode20" title="View profile: Flashcode20">
+<noscript data-alt="Flashcode20" data-class="avatar" data-src="https://secure.gravatar.com/avatar/89fa6077b711d3aebbe2cd45190eaf8e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Flashcode20</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Dria" title="View profile: Dria">
+<noscript data-alt="Dria" data-class="avatar" data-src="https://secure.gravatar.com/avatar/c6c044311a2c98b383718e00964cda72?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Dria</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Ptak82" title="View profile: Ptak82">
+<noscript data-alt="Ptak82" data-class="avatar" data-src="https://secure.gravatar.com/avatar/c971ad02ceb36d77de6f9bc8b0c0d5c1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Ptak82</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Shimono" title="View profile: Shimono">
+<noscript data-alt="Shimono" data-class="avatar" data-src="https://secure.gravatar.com/avatar/9402d24ce9ef6849281179b8bf4e14ed?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Shimono</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Simplex" title="View profile: Simplex">
+<noscript data-alt="Simplex" data-class="avatar" data-src="https://secure.gravatar.com/avatar/7063fdd762ba6dbc358b76956c8468ea?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Simplex</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Chbok" title="View profile: Chbok">
+<noscript data-alt="Chbok" data-class="avatar" data-src="https://secure.gravatar.com/avatar/6ab46950e13e13bb152bdfafacf42bb6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Chbok</noscript></a>
+</li>
+<li class="hidden">
+<a href="https://developer.mozilla.org/en-US/profiles/Abu%20Badali" title="View profile: Abu Badali">
+<noscript data-alt="Abu Badali" data-class="avatar" data-src="https://secure.gravatar.com/avatar/6bcbd4872a75739ea66465c0eafeefe4?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Abu Badali</noscript></a>
+</li>
+</ul>
+</div>
+</div>
+<!-- start the main content container -->
+<div class="wiki-right-closed wiki-right-none wiki-left-present" id="wiki-column-container">
+<!-- additional controls row; hidden unless needed -->
+<div class="column-container column-container-reverse" id="wiki-controls">
+<div class="column-strip">
+<!-- Show TOC "show" link -->
+</div>
+<div class="column-half">
+</div>
+<div class="column-strip quick-links hidden">
+<a class="title smaller" href="https://developer.mozilla.org/en-US/docs/Web/index.html#show-quick-links" id="show-quick-links"><i aria-hidden="true" class="icon-caret-down"></i>Show Sidebar</a>
+</div>
+</div>
+<!-- content row with three strips -->
+<div class="column-container column-container-reverse">
+<!-- center: main article content -->
+<div class="column-main wiki-column text-content" id="wiki-content">
+<!-- just the article content -->
+<article id="wikiArticle">
+<p><span class="seoSummary">Accessibility in Web development means enabling as many people as possible to use Web sites, even when those people's abilities are limited in some way. Here we provide information on developing content to be accessible.</span></p>
+<p>"Accessibility is most often used to describe facilities or amenities to assist people with disabilities, as in 'wheelchair accessible'. This can extend to Braille signage, wheelchair ramps, audio signals at pedestrian crossings, walkway contours, website design, and so on." <sup><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#endnote_1">[1]</a></sup></p>
+<p>"<strong>The Web is fundamentally designed to work for all people</strong>, whatever their hardware, software, language, culture, location, or physical or mental ability. When the Web meets this goal, it is accessible to people with a diverse range of hearing, movement, sight, and cognitive ability." <sup><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#endnote_2">[2]</a></sup></p>
+<div class="cleared topicpage-table">
+<p> </p>
+<div class="section">
+<h2 class="Documentation" id="Documentation" name="Documentation">Documentation</h2>
+<dl>
+<dt><a href="https://developer.mozilla.org/en-US/docs/Accessibility/Web_Development" title="Accessibility Web Development">Web development</a></dt>
+<dd>A collection of articles designated to highlight web development issues in the world of accessibility</dd>
+<dt><a href="https://developer.mozilla.org/en-US/docs/Accessibility/ARIA" title="/en-US/docs/Accessibility/ARIA">ARIA</a></dt>
+<dd>A collection of articles to learn how to use ARIA to make your HTML documents more accessible.</dd>
+<dt><a href="https://developer.mozilla.org/en-US/docs/Accessibility/AT_Development" title="AT Development">Assistive technology (AT) development</a></dt>
+<dd>A collection of articles intended for AT developers</dd>
+<dt><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Mobile_accessibility_checklist">Mobile accessibility checklist</a></dt>
+<dd>This document provides a concise checklist of accessibility requirements for mobile app developers.</dd>
+</dl>
+<p><span class="alllinks"><a href="https://developer.mozilla.org/en-US/docs/tag/Accessibility" title="/en-US/docs/tag/Accessibility">View all articles about Accessibility...</a></span></p>
+</div>
+<div class="section">
+<h2 class="Tools" id="Tools" name="Tools">Tools for web developers</h2>
+<ul>
+<li><a class="external" href="http://www.standards-schmandards.com/index.php?show/fangs">Fangs screen reader emulator</a></li>
+</ul>
+<p><span class="alllinks"><a href="https://developer.mozilla.org/en-US/docs/tag/Accessibility:Tools" title="en-US/docs/tag/Accessibility:Tools">View All...</a></span></p>
+<h2 class="Tools" id="Tools" name="Tools">Other useful sites</h2>
+<ul>
+<li><a class="external" href="https://support.mozilla.org/kb/accessibility-features-firefox-make-firefox-and-we">Screen reader list</a></li>
+</ul>
+<p> </p>
+</div>
+ 
+
+<p><br>
+  </br></p>
+</div>
+<p><span id="endnote_1"><strong><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#ref_1">^</a></strong></span> <a class="external" href="http://en.wikipedia.org/wiki/Accessibility">Wikipedia entry for Accessibility</a></p>
+<p><span id="endnote_2"><strong><a href="https://developer.mozilla.org/en-US/docs/Web/index.html#ref_2">^</a></strong></span> <a class="external" href="http://www.w3.org/standards/webdesign/accessibility" title="http://www.w3.org/standards/webdesign/accessibility">W3C - Accessibility</a></p>
+<p></p><div class="overheadIndicator communitybox" dir="ltr">
+<div class="column-container">
+<h2 id="Join_the_Accessibility_community">Join the Accessibility community</h2>
+<div class="column-half">
+<div class="communitysubhead">Choose your preferred method for joining the discussion:</div>
+<ul class="communitymailinglist"><a class="external" href="https://lists.mozilla.org/listinfo/accessibility">Mailing list</a>
+<li><a class="external" href="http://groups.google.com/group/mozilla.accessibility">Google Group</a></li>
+<li><a class="external" href="http://groups.google.com/group/mozilla.accessibility/feeds">RSS feed</a></li>
+</ul>
+</div>
+<div class="column-half">
+<ul class="communitycontact"><li><strong>IRC: </strong><a href="irc://irc.mozilla.org/accessibility">#accessibility</a> <span class="smaller">(<a class="external" href="https://wiki.mozilla.org/IRC">learn more</a>)</span></li><li><strong>Other links: </strong><a class="external" href="http://www.w3.org/WAI/IG/" title="Web Accessibility Interest Group web site">WAI Interest Group</a>, <a class="external" href="https://mozillians.org/en-US/group/1-accessibility" title="Mozillians members interested in accessibility">Mozilla accessibility community directory</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/Community" title="Links to other accessibility community sites">Other community links...</a></li></ul>
+</div>
+</div>
+</div><p></p>
+<p></p><section id="Quick_Links"><!-- --></section><p></p>
+</article>
+<!-- contributors -->
+<div class="wiki-block contributors">
+<h2 class="offscreen">Document Tags and Contributors</h2>
+<div class="tag-attach-list contributors-sub">
+<i aria-hidden="true" class="icon-tags"></i>
+<strong>Tags:</strong> 
+    <ul class="tags tags-small">
+<li><a href="https://developer.mozilla.org/en-US/docs/tag/Accessibility">Accessibility</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/tag/Advanced">Advanced</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/tag/Landing">Landing</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/tag/Web%20Development">Web Development</a></li>
+</ul>
+</div>
+<div class="contributors-sub"> <i aria-hidden="true" class="icon-group"></i><strong>Contributors to this page:</strong> <a href="https://developer.mozilla.org/en-US/profiles/boa0332">boa0332</a>,             <a href="https://developer.mozilla.org/en-US/profiles/atique">atique</a>,             <a href="https://developer.mozilla.org/en-US/profiles/xfq">xfq</a>,             <a href="https://developer.mozilla.org/en-US/profiles/chrisdavidmills">chrisdavidmills</a>,             <a href="https://developer.mozilla.org/en-US/profiles/FabioMagnoni">FabioMagnoni</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jwt72">jwt72</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Priyanka13">Priyanka13</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Sheppy">Sheppy</a>,             <a href="https://developer.mozilla.org/en-US/profiles/fscholz">fscholz</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jswisher">jswisher</a>,             <a href="https://developer.mozilla.org/en-US/profiles/satdav">satdav</a>,             <a href="https://developer.mozilla.org/en-US/profiles/MoniqueB">MoniqueB</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Jeremie">Jeremie</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ethertank">ethertank</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Ken%20Saundders">Ken Saundders</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Surkov.alexander">Surkov.alexander</a>,             <a href="https://developer.mozilla.org/en-US/profiles/DavidBolter">DavidBolter</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Aaronlev">Aaronlev</a>,             <a href="https://developer.mozilla.org/en-US/profiles/SteveLee">SteveLee</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Mgjbot">Mgjbot</a>,             <a href="https://developer.mozilla.org/en-US/profiles/MarkPilgrim">MarkPilgrim</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Callek">Callek</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Flashcode20">Flashcode20</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Dria">Dria</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Ptak82">Ptak82</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Shimono">Shimono</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Simplex">Simplex</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Chbok">Chbok</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Abu%20Badali">Abu Badali</a> </div>
+<div class="contributors-sub">
+<i aria-hidden="true" class="icon-clock-o"></i><strong>Last updated by:</strong>
+<a href="https://developer.mozilla.org/en-US/profiles/boa0332">boa0332</a>,
+                      <time datetime="2015-03-17T10:00:27-07:00">Mar 17, 2015, 10:00:27 AM</time>
+</div>
+</div>
+</div>
+<!-- quick links and zone subnav strip -->
+<div class="column-strip wiki-column" id="wiki-left">
+<a class="title smaller" href="https://developer.mozilla.org/en-US/docs/Web/index.html#quick-links" id="quick-links-toggle"><i aria-hidden="true" class="icon-caret-up"></i>Hide Sidebar</a>
+<!-- quick links -->
+<div class="quick-links" id="quick-links">
+<div class="title see-also">See also</div>
+<ol><li><a href="https://developer.mozilla.org/en-US/docs/Web_Development" title="Web development comprises all aspects of developing a web site or web application.">Web Development</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web_Standards" title="^ - The Web Standards Project">Web Standards</a></li><li><a href="https://developer.mozilla.org/en-US/docs/XUL">XUL</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Accessibility" title="Accessibility is the idea that software (among other things) should be designed to be usable and, as much as possible, convenient to use for people with disabilities. Mozilla strives to make its software accessible; the documents below cover the ways in which we do so.">Accessibility and Mozilla</a></li></ol>
+</div>
+<!-- approvals -->
+</div>
+</div>
+</div>
+</div>
+</div> <!-- ends "main-content" -->
+<menu id="edit-history-menu" type="context">
+<menuitem data-action="/en-US/docs/Web/Accessibility$edit" label="Edit page"></menuitem>
+<menuitem data-action="/en-US/docs/Web/Accessibility$history" label="View page history"></menuitem>
+</menu>
+</div></main>
+<!-- Footer -->
+<footer><div class="center">
+<div class="column-container">
+<div class="column-main">
+<p>
+<bdi>© 2005-2015 Mozilla Developer Network and individual contributors<br/> Content is available under <a href="https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses">these licenses</a> · <a href="https://developer.mozilla.org/docs/MDN/About">About MDN</a> · <a href="https://www.mozilla.org/about/legal/terms/mozilla">Terms</a> · <a href="https://www.mozilla.org/privacy/websites/">Privacy</a> · <a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a> · <a href="https://github.com/mozilla/kuma">Contribute to the code</a></bdi> </p>
+</div>
+<div class="column-strip">
+<form action="https://developer.mozilla.org/en-US/docs/Web" class="languages go" method="get">
+<label for="language">Other languages:</label>
+<select class="wiki-l10n" dir="ltr" id="language" name="next">
+<option selected value="/en-US/docs/Web/Accessibility">
+          English (US)
+        </option>
+<option value="/ar/docs/Web/Accessibility">
+            عربي
+          </option> <option value="/bn-BD/docs/Web/Accessibility">
+            বাংলা (বাংলাদেশ)
+          </option> <option value="/cs/docs/Web/P%C5%99%C3%ADstupnost">
+            Čeština
+          </option> <option value="/de/docs/Web/Barrierefreiheit">
+            Deutsch
+          </option> <option value="/es/docs/Web/Accesibilidad">
+            Español
+          </option> <option value="/fr/docs/Accessibilit%C3%A9">
+            Français
+          </option> <option value="/id/docs/Web/Accessibility">
+            Bahasa Indonesia
+          </option> <option value="/it/docs/Web/Accessibility">
+            Italiano
+          </option> <option value="/ja/docs/Web/Accessibility">
+            日本語
+          </option> <option value="/ka/docs/Web/Accessibility">
+            ქართული
+          </option> <option value="/ko/docs/Web/Accessibility">
+            한국어
+          </option> <option value="/nl/docs/Web/Accessibility">
+            Nederlands
+          </option> <option value="/pl/docs/Web/Dost%C4%99pno%C5%9B%C4%87">
+            Polski
+          </option> <option value="/pt-BR/docs/Web/Acessibilidade">
+            Português (do Brasil)
+          </option> <option value="/pt-PT/docs/Web/Acessibilidade">
+            Português (Europeu)
+          </option> <option value="/ru/docs/Web/Accessibility">
+            Русский
+          </option> <option value="/zh-CN/docs/Web/Accessibility">
+            中文 (简体)
+          </option> <option value="/zh-TW/docs/Web/Accessibility">
+            正體中文 (繁體)
+          </option> </select>
+<noscript><button type="submit">Go</button></noscript>
+</form>
+</div>
+</div>
+</div></footer>
+<!-- site js -->
+<script src="https://developer.mozilla.org/en-US/jsi18n/build:727ab69"></script>
+<!--[if lte IE 8]><script src="/media/js/libs/selectivizr-1.0.2/selectivizr-build.js"></script><![endif]-->
+<script src="https://login.persona.org/include.js"></script>
+<form action="https://developer.mozilla.org/users/persona/signin" data-csrf-token-url="/users/persona/csrf" data-request='{"siteName": "Mozilla Developer Network", "siteLogo": "/media/img/opengraph-logo.png"}' id="_persona_login" method="post">
+<input id="_persona_csrf_token" name="csrfmiddlewaretoken" type="hidden" value=""/>
+<input id="_persona_next_url" name="next" type="hidden" value=""/>
+<input id="_persona_process" name="process" type="hidden" value=""/>
+<input id="_persona_assertion" name="assertion" type="hidden"/>
+</form>
+<script src="https://developer.cdn.mozilla.net/media/js/main-min.js?build=727ab69"></script>
+<script>
+        if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+      </script>
+
+<script src="https://developer.cdn.mozilla.net/media/js/wiki-min.js?build=727ab69"></script>
+<script type="text/javascript">
+      if(window.jQuery) jQuery('.from-search-toc').mozSearchResults('');
+
+            mdn.optimizely.push(['activate', 2796520257]);
+  </script>
+</body>
+</html>

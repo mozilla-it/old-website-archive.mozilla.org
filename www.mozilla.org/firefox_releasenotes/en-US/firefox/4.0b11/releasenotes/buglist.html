@@ -1,0 +1,2108 @@
+<!DOCTYPE HTML>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta content="width=1024" name="viewport">
+<title>Mozilla Firefox 4 Beta 11 Fixes</title>
+<meta content="/img/firefox-100.jpg?2013-06" name="og:image">
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBlack';
+        src: url('../../../../img/fonts/MetaWebPro-Black.eot');
+        src: local('☺'), url('../../../../img/fonts/MetaWebPro-Black.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<link href="../../../../includes/min/min.css%3Fg=css&amp;_d=20120207.css" rel="stylesheet">
+<link href="../../../../tabzilla/media/css/tabzilla.css" rel="stylesheet">
+<script src="../../../../includes/min/min.js%3Fg=js"></script>
+<script src="../../../../js/mozilla-video-tools.js.html"></script>
+<script src="../../../../js/mozilla-pager.js.html"></script>
+<link href="../../../../style/firefox/beta/4/main.css" rel="stylesheet"/>
+<style>
+     /* This is a hack as I don't want to edit the release notes css */
+     #main-content { width: 100% !important; }
+  </style>
+<style>
+#download #update-notice { display: none; }
+
+#update-notice {
+    background: rgb(20,20,20);
+    background: rgba(38, 38, 38, 0.95);
+    border-bottom: 2px solid #686868;
+    text-shadow: 0 1px #000;
+    -moz-text-shadow: 0 1px #000;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    z-index: 99;
+    line-height: 1;
+}
+
+#update-notice.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#update-notice .container {
+    text-align: left;
+    padding: 15px 10px 15px 140px;
+    width: 800px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(../../../../img/covehead/firefox/update-creature.png) 0 100% no-repeat;
+    position: relative;
+}
+
+#update-notice .message {
+    float: left;
+    width: 600px;
+}
+
+#update-notice h2 {
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 18px;
+    font-style: normal;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+#update-notice p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+#update-notice p.action {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    float: right;
+}
+
+#home #update-notice p.action {
+    display: none;
+}
+
+#update-notice p.action span {
+    display: block;
+}
+
+#update-notice p.action span a {
+    color: #6ba4ff;
+}
+
+#update-notice .button {
+    display: inline-block;
+    padding: 6px 16px 8px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1),
+                0 -2px rgba(0, 0, 0, 0.1) inset;
+    background:-moz-linear-gradient(top, #84C63C, #489615);
+    background-color: #489615;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+}
+
+#update-notice .close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(../../../../img/covehead/firefox/update-close.png) 0 0 no-repeat;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+#update-notice .close:hover,
+#update-notice .close:focus {
+    background-position: -25px 0;
+}
+
+</style>
+<script>
+var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-36116321-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    var prefix = ('https:' == document.location.protocol ? 'https://ssl' :
+                  'http://www');
+    ga.src = prefix + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</link></link></meta></meta></meta><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="firefox-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2014-02-12.</div>
+<script>// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+    document.body.className = 'js';
+} else {
+    document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+    document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+    document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+    document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="buglist.html#nav-main">skip to Navigation</a>
+<a href="buglist.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1>
+<a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Mozilla Firefox</a>
+</h1>
+<a class="mozilla" href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+<!-- start menu #nav-main -->
+<div id="nav-main" role="navigation">
+<ul role="menubar">
+<li class="first" id="nav-main-features"><a aria-haspopup="true" aria-owns="nav-main-features-submenu" href="http://www.mozilla.org/en-US/firefox/features/" tabindex="0">Desktop</a><ul aria-expanded="false" id="nav-main-features-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/features/" tabindex="-1">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/" tabindex="-1">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/" tabindex="-1">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/" tabindex="-1">Technology</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/security/" tabindex="-1">Privacy &amp; Security</a></li></ul></li>
+<li id="nav-main-mobile"><a aria-haspopup="true" aria-owns="nav-main-mobile-submenu" href="http://www.mozilla.org/en-US/mobile/" tabindex="0">Mobile</a><ul aria-expanded="false" id="nav-main-mobile-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/mobile/" tabindex="-1">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/" tabindex="-1">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured" tabindex="-1">Customize</a></li><li class="last"><a href="http://www.mozilla.org/en-US/mobile/faq/" tabindex="-1">FAQ</a></li></ul></li>
+<li id="nav-main-releases"><a aria-haspopup="true" aria-owns="nav-main-releases-submenu" href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="0">Releases</a><ul aria-expanded="false" id="nav-main-releases-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="-1">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/" tabindex="-1">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/" tabindex="-1">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/" tabindex="-1">Firefox</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/organizations/" tabindex="-1">Firefox for Organizations</a></li></ul></li>
+<li id="nav-main-addons"><a aria-haspopup="true" aria-owns="nav-main-addons-submenu" href="https://addons.mozilla.org/" tabindex="0">Add-ons</a><ul aria-expanded="false" id="nav-main-addons-submenu"><li class="first"><a href="https://addons.mozilla.org/firefox/" tabindex="-1">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/" tabindex="-1">Mobile Add-ons</a></li><li class="last"><a href="http://www.getpersonas.com/" tabindex="-1">Personas</a></li></ul></li>
+<li id="nav-main-support"><a aria-haspopup="true" aria-owns="nav-main-support-submenu" href="http://support.mozilla.org/" tabindex="0">Support</a><ul aria-expanded="false" id="nav-main-support-submenu"><li class="first"><a href="http://support.mozilla.org/en-US/kb/" tabindex="-1">Desktop Support</a></li><li class="last"><a href="http://support.mozilla.org/mobile" tabindex="-1">Mobile Support</a></li></ul></li>
+<li class="last" id="nav-main-about"><a aria-haspopup="true" aria-owns="nav-main-about-submenu" href="http://www.mozilla.org/en-US/firefox/about/" tabindex="0">About</a><ul aria-expanded="false" id="nav-main-about-submenu"><li class="first"><a href="http://blog.mozilla.com/" tabindex="-1">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/" tabindex="-1">About Firefox</a></li><li><a href="http://www.mozilla.org/join" tabindex="-1">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/" tabindex="-1">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/" tabindex="-1">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/" tabindex="-1">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html" tabindex="-1">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html" tabindex="-1">Partnerships</a></li><li class="last"><a href="http://www.mozilla.org/en-US/about/contact.html" tabindex="-1">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #nav-main -->
+</div>
+</div>
+<!-- end #header -->
+<div id="main-feature">
+<div id="feature-contents">
+<h2><a href="http://www.mozilla.org/en-US/firefox/4.0b11/"><img alt="Firefox 4 Beta" src="../../../../img/firefox/beta/4/title.png"/></a></h2>
+<h3>Firefox 4 Beta 11 Fixes</h3>
+<p>See the complete list of bugs fixed by Firefox 4 Beta 11.</p>
+</div>
+</div>
+<ul id="side-menu">
+<li class="first"><h3><a href="http://www.mozilla.org/en-US/products/">Products</a> / <a href="http://www.mozilla.org/en-US/firefox/RC/">Firefox<sup>RC</sup></a></h3></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/RC/features/">Features</a></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/RC/technology/">Technology</a></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/RC/feedback/">Feedback</a></li>
+<li><a href="http://www.mozilla.org/en-US/legal/privacy/firefox.html">Privacy Policy</a></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/RC/faq/">FAQ</a></li>
+<li><a href="http://www.mozilla.org/en-US/press/kits/">Press Kit</a></li>
+</ul>
+<div id="release-notes">
+<div id="main-content">
+<table id="beta-bugfixes">
+<thead>
+<tr>
+<th>Bug ID</th>
+<th>Summary</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622594">622594</a></th>
+<td>Remove _options (OptionsClass) as a browser builtin</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622597">622597</a></th>
+<td>form.novalidate should not be taken into account for validity UI when focusing an element</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613383">613383</a></th>
+<td>Setting runtime JS options can override the JSVersion</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628745">628745</a></th>
+<td>skip rounded rect clips whenever possible</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628747">628747</a></th>
+<td>SVG-as-an-image can load resources from other domains</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=617485">617485</a></th>
+<td>"Assertion failure: global-&gt;getClass()-&gt;flags &amp; JSCLASS_IS_GLOBAL"</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=585745">585745</a></th>
+<td>Crash [@ nsIDOMElementCSSInlineStyle_GetStyle | js::callJSPropertyOp] from MathML element with HTML …</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623637">623637</a></th>
+<td>Can start playing too soon on live streams</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627736">627736</a></th>
+<td>fix tab focusing after closing a group in panorama</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=169476">169476</a></th>
+<td>Bugs that annoy bugzilla users reading bugmail</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625693">625693</a></th>
+<td>nsAccessibilityService::NotifyOfAnchorJumpTo should be processed as document notification</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627776">627776</a></th>
+<td>sporadic layout/reftests/bugs/621253-1.xhtml | image comparison (==)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618541">618541</a></th>
+<td>Remove obsolete contents.rdf in official branding</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627758">627758</a></th>
+<td>jsd.off() fails intermittently</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625712">625712</a></th>
+<td>docShell's  useGlobalHistory=false  doesn't work in ff4</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=600584">600584</a></th>
+<td>Add more detail to CSP inline script violation logging</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622259">622259</a></th>
+<td>In Yahoo Mail! Unable to activate Show Images in Spam Folder</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622647">622647</a></th>
+<td>mozJSComponentLoader.cpp:351: warning: ‘nsresult ReadScriptFromStream(JSContext*, nsIObjectInputStre…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625722">625722</a></th>
+<td>Firefox freezes in Mozilla TreeWalker demo</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628063">628063</a></th>
+<td>IndexedDB: Indexes created after data are added are sometimes improperly populated</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=117821">117821</a></th>
+<td>Fix unbalanced FIXptr pair</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628800">628800</a></th>
+<td>VALIDATE_STATUS should always be 1 on MacOS X</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=549958">549958</a></th>
+<td>Hourly/Nightly builds should have some way to see which {comm-central|mobile-browser|camino} changes…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628807">628807</a></th>
+<td>Firefox button split menu sub-menus disappear immediately on mouse out of the main command, if you t…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=614474">614474</a></th>
+<td>[Windows 2003] Intermittent "ERROR TEST-UNEXPECTED-FAIL | /tests/dom/indexedDB/test/test_bfcache.htm…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=593421">593421</a></th>
+<td>Provide link to "Restore Previous Session" on Firefox Start</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624483">624483</a></th>
+<td>JM: different output with testcase involving typed arrays, "Infinity"</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629846">629846</a></th>
+<td>tab key event doesn't change focus</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=569431">569431</a></th>
+<td>Optimization in DrawElements: cache the max-in-sub-array computation</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=609372">609372</a></th>
+<td>Better icons and color palette for the Web Console</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618590">618590</a></th>
+<td>IndexedDB: Don't put windows with active transactions into the bfcache</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628832">628832</a></th>
+<td>The Radio Player on the web Bassdrive doesn't work on Firefox 4</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629862">629862</a></th>
+<td>text update notification should schedule notifications processing</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627817">627817</a></th>
+<td>Add ANGLE license to about:license</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=615530">615530</a></th>
+<td>Update .bt entry in PSL</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627819">627819</a></th>
+<td>Broken icon in the message "The Web Console logging API has been disabled by a script on this page"</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=611440">611440</a></th>
+<td>Smart abbreviation for URLs in the Web Console</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=394353">394353</a></th>
+<td>Tag list is not updated when manually adding, renaming, or deleting tags from within the tags field</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=620658">620658</a></th>
+<td>Crash [@ libc-2.11.so + 0x326b5 ] during browser_auth.js on Linux64 mochitest-other debug</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612470">612470</a></th>
+<td>Closing the last tab of a group switches to another group even if an app tab is selected</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628861">628861</a></th>
+<td>Drop down menus show up in the wrong place every second time</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627840">627840</a></th>
+<td>DirectWrite: text spacing busted for 12px and 13px Calibri</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629889">629889</a></th>
+<td>open all in tabs is broken from Library when no browser window is open</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628866">628866</a></th>
+<td>browser_579868.js loads about:credits, which hits the network</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628867">628867</a></th>
+<td>browser_tabview_bug586553.js loads about:credits, which hits the network</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=617609">617609</a></th>
+<td>Upvar analysis marks functions as NULL_CLOSURE incorrectly</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613515">613515</a></th>
+<td>JS properties set from chrome are lost</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627858">627858</a></th>
+<td>Use gfxContextAutoSaveRestore / gfxContextMatrixAutoSaveRestore in SVGDrawingCallback::operator()</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=600215">600215</a></th>
+<td>Update Initial Developer list in about:license</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629912">629912</a></th>
+<td>4.0b11pre crash [@ NotificationController::TextEnumerator(nsPtrHashKey&lt;nsIContent&gt;*, void*)  ][@ nsI…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628890">628890</a></th>
+<td>mochitests-2: test_bug509055.html should not call SimpleTest.finish() before it actually has</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=614555">614555</a></th>
+<td>Blurred fonts on some websites</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=611485">611485</a></th>
+<td>Passing a Location object as a string argument of a cross-origin XPConnect call fails</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613915">613915</a></th>
+<td>[OOPP] Not enough storage is available to process this command [async plugins regression] (copy/past…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613541">613541</a></th>
+<td>Panorama closes browser window when closing "undo close group"</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629933">629933</a></th>
+<td>WebGL mochitest mistakenly disabled on Mac OS 10.6</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=603311">603311</a></th>
+<td>HashMgr::load_tables leaks dict when decode_flags fails</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623796">623796</a></th>
+<td>nsPNGDecoder.cpp:642:44: warning: passing NULL to non-pointer argument 2 of 'void MOZ_PNG_set_crc_ac…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=579767">579767</a></th>
+<td>Frame borders are sometimes not redrawn correctly after dragging them or resizing the window</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628922">628922</a></th>
+<td>layout should use cached nsIAccessibilityService</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613564">613564</a></th>
+<td>layout/style/crashtests/418007-1.xhtml | assertion count 1 is more than expected 0 assertions (with …</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629950">629950</a></th>
+<td>[@ nsIPresShell::RemoveRefreshObserverInternal(nsARefreshObserver*, mozFlushType)]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=619713">619713</a></th>
+<td>[SeaMonkey] mochitest-browser-chrome: 192 failures due to not supporting 'let' anymore/again</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628930">628930</a></th>
+<td>JSAutoRequest in Handle::ToJSObject is not necessary</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=410820">410820</a></th>
+<td>&lt;svg&gt; elements respond to mouse events when they should not</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626886">626886</a></th>
+<td>OS X should only use an arrow for the List all Tabs menu</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=603337">603337</a></th>
+<td>border-radius plus overflow!=visible forces grayscale font anti-aliasing</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629964">629964</a></th>
+<td>dom.disable_window_status_change unexpectedly set to false by default (DOM status text persists when…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=497869">497869</a></th>
+<td>Prohibit all FutureReservedWords (whether restricted to strict mode or not) as identifiers in strict…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625871">625871</a></th>
+<td>FF4 Audio Demo getting killed by CycleCollector pauses</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629969">629969</a></th>
+<td>Don't show status messages for XHR requests</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=504019">504019</a></th>
+<td>When hiding the program via 'Set program access and computer defaults' the Start Menu entries aren't…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=600280">600280</a></th>
+<td>[gfxInfo] Driver version and date are empty or null for some graphic cards under Windows 2000/XP</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=620762">620762</a></th>
+<td>Currently selected tab should be indicated in Panorama</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=590373">590373</a></th>
+<td>Crash mainly at startup [@ _VEC_memzero] with MS hotfix KB2454826 installed (automatic on 1/11/11), …</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=605409">605409</a></th>
+<td>Document load progress no longer accessible</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627938">627938</a></th>
+<td>Bad call to nsGlobalChromeWindow::CleanUp causes segfault</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613606">613606</a></th>
+<td>Tab view breaks the Aero glass effect</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627943">627943</a></th>
+<td>Compartment mismatch on exception in nsXPCWrappedJSClass::CallMethod</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628970">628970</a></th>
+<td>test_bug347174_write.html loads http://www.mozilla.org/images/header_logo.gif over the network</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=588011">588011</a></th>
+<td>"Bookmark All Tabs" should ignore App Tabs; hide the "Bookmark All Tabs" menu item unless the user i…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623853">623853</a></th>
+<td>Drag drop on background from expanded stack window causes abnormal behavior</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624880">624880</a></th>
+<td>JSD_GetScriptFunctionName should be renamed</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629971">629971</a></th>
+<td>Failure on shared non-libxul build: undefined reference to `ShInitialize'</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628980">628980</a></th>
+<td>browserscope richedit tests load http://www.google.com/intl/en_ALL/images/logo.gif over the network</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=590069">590069</a></th>
+<td>[Meta] Tweak Firefox menu a bit</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=608502">608502</a></th>
+<td>A couple of declarations dropped (background-image-opacity in tabview.css and size, position, width,…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629289">629289</a></th>
+<td>forcing value to bool (performance warning C4800)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628984">628984</a></th>
+<td>test_Microformats_hCalendar.html loads http://conferences.oreillynet.com/images/et2005/logo_sm.gif o…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628988">628988</a></th>
+<td>Fix-up symbol tables after elfhack</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=610557">610557</a></th>
+<td>Tab group resizer handle hover area is too small</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=630014">630014</a></th>
+<td>Crash Report [@ FontAliasKey::HashCode() ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=269568">269568</a></th>
+<td>crash when performing a drag and drop in various parts of the ui [@ JS_GetPrivate][@ nsWindow::OnDra…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=630019">630019</a></th>
+<td>After landing Bug 629538, ANGLE disabled</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629000">629000</a></th>
+<td>the text leaf accessible bound to the tree shouldn't be checked for relations</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629004">629004</a></th>
+<td>crash dimissing test pilot notification [@ nsViewManager::SetViewVisibility ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=601360">601360</a></th>
+<td>Workaround as much as possible to be able to build with Clang on Mac OS X</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=601304">601304</a></th>
+<td>border absent between browser content and add-ons bar</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626962">626962</a></th>
+<td>Implement empty transactions for GL</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622868">622868</a></th>
+<td>nsDocument.cpp: remove bug 595708 workaround, obsoleted by bug 610936</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622872">622872</a></th>
+<td>Broken experience with the following STR (leads to frozen UI)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=616729">616729</a></th>
+<td>rearranging tabs in panorama won't match tab ordering on tab bar</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=571610">571610</a></th>
+<td>"ASSERTION: Can't create document accessible!" in test_focus.html</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627998">627998</a></th>
+<td>Clothes are tigered in Google Bodybrowser using ANGLE</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626979">626979</a></th>
+<td>WebM video freeze picture when changing resolution</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=494121">494121</a></th>
+<td>When video skips duration scroll bar should move</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=608552">608552</a></th>
+<td>HTML5 video tag has memory leak when playing multiple videos in a loop</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629035">629035</a></th>
+<td>Crash Report [@ nsCSSFrameConstructor::SetUpDocElementContainingBlock(nsIContent*) ][@ nsCSSFrameCon…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=581937">581937</a></th>
+<td>"Recently closed tabs" list keep blank tabs</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=615475">615475</a></th>
+<td>Crash [@ nsTextFrame::GetTrimmedOffsets] [@ GetTrimmableWhitespaceCount] with a11y, text wrapping</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626997">626997</a></th>
+<td>Bogus resizer in maximized and fullscreen windows</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=582967">582967</a></th>
+<td>Harmony proxies: Object.getOwnPropertyDescriptor(proxy,name) cannot return undefined</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624952">624952</a></th>
+<td>Firefox 4.0 often shows all tab groups' tabs on startup</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625984">625984</a></th>
+<td>621918-2.svg doesn't seem to load its remote filter correctly</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625991">625991</a></th>
+<td>Crash when running Mozmill builds in offline mode [@ nsServerSocket::nsServerSocket]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=594999">594999</a></th>
+<td>"Security Manager vetoed action" exception when accessing any property of InstallTrigger</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613710">613710</a></th>
+<td>Cmd+. on OSX should cancel the dialog</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613861">613861</a></th>
+<td>[OOPP] Can't input chinese with scim on Flash Player 10.1</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=630096">630096</a></th>
+<td>Issues with release order in cairo_d2d_finish</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628051">628051</a></th>
+<td>Remove killNewTabGroup</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=589146">589146</a></th>
+<td>Firefox menu items should display sub-menu on a slightly delayed hover</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627309">627309</a></th>
+<td>Forward button wrongly clipped in RTL mode when using lightweight themes</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624998">624998</a></th>
+<td>drag and drop into group causes tab order in browser view to be messed up</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628071">628071</a></th>
+<td>Crash [@ `anonymous namespace''::OpenDatabaseHelper::GetSuccessResult(JSContext*, unsigned __int64*)…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=595310">595310</a></th>
+<td>Drag and drop of text into an input field does not remove placeholder</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=541039">541039</a></th>
+<td>WARNING: Bad accessible tree! [toolbarbutton combobox]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628627">628627</a></th>
+<td>Should display a message about --disable-elf-hack when elfhack fails</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628088">628088</a></th>
+<td>be smarter about pbuffers &amp; bind-to-texture in EGL</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=610682">610682</a></th>
+<td>Position of the reload button in the location bar in RTL firefox should be at the same side in all p…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628091">628091</a></th>
+<td>Type1 fonts in Firefox UI and on web pages show up as squares with hex codes</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626049">626049</a></th>
+<td>mingw build crashes in [@ EnumAllChildWindProc]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629655">629655</a></th>
+<td>JS_DumpHeap triggers JS_ASSERT(!rt-&gt;gcRunning)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=432524">432524</a></th>
+<td>[Minefield] Add-on icons should get their own buttons in Navigation Toolbar</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628110">628110</a></th>
+<td>Sunspider regression (350 -&gt; 380ms)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=551313">551313</a></th>
+<td>Gill Sans font displays incorrectly when using DirectWrite / Direct2D</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625043">625043</a></th>
+<td>MozTransform draws html elements over Firefox chrome if H/W acceleration enabled, as of 2010-10-22 n…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628117">628117</a></th>
+<td>nsAppRunner.cpp fails to compilr with dwrite disabled</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626071">626071</a></th>
+<td>Remove unused edit.png</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629145">629145</a></th>
+<td>test_reftests_with_caret.html doesn't actually test anything!</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=615834">615834</a></th>
+<td>warning: inline function ‘JSCompartment* JSObject::getCompartment() const’ used but never defined</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618907">618907</a></th>
+<td>location bar steals focus (or shares it?!) with a Google document</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629149">629149</a></th>
+<td>Crash in [ @ mozilla::WebGLTexture::NeedFakeBlack() ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=576931">576931</a></th>
+<td>"ASSERTION: Wrong children repair!" upon enabling accessibility</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627146">627146</a></th>
+<td>Bookmark panel doesn't open in the correct direction in rtl</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624041">624041</a></th>
+<td>enumerator should skip elements deleted via array_shift/array_reverse</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=619955">619955</a></th>
+<td>pointer-events is fairly broken on SVG text</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629172">629172</a></th>
+<td>[bidi] Switch direction not working in Firefox 4 beta 10</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=603721">603721</a></th>
+<td>Creating a new tab in a tab group which only contains app tabs sometimes causes the group to be dele…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628152">628152</a></th>
+<td>mozalloc_abort (possibly NS_RUNTIMEABORT) crashes in gfxFontGroup::BuildFontList [@ mozalloc_abort(c…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=563643">563643</a></th>
+<td>[Debug MacOSX SeaMonkey] leak test: "ASSERTION: Want to fire mutation events, but it's not safe" sin…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=604262">604262</a></th>
+<td>Crash [@ nsImageLoadingContent::OnStartDecode]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=620991">620991</a></th>
+<td>test_windowed_invalidate.html runs after mochitest shutdown, trips assertion / JS_Assert</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=579488">579488</a></th>
+<td>typing in text entry box on twitter is incredibly slow (again)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628165">628165</a></th>
+<td>Windows key should not be mapped to Panorama search</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=603594">603594</a></th>
+<td>No loading indicator for popup windows (or any window without tab bar)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=443853">443853</a></th>
+<td>ligatures enabled even when letter-spacing is non-zero</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628178">628178</a></th>
+<td>nsContentUtils.h doesn't need to include jsapi.h</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625118">625118</a></th>
+<td>[Intel card] Crash on one WebGL conformance test [@ ig4icd32.dll@0x5769e ] with OpenGL (8.15.10.2226…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=617953">617953</a></th>
+<td>Hunspell::analyze leaks p = pSMgr-&gt;suggest_morph()</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626148">626148</a></th>
+<td>Opening link in new tab from background window opens tab in foreground window</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624101">624101</a></th>
+<td>Make our canvases be moz-opaque</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=630280">630280</a></th>
+<td>Shiretoko nightlies still say 3.5.17pre</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=581096">581096</a></th>
+<td>aria-hidden should expose hidden attribute and fire attributechange events</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626157">626157</a></th>
+<td>Drag and drop is disabled by 3rd party flash website</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612846">612846</a></th>
+<td>Support some form of component alpha with D3D10 layers</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629233">629233</a></th>
+<td>Intermittent "TEST-UNEXPECTED-FAIL | chrome://mochitests/content/browser/browser/base/content/test/t…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=465395">465395</a></th>
+<td>Honor TEXT_DISABLE_OPTIONAL_LIGATURES in the Windows font backend</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625248">625248</a></th>
+<td>Empty layer transactions don't update mozPaintCount on windows</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=590325">590325</a></th>
+<td>TM: Global Object created in CentralizedAdminPrefManagerInit needs its own compartment</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=550392">550392</a></th>
+<td>"Assertion failure in -[NSNextStepFrame lockFocus]"  (NSInternalInconsistencyException)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=630265">630265</a></th>
+<td>Bookmarks menu broken in non browser windows</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=616363">616363</a></th>
+<td>Contents of Add-on Bar should be centered vertically</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625156">625156</a></th>
+<td>Tab Groups menu button does not toggle Tab View when browser window is out of focus</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625157">625157</a></th>
+<td>TM and interp disagree on function equality for null-closure</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628232">628232</a></th>
+<td>Add thumb support for elfhack</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628233">628233</a></th>
+<td>elhack breaks Android because linker assumes there is only one read-only PT_LOAD</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624727">624727</a></th>
+<td>Removed app tabs get overriden and reused in nsSessionStore::restoreWindow()</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=297484">297484</a></th>
+<td>Toggle "Page Style" to "No Style" and back to standard breaks display: table CSS property</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627213">627213</a></th>
+<td>nptest.rc doesn't compile with windres</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627099">627099</a></th>
+<td>Crash [@ nsDocAccessible::RecreateAccessible(nsINode*) ][@ nsDocAccessible::RecreateAccessible ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624110">624110</a></th>
+<td>TM: Crash [@ js::TraceRecorder::traverseScopeChain] or "Assertion failure: isObject()," or TraceReco…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629275">629275</a></th>
+<td>Recent nightly kills Win7 Taskbar Jumplists/Tasks</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=557598">557598</a></th>
+<td>Support strict-transport-security (STS) in private browsing mode</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613919">613919</a></th>
+<td>Make characterCount fast</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628258">628258</a></th>
+<td>inverted method arguments in treeView.js::_buildVisibleSection</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=501285">501285</a></th>
+<td>Really slow videos (1.8 frames/week) are boring to watch...</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=501289">501289</a></th>
+<td>Really fast videos (393 frames/millisecond) are exciting to watch...</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628267">628267</a></th>
+<td>Tab and content rendering faulty when performing tab functions (close, open, switch)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=621103">621103</a></th>
+<td>Should js::Anchor be JS::Anchor?</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=554544">554544</a></th>
+<td>Wikipedia crashes [@ nsDisplayTextDecoration::Paint(nsDisplayListBuilder*, nsIRenderingContext*) ] a…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=609843">609843</a></th>
+<td>Improve usage of Meego Input Method</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=463413">463413</a></th>
+<td>Firefox does not form ligatures in fonts under 20 pixels</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618039">618039</a></th>
+<td>Ogg Vorbis streams sampled at 8 kHz won't play using HTML5 audio</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628283">628283</a></th>
+<td>debug builds of elfhack fail test when linking with -z relro</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627262">627262</a></th>
+<td>Elements with opacity &lt; 1 are not printed on OS X</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622144">622144</a></th>
+<td>code must include string.h to use memset</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625217">625217</a></th>
+<td>security review for panorama</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626244">626244</a></th>
+<td>Intermittent browser_webconsole_bug_594477_clickable_output.js | found a network message followed by…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623176">623176</a></th>
+<td>Scripts don't work on Facebook</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627273">627273</a></th>
+<td>Implement (basic) tiling of (basic) ImageLayers</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=619959">619959</a></th>
+<td>pointer-events:visiblePainted (and others) on a zero opacity stroke should dispatch mouse events</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629324">629324</a></th>
+<td>Mac OS X Menubar is inactive</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628303">628303</a></th>
+<td>HOST_LDFLAGS is ignored</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625251">625251</a></th>
+<td>Assertion failure: strComp == right-&gt;asCell()-&gt;compartment() || right-&gt;asCell()-&gt;compartment() == rt…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625237">625237</a></th>
+<td>DecrementAnimationConsumers not always called in nsDocument::RemoveImage</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627288">627288</a></th>
+<td>Tabs restored from last session show stale cache data</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627301">627301</a></th>
+<td>Update Firefox Start Page design (with no string impact)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=388704">388704</a></th>
+<td>drop XPointer support</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627472">627472</a></th>
+<td>Change values for sessionstore.privacy_level_deferred to not save secure session cookies</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=607234">607234</a></th>
+<td>Remove "Release Notes" from the Help menu</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624227">624227</a></th>
+<td>Fennec crash in nsAString_internal::Assign [@ libc.so@0xf204 ][@ libc.so@0xf1e4 ][@ libc.so@0xf474 ]…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625253">625253</a></th>
+<td>Scrolling is  extremely slow and almost unusable on youtube. it is remarkable when  I scroll with ar…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627302">627302</a></th>
+<td>UMR [@ nsSVGMarkerElement::SetOrientToAngle] with InstallTrigger</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=619117">619117</a></th>
+<td>Invalidation problems on massivehealth.com</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=320116">320116</a></th>
+<td>extra space added when doing position:absolute and position:relative afterwards</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=606837">606837</a></th>
+<td>Gray out Panorama background on inactive windows</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=601723">601723</a></th>
+<td>Animated GIFs do not run when the page is reloaded.</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627324">627324</a></th>
+<td>Bottom toolbox border interrupts shadow on the sides</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=616061">616061</a></th>
+<td>Disable TLS in jemalloc on Android</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627332">627332</a></th>
+<td>add-ons compatibility check always presents "Minefield is working offline" dialog when network link …</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=591495">591495</a></th>
+<td>browser crash [@ SkypeFfComponent.dll@0xe481 ]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625290">625290</a></th>
+<td>Intermittent failure in layout/reftests/bugs/621918-2.svg</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627341">627341</a></th>
+<td>Wrong stack alignment in Convert_ascii_run call on mingw build.</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628333">628333</a></th>
+<td>Object.getOwnPropertyNames() does not returns non-enumerable names if given object is from other com…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=611984">611984</a></th>
+<td>Compilation failure on mingw in modules/libjar after bug 598416 landing.</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629394">629394</a></th>
+<td>add hypertext downcasting</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629396">629396</a></th>
+<td>failures in /tests/content/canvas/test/webgl/test_webgl_conformance_test_suite.html | Test expected …</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=616085">616085</a></th>
+<td>The test case for bug 508908 touches network, causes grief, lack of sleep, and tree closure</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627355">627355</a></th>
+<td>Crash at 0x12 [@ nsContentPermissionRequestProxy::GetUri ]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628382">628382</a></th>
+<td>Use 24 bit depth buffers where available</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627824">627824</a></th>
+<td>DirectWrite causes some text in menus to be cut off</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626338">626338</a></th>
+<td>Searchbox doesn't get the focus if it's activated using the search button</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612007">612007</a></th>
+<td>Block D3D9 layers on nvidia 6200 TC due to black &amp; white horizontal bars/glitches in page content ar…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=602792">602792</a></th>
+<td>dwrite initfontlist causes large IO load on cold startup</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626345">626345</a></th>
+<td>Assertion failure: !addPropShapeBefore, at jstracer.cpp:7226</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613040">613040</a></th>
+<td>Firefox add-ons manager kills sub-pixel anti-aliasing for all text, chrome and web</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=563891">563891</a></th>
+<td>ReferenceError: java is not defined in XUL window</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=608030">608030</a></th>
+<td>Disable MozAfterPaint for content by default</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=617076">617076</a></th>
+<td>Large white space under Add-on Manager when switching tabs and panes</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628410">628410</a></th>
+<td>Flip __exposedProps__ default for functions to default-safe</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627387">627387</a></th>
+<td>GUI bugs</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=593597">593597</a></th>
+<td>Design and implement updated CSS styling for Linux</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626368">626368</a></th>
+<td>Empty space left between tabs when closing multiple pages in Panorama view</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627393">627393</a></th>
+<td>[Accelerated Layers] Whole content area gets black for a second for pages that uses a dimming effect</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613058">613058</a></th>
+<td>nsIFrame::GetRenderedText may return wrong result on character change DOM mutations</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624758">624758</a></th>
+<td>crash [@nsSHistory::EvictContentViewersInRange] and [@nsSHistory::EvictGlobalContentViewer] don't ha…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628422">628422</a></th>
+<td>www.yaronet.com pages load forever</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625353">625353</a></th>
+<td>Vertically flipped (upside down) text when using "show image" on a WebGL canvas element</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629450">629450</a></th>
+<td>[si] Sinhala rendering is broken in Firefox 4.0 beta</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=606924">606924</a></th>
+<td>create complete accessible tree</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622288">622288</a></th>
+<td>CSS warnings: "Error in parsing value for 'height'/'width'. Declaration dropped."</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629640">629640</a></th>
+<td>remove rudiment aContainer argument of UpdateTreeInternal</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624931">624931</a></th>
+<td>Panorama zoom should use -moz-transform() for speed</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=621273">621273</a></th>
+<td>Internal URLs show up as results after RSS feed preview</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=597627">597627</a></th>
+<td>Adding and removing lines in big textareas is really slow</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628452">628452</a></th>
+<td>Invalid end of tag in bug445004.html</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623338">623338</a></th>
+<td>Block all old drivers for ATI, NVIDIA, and only whitelist the big three, to control risk</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=595691">595691</a></th>
+<td>TM: fix versioning across VM instances (i.e. setTimeout/let compilation failures)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=600812">600812</a></th>
+<td>Dragging tab between groups doesn't work</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624366">624366</a></th>
+<td>Assertion failure: compartment mismatched, at jscntxtinlines.h:541</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=610088">610088</a></th>
+<td>"Assertion failure: script-&gt;main &lt;= target &amp;&amp; target &lt; script-&gt;code + script-&gt;length" with evalcx, O…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=567029">567029</a></th>
+<td>Titles of tab items get clipped off within groups</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622326">622326</a></th>
+<td>Tab-modal confirm(): browser freeze</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622328">622328</a></th>
+<td>on window re-size part of Adobe's Acrobat Reader X plugin becomes transparent</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=614137">614137</a></th>
+<td>cache eval CSP check</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628477">628477</a></th>
+<td>nsCSSRendering.cpp:360: warning: ‘void PaintBackgroundLayer(...) declared ‘static’ but never defined</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618240">618240</a></th>
+<td>Crash Using window.showModalDialog() [null deref]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612098">612098</a></th>
+<td>Firefox 4.0b7 crash [@ nsTextFrame::GetTrimmedOffsets(nsTextFragment const*, int) ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625415">625415</a></th>
+<td>Position is lost after a few seconds</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=577325">577325</a></th>
+<td>function definition (statement) doesn't call preexisting setter on window, calling it does not invok…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625424">625424</a></th>
+<td>Dropping a tab onto the "undo close group" dialog adds the tab to that group</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625425">625425</a></th>
+<td>Don't re-share the plugin surfaces every time we flip front/back buffers (on Windows at least)</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627475">627475</a></th>
+<td>JM: Clean up OOM handling</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625284">625284</a></th>
+<td>Very high CPU usage on paper.smp.singtao.com</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625438">625438</a></th>
+<td>JM: watch handler is not always called</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629538">629538</a></th>
+<td>Upgrade ANGLE to r550</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=591652">591652</a></th>
+<td>Make the tab view (Panorama) background transparent to reveal glass (if enabled) on Windows</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=268069">268069</a></th>
+<td>copy/paste ordered lists should not have numbers</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=589608">589608</a></th>
+<td>Namoroka in 3.6 nightly UA string busts google jsapi</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=501545">501545</a></th>
+<td>Problems playing short Vorbis sounds</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627498">627498</a></th>
+<td>GL disabled on OS X, Android due to not calling Init</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=521863">521863</a></th>
+<td>Vorbis audio file with enormous hole in it refuses to play.</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=598829">598829</a></th>
+<td>Gap in media is incorrectly timestamped for AudioAvailable</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=579374">579374</a></th>
+<td>Tooltip border is inconsistent when one is used on a web element.</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=562998">562998</a></th>
+<td>Selecting commands from a bookmarks context menu while the window isn't active does nothing</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627511">627511</a></th>
+<td>Merge fx-sync to mozilla-central</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627516">627516</a></th>
+<td>regex JIT crash with --disable-methodjit</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626501">626501</a></th>
+<td>[OS/2] build break in nsprpub/configure.in after checkin for bug618789</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=623435">623435</a></th>
+<td>Rip out deprecated |RegExp.compile| builtin method</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=531280">531280</a></th>
+<td>ogg/theora/vorbis video stuck at start</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=621393">621393</a></th>
+<td>Getting GfxInfo driver date seems to fail if date has 8 digits</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=618322">618322</a></th>
+<td>Web Console: Inspect pop-up should have scroll bars and be wider</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=594771">594771</a></th>
+<td>animated gif doesn't reset when .src changed with javascript in firefox 4</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629590">629590</a></th>
+<td>Click events on new apple.com trigger a whole bunch of function decompilation</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626526">626526</a></th>
+<td>OOM error during JS_NewContext (jscntxt.cpp:1110)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628197">628197</a></th>
+<td>Implement do-not-track HTTP header</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628198">628198</a></th>
+<td>Implement UI for do-not-track HTTP header</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629603">629603</a></th>
+<td>Merge fx-sync to mozilla-central</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=599909">599909</a></th>
+<td>to-be-reloaded tabs don't show up in switch-to-tab</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629611">629611</a></th>
+<td>add font cache size to about:support</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629612">629612</a></th>
+<td>non-libxul builds broken because of incorrect code committed in bug 628922</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=611986">611986</a></th>
+<td>nsWindow.cpp compilation failure on mingw after landing bug 586228</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628593">628593</a></th>
+<td>elfhack fails to build on Fedora 14</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628595">628595</a></th>
+<td>Warnings when building elfhack</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=586612">586612</a></th>
+<td>HTML5 &lt;audio&gt;: no playback of WAV data URI if shorter than 370ms</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628603">628603</a></th>
+<td>Crash in nsDocAccessible::CacheChildrenInSubtree [@ nsAccessNode::IsContent() ]</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629628">629628</a></th>
+<td>Intermittent TEST-UNEXPECTED-FAIL | /tests/docshell/test/test_bug344861.html | window.open has corre…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628606">628606</a></th>
+<td>elfhack causes bustage since ARM target may not return "arm"</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=626667">626667</a></th>
+<td>deal with cached accessible tree only</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628612">628612</a></th>
+<td>Facebook Unable to read messages</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=612232">612232</a></th>
+<td>Gray box appears at the bottom of Panorama. when enter Panorama</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628618">628618</a></th>
+<td>elfhack broken with some versions of binutils gold</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=609163">609163</a></th>
+<td>Get rid of Item.locked</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628620">628620</a></th>
+<td>intermittent timeout in content/test/tabview/browser_tabview_bug606657.js</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624531">624531</a></th>
+<td>IndexedDB: Change the enum values of IDBTransaction to match spec</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624533">624533</a></th>
+<td>IndexedDB: Allow IDBTransaction.abort() to be called any time before it completes</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625559">625559</a></th>
+<td>catch escaping chrome eval with wrappers</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=621464">621464</a></th>
+<td>Inconsistency with E4X XML.replace</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627609">627609</a></th>
+<td>Empty group matching fails on /((a|)+b)+/.exec('bb')</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625562">625562</a></th>
+<td>Intermittent test_a_href_01.xhtml | [SimpleTest/SimpleTest.js, window.onerror] An error occurred - f…</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627614">627614</a></th>
+<td>PluginModuleChild init list out of order - "PluginModuleChild.h:277: warning: ‘mozilla::plugins::Plu…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=613280">613280</a></th>
+<td>Cannot copy result text in console</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624549">624549</a></th>
+<td>Overly aggressive calls to nsJSContext::MaybeCC() cause pauses in Flight of the Navigator</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628209">628209</a></th>
+<td>Unsigned typed arrays half the speed of regular arrays for simple integer arithmetic</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=597931">597931</a></th>
+<td>New CSS' Item bounds incorrectly include highlighting</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627628">627628</a></th>
+<td>be smarter about dispatching starved paints</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628654">628654</a></th>
+<td>Show connecting / waiting / loading status messages in small overlay on top of content at bottom of …</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=586671">586671</a></th>
+<td>AffixMgr::parse_convtable leaks pattern/pattern2 if it can't create both</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628658">628658</a></th>
+<td>[D3D9] tabbar is empty (not painted), toolbox becomes black, tabs disappear</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=620472">620472</a></th>
+<td>"Work offline" shouldn't be managed by Firefox, only by the user</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624572">624572</a></th>
+<td>Abort in content process receiving PAudio:SampleOffsetUpdate: "Error: Route error: message sent to u…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=586686">586686</a></th>
+<td>Hunspell::spellml + Hunspell::get_xml_list are messy</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=619455">619455</a></th>
+<td>WebGL shader hang during compilation [@readCPPline]</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=606145">606145</a></th>
+<td>Compress/pack relocations in ELF binaries</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=606148">606148</a></th>
+<td>When Panorama starts to stack tabs, it becomes extremely slow</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=609227">609227</a></th>
+<td>Cannot print / print-preview messages from a google webmail account</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=624588">624588</a></th>
+<td>Change Panorama shortcut to Ctrl+Shift+E (Shift-Cmd-E on Mac)</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627661">627661</a></th>
+<td>RGBA surface clear was broken in 593733</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=629923">629923</a></th>
+<td>statuspanel shouldn't inherit text-shadow</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=539605">539605</a></th>
+<td>Seek forward small amount of time optimization</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=600025">600025</a></th>
+<td>CSS timing attack on global history still possible with MozAfterPaint</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=222176">222176</a></th>
+<td>Animated GIF loops 1 time too many</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=601060">601060</a></th>
+<td>Hovering links shows "moz-action:switchtab" text and hides "Switch to tab:" label in URL bar when it…</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=591846">591846</a></th>
+<td>Non-std ocap-breaking properties on built-ins can't be neutered.</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=490475">490475</a></th>
+<td>fontconfig render settings affect spacing of characters when printing</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=627693">627693</a></th>
+<td>GfxInfo.cpp fails to compile on mingw after landing bug 590373</td>
+</tr>
+<tr class="even">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=625652">625652</a></th>
+<td>make sure accessible tree is correct when rendered text is changed</td>
+</tr>
+<tr class="odd">
+<th><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=606200">606200</a></th>
+<td>NVIDIA driver crash [@ nvwgf2um.dll@0x45e14 ] in CD3D10Device::DestroyDriverInstance</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="release-notes-footer"></div>
+</div>
+</div><!-- end #doc -->
+</div><!-- end #wrapper -->
+</div><!-- end #outer-wrapper -->
+<div class="clear"></div>
+<!-- start #footer -->
+<div id="sub-footer">
+<div id="sub-footer-contents">
+<h3>Let’s be <span>friends!</span></h3>
+<ul>
+<li id="footer-twitter">
+<a href="http://twitter.com/firefox">Twitter</a>
+</li>
+<li id="footer-facebook">
+<a href="http://facebook.com/Firefox">Facebook</a>
+</li>
+<li id="footer-affiliates">
+<a href="https://affiliates.mozilla.org/">Firefox Affiliates</a>
+</li>
+</ul>
+<div id="sub-footer-newsletter">
+<div class="newsletter-signup " id="newsletter">
+<div class="container">
+<form action="https://www.mozilla.org/en-US/firefox/4.0b11/releasenotes/buglist.html#subscribe-form" class="email-form inline-email-form" method="post">
+<input name="target" type="hidden" value="inline"/>
+<input name="mozilla-and-you" type="hidden" value="Y"/>
+<ul class="">
+<li class="open-pane" data-wt_ti="" data-wt_uri="">
+<h3>Get Monthly News</h3>
+<div class="email-field field">
+<span class="error-wrapper ">
+<input class="email placeholder" name="email" placeholder="Your Email Address" type="email" value="">
+</input></span>
+<a class="email-open" href="http://www.mozilla.org/en-US/newsletter/">»</a>
+</div>
+</li>
+<li class="form-pane">
+<div class="form-details">
+<div class="field country-field">
+<select class="country" name="country">
+<option value="">Select country</option>
+<option value="af">Afghanistan</option>
+<option value="al">Albania</option>
+<option value="dz">Algeria</option>
+<option value="as">American Samoa</option>
+<option value="ad">Andorra</option>
+<option value="ao">Angola</option>
+<option value="ai">Anguilla</option>
+<option value="aq">Antarctica</option>
+<option value="ag">Antigua and Barbuda</option>
+<option value="ar">Argentina</option>
+<option value="am">Armenia</option>
+<option value="aw">Aruba</option>
+<option value="au">Australia</option>
+<option value="at">Austria</option>
+<option value="az">Azerbaijan</option>
+<option value="bs">Bahamas</option>
+<option value="bh">Bahrain</option>
+<option value="bd">Bangladesh</option>
+<option value="bb">Barbados</option>
+<option value="by">Belarus</option>
+<option value="be">Belgium</option>
+<option value="bz">Belize</option>
+<option value="bj">Benin</option>
+<option value="bm">Bermuda</option>
+<option value="bt">Bhutan</option>
+<option value="bo">Bolivia</option>
+<option value="ba">Bosnia and Herzegovina</option>
+<option value="bw">Botswana</option>
+<option value="bv">Bouvet Island</option>
+<option value="br">Brazil</option>
+<option value="io">British Indian Ocean Territory</option>
+<option value="vg">British Virgin Islands</option>
+<option value="bn">Brunei Darussalam</option>
+<option value="bg">Bulgaria</option>
+<option value="bf">Burkina Faso</option>
+<option value="bi">Burundi</option>
+<option value="kh">Cambodia</option>
+<option value="cm">Cameroon</option>
+<option value="ca">Canada</option>
+<option value="cv">Cape Verde</option>
+<option value="ky">Cayman Islands</option>
+<option value="cf">Central African Republic</option>
+<option value="td">Chad</option>
+<option value="cl">Chile</option>
+<option value="cn">China</option>
+<option value="cx">Christmas Island</option>
+<option value="cc">Cocos (Keeling) Islands</option>
+<option value="co">Colombia</option>
+<option value="km">Comoros</option>
+<option value="cg">Congo-Brazzaville</option>
+<option value="cd">Congo-Kinshasa</option>
+<option value="ck">Cook Islands</option>
+<option value="cr">Costa Rica</option>
+<option value="hr">Croatia</option>
+<option value="cu">Cuba</option>
+<option value="cy">Cyprus</option>
+<option value="cz">Czech Republic</option>
+<option value="dk">Denmark</option>
+<option value="dj">Djibouti</option>
+<option value="dm">Dominica</option>
+<option value="do">Dominican Republic</option>
+<option value="ec">Ecuador</option>
+<option value="eg">Egypt</option>
+<option value="sv">El Salvador</option>
+<option value="gq">Equatorial Guinea</option>
+<option value="er">Eritrea</option>
+<option value="ee">Estonia</option>
+<option value="et">Ethiopia</option>
+<option value="fk">Falkland Islands (Malvinas)</option>
+<option value="fo">Faroe Islands</option>
+<option value="fj">Fiji</option>
+<option value="fi">Finland</option>
+<option value="fr">France</option>
+<option value="gf">French Guiana</option>
+<option value="pf">French Polynesia</option>
+<option value="tf">French Southern Territories</option>
+<option value="ga">Gabon</option>
+<option value="gm">Gambia</option>
+<option value="ge">Georgia</option>
+<option value="de">Germany</option>
+<option value="gh">Ghana</option>
+<option value="gi">Gibraltar</option>
+<option value="gr">Greece</option>
+<option value="gl">Greenland</option>
+<option value="gd">Grenada</option>
+<option value="gp">Guadeloupe</option>
+<option value="gu">Guam</option>
+<option value="gt">Guatemala</option>
+<option value="gg">Guernsey</option>
+<option value="gn">Guinea</option>
+<option value="gw">Guinea-Bissau</option>
+<option value="gy">Guyana</option>
+<option value="ht">Haiti</option>
+<option value="hm">Heard Island and McDonald Islands</option>
+<option value="hn">Honduras</option>
+<option value="hk">Hong Kong</option>
+<option value="hu">Hungary</option>
+<option value="is">Iceland</option>
+<option value="in">India</option>
+<option value="id">Indonesia</option>
+<option value="ir">Iran</option>
+<option value="iq">Iraq</option>
+<option value="ie">Ireland</option>
+<option value="im">Isle of Man</option>
+<option value="il">Israel</option>
+<option value="it">Italy</option>
+<option value="ci">Ivory Coast</option>
+<option value="jm">Jamaica</option>
+<option value="jp">Japan</option>
+<option value="je">Jersey</option>
+<option value="jo">Jordan</option>
+<option value="kz">Kazakhstan</option>
+<option value="ke">Kenya</option>
+<option value="ki">Kiribati</option>
+<option value="kw">Kuwait</option>
+<option value="kg">Kyrgyzstan</option>
+<option value="la">Laos</option>
+<option value="lv">Latvia</option>
+<option value="lb">Lebanon</option>
+<option value="ls">Lesotho</option>
+<option value="lr">Liberia</option>
+<option value="ly">Libya</option>
+<option value="li">Liechtenstein</option>
+<option value="lt">Lithuania</option>
+<option value="lu">Luxembourg</option>
+<option value="mo">Macao</option>
+<option value="mk">Macedonia, F.Y.R. of</option>
+<option value="mg">Madagascar</option>
+<option value="mw">Malawi</option>
+<option value="my">Malaysia</option>
+<option value="mv">Maldives</option>
+<option value="ml">Mali</option>
+<option value="mt">Malta</option>
+<option value="mh">Marshall Islands</option>
+<option value="mq">Martinique</option>
+<option value="mr">Mauritania</option>
+<option value="mu">Mauritius</option>
+<option value="yt">Mayotte</option>
+<option value="mx">Mexico</option>
+<option value="fm">Micronesia</option>
+<option value="md">Moldova</option>
+<option value="mc">Monaco</option>
+<option value="mn">Mongolia</option>
+<option value="me">Montenegro</option>
+<option value="ms">Montserrat</option>
+<option value="ma">Morocco</option>
+<option value="mz">Mozambique</option>
+<option value="mm">Myanmar</option>
+<option value="na">Namibia</option>
+<option value="nr">Nauru</option>
+<option value="np">Nepal</option>
+<option value="nl">Netherlands</option>
+<option value="an">Netherlands Antilles</option>
+<option value="nc">New Caledonia</option>
+<option value="nz">New Zealand</option>
+<option value="ni">Nicaragua</option>
+<option value="ne">Niger</option>
+<option value="ng">Nigeria</option>
+<option value="nu">Niue</option>
+<option value="nf">Norfolk Island</option>
+<option value="kp">North Korea</option>
+<option value="mp">Northern Mariana Islands</option>
+<option value="no">Norway</option>
+<option value="ps">Occupied Palestinian Territory</option>
+<option value="om">Oman</option>
+<option value="pk">Pakistan</option>
+<option value="pw">Palau</option>
+<option value="pa">Panama</option>
+<option value="pg">Papua New Guinea</option>
+<option value="py">Paraguay</option>
+<option value="pe">Peru</option>
+<option value="ph">Philippines</option>
+<option value="pn">Pitcairn</option>
+<option value="pl">Poland</option>
+<option value="pt">Portugal</option>
+<option value="pr">Puerto Rico</option>
+<option value="qa">Qatar</option>
+<option value="re">Reunion</option>
+<option value="ro">Romania</option>
+<option value="ru">Russian Federation</option>
+<option value="rw">Rwanda</option>
+<option value="bl">Saint Barthélemy</option>
+<option value="sh">Saint Helena</option>
+<option value="kn">Saint Kitts and Nevis</option>
+<option value="lc">Saint Lucia</option>
+<option value="mf">Saint Martin</option>
+<option value="pm">Saint Pierre and Miquelon</option>
+<option value="vc">Saint Vincent and the Grenadines</option>
+<option value="ws">Samoa</option>
+<option value="sm">San Marino</option>
+<option value="st">Sao Tome and Principe</option>
+<option value="sa">Saudi Arabia</option>
+<option value="sn">Senegal</option>
+<option value="rs">Serbia</option>
+<option value="sc">Seychelles</option>
+<option value="sl">Sierra Leone</option>
+<option value="sg">Singapore</option>
+<option value="sk">Slovakia</option>
+<option value="si">Slovenia</option>
+<option value="sb">Solomon Islands</option>
+<option value="so">Somalia</option>
+<option value="za">South Africa</option>
+<option value="gs">South Georgia and the South Sandwich Islands</option>
+<option value="kr">South Korea</option>
+<option value="es">Spain</option>
+<option value="lk">Sri Lanka</option>
+<option value="sd">Sudan</option>
+<option value="sr">Suriname</option>
+<option value="sj">Svalbard and Jan Mayen</option>
+<option value="sz">Swaziland</option>
+<option value="se">Sweden</option>
+<option value="ch">Switzerland</option>
+<option value="sy">Syria</option>
+<option value="tw">Taiwan</option>
+<option value="tj">Tajikistan</option>
+<option value="tz">Tanzania</option>
+<option value="th">Thailand</option>
+<option value="tl">Timor-Leste</option>
+<option value="tg">Togo</option>
+<option value="tk">Tokelau</option>
+<option value="to">Tonga</option>
+<option value="tt">Trinidad and Tobago</option>
+<option value="tn">Tunisia</option>
+<option value="tr">Turkey</option>
+<option value="tm">Turkmenistan</option>
+<option value="tc">Turks and Caicos Islands</option>
+<option value="tv">Tuvalu</option>
+<option value="ae">U.A.E.</option>
+<option value="vi">U.S. Virgin Islands</option>
+<option value="ug">Uganda</option>
+<option value="ua">Ukraine</option>
+<option value="gb">United Kingdom</option>
+<option selected="selected" value="us">United States</option>
+<option value="um">United States Minor Outlying Islands</option>
+<option value="uy">Uruguay</option>
+<option value="uz">Uzbekistan</option>
+<option value="vu">Vanuatu</option>
+<option value="va">Vatican City</option>
+<option value="ve">Venezuela</option>
+<option value="vn">Vietnam</option>
+<option value="wf">Wallis and Futuna</option>
+<option value="eh">Western Sahara</option>
+<option value="ye">Yemen</option>
+<option value="zm">Zambia</option>
+<option value="zw">Zimbabwe</option>
+<option value="ax">Åland Islands</option>
+</select>
+</div>
+<div class="field format-field">
+<div class="field-radios">
+<span class="radio-wrapper"><input checked="checked" class="html-format" id="inline-html-format" name="format" type="radio" value="html"/></span>
+<label for="inline-html-format">HTML</label>
+<span class="radio-wrapper"><input class="text-format" id="inline-text-format" name="format" type="radio" value="text"/></span>
+<label for="inline-text-format">Text</label> 
+              </div>
+</div>
+<div class="privacy-field">
+<label class="privacy-check-label" for="inline-privacy-check">
+<span class="error-wrapper ">
+<input class="privacy-check" id="inline-privacy-check" name="privacy" type="checkbox">
+</input></span>
+                I agree to the <a href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>
+</label>
+</div>
+<input class="subscribe" name="submit" type="submit" value="Sign me up!">
+<p class="footnote">We will only send you Mozilla-related information.</p>
+</input></div>
+</li>
+<li class="success-pane">
+<h3>Thanks for Subscribing!</h3>
+<p>We look forward to soon begin sharing tips &amp; tricks on getting the most out of Firefox, as well as exciting news about Mozilla and how we’re working to create a better Web.</p>
+</li>
+</ul>
+</form>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-contents" role="contentinfo">
+<div id="footer-right">
+<form dir="ltr" id="lang_form" method="get"><div>
+<label for="flang">Other Languages</label>
+<select dir="ltr" id="flang" name="flang" onchange="this.form.submit()"> <option value="ach">Acholi</option>
+<option value="af">Afrikaans</option>
+<option value="an">Aragonés</option>
+<option value="ak">Akan</option>
+<option value="ar">عربي</option>
+<option value="as">অসমীয়া</option>
+<option value="ast">Asturianu</option>
+<option value="be">Беларуская</option>
+<option value="bg">Български</option>
+<option value="bn-BD">বাংলা (বাংলাদেশ)</option>
+<option value="bn-IN">বাংলা</option>
+<option value="br">Brezhoneg</option>
+<option value="bs">Bosanski</option>
+<option value="ca">Català</option>
+<option value="cs">Čeština</option>
+<option value="csb">Kaszëbsczi</option>
+<option value="cy">Cymraeg</option>
+<option value="da">Dansk</option>
+<option value="de">Deutsch</option>
+<option value="el">Ελληνικά</option>
+<option value="en-ZA">English (South African)</option>
+<option value="eo">Esperanto</option>
+<option value="es-AR">Español (Argentina)</option>
+<option value="es-CL">Español (Chile)</option>
+<option value="es-ES">Español (España)</option>
+<option value="es-MX">Español (México)</option>
+<option value="et">Eesti keel</option>
+<option value="eu">Euskara</option>
+<option value="en-GB">English (British)</option>
+<option selected="selected" value="en-US">English (US)</option>
+<option value="fa">فارسی</option>
+<option value="ff">Pulaar-Fulfulde</option>
+<option value="fi">Suomi</option>
+<option value="fr">Français</option>
+<option value="fy-NL">Frysk</option>
+<option value="ga-IE">Gaeilge</option>
+<option value="gd">Gàidhlig</option>
+<option value="gl">Galego</option>
+<option value="gu-IN">ગુજરાતી</option>
+<option value="he">עברית</option>
+<option value="hi-IN">हिन्दी (भारत)</option>
+<option value="hy-AM">Հայերեն</option>
+<option value="hr">Hrvatski</option>
+<option value="hu">magyar</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="is">Íslenska</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ka">ქართული ენა</option>
+<option value="kk">Қазақ</option>
+<option value="kn">闠늨跠늨</option>
+<option value="km">ភាសាខ្មែរ</option>
+<option value="ko">한국어</option>
+<option value="ku">Kurdî</option>
+<option value="lg">Luganda</option>
+<option value="lij">Ligure</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviešu</option>
+<option value="mk">Македонски</option>
+<option value="ml">മലയാളം</option>
+<option value="mn">Монгол</option>
+<option value="mr">मराठी</option>
+<option value="ms">Bahasa Malaysia</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk bokmål</option>
+<option value="nso">Sesotho sa leboa</option>
+<option value="oc">occitan (lengadocian)</option>
+<option value="pa-IN">ਪੰਜਾਬੀ</option>
+<option value="pl">Polski</option>
+<option value="pt-BR">Português (do Brasil)</option>
+<option value="pt-PT">Português (Europeu)</option>
+<option value="rm">Rumantsch</option>
+<option value="ro">Română</option>
+<option value="ru">Русский</option>
+<option value="sk">Slovenčina</option>
+<option value="si">සිංහල</option>
+<option value="sl">slovensko</option>
+<option value="son">Soŋay</option>
+<option value="sq">Shqip</option>
+<option value="sr">Српски</option>
+<option value="sv-SE">Svenska</option>
+<option value="ta">தமிழ்</option>
+<option value="ta-LK">Tamil (Sri Lanka)</option>
+<option value="te">ꓠ놆닠놁韠놁</option>
+<option value="th">ภาษาไทย</option>
+<option value="tr">Türkçe</option>
+<option value="uk">Українська</option>
+<option value="vi">Tiếng Việt</option>
+<option value="zh-CN">中文 (简体)</option>
+<option value="zh-TW">正體中文 (繁體)</option>
+<option value="zu">isiZulu</option>
+</select>
+<noscript>
+<div><input id="lang_submit" type="submit" value="Go"/></div>
+</noscript>
+</div></form>
+</div>
+<h3 id="footer-logo"><a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Firefox</a></h3>
+<!-- start menu #footer-menu -->
+<div id="footer-menu" role="navigation">
+<ul>
+<li><a href="http://www.mozilla.org/en-US/firefox/features/">Desktop</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/features/">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/">Technology</a></li><li><a href="http://www.mozilla.org/en-US/firefox/security/">Privacy &amp; Security</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/mobile/">Mobile</a><ul><li><a href="http://www.mozilla.org/en-US/mobile/">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured">Customize</a></li><li><a href="http://www.mozilla.org/en-US/mobile/faq/">FAQ</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/channel/">Releases</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/channel/">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/">Firefox</a></li><li><a href="http://www.mozilla.org/en-US/firefox/organizations/">Firefox for Organizations</a></li></ul></li>
+<li><a href="https://addons.mozilla.org/">Add-ons</a><ul><li><a href="https://addons.mozilla.org/firefox/">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/">Mobile Add-ons</a></li><li><a href="http://www.getpersonas.com/">Personas</a></li></ul></li>
+<li><a href="http://support.mozilla.org/">Support</a><ul><li><a href="http://support.mozilla.org/en-US/kb/">Desktop Support</a></li><li><a href="http://support.mozilla.org/mobile">Mobile Support</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/about/">About</a><ul><li><a href="http://blog.mozilla.com/">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/">About Firefox</a></li><li><a href="http://www.mozilla.org/join">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html">Partnerships</a></li><li><a href="http://www.mozilla.org/en-US/about/contact.html">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #footer-menu -->
+<div id="copyright">
+<p id="footer-links"><a href="http://www.mozilla.org/en-US/privacy-policy.html">Privacy Policy</a>  | 
+			<a href="http://www.mozilla.org/en-US/about/legal.html">Legal Notices</a>  | 
+                        <a href="http://www.mozilla.org/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a></p>
+<p>Except where otherwise <a href="http://www.mozilla.org/en-US/about/legal.html#site">noted</a>, content on this site is licensed under the <br/><a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.</p>
+</div>
+</div>
+</div>
+<!-- end #footer -->
+<script type="text/javascript">
+function dcsMultiTrack() {
+    return false;
+}
+</script>
+<script src="../../../tabzilla/media/js/tabzilla.js"></script>
+<script>
+    // <![CDATA[
+
+    // Firefox 3.x update notice. Only show for Firefox 3.x, don't show for
+    // cousins that say they are Firefox 3.x.
+    var isOldVersion = (navigator.userAgent &&
+        navigator.userAgent.indexOf('Firefox/3.') !== -1 &&
+        navigator.userAgent.indexOf('Camino') === -1 &&
+        navigator.userAgent.indexOf('SeaMonkey') === -1);
+
+    if (isOldVersion) {
+        var oldOnload = window.onload;
+        window.onload = function() {
+            var script = document.createElement('script');
+            script.src = '/js/update-v3.js';
+            document.body.appendChild(script);
+            if (typeof oldOnload == 'function') {
+                oldOnload();
+            }
+        }
+    }
+
+    // ]]>
+    </script>
+</body>
+</html>

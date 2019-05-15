@@ -1,0 +1,1027 @@
+<!DOCTYPE HTML>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta content="width=1024" name="viewport">
+<title>Mozilla Firefox for Android Release Notes</title>
+<meta content="/img/firefox-100.jpg?2013-06" name="og:image">
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBlack';
+        src: url('../../../../img/fonts/MetaWebPro-Black.eot');
+        src: local('☺'), url('../../../../img/fonts/MetaWebPro-Black.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<link href="../../../../includes/min/min.css%3Fg=css&amp;_d=20120207.css" rel="stylesheet">
+<link href="../../../../tabzilla/media/css/tabzilla.css" rel="stylesheet">
+<script src="../../../../includes/min/min.js%3Fg=js"></script>
+<link href="../../../../style/covehead/mobile-release-notes.css" media="screen" rel="stylesheet"/>
+<link href="../../../../style/covehead/mozilla-expanders.css" media="screen" rel="stylesheet"/>
+<script src="../../../../js/mozilla-expanders.js.html"></script>
+<style>
+#download #update-notice { display: none; }
+
+#update-notice {
+    background: rgb(20,20,20);
+    background: rgba(38, 38, 38, 0.95);
+    border-bottom: 2px solid #686868;
+    text-shadow: 0 1px #000;
+    -moz-text-shadow: 0 1px #000;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    z-index: 99;
+    line-height: 1;
+}
+
+#update-notice.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#update-notice .container {
+    text-align: left;
+    padding: 15px 10px 15px 140px;
+    width: 800px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(../../../../img/covehead/firefox/update-creature.png) 0 100% no-repeat;
+    position: relative;
+}
+
+#update-notice .message {
+    float: left;
+    width: 600px;
+}
+
+#update-notice h2 {
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 18px;
+    font-style: normal;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+#update-notice p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+#update-notice p.action {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    float: right;
+}
+
+#home #update-notice p.action {
+    display: none;
+}
+
+#update-notice p.action span {
+    display: block;
+}
+
+#update-notice p.action span a {
+    color: #6ba4ff;
+}
+
+#update-notice .button {
+    display: inline-block;
+    padding: 6px 16px 8px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1),
+                0 -2px rgba(0, 0, 0, 0.1) inset;
+    background:-moz-linear-gradient(top, #84C63C, #489615);
+    background-color: #489615;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+}
+
+#update-notice .close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(../../../../img/covehead/firefox/update-close.png) 0 0 no-repeat;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+#update-notice .close:hover,
+#update-notice .close:focus {
+    background-position: -25px 0;
+}
+
+</style>
+<script>
+var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-36116321-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    var prefix = ('https:' == document.location.protocol ? 'https://ssl' :
+                  'http://www');
+    ga.src = prefix + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</link></link></meta></meta></meta><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="firefox-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2014-02-12.</div>
+<script>// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+    document.body.className = 'js';
+} else {
+    document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+    document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+    document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+    document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="index.html#nav-main">skip to Navigation</a>
+<a href="index.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1>
+<a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Mozilla Firefox</a>
+</h1>
+<a class="mozilla" href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+<!-- start menu #nav-main -->
+<div id="nav-main" role="navigation">
+<ul role="menubar">
+<li class="first" id="nav-main-features"><a aria-haspopup="true" aria-owns="nav-main-features-submenu" href="http://www.mozilla.org/en-US/firefox/features/" tabindex="0">Desktop</a><ul aria-expanded="false" id="nav-main-features-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/features/" tabindex="-1">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/" tabindex="-1">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/" tabindex="-1">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/" tabindex="-1">Technology</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/security/" tabindex="-1">Privacy &amp; Security</a></li></ul></li>
+<li id="nav-main-mobile"><a aria-haspopup="true" aria-owns="nav-main-mobile-submenu" href="http://www.mozilla.org/en-US/mobile/" tabindex="0">Mobile</a><ul aria-expanded="false" id="nav-main-mobile-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/mobile/" tabindex="-1">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/" tabindex="-1">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured" tabindex="-1">Customize</a></li><li class="last"><a href="http://www.mozilla.org/en-US/mobile/faq/" tabindex="-1">FAQ</a></li></ul></li>
+<li id="nav-main-releases"><a aria-haspopup="true" aria-owns="nav-main-releases-submenu" href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="0">Releases</a><ul aria-expanded="false" id="nav-main-releases-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="-1">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/" tabindex="-1">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/" tabindex="-1">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/" tabindex="-1">Firefox</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/organizations/" tabindex="-1">Firefox for Organizations</a></li></ul></li>
+<li id="nav-main-addons"><a aria-haspopup="true" aria-owns="nav-main-addons-submenu" href="https://addons.mozilla.org/" tabindex="0">Add-ons</a><ul aria-expanded="false" id="nav-main-addons-submenu"><li class="first"><a href="https://addons.mozilla.org/firefox/" tabindex="-1">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/" tabindex="-1">Mobile Add-ons</a></li><li class="last"><a href="http://www.getpersonas.com/" tabindex="-1">Personas</a></li></ul></li>
+<li id="nav-main-support"><a aria-haspopup="true" aria-owns="nav-main-support-submenu" href="http://support.mozilla.org/" tabindex="0">Support</a><ul aria-expanded="false" id="nav-main-support-submenu"><li class="first"><a href="http://support.mozilla.org/en-US/kb/" tabindex="-1">Desktop Support</a></li><li class="last"><a href="http://support.mozilla.org/mobile" tabindex="-1">Mobile Support</a></li></ul></li>
+<li class="last" id="nav-main-about"><a aria-haspopup="true" aria-owns="nav-main-about-submenu" href="http://www.mozilla.org/en-US/firefox/about/" tabindex="0">About</a><ul aria-expanded="false" id="nav-main-about-submenu"><li class="first"><a href="http://blog.mozilla.com/" tabindex="-1">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/" tabindex="-1">About Firefox</a></li><li><a href="http://www.mozilla.org/join" tabindex="-1">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/" tabindex="-1">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/" tabindex="-1">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/" tabindex="-1">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html" tabindex="-1">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html" tabindex="-1">Partnerships</a></li><li class="last"><a href="http://www.mozilla.org/en-US/about/contact.html" tabindex="-1">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #nav-main -->
+</div>
+</div>
+<!-- end #header -->
+<!-- start breadcrumbs #breadcrumbs -->
+<p id="breadcrumbs"><a class="home" href="http://www.mozilla.org/en-US/">Home</a> <b>»</b>
+<a href="http://www.mozilla.org/en-US/mobile">Mobile</a> <b>»</b>
+<span>Release Notes</span>
+</p>
+<!-- end breadcrumbs #breadcrumbs -->
+<div id="main-feature">
+<h2>Firefox for Android<span>Release Notes</span></h2>
+<p>
+      Take your Firefox anywhere. Firefox for Android is
+      built on the same technology platform as Firefox for desktop computers, just
+      optimized for browsing on a mobile device.  Check out the new
+      and improved features, known issues, and frequently-asked questions.
+    </p>
+<p>
+      As always, you’re encouraged to <a href="http://input.mozilla.com/ideas">provide
+      suggestions</a> to improve Firefox for
+      mobile or <a href="https://bugzilla.mozilla.org/">file a bug  in Bugzilla</a>.
+
+If you need help, go to the <a href="http://support.mozilla.org/mobile">Firefox Mobile support website</a>.
+    </p>
+</div>
+<div id="main-content">
+<div id="sidebar">
+<div id="get-involved">
+<h3>Get Involved</h3>
+<p>Want to become part of the Mozilla project?</p>
+<a href="http://www.mozilla.org/contribute/">Find out how you can help</a>
+</div>
+</div>
+<div class="expander expander-odd" id="whatsnew2">
+<h3 class="expander-header">What's New in Firefox for Android </h3>
+<div class="expander-content">
+<p>
+The latest version of Firefox for Android has the following changes:
+</p>
+<ul>
+<li>Fixed a rare issue where some users could find one or more of their add-ons hidden after a Firefox update (see <a href="http://blog.mozilla.com/addons/2011/09/28/issue-discovered-with-firefox-add-on-upgrades/">the blog post</a>)</li>
+</ul>
+<p>The previous version of Firefox for Android introduced the following changes:</p>
+<ul>
+<li>Copy &amp; Paste - Text selection in web content: Long tap in a web page and start selecting text using the familiar Android-style drag handles. This was a top request by Firefox users</li>
+<li>Added a ‘Quit’ action to the Android menu: exit the browser with one tap. When you restart Firefox, you can quickly continue where you left off by restoring all or individual tabs from your previous session. This was another very frequent feature request from mobile Firefox users</li>
+<li>Use Firefox in your language: When Firefox starts for the first time, it detects the language setting of your Android device and automatically switches to that language, if Firefox supports it. You can switch Firefox to a different language with a single tap</li>
+<li>Improved image rendering on Tegra-based tablets and phones (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=669851">bug 669851</a>)</li>
+<li>The WebSocket API is now available in Firefox for Android (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=537787">bug 537787</a>)</li>
+<li>Firefox for Android is built on the same rendering engine as Firefox for desktop computers. Please see the <a href="../../../firefox/7.0/releasenotes/index.html">Firefox release notes</a> for additional relevant changes</li>
+</ul>
+<h5>What's New with Add-ons</h5>
+<p>There are now over 160 <a href="http://addons.mozilla.org/mobile/extensions/">add-ons</a> for Firefox for mobile, and counting. Thanks to our awesome community, the number of exciting compatible add-ons increases constantly.</p>
+If you are a developer: Now is the time to extend your reach and build a new awesome add-on, or to make your mobile add-ons compatible with Firefox for Android. Find all the tools and resources you need on the <a href="https://developer.mozilla.org/mobile">Mozilla Developer Network</a>.
+
+Existing add-on developers can find more information about the specific changes in this version on the <a href="https://developer.mozilla.org/en/Firefox_7_for_developers">Mozilla Developer Network</a>.
+Please see the features from <a href="http://www.mozilla.com/en-US/mobile/6.0/releasenotes/">previous releases</a> to see what other technologies are available for add-on developers.
+        </div>
+</div>
+<div class="expander expander-even" id="for-developers">
+<h3 class="expander-header">For Developers</h3>
+<div class="expander-content">
+<p>
+          Firefox is an easy and open development platform to build fast,
+          powerful and beautiful mobile web apps and add-ons. Use the latest web
+          technologies like HTML5, CSS and JavaScript to innovate faster, more
+          easily and extend your reach. You can build great sites and apps by
+          tapping into the device capabilities of the phone, as well as create
+          game changing add-ons. Visit the <a href="https://developer.mozilla.org/mobile">Mozilla Developer
+          Network</a> to learn more about how you
+          can build and showcase your innovations on millions of devices. 
+          </p>
+<h5>Build Add-ons for Mobile</h5>
+<p>
+          Although Firefox for the desktop and mobile are built on the same
+          technology platform, there are differences that will require
+          developers to make changes to their add-ons in order to become
+          compatible with Firefox for Android.
+          </p>
+<p>With this new release we now support <a href="https://developer.mozilla.org/en/Extensions/Bootstrapped_extensions">Restartless Add-ons</a>. Visit the <a href="https://wiki.mozilla.org/Mobile/Fennec/Extensions/Electrolysis">Electrolysis
+          and Add-ons wiki</a> page and the <a href="https://wiki.mozilla.org/Mobile/AddonsTrainingWeek">Add-ons Training Week</a> documentation to learn more.
+          </p>
+<h5>What’s Under the Hood</h5>
+<ul>
+<li>The same browser engine as Firefox for desktop</li>
+<li>Fast JavaScript engine, using Mozilla’s JägerMonkey
+            just-in-time compiler</li>
+<li>Leading web standards compatibility</li>
+<li>Optimized for ARM processors</li>
+<li>Location-Aware Browsing</li>
+</ul>
+<em>HTML5 and other web standards:</em>
+<ul>
+<li>Web workers</li>
+<li>Offline storage</li>
+<li>&lt;canvas&gt;</li>
+<li>&lt;svg&gt;</li>
+<li><a href="https://developer.mozilla.org/en/online_and_offline_events">online/offline events</a></li>
+<li>Native JSON</li>
+<li>&lt;audio&gt;</li>
+<li>&lt;video&gt;</li>
+</ul>
+<p>In addition, Firefox for Android supports:</p>
+<ul>
+<li>IPv6 on Android</li>
+<li>"overflow: scroll" and "overflow: auto" CSS properties</li>
+<li><a href="https://developer.mozilla.org/en/Extensions/Bootstrapped_extensions">Restartless Add-ons</a></li>
+<li><a href="https://developer.mozilla.org/en/online_and_offline_events">HTML5 online/offline events</a></li>
+<li>...and much more.</li>
+</ul>
+</div>
+</div>
+<div class="expander expander-odd" id="known-issues">
+<h3 class="expander-header">Known Issues</h3>
+<div class="expander-content">
+<p>This list covers some of the known problems with Firefox for Android which will be resolved in future versions:</p>
+<ul>
+<li>Layout issues with Google+ and other Google properties: some recent changes in the Google layout and CSS may cause issues in non-webkit browsers like Firefox. We are working with Google on the problem (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=668218"> bug 668218</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=668288"> bug 668288</a>)</li>
+<li>The Swiftkey X input method can cause some character duplication issues when using "backspace" (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=672661">bug 672661</a>)</li>
+<li>blinking characters in form fields (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=665374">bug 665374</a>)</li>
+<li>Asus Transformer keyboard deletes two characters (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=662219">bug 662219</a>)</li>
+<li>Asus Transformer hardware keyboard is always en-us (see <a href='https://bugzilla.mozilla.org/show_bug.cgi?id=669361"'>bug 669361</a>)</li>
+<li>Unable to zoom in/out a webpage on header/footer when a double tap gesture is made (see  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=639504">bug 639504</a>)</li>
+<li>Sync Now button is active even if the Sync is in progress (see  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=656594">bug 656594</a>)</li>
+<li>Searches from the URL bar do not function reliably for some locales (see  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=645970">bug 645970</a>)</li>
+<li>We found an extremely rare case where the browser may become unable to load web pages or close tabs. This should not happen in normal operation (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=676780">bug 676780</a>), but we are working on a solution. Clearing the browser profile (Settings -&gt; Applications -&gt; Clear Data) resolves it, but may remove useful browser data like bookmarks and web history. Recommendation: use <a href="https://support.mozilla.org/en-US/kb/sync-firefox-between-desktop-and-mobile">Firefox Sync</a> for a seamless web experience across all your devices that run Firefox</li>
+<li>For some users HTML5 video may load slowly and display rendering artifacts on the screen during playback (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=622839">bug 622839</a>)</li>
+<li>Reloading a page increases the zoom level (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=628269">bug 628269</a>)</li>
+<li>Users who have a large desktop profile using Firefox Sync may see some performance issues during the initial sync process</li>
+<li>Adobe Flash and other plugins are not supported. Currently, enabling the Flash plugin results in a compromised user experience across Firefox for mobile</li>
+</ul>
+</div>
+</div>
+<div class="expander expander-even" id="system-requirements">
+<h3 class="expander-header">System Requirements</h3>
+<div class="expander-content">
+<p>Firefox is available for Android 2.1 and higher.
+          </p>
+<p>Firefox requires 512 MB of RAM and around 17 MB of storage. However, Android 2.2 users can move Firefox and user data to the SD card using Android’s Settings app.</p>
+<p>This release requires a phone with an ARMv7 processor. Before installing Firefox on your Android phone, visit the <a href="https://www.mozilla.com/en-US/mobile/platforms/">Platforms and Device Requirements page</a>. See a full list of supported and  unsupported devices by visiting our <a href="https://wiki.mozilla.org/Mobile/Platforms/Android#System_Requirements">System Requirements</a> wiki.
+        </p></div>
+</div>
+<div class="expander expander-odd" id="downloading">
+<h3 class="expander-header">Downloading</h3>
+<div class="expander-content">
+<p>
+            Download Firefox and Firefox by visiting <a href="http://www.mozilla.com/en-US/m">Firefox.com/m</a> on your
+            Android phone or Nokia N900. On your Android phone, search the Android Market for "Firefox". Visit the <a href="https://www.mozilla.com/mobile/platforms/">Platforms and Device
+            Requirements</a> page to make sure your phone meets the system requirements.
+            </p>
+<!--
+            <h5>Developers</h5>
+            <p>
+            Developers can download a version of Firefox for mobile to their desktop in order to test, provide feedback, and build add-ons. Desktop  builds are for development purposes only and don't have full functionality:
+            </p>
+            <ul>
+                 <li><a href="http://ftp.mozilla.org/pub/mozilla.org/mobile/releases/4.0.1/win32-i686/fennec-4.0.1.en-US.win32.zip"     target="_blank">Windows</a></li>
+                 <li><a href="http://ftp.mozilla.org/pub/mozilla.org/mobile/releases/4.0.1/macosx-i686/fennec-4.0.1.en-US.mac.dmg"  target="_blank">Mac OS X</a></li>
+                 <li><a href="http://ftp.mozilla.org/pub/mozilla.org/mobile/releases/4.0.1/linux-i686/fennec-4.0.1.en-US.linux-i686.tar.bz2"     target="_blank">Linux</a></li>
+            </ul>
+          -->
+</div>
+</div>
+<div class="expander expander-even" id="faq">
+<h3 class="expander-header">Frequently Asked Questions</h3>
+<div class="expander-content">
+<dl class="faq">
+<dt>Is Firefox available for my phone?</dt>
+<dd>
+                  Firefox is available for Android (2.1 or higher) phones with compatible hardware, and
+                  for the Nokia N900. See the <a href="https://www.mozilla.com/mobile/platforms/">Supported Devices page</a> to
+                  see if Firefox is compatible with your Android device. You can
+                  download Firefox for Android and for
+                  the Nokia N900 at <a href="http://firefox.com/m">firefox.com/m</a>.
+                  If Firefox for mobile is not available for your device or platform, we're continuing to investigate ways to bring parts of the Firefox experience to you.
+                  <a href="https://wiki.mozilla.org/Mobile/Platforms#About_Firefox_for_Mobile">Learn more about our mobile projects</a>.
+                </dd>
+<dt>How will Firefox keep me safe while I browse on my mobile?</dt>
+<dd>
+                  Mozilla’s open source process leverages the experience of
+                  thousands of security experts around the globe,
+                    and Firefox includes features like HTTP  Strict Transport Security,   which lets Firefox work together with web  site authors to protect you   against eavesdropping and web forgery. Customizable security settings to
+                  manage passwords, cookies, loading images and installing
+                  add-ons give you complete control over your browsing experience.
+                  <a href="http://www.mozilla.org/en-US/firefox/security/">Learn more</a>.
+                </dd>
+<dt>How do I use the Firefox user interface to browse the Web?</dt>
+<dd>
+                  To save space on your phone’s display, Firefox browser
+                  controls are stowed away to the sides of the screen. Swipe
+                  right to access your tabs on the left side of the screen.
+                  Swipe left to view one-touch bookmarking, back and forward,
+                  and access your browser tools. To let you see more of the Web
+                  site, your browser controls and Awesome Bar get stowed away
+                  out of view. when you scroll down a Web page, but they
+                  instantly reappear if you pan to either side. Tap on the on
+                  Web site icon to the left of the Awesome Bar to open the Site
+                  Menu and manage your relationship with the current web page.
+                </dd>
+<dt>What is the Awesome Screen?</dt>
+<dd>
+                The Awesome Screen pops up just by tapping on the location bar.
+                It instantly brings up a smart list of your favourite history
+                items and bookmarks and lets you easily select a search engine
+                for your desired search. You can also customize your search
+                engine list for maximum efficiency.
+                </dd>
+<dt>How do I zoom in and out?</dt>
+<dd>
+                  For Android phones, pinch to zoom in and out, or double-tap.
+                  For the Nokia N900, you can use the volume button on the top
+                  of your phone, or double tap the screen with your finger to
+                  zoom in and out. Also, on the Nokia N900, Ctrl-up and
+                  Ctrl-down arrows will zoom in and out.
+                </dd>
+<dt>How do I bookmark a web page?</dt>
+<dd>
+                  Go to the site you wish to bookmark. Touch the bookmark “star” button on the right side of your display.
+                </dd>
+<dt>How do I open a new tab?</dt>
+<dd>
+                     Touch the new tab "plus" button on the left side of  your display    screen to open a new tab. Tabs appear as thumbnails so you  can easily    see which page you’d like to select.
+                </dd>
+<dt>What are Firefox Add-ons and how can I get them on my mobile device?</dt>
+<dd>
+                Add-ons are small
+                pieces of software that let you add or change the look or
+                functionality of Firefox. Install add-ons directly to your
+                Firefox by swiping to the left and tapping on the browser tools
+                "gear" button on the bottom right-hand side of your screen, then
+                choosing the add-ons “puzzle piece” button to discover and
+                install the add-ons that are most useful to you.
+                </dd>
+<dt>How can I share my Firefox bookmarks, history,  tabs, and    passwords between my desktop and my mobile?</dt>
+<dd>
+                   Firefox Sync is a built-in feature of Firefox that lets you
+                   synchronize your desktop and mobile data. To use this
+                   feature, you must first install  <a href="http://www.mozilla.com/en-US/firefox/beta/">Firefox for the desktop (version 4 or higher)</a>. Then go to Tools, Set Up Sync and   follow  the  prompts to create a Sync Account. Once you have an account   on your   desktop, go to Firefox on your mobile phone, tap on Browser Tools button. Scroll down the Preferences pane and tap Connect  under the Sync section. A one-time code will appear. Go back to your Sync account info, select “Add Device” and enter the code from your phone.
+             <a href="https://www.mozilla.com/en-US/firefox/sync/"> Learn  more</a> about setting up Firefox Sync on your mobile.
+                </dd>
+<dt>Do I need to setup Firefox Sync to use Firefox on my phone?</dt>
+<dd>
+                  No. Although we think Firefox Sync is highly useful, it is
+                  feature that you can choose to use or not. The Awesome Screen
+                  will start to get to know you and take you to your favorite
+                  parts of the Web with minimal typing, even without Firefox
+                  Sync.  
+                </dd>
+<dt>What are the trade-offs to using Firefox Sync in Firefox?</dt>
+<dd>
+                   Although we think Firefox Sync is highly useful, it is still in its experimental phase. Those who use Firefox Sync and who have  large desktop profiles, may detect performance issues on their mobile.  We are working to resolve this in future releases.
+                </dd>
+<dt>What is Location-Aware Browsing? Is Firefox tracking where I am?</dt>
+<dd>
+                  Location-Aware Browsing saves you time by allowing websites
+                  to ask you where you are. If you choose to share your
+                  location with a website, it can use that information to
+                  find nearby points of interest and return additional,
+                  useful data like maps of your area. It’s all optional –
+                  Firefox doesn’t share your location without your permission.
+                  Learn more about <a href="http://www.mozilla.org/en-US/firefox/geolocation/">Location-Aware Browsing</a>.
+                </dd>
+</dl>
+</div>
+</div>
+<div class="expander expander-odd" id="developer-questions">
+<h3 class="expander-header">Developer Questions</h3>
+<div class="expander-content">
+<dl class="faq">
+<dt>Will a Firefox add-on I built for the PC work on mobile?  If not, do I need to change it?</dt>
+<dd>
+                  Although Firefox for the desktop and mobile are built on the
+                  same technology platform, there are differences that will
+                  require developers to make changes to their add-ons in order
+                  to be compatible with Firefox for mobile.
+                  Visit the <a href="https://developer.mozilla.org/en-US/mobile">Mobile
+                  Developer Network</a>
+                  and <a href="https://wiki.mozilla.org/Mobile/Fennec/Extensions/Electrolysis">Electrolysis
+                  and Add-ons</a> wiki to learn more.
+                </dd>
+<dt>What browser engine does Firefox use?</dt>
+<dd>
+                  The desktop and mobile versions of Firefox both use the Gecko rendering engine.
+                  The mobile version of Firefox uses Gecko version 6,
+                  which is the best performing browser engine Mozilla has ever
+                  released and includes exciting features such as radically improved JavaScript performance,
+                  geolocation support, worker threads, and much more.
+                  
+                <dt>What JavaScript engine does Firefox use?</dt>
+<dd>
+                  Firefox includes the new “<a href="http://hacks.mozilla.org/category/jagermonkey/">JaegerMonkey</a>”
+                  JavaScript engine, an advanced JIT (“just in time”) compiler using tracing technology.
+                  The JaegerMonkey engine makes Web applications faster by compiling code as you execute it,
+                  allowing many types of CPU-intensive applications to run at near-native speed.
+                </dd>
+<dt>How do I develop a Location-Aware website for Firefox?</dt>
+<dd>
+                  Firefox has implemented the first public draft of the
+                  <a href="http://www.w3.org/TR/geolocation-API/">Geolocation specification from the W3C</a>.
+                  An overview on how to develop Location-Aware websites
+                  <a href="http://hacks.mozilla.org/2009/06/geolocation/" hreflang="en">here</a>.
+                </dd>
+<dt>Does Firefox on my mobile support HTML 5?</dt>
+<dd>
+                  HTML 5 is the next major revision of HTML.
+                  The HTML 5 specification is ongoing,
+                  but there are several HTML 5 and related features
+                  that will enable Web developers to create more innovative
+                  websites and applications. Firefox includes important features like
+                  <a href="http://hacks.mozilla.org/2009/06/geolocation/">Location-Aware browsing</a>,
+                  the <a href="http://hacks.mozilla.org/2009/06/pushing-pixels-with-canvas/">&lt;canvas&gt;</a>
+                  and <a href="http://hacks.mozilla.org/2009/06/rendering-svg-canvas-burst/">&lt;svg&gt;</a>  tags,
+                  <a href="http://hacks.mozilla.org/2009/07/working-smarter-not-harder/">Web workers</a>
+                  and <a href="http://hacks.mozilla.org/2009/07/working-smarter-not-harder/">offline storage</a>.
+                </dd>
+<dt>Does Firefox on my phone support plugins?</dt>
+<dd>
+                  There is currently no plugin support in Firefox for Android, and plugins are disabled in Firefox for Nokia N900. On most Web pages that use the Adobe Flash plugin, the
+                  performance of the plugin on Nokia N900 didn't meet our standards, and the
+                  interactivity and performance of the entire Web page was
+                  negatively impacted. This was especially felt on pages with
+                  multiple instances of the plugin. Advanced users can enable
+                  plugins in Firefox for Nokia N900 for experimentation and testing only.
+                </dd>
+<dt>How can I get involved?</dt>
+<dd>
+                If you’d like to learn more about ways you can get
+                involved in other mobile-related initiatives, check out our <a href="https://www.mozilla.com/en-US/mobile/getinvolved/">Get
+                Involved page</a>. As always, your input is welcome.
+                </dd>
+</dd></dl>
+<p><a href="http://www.mozilla.org/en-US/mobile/faq/">View the Firefox FAQ</a>.</p>
+</div>
+</div>
+<div class="expander expander-even" id="other-resources-links">
+<h3 class="expander-header">Other Resources and Links</h3>
+<div class="expander-content">
+<p>
+              The following resources contain useful information about Firefox for mobile:
+            </p>
+<ul>
+<li><a href="http://support.mozilla.org/mobile">Firefox for Mobile  Support Articles</a></li>
+<li><a href="https://support.mozilla.org/questions?tagged=mobile">Firefox  for Mobile Support Forum</a></li>
+<li><a href="http://input.mozilla.com/ideas">Have  an idea for Firefox for mobile?</a></li>
+</ul>
+</div>
+</div>
+<div id="release-notes-footer"></div>
+</div>
+</div><!-- end #doc -->
+</div><!-- end #wrapper -->
+</div><!-- end #outer-wrapper -->
+<div class="clear"></div>
+<!-- start #footer -->
+<div id="sub-footer">
+<div id="sub-footer-contents">
+<h3>Let’s be <span>friends!</span></h3>
+<ul>
+<li id="footer-twitter">
+<a href="http://twitter.com/firefox">Twitter</a>
+</li>
+<li id="footer-facebook">
+<a href="http://facebook.com/Firefox">Facebook</a>
+</li>
+<li id="footer-affiliates">
+<a href="https://affiliates.mozilla.org/">Firefox Affiliates</a>
+</li>
+</ul>
+<div id="sub-footer-newsletter">
+<div class="newsletter-signup " id="newsletter">
+<div class="container">
+<form action="https://www.mozilla.org/en-US/mobile/7.0.1/releasenotes/#subscribe-form" class="email-form inline-email-form" method="post">
+<input name="target" type="hidden" value="inline"/>
+<input name="mozilla-and-you" type="hidden" value="Y"/>
+<ul class="">
+<li class="open-pane" data-wt_ti="" data-wt_uri="">
+<h3>Get Monthly News</h3>
+<div class="email-field field">
+<span class="error-wrapper ">
+<input class="email placeholder" name="email" placeholder="Your Email Address" type="email" value="">
+</input></span>
+<a class="email-open" href="http://www.mozilla.org/en-US/newsletter/">»</a>
+</div>
+</li>
+<li class="form-pane">
+<div class="form-details">
+<div class="field country-field">
+<select class="country" name="country">
+<option value="">Select country</option>
+<option value="af">Afghanistan</option>
+<option value="al">Albania</option>
+<option value="dz">Algeria</option>
+<option value="as">American Samoa</option>
+<option value="ad">Andorra</option>
+<option value="ao">Angola</option>
+<option value="ai">Anguilla</option>
+<option value="aq">Antarctica</option>
+<option value="ag">Antigua and Barbuda</option>
+<option value="ar">Argentina</option>
+<option value="am">Armenia</option>
+<option value="aw">Aruba</option>
+<option value="au">Australia</option>
+<option value="at">Austria</option>
+<option value="az">Azerbaijan</option>
+<option value="bs">Bahamas</option>
+<option value="bh">Bahrain</option>
+<option value="bd">Bangladesh</option>
+<option value="bb">Barbados</option>
+<option value="by">Belarus</option>
+<option value="be">Belgium</option>
+<option value="bz">Belize</option>
+<option value="bj">Benin</option>
+<option value="bm">Bermuda</option>
+<option value="bt">Bhutan</option>
+<option value="bo">Bolivia</option>
+<option value="ba">Bosnia and Herzegovina</option>
+<option value="bw">Botswana</option>
+<option value="bv">Bouvet Island</option>
+<option value="br">Brazil</option>
+<option value="io">British Indian Ocean Territory</option>
+<option value="vg">British Virgin Islands</option>
+<option value="bn">Brunei Darussalam</option>
+<option value="bg">Bulgaria</option>
+<option value="bf">Burkina Faso</option>
+<option value="bi">Burundi</option>
+<option value="kh">Cambodia</option>
+<option value="cm">Cameroon</option>
+<option value="ca">Canada</option>
+<option value="cv">Cape Verde</option>
+<option value="ky">Cayman Islands</option>
+<option value="cf">Central African Republic</option>
+<option value="td">Chad</option>
+<option value="cl">Chile</option>
+<option value="cn">China</option>
+<option value="cx">Christmas Island</option>
+<option value="cc">Cocos (Keeling) Islands</option>
+<option value="co">Colombia</option>
+<option value="km">Comoros</option>
+<option value="cg">Congo-Brazzaville</option>
+<option value="cd">Congo-Kinshasa</option>
+<option value="ck">Cook Islands</option>
+<option value="cr">Costa Rica</option>
+<option value="hr">Croatia</option>
+<option value="cu">Cuba</option>
+<option value="cy">Cyprus</option>
+<option value="cz">Czech Republic</option>
+<option value="dk">Denmark</option>
+<option value="dj">Djibouti</option>
+<option value="dm">Dominica</option>
+<option value="do">Dominican Republic</option>
+<option value="ec">Ecuador</option>
+<option value="eg">Egypt</option>
+<option value="sv">El Salvador</option>
+<option value="gq">Equatorial Guinea</option>
+<option value="er">Eritrea</option>
+<option value="ee">Estonia</option>
+<option value="et">Ethiopia</option>
+<option value="fk">Falkland Islands (Malvinas)</option>
+<option value="fo">Faroe Islands</option>
+<option value="fj">Fiji</option>
+<option value="fi">Finland</option>
+<option value="fr">France</option>
+<option value="gf">French Guiana</option>
+<option value="pf">French Polynesia</option>
+<option value="tf">French Southern Territories</option>
+<option value="ga">Gabon</option>
+<option value="gm">Gambia</option>
+<option value="ge">Georgia</option>
+<option value="de">Germany</option>
+<option value="gh">Ghana</option>
+<option value="gi">Gibraltar</option>
+<option value="gr">Greece</option>
+<option value="gl">Greenland</option>
+<option value="gd">Grenada</option>
+<option value="gp">Guadeloupe</option>
+<option value="gu">Guam</option>
+<option value="gt">Guatemala</option>
+<option value="gg">Guernsey</option>
+<option value="gn">Guinea</option>
+<option value="gw">Guinea-Bissau</option>
+<option value="gy">Guyana</option>
+<option value="ht">Haiti</option>
+<option value="hm">Heard Island and McDonald Islands</option>
+<option value="hn">Honduras</option>
+<option value="hk">Hong Kong</option>
+<option value="hu">Hungary</option>
+<option value="is">Iceland</option>
+<option value="in">India</option>
+<option value="id">Indonesia</option>
+<option value="ir">Iran</option>
+<option value="iq">Iraq</option>
+<option value="ie">Ireland</option>
+<option value="im">Isle of Man</option>
+<option value="il">Israel</option>
+<option value="it">Italy</option>
+<option value="ci">Ivory Coast</option>
+<option value="jm">Jamaica</option>
+<option value="jp">Japan</option>
+<option value="je">Jersey</option>
+<option value="jo">Jordan</option>
+<option value="kz">Kazakhstan</option>
+<option value="ke">Kenya</option>
+<option value="ki">Kiribati</option>
+<option value="kw">Kuwait</option>
+<option value="kg">Kyrgyzstan</option>
+<option value="la">Laos</option>
+<option value="lv">Latvia</option>
+<option value="lb">Lebanon</option>
+<option value="ls">Lesotho</option>
+<option value="lr">Liberia</option>
+<option value="ly">Libya</option>
+<option value="li">Liechtenstein</option>
+<option value="lt">Lithuania</option>
+<option value="lu">Luxembourg</option>
+<option value="mo">Macao</option>
+<option value="mk">Macedonia, F.Y.R. of</option>
+<option value="mg">Madagascar</option>
+<option value="mw">Malawi</option>
+<option value="my">Malaysia</option>
+<option value="mv">Maldives</option>
+<option value="ml">Mali</option>
+<option value="mt">Malta</option>
+<option value="mh">Marshall Islands</option>
+<option value="mq">Martinique</option>
+<option value="mr">Mauritania</option>
+<option value="mu">Mauritius</option>
+<option value="yt">Mayotte</option>
+<option value="mx">Mexico</option>
+<option value="fm">Micronesia</option>
+<option value="md">Moldova</option>
+<option value="mc">Monaco</option>
+<option value="mn">Mongolia</option>
+<option value="me">Montenegro</option>
+<option value="ms">Montserrat</option>
+<option value="ma">Morocco</option>
+<option value="mz">Mozambique</option>
+<option value="mm">Myanmar</option>
+<option value="na">Namibia</option>
+<option value="nr">Nauru</option>
+<option value="np">Nepal</option>
+<option value="nl">Netherlands</option>
+<option value="an">Netherlands Antilles</option>
+<option value="nc">New Caledonia</option>
+<option value="nz">New Zealand</option>
+<option value="ni">Nicaragua</option>
+<option value="ne">Niger</option>
+<option value="ng">Nigeria</option>
+<option value="nu">Niue</option>
+<option value="nf">Norfolk Island</option>
+<option value="kp">North Korea</option>
+<option value="mp">Northern Mariana Islands</option>
+<option value="no">Norway</option>
+<option value="ps">Occupied Palestinian Territory</option>
+<option value="om">Oman</option>
+<option value="pk">Pakistan</option>
+<option value="pw">Palau</option>
+<option value="pa">Panama</option>
+<option value="pg">Papua New Guinea</option>
+<option value="py">Paraguay</option>
+<option value="pe">Peru</option>
+<option value="ph">Philippines</option>
+<option value="pn">Pitcairn</option>
+<option value="pl">Poland</option>
+<option value="pt">Portugal</option>
+<option value="pr">Puerto Rico</option>
+<option value="qa">Qatar</option>
+<option value="re">Reunion</option>
+<option value="ro">Romania</option>
+<option value="ru">Russian Federation</option>
+<option value="rw">Rwanda</option>
+<option value="bl">Saint Barthélemy</option>
+<option value="sh">Saint Helena</option>
+<option value="kn">Saint Kitts and Nevis</option>
+<option value="lc">Saint Lucia</option>
+<option value="mf">Saint Martin</option>
+<option value="pm">Saint Pierre and Miquelon</option>
+<option value="vc">Saint Vincent and the Grenadines</option>
+<option value="ws">Samoa</option>
+<option value="sm">San Marino</option>
+<option value="st">Sao Tome and Principe</option>
+<option value="sa">Saudi Arabia</option>
+<option value="sn">Senegal</option>
+<option value="rs">Serbia</option>
+<option value="sc">Seychelles</option>
+<option value="sl">Sierra Leone</option>
+<option value="sg">Singapore</option>
+<option value="sk">Slovakia</option>
+<option value="si">Slovenia</option>
+<option value="sb">Solomon Islands</option>
+<option value="so">Somalia</option>
+<option value="za">South Africa</option>
+<option value="gs">South Georgia and the South Sandwich Islands</option>
+<option value="kr">South Korea</option>
+<option value="es">Spain</option>
+<option value="lk">Sri Lanka</option>
+<option value="sd">Sudan</option>
+<option value="sr">Suriname</option>
+<option value="sj">Svalbard and Jan Mayen</option>
+<option value="sz">Swaziland</option>
+<option value="se">Sweden</option>
+<option value="ch">Switzerland</option>
+<option value="sy">Syria</option>
+<option value="tw">Taiwan</option>
+<option value="tj">Tajikistan</option>
+<option value="tz">Tanzania</option>
+<option value="th">Thailand</option>
+<option value="tl">Timor-Leste</option>
+<option value="tg">Togo</option>
+<option value="tk">Tokelau</option>
+<option value="to">Tonga</option>
+<option value="tt">Trinidad and Tobago</option>
+<option value="tn">Tunisia</option>
+<option value="tr">Turkey</option>
+<option value="tm">Turkmenistan</option>
+<option value="tc">Turks and Caicos Islands</option>
+<option value="tv">Tuvalu</option>
+<option value="ae">U.A.E.</option>
+<option value="vi">U.S. Virgin Islands</option>
+<option value="ug">Uganda</option>
+<option value="ua">Ukraine</option>
+<option value="gb">United Kingdom</option>
+<option selected="selected" value="us">United States</option>
+<option value="um">United States Minor Outlying Islands</option>
+<option value="uy">Uruguay</option>
+<option value="uz">Uzbekistan</option>
+<option value="vu">Vanuatu</option>
+<option value="va">Vatican City</option>
+<option value="ve">Venezuela</option>
+<option value="vn">Vietnam</option>
+<option value="wf">Wallis and Futuna</option>
+<option value="eh">Western Sahara</option>
+<option value="ye">Yemen</option>
+<option value="zm">Zambia</option>
+<option value="zw">Zimbabwe</option>
+<option value="ax">Åland Islands</option>
+</select>
+</div>
+<div class="field format-field">
+<div class="field-radios">
+<span class="radio-wrapper"><input checked="checked" class="html-format" id="inline-html-format" name="format" type="radio" value="html"/></span>
+<label for="inline-html-format">HTML</label>
+<span class="radio-wrapper"><input class="text-format" id="inline-text-format" name="format" type="radio" value="text"/></span>
+<label for="inline-text-format">Text</label> 
+              </div>
+</div>
+<div class="privacy-field">
+<label class="privacy-check-label" for="inline-privacy-check">
+<span class="error-wrapper ">
+<input class="privacy-check" id="inline-privacy-check" name="privacy" type="checkbox">
+</input></span>
+                I agree to the <a href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>
+</label>
+</div>
+<input class="subscribe" name="submit" type="submit" value="Sign me up!">
+<p class="footnote">We will only send you Mozilla-related information.</p>
+</input></div>
+</li>
+<li class="success-pane">
+<h3>Thanks for Subscribing!</h3>
+<p>We look forward to soon begin sharing tips &amp; tricks on getting the most out of Firefox, as well as exciting news about Mozilla and how we’re working to create a better Web.</p>
+</li>
+</ul>
+</form>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-contents" role="contentinfo">
+<div id="footer-right">
+<form dir="ltr" id="lang_form" method="get"><div>
+<label for="flang">Other Languages</label>
+<select dir="ltr" id="flang" name="flang" onchange="this.form.submit()"> <option value="ach">Acholi</option>
+<option value="af">Afrikaans</option>
+<option value="an">Aragonés</option>
+<option value="ak">Akan</option>
+<option value="ar">عربي</option>
+<option value="as">অসমীয়া</option>
+<option value="ast">Asturianu</option>
+<option value="be">Беларуская</option>
+<option value="bg">Български</option>
+<option value="bn-BD">বাংলা (বাংলাদেশ)</option>
+<option value="bn-IN">বাংলা</option>
+<option value="br">Brezhoneg</option>
+<option value="bs">Bosanski</option>
+<option value="ca">Català</option>
+<option value="cs">Čeština</option>
+<option value="csb">Kaszëbsczi</option>
+<option value="cy">Cymraeg</option>
+<option value="da">Dansk</option>
+<option value="de">Deutsch</option>
+<option value="el">Ελληνικά</option>
+<option value="en-ZA">English (South African)</option>
+<option value="eo">Esperanto</option>
+<option value="es-AR">Español (Argentina)</option>
+<option value="es-CL">Español (Chile)</option>
+<option value="es-ES">Español (España)</option>
+<option value="es-MX">Español (México)</option>
+<option value="et">Eesti keel</option>
+<option value="eu">Euskara</option>
+<option value="en-GB">English (British)</option>
+<option selected="selected" value="en-US">English (US)</option>
+<option value="fa">فارسی</option>
+<option value="ff">Pulaar-Fulfulde</option>
+<option value="fi">Suomi</option>
+<option value="fr">Français</option>
+<option value="fy-NL">Frysk</option>
+<option value="ga-IE">Gaeilge</option>
+<option value="gd">Gàidhlig</option>
+<option value="gl">Galego</option>
+<option value="gu-IN">ગુજરાતી</option>
+<option value="he">עברית</option>
+<option value="hi-IN">हिन्दी (भारत)</option>
+<option value="hy-AM">Հայերեն</option>
+<option value="hr">Hrvatski</option>
+<option value="hu">magyar</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="is">Íslenska</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ka">ქართული ენა</option>
+<option value="kk">Қазақ</option>
+<option value="kn">闠늨跠늨</option>
+<option value="km">ភាសាខ្មែរ</option>
+<option value="ko">한국어</option>
+<option value="ku">Kurdî</option>
+<option value="lg">Luganda</option>
+<option value="lij">Ligure</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviešu</option>
+<option value="mk">Македонски</option>
+<option value="ml">മലയാളം</option>
+<option value="mn">Монгол</option>
+<option value="mr">मराठी</option>
+<option value="ms">Bahasa Malaysia</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk bokmål</option>
+<option value="nso">Sesotho sa leboa</option>
+<option value="oc">occitan (lengadocian)</option>
+<option value="pa-IN">ਪੰਜਾਬੀ</option>
+<option value="pl">Polski</option>
+<option value="pt-BR">Português (do Brasil)</option>
+<option value="pt-PT">Português (Europeu)</option>
+<option value="rm">Rumantsch</option>
+<option value="ro">Română</option>
+<option value="ru">Русский</option>
+<option value="sk">Slovenčina</option>
+<option value="si">සිංහල</option>
+<option value="sl">slovensko</option>
+<option value="son">Soŋay</option>
+<option value="sq">Shqip</option>
+<option value="sr">Српски</option>
+<option value="sv-SE">Svenska</option>
+<option value="ta">தமிழ்</option>
+<option value="ta-LK">Tamil (Sri Lanka)</option>
+<option value="te">ꓠ놆닠놁韠놁</option>
+<option value="th">ภาษาไทย</option>
+<option value="tr">Türkçe</option>
+<option value="uk">Українська</option>
+<option value="vi">Tiếng Việt</option>
+<option value="zh-CN">中文 (简体)</option>
+<option value="zh-TW">正體中文 (繁體)</option>
+<option value="zu">isiZulu</option>
+</select>
+<noscript>
+<div><input id="lang_submit" type="submit" value="Go"/></div>
+</noscript>
+</div></form>
+</div>
+<h3 id="footer-logo"><a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Firefox</a></h3>
+<!-- start menu #footer-menu -->
+<div id="footer-menu" role="navigation">
+<ul>
+<li><a href="http://www.mozilla.org/en-US/firefox/features/">Desktop</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/features/">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/">Technology</a></li><li><a href="http://www.mozilla.org/en-US/firefox/security/">Privacy &amp; Security</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/mobile/">Mobile</a><ul><li><a href="http://www.mozilla.org/en-US/mobile/">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured">Customize</a></li><li><a href="http://www.mozilla.org/en-US/mobile/faq/">FAQ</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/channel/">Releases</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/channel/">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/">Firefox</a></li><li><a href="http://www.mozilla.org/en-US/firefox/organizations/">Firefox for Organizations</a></li></ul></li>
+<li><a href="https://addons.mozilla.org/">Add-ons</a><ul><li><a href="https://addons.mozilla.org/firefox/">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/">Mobile Add-ons</a></li><li><a href="http://www.getpersonas.com/">Personas</a></li></ul></li>
+<li><a href="http://support.mozilla.org/">Support</a><ul><li><a href="http://support.mozilla.org/en-US/kb/">Desktop Support</a></li><li><a href="http://support.mozilla.org/mobile">Mobile Support</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/about/">About</a><ul><li><a href="http://blog.mozilla.com/">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/">About Firefox</a></li><li><a href="http://www.mozilla.org/join">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html">Partnerships</a></li><li><a href="http://www.mozilla.org/en-US/about/contact.html">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #footer-menu -->
+<div id="copyright">
+<p id="footer-links"><a href="http://www.mozilla.org/en-US/privacy-policy.html">Privacy Policy</a>  | 
+			<a href="http://www.mozilla.org/en-US/about/legal.html">Legal Notices</a>  | 
+                        <a href="http://www.mozilla.org/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a></p>
+<p>Except where otherwise <a href="http://www.mozilla.org/en-US/about/legal.html#site">noted</a>, content on this site is licensed under the <br/><a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.</p>
+</div>
+</div>
+</div>
+<!-- end #footer -->
+<script type="text/javascript">
+function dcsMultiTrack() {
+    return false;
+}
+</script>
+<script src="../../../tabzilla/media/js/tabzilla.js"></script>
+<script>
+    // <![CDATA[
+
+    // Firefox 3.x update notice. Only show for Firefox 3.x, don't show for
+    // cousins that say they are Firefox 3.x.
+    var isOldVersion = (navigator.userAgent &&
+        navigator.userAgent.indexOf('Firefox/3.') !== -1 &&
+        navigator.userAgent.indexOf('Camino') === -1 &&
+        navigator.userAgent.indexOf('SeaMonkey') === -1);
+
+    if (isOldVersion) {
+        var oldOnload = window.onload;
+        window.onload = function() {
+            var script = document.createElement('script');
+            script.src = '/js/update-v3.js';
+            document.body.appendChild(script);
+            if (typeof oldOnload == 'function') {
+                oldOnload();
+            }
+        }
+    }
+
+    // ]]>
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+   "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+<title>A frameset document</title>
+<style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<frameset rows="20%,*,30%">
+<frame name="title" src="https://www.mozilla.org/access/unix/testcase/HTML/frame_files/top_frame.html" title="Title and main navigation bar frame">
+<frameset cols="20%,*,">
+<frame name="right" src="https://www.mozilla.org/access/unix/testcase/HTML/frame_files/left_frame.html" title="Table of Contents frame">
+<frame name="main" src="https://www.mozilla.org/access/unix/testcase/HTML/frame_files/right_frame.html" title="Content viewing frame">
+</frame></frame></frameset>
+<frame name="bottom" src="https://www.mozilla.org/access/unix/testcase/HTML/frame_files/bottom_frame.html" title="Copyright, acknowlegment and secondary navigation frame">
+</frame></frame></frameset>
+<noframes>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<p>This page uses frames, but your browser doesn't support them.</p>
+</body>
+</noframes>
+
+</html>

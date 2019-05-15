@@ -1,0 +1,87 @@
+/* {{{ Release Notes */
+
+#firefox-relnotes #main-feature p {
+    color: #4B4742;
+    margin-bottom: 10px;
+}
+
+#firefox-relnotes #main-feature em {
+    color: #4B4742;
+}
+
+#firefox-relnotes #main-content {
+    float: left;
+    display: inline;
+    width: 500px;
+    background: none;
+    padding: 0;
+    margin: 10px 0 0 35px;
+}
+
+#release-notes {
+	background: #f9f9f9 url(../../../../img/firefox/beta/4/tech-table-borders.png) 0 0 no-repeat;
+	width: 880px;
+	margin: 20px auto;
+	padding: 25px 0 0 0;
+}
+
+#release-notes #release-notes-footer {
+	position: static;
+	top: 0;
+	background: url(../../../../img/firefox/beta/4/tech-table-borders.png) 100% 100% no-repeat;
+	height: 30px;
+	clear: both;
+}
+
+#firefox-relnotes div.expander-closed,
+#firefox-relnotes div.expander-open {
+    margin-right: 0;
+}
+
+#firefox-relnotes #sidebar {
+    margin-right: 25px;
+}
+
+#sidebar ul.home-download li a.download-link, * html #sidebar ul.home-download li a.download-link, 
+#sidebar ul.home-download li a.download-link span.download-link-text {
+	background-image: url("../../../../img/firefox/beta/4/download-button-release.png");
+}
+
+/* }}} */
+/* {{{ All Beta Page */
+
+#all-beta {
+	background: #f9f9f9 url(../../../../img/firefox/beta/4/tech-table-borders.png) 0 0 no-repeat;
+	width: 880px;
+	margin: 25px auto;
+}
+
+#all-beta-footer {
+	background: url(../../../../img/firefox/beta/4/tech-table-borders.png) 100% 100% no-repeat;
+	height: 30px;
+	clear: both;
+}
+
+#firefox-all #main-feature {
+	margin-left: 35px;
+}
+
+#download-button .download-other,
+#no-beta {
+	color: #4B4742;
+}
+
+#all-beta #languages {
+	padding: 0 25px;
+}
+
+#all-beta h3 {
+	padding: 25px 0 0;
+}
+
+#firefox-all #languages, #firefox-all #beta_versions, #firefox-all #lang_packs {
+	background: none;
+}
+
+
+/* }}} */

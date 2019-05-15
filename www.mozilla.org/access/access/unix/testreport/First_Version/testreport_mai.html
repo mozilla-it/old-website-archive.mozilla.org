@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>Test Report for MAI</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="testreport_mai.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="testreport_mai.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<a name="index"></a>
+<br>
+<div align="Center">
+<h1>Test Report for MAI</h1>
+               Reporter: <a href="mailto:mindy.liu@sun.com">Mindy Liu</a>
+<br>
+            July 18, 2002<br>
+<br>
+</br></br></br></div>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Test Cases<br>
+</br></th>
+<th width="22%">Report Detail</th>
+<th valign="Top" width="8%">
+<div align="Center"><b>BugID</b><br>
+</br></div>
+</th>
+<th valign="Top">Bug Summary<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/StaticText.html">
+            Static Text</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#statictext">    Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/single_line_text_input.html">
+                   Sinal line text input area</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#singletext">Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%">137<br>
+</br></td>
+<td valign="Top">Can not copy/cut/detele from single line text input
+area<br>
+</br></td>
+</tr>
+<tr>
+<td rowspan="1" valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/Multiple_lines_text_input_area.html">
+                       Multi line text input area</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#TextArea"> Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/HyperText.html">
+            HyperText</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#hypertext">    Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/Button.html">
+                 Buttons</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#button">     Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%">133<br>
+</br></td>
+<td valign="Top">Can not poke &lt;input type="file" name="B5" size="20"&gt;<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/checkbox.html">
+                  CheckBox</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#checkbox">Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/radiobutton.html">
+                  RadioButton</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#radiobutton">     Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/ListBox.html">
+            ListBox</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#listbox">   Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%">138<br>
+</br></td>
+<td valign="Top">The tree model of DropdownListBox has unlimited children<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/DropdownListbox.html">
+                  DropdownListbox</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#dropdownlistbox">   Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%">
+ 138 <br>
+</br></td>
+<td valign="Top">The tree model of DropdownListBox has unlimited children<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/Image.html">
+               Image</a>
+<br>
+</br></td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#image">     Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><a href="http://www.mozilla.org/projects/ui/accessibility/unix/testcase/MAI/Table.html">
+                 Table</a>
+</td>
+<td valign="Top" width="22%">
+<div align="Center"><a href="testreport_mai.html#table">     Detail</a>
+<br>
+</br></div>
+</td>
+<td valign="Top" width="8%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<div align="Left"><br>
+         Before you go deeply to see detailed report, please read the conventions 
+    flowing at first:<br>
+<h2>Conventions</h2>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr>
+<td align="Center" bgcolor="#cccccc" valign="Top">
+<div align="Center">Abbreviation<br>
+</br></div>
+</td>
+<td align="Left" bgcolor="#cccccc" valign="Top">
+<div align="Center">Representation<br>
+</br></div>
+</td>
+</tr>
+<tr>
+<td align="Center" valign="Top">C<br>
+</br></td>
+<td align="Left" valign="Top">Can not get correct result: <i>due
+ to    our code</i><br>
+</br></td>
+</tr>
+<tr>
+<td align="Center" valign="Top">N<br>
+</br></td>
+<td align="Left" valign="Top">Not available of at-poke: <i>due to 
+at-poke</i><br>
+</br></td>
+</tr>
+<tr>
+<td align="Center" valign="Top">I<br>
+</br></td>
+<td align="Left" valign="Top">Interface absent: <i>problem of designing 
+    test cases</i><br>
+</br></td>
+</tr>
+<tr>
+<td align="Center" valign="Top">T<br>
+</br></td>
+<td align="Left" valign="Top">To be evaluated: <i>can not clearly 
+  judge</i><br>
+</br></td>
+</tr>
+<tr>
+<td align="Center" valign="Top">P<br>
+</br></td>
+<td align="Left" valign="Top">Pass: <i>it's very good</i><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<h3><a name="statictext"></a>
+    Static Text</h3>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th>Interface<br>
+</br></th>
+<th>Feature tested</th>
+<th>Result</th>
+<th valign="Top">Remark<br>
+</br></th>
+<th>BugID</th>
+</tr>
+</tbody><tbody>
+<tr>
+<td colspan="1" rowspan="2" valign="Middle">Objects<br>
+<br>
+</br></br></td>
+<td valign="Top">getName<br>
+              getRole<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">          getDescription<br>
+              getAttributes<br>
+             getCharacterCount<br>
+<br>
+</br></br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="8" valign="Middle">AccessibleText Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="Top">addSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">setSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">removeSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">          getText<br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getOffsetAtPoint<br>
+    getTextBeforeOffset<br>
+              getTextAfterOffset<br>
+              getTextAtOffset<br>
+<br>
+</br></br></br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">setCaretOffset<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getCaretOffset<br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">can not refresh the offset<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">AccessibleEditableText Interface<br>
+</br></td>
+<td valign="Top">copyText<br>
+              pasteText<br>
+</br></br></td>
+<td valign="Top">I <br>
+    N<br>
+</br></br></td>
+<td valign="Top">maybe does not have this interface, but how to copy/paste
+  static text string??<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Middle">Events<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">Top</a>
+<br>
+</br></br></br></br></br></div>
+<h3><b><big><a name="singletext"></a>
+          Single line text input area</big></b></h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface</th>
+<th width="30%">Feature tested</th>
+<th>Result</th>
+<th>Remark</th>
+<th>BugID</th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">Objects<br>
+</br></td>
+<td valign="Top" width="30%">getName<br>
+                            getDescription<br>
+                            getRole......<br>
+                            getAttributes<br>
+           getCharacterExtents<br>
+                            getCharacterCount<br>
+</br></br></br></br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Top" width="25%">AccessibleComponent 
+Interface<br>
+</br></td>
+<td valign="Top">                   getPosition<br>
+                                getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">            getLayer<br>
+             getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="8" valign="Top" width="25%"><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+                       AccessibleText Interface<br>
+</br></br></br></br></br></br></br></br></br></td>
+<td align="Left" colspan="1" rowspan="1" valign="Middle" width="30%">
+                           setTextContents</td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">addSelection<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">setSelection<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getSelection<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">removeSelection</td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getOffsetAtPoint<br>
+                            getText<br>
+                            getTextBeforeOffset<br>
+                            getTextAfterOffset<br>
+                            getTextAtOffset<br>
+</br></br></br></br></br></td>
+<td valign="Top">T<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">setCaretOffset<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getCaretOffset</td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Middle" width="25%">AccessibleEditableText 
+     Interface<br>
+<br>
+<br>
+<br>
+</br></br></br></br></td>
+<td valign="Top" width="30%">copyText<br>
+           pasteText<br>
+</br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top">Press Ctrl+C, then paste with At-poke, can get expected 
+result, so copyText has something error, pasteText is right<br>
+</br></td>
+<td valign="Top">137<br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">cutText<br>
+                            pasteText<br>
+</br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top">137 <br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">deleteText<br>
+</br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top">137
+        <br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">insertText<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Middle" width="25%">Events<br>
+</br></td>
+<td valign="Top" width="30%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<a href="testreport_mai.html#index"><br>
+    Top</br></a>
+<h3><a name="TextArea"></a>
+                  TextArea</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface</th>
+<th width="25%">Feature tested</th>
+<th>Result</th>
+<th>Remark</th>
+<th>BugID</th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">Objects<br>
+</br></td>
+<td valign="Top" width="25%">getName<br>
+                            getDescription<br>
+                            getRole......<br>
+                            getAttributes<br>
+                            getCaretOffset<br>
+                            getCharacterExtents<br>
+                            getCharacterCount<br>
+</br></br></br></br></br></br></br></td>
+<td valign="Top" width="20">P N</td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="9" valign="Middle" width="25%">AccessibleText
+       Interface</td>
+<td align="Left" colspan="1" rowspan="1" valign="Top" width="25%">
+ setTextContents</td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">but can not input "enter", other words, can not
+input       on a new line<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">**addSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">**setSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">**getSelection</td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">**removeSelection</td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">getOffsetAtPoint<br>
+                            getText<br>
+</br></br></td>
+<td valign="Top">T<br>
+              <br>
+</br></br></td>
+<td valign="Top">  the refresh problem of at-poke? <br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">              getTextBeforeOffset<br>
+                            getTextAfterOffset<br>
+                            getTextAtOffset<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">              getCaretOffset<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">setCaretOffset<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">**AccessibleAction Interface<br>
+</br></td>
+<td valign="Top" width="25%"><br>
+</br></td>
+<td valign="Top">I<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Middle" width="25%">AccessibleEditableText
+       Interface<br>
+<br>
+</br></br></td>
+<td valign="Top" width="25%">copyText<br>
+            pasteText</br></td>
+<td valign="Top">P<br>
+<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">  cutText<br>
+              pasteText<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">deleteText<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">insertText<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Middle" width="25%">Events<br>
+</br></td>
+<td valign="Top" width="25%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">Top</a>
+<br>
+<br>
+<h3><a name="hypertext"></a>
+    HyperText</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface<br>
+</br></th>
+<th valign="Middle" width="25%">Feature tested</th>
+<th valign="Top">Result<br>
+</br></th>
+<th valign="Top">Remark<br>
+</br></th>
+<th valign="Top">BugID<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td colspan="1" rowspan="2" valign="Middle" width="25%">Objects<br>
+<br>
+</br></br></td>
+<td valign="Middle" width="25%">getName<br>
+    getRole<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">            getDescription<br>
+                getAttributes<br>
+               getCharacterCount<br>
+             getNLinks<br>
+<br>
+</br></br></br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="8" valign="Middle" width="25%">AccessibleText
+  Interface</td>
+<td valign="Middle" width="25%">addSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">setSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">removeSelection<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">            getText<br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getOffsetAtPoint<br>
+                getTextBeforeOffset<br>
+                getTextAfterOffset<br>
+                getTextAtOffset<br>
+<br>
+</br></br></br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">setCaretOffset<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getCaretOffset<br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">AccessibleEditableText Interface <br>
+</br></td>
+<td valign="Middle" width="25%">copyText<br>
+               pasteText<br>
+<br>
+</br></br></br></td>
+<td valign="Top">I<br>
+</br></td>
+<td valign="Top">no entry to copy, maybe does not have the interface<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td rowspan="2" valign="Middle" width="25%">AccessibleHypertext Interface<br>
+</br></td>
+<td valign="Middle" width="25%">getLinkIndex<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top">at-poke has not implement this interface<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getLink<br>
+<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Middle" width="25%">AccessibleHyperlink 
+  Interface<br>
+<br>
+</br></br></td>
+<td valign="Middle" width="25%">getNAnchors<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top">same as AccessibleHypertext Interface<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getIndexRange<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">getURI<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">isValid<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Middle" width="25%">Events<br>
+</br></td>
+<td valign="Middle" width="25%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<a href="testreport_mai.html#index">Top</a>
+<br>
+<h3><a name="button"></a>
+        Buttons</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface<br>
+</br></th>
+<th width="30%">Feature tested</th>
+<th>Result</th>
+<th>Remark</th>
+<th>BugID</th>
+</tr>
+</tbody><tbody>
+<tr>
+<td align="Left" valign="Middle" width="25%">Objects<br>
+</br></td>
+<td valign="Top" width="30%">getName<br>
+                                                  getDescription<br>
+                                                  getRole......<br>
+                                                  getAttributes<br>
+                                                 getCharacterCount<br>
+</br></br></br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top">
+        133
+        <br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="5" valign="Middle" width="25%">AccessibleComponent 
+      Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="Top" width="30%">getExtents<br>
+                       contains<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">             getPosition<br>
+                       getSize<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getLayer<br>
+</br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getMDIZOrder<br>
+</br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">grabFocus <br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="5" valign="Middle" width="25%">AccessibleAction 
+      Interface</td>
+<td valign="Top" width="30%">getNActions<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getName<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">             getDescription<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">getKeyBinding<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="30%">doAction<i><br>
+</br></i></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">Events<br>
+</br></td>
+<td valign="Top" width="30%"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<a href="testreport_mai.html#index"><br>
+        Top</br></a>
+<br>
+<br>
+<h3><a name="checkbox"></a>
+    CheckBox</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="10%">Interface</th>
+<th>Feature tested</th>
+<th valign="Top">Result<br>
+</br></th>
+<th valign="Top">Remark<br>
+</br></th>
+<th valign="Top">BugID<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td align="Left" valign="Middle" width="25%">
+<div align="Left">Objects<br>
+</br></div>
+</td>
+<td valign="Top">getName<br>
+    getDescription<br>
+                                      getRole......<br>
+                                      getAttributes<br>
+<br>
+</br></br></br></br></br></td>
+<td valign="Top">P<br>
+  N<br>
+</br></br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Middle" width="10%">AccessibleComponent
+  Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="Top">getExtents<br>
+                             contains<br>
+<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">                         getPosition<br>
+                             getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getLayer<br>
+ getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus <br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">result: add "FOCUSED" state to states <br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td rowspan="3" valign="Middle" width="10%">AccessibleAction Interface</td>
+<td valign="Top">getDescription<br>
+               getKeyBinding<br>
+<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">         getName<br>
+ getNActions<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">doAction<i><br>
+</br></i></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="10%">Events<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">Top</a>
+<br>
+<br>
+<h3><a name="radiobutton"></a>
+    RadioButton</h3>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface<br>
+</br></th>
+<th>Feature tested</th>
+<th valign="Top">Result<br>
+</br></th>
+<th valign="Top">Remark<br>
+</br></th>
+<th valign="Top">BugID<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">
+<div align="Center">Objects<br>
+</br></div>
+</td>
+<td valign="Top">getName<br>
+                                                   getDescription<br>
+                                                   getRole......<br>
+                                                   getAttributes<br>
+                                                  getParent<br>
+<br>
+</br></br></br></br></br></br></td>
+<td valign="Top">P<br>
+  N<br>
+</br></br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Middle" width="25%">AccessibleComponent 
+Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="Top">getPosition<br>
+                            getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1" valign="Top">getLayer<br>
+               getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus <br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td rowspan="3" valign="Middle" width="25%">AccessibleAction Interface<br>
+</br></td>
+<td valign="Top">getName<br>
+ getNActions<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getDescription<br>
+                            getKeyBinding<br>
+<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">doAction<i><br>
+</br></i></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle" width="25%">Events<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<a href="testreport_mai.html#index">  Top</a>
+<br>
+<h3><a name="listbox"></a>
+    ListBox</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface</th>
+<th>Feature tested</th>
+<th valign="Top">Result<br>
+</br></th>
+<th valign="Top">Remark<br>
+</br></th>
+<th valign="Top">BugID<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">
+<div align="Center">Objects<br>
+</br></div>
+</td>
+<td valign="Top">getName<br>
+                           getDescription<br>
+                           getRole<br>
+                           getAttributes<br>
+                           getParent<br>
+<br>
+</br></br></br></br></br></br></td>
+<td valign="Top">P<br>
+   N<br>
+</br></br></td>
+<td valign="Top">can get role/states/name, no other attributes<br>
+</br></td>
+<td valign="Top">138       <br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Middle" width="25%">AccessibleComponent 
+ Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td colspan="1" rowspan="1" valign="Top">               getPosition<br>
+                  getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">                 getLayer<br>
+                  getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus</td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td rowspan="3" valign="Middle" width="25%">AccessibleAction Interface<br>
+</br></td>
+<td valign="Top">getNActions<br>
+                           getName<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">                          getDescription<br>
+                           getKeyBinding<br>
+<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">doAction<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="6" valign="Middle" width="25%">AccessibleSelection 
+Interface<br>
+<br>
+<br>
+<br>
+</br></br></br></br></td>
+<td valign="Top">getNSelectedChildren<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle">getSelectedChild<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">isChildSelected<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">selectChild<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">deselectSelectedChild<br>
+</br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">clearSelection<br>
+       selectAll</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top">pass with listbox2<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="Middle" width="25%">Event<br>
+<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">  Top</a>
+<br>
+<h3><a name="dropdownlistbox"></a>
+    DropdownListBox</h3>
+ Can not go deeply to test, BugID: 138
+ <br>
+<br>
+<a href="testreport_mai.html#index">  Top</a>
+<br>
+<h3><a name="image"></a>
+    Image</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface<br>
+</br></th>
+<th>Feature tested</th>
+<th valign="Top">Result<br>
+</br></th>
+<th valign="Top">Remark<br>
+</br></th>
+<th valign="Top">BugID<br>
+</br></th>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">Objects<br>
+</br></td>
+<td valign="Top">getName<br>
+                getDescription<br>
+                getRole......<br>
+      getAttributes<br>
+</br></br></br></br></td>
+<td valign="Top">P<br>
+ N<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="4" valign="Middle" width="25%">AccessibleComponent 
+ Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="Top">getExtents<br>
+                            contains<br>
+<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">                           getPosition<br>
+                            getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getLayer<br>
+                          getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus <br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">AccessibleAction Interface<br>
+</br></td>
+<td valign="Top">doAction<br>
+</br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">  Top</a>
+<br>
+<h3><a name="table"></a>
+    Table</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th width="25%">Interface<br>
+</br></th>
+<th>Feature tested</th>
+<td valign="Top">Result<br>
+</br></td>
+<td valign="Top">Remark<br>
+</br></td>
+<td valign="Top">BugID<br>
+</br></td>
+</tr>
+</tbody><tbody>
+<tr>
+<td valign="Middle" width="25%">
+<div align="Center">Objects<br>
+</br></div>
+</td>
+<td valign="Top">getName<br>
+                                                                        
+                                                      getDescription<br>
+                                                                        
+                                                      getRole<br>
+                                                                        
+                                                      getAttributes<br>
+                                                                        
+                         getParent<br>
+<br>
+</br></br></br></br></br></br></td>
+<td valign="Top">P<br>
+ N<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="3" valign="Middle" width="25%">AccessibleComponent 
+  Interface<br>
+</br></td>
+<td colspan="1" rowspan="1" valign="Top">getPosition<br>
+                                                                        
+                              getSize<br>
+<br>
+</br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">                                                
+                                            getLayer<br>
+                                                                        
+                     getMDIZOrder<br>
+<br>
+</br></br></br></td>
+<td valign="Top">C<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">grabFocus<br>
+<br>
+</br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="6" valign="Middle" width="25%">AccessibleTable 
+Interface<br>
+<br>
+</br></br></td>
+<td valign="Top">getNColumns<br>
+                           getNRows<br>
+                           getColumnDescription<br>
+                           getRowDescription<br>
+</br></br></br></br></td>
+<td valign="Top">P<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Middle">getColumnExtentAt<br>
+                           getRowExtentAt<br>
+</br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr bgcolor="#9999ff">
+<td bgcolor="#ffffff" valign="Top">getAccessibleAt<br>
+                           getCaption<br>
+                           getColumnHeader<br>
+                           getRowHeader<br>
+                           *getSummary<br>
+</br></br></br></br></br></td>
+<td bgcolor="#ffffff" valign="Top">P<br>
+</br></td>
+<td bgcolor="#ffffff" valign="Top"><br>
+</br></td>
+<td bgcolor="#ffffff" valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getIndexAt<br>
+                           getColumnAtIndex<br>
+                           getRowAtIndex<br>
+</br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getNSelectedColumns<br>
+                           getNSelectedRows<br>
+                           isSelected<br>
+                           isColumnSelected<br>
+                           isRowSelected<br>
+</br></br></br></br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top">getSelectedColumns<br>
+                           getSelectedRows<br>
+</br></br></td>
+<td valign="Top">N<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top" width="25%">AccessibleAction Interface<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top">I<br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="7" valign="Middle" width="25%">Events<br>
+<br>
+<br>
+<br>
+</br></br></br></br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+<td valign="Top"><br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<a href="testreport_mai.html#index">  Top</a>
+<br>
+<br>
+  Events of every objects have not been tested yet.<br>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/testreport/First_Version/testreport_mai.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

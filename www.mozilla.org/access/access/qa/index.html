@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>Mozilla Accessibility Project: Information for QA engineers</title>
+<link href="../../org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="../../org/style/screen.css%3Fdate=2011-01-05.css" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style type="text/css">
+li > p {margin-left: 2em; max-width: 50em;}
+</style>
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('../../img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('../../img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="../../org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="../../org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="../../org/script/1.0/mozilla.org.js"></script>
+<meta content="Mozilla's Web Browser Accessibility Project Page" name="Description">
+<meta content="web browser accessibility, Mozilla accessibility, DHTML, a11y, accessible, access, MSAA, Active Accessibility, open source accessibility, Section 508, ATK, Accessibility Tool Kit, Netscape accessibility, Gecko accessibility, XUL accessibility" name="KEYWORDS">
+<meta content="en" http-equiv="Content-Language">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="Aaron Leventhal" name="DC.author">
+<meta content="Aaron Leventhal" name="DC.creator">
+<meta content="Mozilla Accessibility Project: Information for QA engineers" name="DC.title">
+<meta content="Mozilla Accessibility Project: Information for QA engineers" name="DC.subject">
+<meta content="Mozilla Accessibility Project: Information for QA engineers" name="DC.description">
+<meta content="2005-01-17T12:02:03+11:00" name="DC.date.created" scheme="W3CDTF">
+<meta content="2008-01-17T09:54:03+11:00" name="DC.date.modified" scheme="W3CDTF">
+<link href="https://www.mozilla.org/" rel="top" title="Home of the Mozilla project">
+<link href="https://www.mozilla.org/access/" rel="up" title="Back to Mozilla Accessibility project page">
+<link href="https://www.mozilla.org/access/at-vendors" rel="previous" title="Information for Assistive Technology Vendors">
+<link href="https://www.mozilla.org/access/ui-developers" rel="next" title="Information for UI designers and developers">
+<link href="index.html#community" rel="section" title="Feedback, discussion and community help">
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link></link></link></link></link></meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-04.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="index.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="index.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<p class="crumbs"><em>You are here:</em> <a href="index.html">Access project page</a> &gt; <strong>Accessibility Information for QA engineers</strong></p>
+<!-- logo: mozilla in wheelchair -->
+<h1><a href="https://www.mozilla.org/access/" rel="up" title="Back to Mozilla Accessibility project page"><img alt="Access Mozilla" height="115" src="../access-mozilla.png" style="border: medium none;" width="680"/></a></h1>
+<p>Maintained by <a href="index.html#community">Mozilla Accessibility Community</a></p>
+<h2>Accessibility Information for QA engineers</h2>
+<ol>
+<li>
+<a href="https://www.mozilla.org/access/qa/testcases">Accessibility test cases</a>
+<p>Useful accessibility-related test cases, both formal tests and minimal test files
+        </p>
+</li>
+<li>
+<a href="http://developer.mozilla.org/en/Accessible_XUL_Authoring_Guidelines">Accessible XUL Authoring Guidelines</a>
+<p>When authored according to these guidelines, XUL is capable of generating 
+          accessible user interfaces. Coders, reviewers, designers and QA engineers 
+          should be familiar with these guidelines.
+        </p>
+</li>
+<li>
+<a href="http://developer.mozilla.org/en/XUL_Accesskey_FAQ_and_Policies">XUL accesskey FAQ and Policies</a>
+<p>What everyone needs to read before adding XUL accesskeys.
+        </p>
+</li>
+<li>
+<a href="https://www.mozilla.org/access/toolkit-checklist">Accessible Toolkit Checklist</a>
+<p>A list of what needs to be done for accessibility when building new toolkits, 
+          widget by widget.
+        </p>
+</li>
+<li>
+<a href="https://www.mozilla.org/access/keyboard/">Mozilla's keyboard UI FAQ</a>
+<p>We have settled on a spec that people are mostly happy with. Let us know what 
+          you think on the mozilla-accessibility mailing list.
+        </p>
+<p><i>Windows keys</i>:</p>
+<ul>
+<li>
+<a class="ex-ref" href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnacc/html/ATG_KeyboardShortcuts.asp">
+            Guidelines on keyboard UI design and on implementing keyboard shortcuts</a>: An excellent resource from Microsoft.</li>
+</ul>
+<p><i>OS X keys</i>:</p>
+<ul>
+<li><a class="ex-ref" href="http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/XHIGKeyboardShortcuts/chapter_20_section_1.html#//apple_ref/doc/uid/TP40002725-CHDIGFBH">Keyboard Shortcuts Quick Reference for Mac OS X</a>
+</li>
+<li><a class="ex-ref" href="http://developer.apple.com/documentation/UserExperience/Conceptual/OSXHIGuidelines/XHIGUserInput/chapter_11_section_3.html#//apple_ref/doc/uid/TP30000361-TP22">Complete reference on keyboard for Mac OS X</a>: this document list all functions of specified keys, known keyboard shortcuts, explains how to create keyboard shortcuts, explains appropriate use for the arrow keys, how to move the insertion point with keys, how to extent text selection with keys, functions of function keys, what are reserved keyboard shortcuts, how to create your own keyboard shortcuts, keyboard focus and navigation, type-ahead and key-repeat, etc.
+          </li>
+</ul>
+<p><i>Gnome keys</i>: <a class="ex-ref" href="http://docs.sun.com/app/docs/doc/817-1972/6mhlsbe8h?a=view">Keyboard
+documentation for Gnome 2.2 -- still seeking developer guidelines for keyboard.</a>
+</p>
+</li>
+<li>
+<a href="http://mxr.mozilla.org/mozilla-central/source/accessible/tests/">Automated Accessibility Tests</a>
+<p>These automated tests can help determine whether Mozilla's nsIAccessible API 
+          is working properly. They run in the mochitest and crashtest framework.
+        </p>
+</li>
+<li>
+<a href="https://www.mozilla.org/access/samples/js-nsIAccessible">Sample nsIAccessible Javascript usage</a>
+<p>This HTML page shows how nsIAccessible can be used in JavaScript. The sample 
+          application provided can be used to test our accessibility API support of any 
+          HTML. Looking for a volunteer to improve this application.
+        </p>
+</li>
+<li>
+<a href="https://www.mozilla.org/access/type-ahead/">Find As You Type QA</a>
+<p>Testing information for Mozilla's Find As You Type feature.
+        </p>
+</li>
+</ol>
+<h2><a name="community">Join the Mozilla Accessibility Community</a></h2>
+<h3>Live Chat</h3>
+<p>Both end users and developers are invited for discussion on the live IRC channel at <a href="irc://moznet/%23accessibility">irc.mozilla.org/#accessibility</a>.
+    Since this is a worldwide effort, there is always a good chance to find someone to chat with there, day or night.</p>
+<h3>Newsgroup and Mailing List</h3>
+<p>We have two discussion lists, which can be read via a newsgroup reader, as a mailing list or via Google groups.</p>
+<table class="data" summary="Mozilla accessibility forum discussion groups">
+<thead>
+<tr>
+<th scope="col">Purpose</th>
+<th scope="col">Newsgroup</th>
+<th scope="col">Mailing list</th>
+<th scope="col">Google group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Developer discussion</td>
+<td><a href="news://news.mozilla.org/mozilla.dev.accessibility">mozilla.dev.accessibility</a></td>
+<td><a href="https://lists.mozilla.org/listinfo/dev-accessibility">subscribe/unsubscribe</a></td>
+<td><a href="http://groups.google.com/group/mozilla.dev.accessibility">Google group</a></td>
+</tr>
+<tr>
+<td>End user support</td>
+<td><a href="news://news.mozilla.org/mozilla.support.accessibility">mozilla.support.accessibility</a></td>
+<td><a href="https://lists.mozilla.org/listinfo/support-accessibility">subscribe/unsubscribe</a></td>
+<td><a href="http://groups.google.com/group/mozilla.support.accessibility">Google group</a></td>
+</tr>
+</tbody>
+</table>
+</div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="../../images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/qa/index.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE HTML>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta content="width=1024" name="viewport">
+<title>Phoenix 0.1 (Pescadero) release Notes and FAQ</title>
+<meta content="/img/firefox-100.jpg?2013-06" name="og:image">
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBlack';
+        src: url('../../../img/fonts/MetaWebPro-Black.eot');
+        src: local('☺'), url('../../../img/fonts/MetaWebPro-Black.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<link href="../../../includes/min/min.css?g=css&amp;_d=20120207" rel="stylesheet">
+<link href="../../../tabzilla/media/css/tabzilla.css" rel="stylesheet">
+<script src="../../../includes/min/min.js?g=js"></script>
+<link href="../../../style/covehead/release-notes.css" media="screen" rel="stylesheet"/>
+<style>
+#download #update-notice { display: none; }
+
+#update-notice {
+    background: rgb(20,20,20);
+    background: rgba(38, 38, 38, 0.95);
+    border-bottom: 2px solid #686868;
+    text-shadow: 0 1px #000;
+    -moz-text-shadow: 0 1px #000;
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    z-index: 99;
+    line-height: 1;
+}
+
+#update-notice.bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+#update-notice .container {
+    text-align: left;
+    padding: 15px 10px 15px 140px;
+    width: 800px;
+    display: inline-block;
+    margin: 0 auto;
+    background: url(../../../img/covehead/firefox/update-creature.png) 0 100% no-repeat;
+    position: relative;
+}
+
+#update-notice .message {
+    float: left;
+    width: 600px;
+}
+
+#update-notice h2 {
+    letter-spacing: normal;
+    text-transform: none;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 18px;
+    font-style: normal;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+#update-notice p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+}
+
+#update-notice p.action {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    float: right;
+}
+
+#home #update-notice p.action {
+    display: none;
+}
+
+#update-notice p.action span {
+    display: block;
+}
+
+#update-notice p.action span a {
+    color: #6ba4ff;
+}
+
+#update-notice .button {
+    display: inline-block;
+    padding: 6px 16px 8px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1),
+                0 -2px rgba(0, 0, 0, 0.1) inset;
+    background:-moz-linear-gradient(top, #84C63C, #489615);
+    background-color: #489615;
+    color: #fff;
+    font-size: 16px;
+    font-style: italic;
+    text-decoration: none;
+    text-shadow: 1px 1px rgba(0,0,0,0.4);
+}
+
+#update-notice .close {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    background: url(../../../img/covehead/firefox/update-close.png) 0 0 no-repeat;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-indent: -1000em;
+}
+
+#update-notice .close:hover,
+#update-notice .close:focus {
+    background-position: -25px 0;
+}
+
+</style>
+<script>
+var _gaq = _gaq || [];
+var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-36116321-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    var prefix = ('https:' == document.location.protocol ? 'https://ssl' :
+                  'http://www');
+    ga.src = prefix + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="firefox-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2013-12-06.</div>
+<script>// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+    document.body.className = 'js';
+} else {
+    document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+    document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+    document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+    document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="outer-wrapper">
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="0.1.html#nav-main">skip to Navigation</a>
+<a href="0.1.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1>
+<a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Mozilla Firefox</a>
+</h1>
+<a class="mozilla" href="http://www.mozilla.org/" id="tabzilla">mozilla</a>
+<!-- start menu #nav-main -->
+<div id="nav-main" role="navigation">
+<ul role="menubar">
+<li class="first" id="nav-main-features"><a aria-haspopup="true" aria-owns="nav-main-features-submenu" href="http://www.mozilla.org/en-US/firefox/features/" tabindex="0">Desktop</a><ul aria-expanded="false" id="nav-main-features-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/features/" tabindex="-1">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/" tabindex="-1">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/" tabindex="-1">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/" tabindex="-1">Technology</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/security/" tabindex="-1">Privacy &amp; Security</a></li></ul></li>
+<li id="nav-main-mobile"><a aria-haspopup="true" aria-owns="nav-main-mobile-submenu" href="http://www.mozilla.org/en-US/mobile/" tabindex="0">Mobile</a><ul aria-expanded="false" id="nav-main-mobile-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/mobile/" tabindex="-1">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/" tabindex="-1">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured" tabindex="-1">Customize</a></li><li class="last"><a href="http://www.mozilla.org/en-US/mobile/faq/" tabindex="-1">FAQ</a></li></ul></li>
+<li id="nav-main-releases"><a aria-haspopup="true" aria-owns="nav-main-releases-submenu" href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="0">Releases</a><ul aria-expanded="false" id="nav-main-releases-submenu"><li class="first"><a href="http://www.mozilla.org/en-US/firefox/channel/" tabindex="-1">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/" tabindex="-1">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/" tabindex="-1">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/" tabindex="-1">Firefox</a></li><li class="last"><a href="http://www.mozilla.org/en-US/firefox/organizations/" tabindex="-1">Firefox for Organizations</a></li></ul></li>
+<li id="nav-main-addons"><a aria-haspopup="true" aria-owns="nav-main-addons-submenu" href="https://addons.mozilla.org/" tabindex="0">Add-ons</a><ul aria-expanded="false" id="nav-main-addons-submenu"><li class="first"><a href="https://addons.mozilla.org/firefox/" tabindex="-1">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/" tabindex="-1">Mobile Add-ons</a></li><li class="last"><a href="http://www.getpersonas.com/" tabindex="-1">Personas</a></li></ul></li>
+<li id="nav-main-support"><a aria-haspopup="true" aria-owns="nav-main-support-submenu" href="http://support.mozilla.org/" tabindex="0">Support</a><ul aria-expanded="false" id="nav-main-support-submenu"><li class="first"><a href="http://support.mozilla.org/en-US/kb/" tabindex="-1">Desktop Support</a></li><li class="last"><a href="http://support.mozilla.org/mobile" tabindex="-1">Mobile Support</a></li></ul></li>
+<li class="last" id="nav-main-about"><a aria-haspopup="true" aria-owns="nav-main-about-submenu" href="http://www.mozilla.org/en-US/firefox/about/" tabindex="0">About</a><ul aria-expanded="false" id="nav-main-about-submenu"><li class="first"><a href="http://blog.mozilla.com/" tabindex="-1">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/" tabindex="-1">About Firefox</a></li><li><a href="http://www.mozilla.org/join" tabindex="-1">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/" tabindex="-1">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/" tabindex="-1">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/" tabindex="-1">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html" tabindex="-1">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html" tabindex="-1">Partnerships</a></li><li class="last"><a href="http://www.mozilla.org/en-US/about/contact.html" tabindex="-1">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #nav-main -->
+</div>
+</div>
+<!-- end #header -->
+<!-- start breadcrumbs #breadcrumbs -->
+<p id="breadcrumbs"><a class="home" href="http://www.mozilla.org/en-US/">Home</a> <b>»</b>
+<span>Release Notes</span>
+</p>
+<!-- end breadcrumbs #breadcrumbs -->
+<div id="main-feature">
+<h2>Phoenix 0.1 (Pescadero) Release Notes and FAQ</h2>
+<p>Phoenix is a redesign of the Mozilla browser component, similar to Galeon, 
+K-Meleon and Chimera, but written using the XUL user interface language and 
+designed to be cross-platform. More information about Phoenix is available at
+the <a href="http://www.mozilla.org/projects/phoenix/">Phoenix Project Page</a>.</p>
+</div>
+<div id="main-content">
+<p>This document covers <a href="0.1.html#new">what's new</a>, <a href="0.1.html#install">download 
+and installation instructions</a>, <a href="0.1.html#issues">known issues</a> and 
+<a href="0.1.html#FAQ">frequently asked questions</a> for the Phoenix 0.1 (Pescadero) 
+release. Please read these notes before reporting any bugs to Bugzilla. 
+Thanks.</p>
+<h2 id="new">What's New</h2>
+<p>Phoenix is not your father's Mozilla browser. It's a lean and fast 
+browser that doesn't skimp on features. A few of the features 
+<a href="http://bugzilla.mozilla.org/buglist.cgi?product=Phoenix&amp;target_milestone=Phoenix0.1">
+new to this release</a> include:</p>
+<ul>
+<li>Customizable toolbar
+<p>The Phoenix toolbar is easily and quickly re-configured. Users can re-order
+the buttons and addressbar, can show large or small icons, and can chose to 
+display buttons and text, text only of buttons only. The feature, available
+from the View|Customize Toolbar... dialog is a convenient way for the user, 
+not the application, to determine what works best for her.</p></li>
+<li>earch for Bookmarks and History
+<p>The Bookmarks and History managers contain a quicksearch bar for quickly 
+and easily filtering the list of bookmarks or history items. Quicksearch 
+makes managing these lists faster and much more convenient.</p></li>
+<li>Speed, Speed, and Speed
+<p>Phoenix was designed with performance as a primary goal. The XUL experts 
+built a browser that starts in nearly half the time of Mozilla and its 
+commercial derivatives. New windows also snap into existence almost twice as 
+fast as Mozilla and commercial derivatives.</p></li>
+<li>Overhauled Bookmarks Manager
+<p>Phoenix fixes lots of common problems with the bookmarks manager, and adds new undo/redo capability.</p></li>
+<li>New Look
+<p>The Phoenix browser has a fresh new look that combines the stylish icons 
+of the Orbit theme with respect for the system colors/skins/fonts of the 
+Mozilla Classic theme.</p></li>
+<li>Reasonable Default Settings
+<p>The Phoenix developers believe that the browser should just "do the right 
+thing". They have configured behaviors for pop-up blocking, tabbed browsing, 
+and other features to simply "do the right thing".</p></li>
+</ul>
+<p>And this is just the beginning. The Phoenix team are already hard at work 
+on the Phoenix 0.2 release, targetted for October 1st, in which they plan to deliver 
+<a href="http://bugzilla.mozilla.org/buglist.cgi?product=Phoenix&amp;target_milestone=Phoenix0.2">
+more great features</a> including:</p>
+<ul>
+<li>Satchel
+<p>Satchel is a replacement for Mozilla's Wallet functionality. Satchel 
+includes major usability improvements like the often-requested inline 
+autocomplete of webforms.</p></li>
+<li>Plug-in and Add-on Manager
+<p>With the scores of great plug-ins, add-ons and other extensions that 
+are being developed at mozdev.org and elsewhere the need for a 
+mechanism to selectively enable and disable these plug-ins as well as 
+conveniently uninstall XPI extensions has become quite obvious. Phoenix
+developers see this need and are working to address it.</p></li>
+<li>Download Manager
+<p>The Mozilla download manager provides a convenient way to see all 
+of your downloads in one place but is short on power and looks. The 
+next Phoenix release will sport a new and improved Download Manager.</p></li>
+<li>Prefs
+<p>All your favorite prefs will be back.</p></li>
+</ul>
+<h2 id="install">Download, Install and Uninstall</h2>
+<p>Phoenix binaries are available for Windows and Linux.</p>
+<p>Windows: <a href="http://ftp.mozilla.org/pub/phoenix/releases/0.1/phoenix-0.1-win32.zip">
+http://ftp.mozilla.org/pub/phoenix/releases/0.1/phoenix-0.1-win32.zip</a></p>
+<p>Linux: <a href="http://ftp.mozilla.org/pub/phoenix/releases/0.1/phoenix-0.1-i686-pc-linux-gnu.tar.gz">
+http://ftp.mozilla.org/pub/phoenix/releases/0.1/phoenix-0.1-i686-pc-linux-gnu.tar.gz</a></p>
+<p>Once you have downloaded the binary, use winzip or gzip to
+unpzip Phoenix to an empty directory. Do not unzip Phoenix to a
+directory that already contains a binary. Either delete the
+existing directory completely, move it out of the way or create a
+new directory. If you install Phoenix on top of an existing Phoenix
+or Mozilla directory you <strong>will</strong> have problems.</p>
+<p>To uninstall Phoenix simply delete the Phoenix directory. This
+will leave your profile in place for use by future Phoenix
+installs. If you wish to remove your Phoenix profile you can delete
+the Phoenix dir from your Windows Application Data directory or
+remove the .phoenix dir from your linux home directory.</p>
+<h2 id="issues">Known Issues</h2>
+<p>This is an 0.1 release. If you expect everything to work
+perfectly then you will surely be let down. This list covers some
+of the known problems with Phoenix 0.1. Please read this before
+reporting any new bugs to Bugzilla.</p>
+<ul>
+<li>Phoenix utilizes large hunks of Mozilla code. Many of the
+problems you may experience in Phoenix are actually problems in
+this Mozilla core code. If you find a problem with page content or
+connectivity then it is probably a Mozilla problem and should be
+reported to the Browser product in Bugzilla and not to the Phoenix
+product.</li>
+<li>Preferences are in the middle of a massive overhaul. The
+current state of preferences is not the final state. If your
+favorite or most important pref isn't available don't panic. We're
+working on it. See the <a href="0.1.html#FAQ">FAQ</a> for more information.</li>
+<li>Bookmarks functionality has recently been overhauled as well.
+There is a known hang when managing bookmarks which is reported as
+bug <a href="http://bugzilla.mozilla.org/show_bug.cgi?id=167167" title="manage bookmarks causes hang">167167</a></li>
+<li>In the Customize Toolbar dialog the addressbar is a bit tricky
+to drag. To drag the addressbar click and drag the little
+downward-point arrow on the right end of the addressbar.</li>
+<li>Dropping an item in empty space on the right side of the
+toolbar is also a tricky. To drop something right of the rightmost
+item on the toolbar move the mouse left until you see a drop marker
+appear.</li>
+<li>Quicksearch in bookmarks and history are new and still have a 
+couple of issues. We don't yet support deleting filtered results 
+for bookmarks and history filtering is case sensitive. We expect 
+to have these issues fixed in future releases.</li>
+<li>Tabbing through forms on Linux is broken pretty badly.</li>
+</ul>
+<h2 id="FAQ">Frequently Asked Questions</h2>
+<ol>
+<li>
+<p><em>Are the rest of the preferences coming back?</em></p>
+<p>Yes. Mostly.</p>
+</li>
+<li>
+<p><em>You said this is a lean, lightweight browser, but it's 8MB! I laugh at your silly lies!</em></p>
+<p>Take it easy, sport.  Phoenix has many files that override those in Mozilla, but it <i>also</i> has a new set of files.  These files render a ton of files in Mozilla unnecessary, but we haven't yet stopped packaging the old files.  It also still contains the modern theme and all the composer UI.  In short, we haven't done any work yet to minimize the size, but we expect to be able to hit 6MB with a little work. </p></li>
+<li>
+<p><em>Who is working on Phoenix?</em></p>
+<p>The developers are <a href="mailto:blaker@netscape.com">Blake Ross</a>, <a href="mailto:hyatt@apple.com">Dave Hyatt</a>, <a href="mailto:chanial@noos.fr">Pierre Chanial</a> and <a href="mailto:hewitt@netscape.com">Joe Hewitt</a>, with <a href="mailto:asa@mozilla.org">Asa Dotzler</a> providing tremendous help with bug triage, the website, and other odds and ends, and <a href="mailto:bryner@netscape.com">Brian Ryner</a> providing build expertise.  It is supported by mozilla.org staff.</p></li>
+<li>
+<p><em>Phoenix is going to get old and outdated. It sucks.</em></p>
+<p>No.  Phoenix is <i>not</i> a branch; it builds right atop the Mozilla trunk.  Each milestone contains code that was literally checked in the day before -- we're risky like that ;)  It's the latest and greatest.</p></li>
+<li>
+<p><em>Okay, so where's the phoenix source?</em></p>
+<p>Mozilla trunk + mozilla/browser + mozilla/toolkit.</p></li>
+<li>
+<p><em>Where's the mac version?</em></p>
+<p>There is no mac version.  While Phoenix could be made to run on Mac without much trouble, we see no point in competing with Chimera.  Chimera is the lightweight, standalone Mozilla browser solution for Mac OS X.  We have received requests for a Mac classic version, and are considering the idea.</p></li>
+<li>
+<p><em>Why did you put the reload and stop buttons in the wrong 
+place and where's my throbber?</em></p>
+<p>View | Customize Toolbar...</p>
+</li>
+<li>
+<p><em>How do I set up my proxy without a prefs panel?</em></p>
+<p>You can manually edit your prefs.js file. Simply copy the values
+from your Mozilla profile prefs.js.
+<br/><br/>
+<b>Update</b>: Yes, we realize that manual proxy isn't working in 0.1.  Unfortunately, it got broken in Mozilla right before we spun up the final builds.  We're targetted 0.2 for 1-2 weeks from now, and it will correct the problem.</p>
+</li>
+<li>
+<p><em>What a bunch of idiots.  Why didn't they call it, say, Mozilla Lite?  Don't they know the importance of brand recognition?</em></p>
+<p>Oh, where to begin.  First of all, it's not "lite."  Not only does Phoenix aim to match the featureset of Mozilla -- subtracting features deemed geeky and better offered as add-ons -- but it <i>extends</i> it.  For example, it adds customizable toolbars and quicksearch in bookmarks and history.  It will soon offer an add-on manager, a better wallet, and a new downloads sidebar pane.</p>
+<p>Second, it's not Mozilla.  It's backed by mozilla.org, sure, but with each milestone you'll see it diverge more and more from Mozilla.</p>
+<p>Third, "Mozilla" is not the name of an application; it is the name of a monolithic suite containing a browser, a mail client, an irc client, and an indoor skating rink (we hear that's coming, anyways.)  Even if we did decide to call this browser Mozilla, we'd still have to call the standalone mail client (see below) something else.  We also believe Mozilla, in general, is going in the wrong direction in terms of bloat and UI, and see no reason for our releases to carry those connotations.</p></li>
+<li>
+<p><em>Did you say something about a standalone mail client?</em></p>
+<p>Yes.  We did.  Thank you for listening.  It's called <a href="http://www.mozilla.org/mailnews/minotaur/">Minotaur</a>, but it's a little stagnant right now.  There are plans to pick it up again in the not-too-distant future.  Just to whet your appetite, the speed improvements in Minotaur will be comparable to those in Phoenix.</p></li>
+<li>
+<p><em>Will all of the Mozdev (and other) themes and add-ons work
+with Phoenix?</em></p>
+<p>Most will not. XUL Add-ons and themes will probably need to be
+tweaked by their authors to work with Phoenix; we are working with authors of popular add-ons to get them compatible. Plugins like flash
+and real should work.</p>
+</li>
+</ol>
+<h2 id="feedback">Feedback and Bug Reports</h2>
+<p>(shamelessly ripped from the <a href="http://www.mozilla.org/en-US/firefox/chimera/">Chimera
+project page</a>)</p>
+<p>Phoenix bugs are tracked in the <a href="http://bugzilla.mozilla.org/">Bugzilla</a> bug system. With
+Bugzilla, you can query for existing bugs, add comments to bugs,
+and file new bugs.</p>
+<p>If you find a problem that you think might be a bug in Phoenix,
+please don't jump in and file it right away. Having
+low-quality and duplicate bugs in the bug system simply wastes the
+time of developers and QA. Instead, follow these steps.</p>
+<ol>
+<li>First, try the most recent <a href="http://ftp.mozilla.org/pub/phoenix/nightly/latest-trunk/">nightly
+build</a>, to see if the problem still exists.</li>
+<li>Next, try to reproduce the bug with a recent <a href="http://www.mozilla.org/releases/">Mozilla build</a>, to see if the
+bug happens there. If so, the bug should be filed as a <a href="http://bugzilla.mozilla.org/enter_bug.cgi?product=Browser&amp;format=guided">
+Mozilla bug</a> (only, of course, after searching to see if the bug
+has already been filed). Bugs related to how pages are laid out are
+almost always Mozilla bugs, and are highly likely to have been
+filed already.</li>
+<li>
+<p>Now you can go ahead and search the Phoenix bugs to see if
+someone has already reported your problem.</p>
+</li>
+<li><a href="http://bugzilla.mozilla.org/query.cgi?product=Phoenix&amp;bug_status=UNCONFIRMED&amp;bug_status=NEW&amp;bug_status=ASSIGNED&amp;bug_status=REOPENED">
+Search the open Phoenix bugs</a>, but be aware that your
+terminology might not match that of others (e.g. "URL
+bar" vs. "Location bar"), so you might not find
+what you are looking for the first time. Be diligent!</li>
+<li>Look at Phoenix bugs reported in the <a href="http://bugzilla.mozilla.org/buglist.cgi?product=Phoenix&amp;changedin=1&amp;chfield=%5BBug+creation%5D">
+last day</a>.</li>
+<li>Look at the <a href="http://bugzilla.mozilla.org/buglist.cgi?product=Phoenix">list all Phoenix bugs</a> to see if your issue has already been
+filed (and possibly already fixed).</li>
+<li>
+<p>If you didn't find an existing bug for your problem, and
+you're sure that it's a problem with Phoenix, then you
+can go ahead and file the bug.</p>
+<p>If you are new to Bugzilla, please read the <a href="http://www.mozilla.org/quality/bug-writing-guidelines.html">bug
+writing</a> guidelines first. To be able to file and comment on
+bugs, you'll need to <a href="http://bugzilla.mozilla.org/createaccount.cgi">make yourself an
+account</a>. Note that accounts can, and will, be revoked if
+abused.</p>
+</li>
+<li>Report a new Phoenix bug <a href="http://bugzilla.mozilla.org/enter_bug.cgi?product=Phoenix&amp;format=guided">
+using the Bugzilla helper</a>, or <a href="http://bugzilla.mozilla.org/enter_bug.cgi?product=Phoenix">using
+the advanced bug entry form</a></li>
+<li>
+<p>Put as much relevant detail into the bug report as you can. 
+If Phoenix crashes be sure to specify if you were on a certain page 
+when it crashed, give the URL. Mention whether the page contains
+plugins. Try to find the simplest way of causing the crash that you
+can. If it crashes when you are supplying data to Phoenix (e.g.
+importing bookmarks), attach the relevant data (in this case, the
+bookmarks file being imported). The better your bug report, the
+more chance there is of a developer taking note, and fixing it.</p>
+</li>
+</ol>
+<p>We do not yet have newsgroups and mailing lists set up for
+feedback. We hope to have this set up soon.</p>
+</div><!-- end #content div -->
+</div><!-- end #doc -->
+</div><!-- end #wrapper -->
+</div><!-- end #outer-wrapper -->
+<div class="clear"></div>
+<!-- start #footer -->
+<div id="sub-footer">
+<div id="sub-footer-contents">
+<h3>Let’s be <span>friends!</span></h3>
+<ul>
+<li id="footer-twitter">
+<a href="http://twitter.com/firefox">Twitter</a>
+</li>
+<li id="footer-facebook">
+<a href="http://facebook.com/Firefox">Facebook</a>
+</li>
+<li id="footer-affiliates">
+<a href="https://affiliates.mozilla.org/">Firefox Affiliates</a>
+</li>
+</ul>
+<div id="sub-footer-newsletter">
+<div class="newsletter-signup " id="newsletter">
+<div class="container">
+<form action="https://www.mozilla.org/en-US/firefox/releases/0.1.html#subscribe-form" class="email-form inline-email-form" method="post">
+<input name="target" type="hidden" value="inline"/>
+<input name="mozilla-and-you" type="hidden" value="Y"/>
+<ul class="">
+<li class="open-pane" data-wt_ti="" data-wt_uri="">
+<h3>Get Monthly News</h3>
+<div class="email-field field">
+<span class="error-wrapper ">
+<input class="email placeholder" name="email" placeholder="Your Email Address" type="email" value="">
+</input></span>
+<a class="email-open" href="http://www.mozilla.org/en-US/newsletter/">»</a>
+</div>
+</li>
+<li class="form-pane">
+<div class="form-details">
+<div class="field country-field">
+<select class="country" name="country">
+<option value="">Select country</option>
+<option value="af">Afghanistan</option>
+<option value="al">Albania</option>
+<option value="dz">Algeria</option>
+<option value="as">American Samoa</option>
+<option value="ad">Andorra</option>
+<option value="ao">Angola</option>
+<option value="ai">Anguilla</option>
+<option value="aq">Antarctica</option>
+<option value="ag">Antigua and Barbuda</option>
+<option value="ar">Argentina</option>
+<option value="am">Armenia</option>
+<option value="aw">Aruba</option>
+<option value="au">Australia</option>
+<option value="at">Austria</option>
+<option value="az">Azerbaijan</option>
+<option value="bs">Bahamas</option>
+<option value="bh">Bahrain</option>
+<option value="bd">Bangladesh</option>
+<option value="bb">Barbados</option>
+<option value="by">Belarus</option>
+<option value="be">Belgium</option>
+<option value="bz">Belize</option>
+<option value="bj">Benin</option>
+<option value="bm">Bermuda</option>
+<option value="bt">Bhutan</option>
+<option value="bo">Bolivia</option>
+<option value="ba">Bosnia and Herzegovina</option>
+<option value="bw">Botswana</option>
+<option value="bv">Bouvet Island</option>
+<option value="br">Brazil</option>
+<option value="io">British Indian Ocean Territory</option>
+<option value="vg">British Virgin Islands</option>
+<option value="bn">Brunei Darussalam</option>
+<option value="bg">Bulgaria</option>
+<option value="bf">Burkina Faso</option>
+<option value="bi">Burundi</option>
+<option value="kh">Cambodia</option>
+<option value="cm">Cameroon</option>
+<option value="ca">Canada</option>
+<option value="cv">Cape Verde</option>
+<option value="ky">Cayman Islands</option>
+<option value="cf">Central African Republic</option>
+<option value="td">Chad</option>
+<option value="cl">Chile</option>
+<option value="cn">China</option>
+<option value="cx">Christmas Island</option>
+<option value="cc">Cocos (Keeling) Islands</option>
+<option value="co">Colombia</option>
+<option value="km">Comoros</option>
+<option value="cg">Congo-Brazzaville</option>
+<option value="cd">Congo-Kinshasa</option>
+<option value="ck">Cook Islands</option>
+<option value="cr">Costa Rica</option>
+<option value="hr">Croatia</option>
+<option value="cu">Cuba</option>
+<option value="cy">Cyprus</option>
+<option value="cz">Czech Republic</option>
+<option value="dk">Denmark</option>
+<option value="dj">Djibouti</option>
+<option value="dm">Dominica</option>
+<option value="do">Dominican Republic</option>
+<option value="ec">Ecuador</option>
+<option value="eg">Egypt</option>
+<option value="sv">El Salvador</option>
+<option value="gq">Equatorial Guinea</option>
+<option value="er">Eritrea</option>
+<option value="ee">Estonia</option>
+<option value="et">Ethiopia</option>
+<option value="fk">Falkland Islands (Malvinas)</option>
+<option value="fo">Faroe Islands</option>
+<option value="fj">Fiji</option>
+<option value="fi">Finland</option>
+<option value="fr">France</option>
+<option value="gf">French Guiana</option>
+<option value="pf">French Polynesia</option>
+<option value="tf">French Southern Territories</option>
+<option value="ga">Gabon</option>
+<option value="gm">Gambia</option>
+<option value="ge">Georgia</option>
+<option value="de">Germany</option>
+<option value="gh">Ghana</option>
+<option value="gi">Gibraltar</option>
+<option value="gr">Greece</option>
+<option value="gl">Greenland</option>
+<option value="gd">Grenada</option>
+<option value="gp">Guadeloupe</option>
+<option value="gu">Guam</option>
+<option value="gt">Guatemala</option>
+<option value="gg">Guernsey</option>
+<option value="gn">Guinea</option>
+<option value="gw">Guinea-Bissau</option>
+<option value="gy">Guyana</option>
+<option value="ht">Haiti</option>
+<option value="hm">Heard Island and McDonald Islands</option>
+<option value="hn">Honduras</option>
+<option value="hk">Hong Kong</option>
+<option value="hu">Hungary</option>
+<option value="is">Iceland</option>
+<option value="in">India</option>
+<option value="id">Indonesia</option>
+<option value="ir">Iran</option>
+<option value="iq">Iraq</option>
+<option value="ie">Ireland</option>
+<option value="im">Isle of Man</option>
+<option value="il">Israel</option>
+<option value="it">Italy</option>
+<option value="ci">Ivory Coast</option>
+<option value="jm">Jamaica</option>
+<option value="jp">Japan</option>
+<option value="je">Jersey</option>
+<option value="jo">Jordan</option>
+<option value="kz">Kazakhstan</option>
+<option value="ke">Kenya</option>
+<option value="ki">Kiribati</option>
+<option value="kw">Kuwait</option>
+<option value="kg">Kyrgyzstan</option>
+<option value="la">Laos</option>
+<option value="lv">Latvia</option>
+<option value="lb">Lebanon</option>
+<option value="ls">Lesotho</option>
+<option value="lr">Liberia</option>
+<option value="ly">Libya</option>
+<option value="li">Liechtenstein</option>
+<option value="lt">Lithuania</option>
+<option value="lu">Luxembourg</option>
+<option value="mo">Macao</option>
+<option value="mk">Macedonia, F.Y.R. of</option>
+<option value="mg">Madagascar</option>
+<option value="mw">Malawi</option>
+<option value="my">Malaysia</option>
+<option value="mv">Maldives</option>
+<option value="ml">Mali</option>
+<option value="mt">Malta</option>
+<option value="mh">Marshall Islands</option>
+<option value="mq">Martinique</option>
+<option value="mr">Mauritania</option>
+<option value="mu">Mauritius</option>
+<option value="yt">Mayotte</option>
+<option value="mx">Mexico</option>
+<option value="fm">Micronesia</option>
+<option value="md">Moldova</option>
+<option value="mc">Monaco</option>
+<option value="mn">Mongolia</option>
+<option value="me">Montenegro</option>
+<option value="ms">Montserrat</option>
+<option value="ma">Morocco</option>
+<option value="mz">Mozambique</option>
+<option value="mm">Myanmar</option>
+<option value="na">Namibia</option>
+<option value="nr">Nauru</option>
+<option value="np">Nepal</option>
+<option value="nl">Netherlands</option>
+<option value="an">Netherlands Antilles</option>
+<option value="nc">New Caledonia</option>
+<option value="nz">New Zealand</option>
+<option value="ni">Nicaragua</option>
+<option value="ne">Niger</option>
+<option value="ng">Nigeria</option>
+<option value="nu">Niue</option>
+<option value="nf">Norfolk Island</option>
+<option value="kp">North Korea</option>
+<option value="mp">Northern Mariana Islands</option>
+<option value="no">Norway</option>
+<option value="ps">Occupied Palestinian Territory</option>
+<option value="om">Oman</option>
+<option value="pk">Pakistan</option>
+<option value="pw">Palau</option>
+<option value="pa">Panama</option>
+<option value="pg">Papua New Guinea</option>
+<option value="py">Paraguay</option>
+<option value="pe">Peru</option>
+<option value="ph">Philippines</option>
+<option value="pn">Pitcairn</option>
+<option value="pl">Poland</option>
+<option value="pt">Portugal</option>
+<option value="pr">Puerto Rico</option>
+<option value="qa">Qatar</option>
+<option value="re">Reunion</option>
+<option value="ro">Romania</option>
+<option value="ru">Russian Federation</option>
+<option value="rw">Rwanda</option>
+<option value="bl">Saint Barthélemy</option>
+<option value="sh">Saint Helena</option>
+<option value="kn">Saint Kitts and Nevis</option>
+<option value="lc">Saint Lucia</option>
+<option value="mf">Saint Martin</option>
+<option value="pm">Saint Pierre and Miquelon</option>
+<option value="vc">Saint Vincent and the Grenadines</option>
+<option value="ws">Samoa</option>
+<option value="sm">San Marino</option>
+<option value="st">Sao Tome and Principe</option>
+<option value="sa">Saudi Arabia</option>
+<option value="sn">Senegal</option>
+<option value="rs">Serbia</option>
+<option value="sc">Seychelles</option>
+<option value="sl">Sierra Leone</option>
+<option value="sg">Singapore</option>
+<option value="sk">Slovakia</option>
+<option value="si">Slovenia</option>
+<option value="sb">Solomon Islands</option>
+<option value="so">Somalia</option>
+<option value="za">South Africa</option>
+<option value="gs">South Georgia and the South Sandwich Islands</option>
+<option value="kr">South Korea</option>
+<option value="es">Spain</option>
+<option value="lk">Sri Lanka</option>
+<option value="sd">Sudan</option>
+<option value="sr">Suriname</option>
+<option value="sj">Svalbard and Jan Mayen</option>
+<option value="sz">Swaziland</option>
+<option value="se">Sweden</option>
+<option value="ch">Switzerland</option>
+<option value="sy">Syria</option>
+<option value="tw">Taiwan</option>
+<option value="tj">Tajikistan</option>
+<option value="tz">Tanzania</option>
+<option value="th">Thailand</option>
+<option value="tl">Timor-Leste</option>
+<option value="tg">Togo</option>
+<option value="tk">Tokelau</option>
+<option value="to">Tonga</option>
+<option value="tt">Trinidad and Tobago</option>
+<option value="tn">Tunisia</option>
+<option value="tr">Turkey</option>
+<option value="tm">Turkmenistan</option>
+<option value="tc">Turks and Caicos Islands</option>
+<option value="tv">Tuvalu</option>
+<option value="ae">U.A.E.</option>
+<option value="vi">U.S. Virgin Islands</option>
+<option value="ug">Uganda</option>
+<option value="ua">Ukraine</option>
+<option value="gb">United Kingdom</option>
+<option selected="selected" value="us">United States</option>
+<option value="um">United States Minor Outlying Islands</option>
+<option value="uy">Uruguay</option>
+<option value="uz">Uzbekistan</option>
+<option value="vu">Vanuatu</option>
+<option value="va">Vatican City</option>
+<option value="ve">Venezuela</option>
+<option value="vn">Vietnam</option>
+<option value="wf">Wallis and Futuna</option>
+<option value="eh">Western Sahara</option>
+<option value="ye">Yemen</option>
+<option value="zm">Zambia</option>
+<option value="zw">Zimbabwe</option>
+<option value="ax">Åland Islands</option>
+</select>
+</div>
+<div class="field format-field">
+<div class="field-radios">
+<span class="radio-wrapper"><input checked="checked" class="html-format" id="inline-html-format" name="format" type="radio" value="html"/></span>
+<label for="inline-html-format">HTML</label>
+<span class="radio-wrapper"><input class="text-format" id="inline-text-format" name="format" type="radio" value="text"/></span>
+<label for="inline-text-format">Text</label> 
+              </div>
+</div>
+<div class="privacy-field">
+<label class="privacy-check-label" for="inline-privacy-check">
+<span class="error-wrapper ">
+<input class="privacy-check" id="inline-privacy-check" name="privacy" type="checkbox">
+</input></span>
+                I agree to the <a href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>
+</label>
+</div>
+<input class="subscribe" name="submit" type="submit" value="Sign me up!">
+<p class="footnote">We will only send you Mozilla-related information.</p>
+</input></div>
+</li>
+<li class="success-pane">
+<h3>Thanks for Subscribing!</h3>
+<p>We look forward to soon begin sharing tips &amp; tricks on getting the most out of Firefox, as well as exciting news about Mozilla and how we’re working to create a better Web.</p>
+</li>
+</ul>
+</form>
+</div>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-contents" role="contentinfo">
+<div id="footer-right">
+<form dir="ltr" id="lang_form" method="get"><div>
+<label for="flang">Other Languages</label>
+<select dir="ltr" id="flang" name="flang" onchange="this.form.submit()"> <option value="ach">Acholi</option>
+<option value="af">Afrikaans</option>
+<option value="ak">Akan</option>
+<option value="ar">عربي</option>
+<option value="as">অসমীয়া</option>
+<option value="ast">Asturianu</option>
+<option value="be">Беларуская</option>
+<option value="bg">Български</option>
+<option value="bn-BD">বাংলা (বাংলাদেশ)</option>
+<option value="bn-IN">বাংলা</option>
+<option value="br">Brezhoneg</option>
+<option value="bs">Bosanski</option>
+<option value="ca">Català</option>
+<option value="cs">Čeština</option>
+<option value="csb">Kaszëbsczi</option>
+<option value="cy">Cymraeg</option>
+<option value="da">Dansk</option>
+<option value="de">Deutsch</option>
+<option value="el">Ελληνικά</option>
+<option value="en-ZA">English (South African)</option>
+<option value="eo">Esperanto</option>
+<option value="es-AR">Español (Argentina)</option>
+<option value="es-CL">Español (Chile)</option>
+<option value="es-ES">Español (España)</option>
+<option value="es-MX">Español (México)</option>
+<option value="et">Eesti keel</option>
+<option value="eu">Euskara</option>
+<option value="en-GB">English (British)</option>
+<option selected="selected" value="en-US">English (US)</option>
+<option value="fa">فارسی</option>
+<option value="ff">Pulaar-Fulfulde</option>
+<option value="fi">Suomi</option>
+<option value="fr">Français</option>
+<option value="fy-NL">Frysk</option>
+<option value="ga-IE">Gaeilge</option>
+<option value="gd">Gàidhlig</option>
+<option value="gl">Galego</option>
+<option value="gu-IN">ગુજરાતી</option>
+<option value="he">עברית</option>
+<option value="hi-IN">हिन्दी (भारत)</option>
+<option value="hy-AM">Հայերեն</option>
+<option value="hr">Hrvatski</option>
+<option value="hu">magyar</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="is">Íslenska</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ka">ქართული ენა</option>
+<option value="kk">Қазақ</option>
+<option value="kn">闠늨跠늨</option>
+<option value="km">ភាសាខ្មែរ</option>
+<option value="ko">한국어</option>
+<option value="ku">Kurdî</option>
+<option value="lg">Luganda</option>
+<option value="lij">Ligure</option>
+<option value="lt">Lietuvių</option>
+<option value="lv">Latviešu</option>
+<option value="mk">Македонски</option>
+<option value="ml">മലയാളം</option>
+<option value="mn">Монгол</option>
+<option value="mr">मराठी</option>
+<option value="nl">Nederlands</option>
+<option value="no">Norsk bokmål</option>
+<option value="nso">Sesotho sa leboa</option>
+<option value="oc">occitan (lengadocian)</option>
+<option value="pa-IN">ਪੰਜਾਬੀ</option>
+<option value="pl">Polski</option>
+<option value="pt-BR">Português (do Brasil)</option>
+<option value="pt-PT">Português (Europeu)</option>
+<option value="rm">Rumantsch</option>
+<option value="ro">Română</option>
+<option value="ru">Русский</option>
+<option value="sk">Slovenčina</option>
+<option value="si">සිංහල</option>
+<option value="sl">slovensko</option>
+<option value="son">Soŋay</option>
+<option value="sq">Shqip</option>
+<option value="sr">Српски</option>
+<option value="sv-SE">Svenska</option>
+<option value="ta">தமிழ்</option>
+<option value="ta-LK">Tamil (Sri Lanka)</option>
+<option value="te">ꓠ놆닠놁韠놁</option>
+<option value="th">ภาษาไทย</option>
+<option value="tr">Türkçe</option>
+<option value="uk">Українська</option>
+<option value="vi">Tiếng Việt</option>
+<option value="zh-CN">中文 (简体)</option>
+<option value="zh-TW">正體中文 (繁體)</option>
+<option value="zu">isiZulu</option>
+</select>
+<noscript>
+<div><input id="lang_submit" type="submit" value="Go"/></div>
+</noscript>
+</div></form>
+</div>
+<h3 id="footer-logo"><a href="http://www.mozilla.org/en-US/firefox/" title="Back to home page">Firefox</a></h3>
+<!-- start menu #footer-menu -->
+<div id="footer-menu" role="navigation">
+<ul>
+<li><a href="http://www.mozilla.org/en-US/firefox/features/">Desktop</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/features/">Features</a></li><li><a href="http://www.mozilla.org/en-US/firefox/customize/">Customize</a></li><li><a href="http://www.mozilla.org/en-US/firefox/performance/">Performance</a></li><li><a href="http://www.mozilla.org/en-US/firefox/technology/">Technology</a></li><li><a href="http://www.mozilla.org/en-US/firefox/security/">Privacy &amp; Security</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/mobile/">Mobile</a><ul><li><a href="http://www.mozilla.org/en-US/mobile/">Download</a></li><li><a href="http://www.mozilla.org/en-US/mobile/features/">Features</a></li><li><a href="https://addons.mozilla.org/en-US/mobile/?browse=featured">Customize</a></li><li><a href="http://www.mozilla.org/en-US/mobile/faq/">FAQ</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/channel/">Releases</a><ul><li><a href="http://www.mozilla.org/en-US/firefox/channel/">Overview</a></li><li><a href="http://www.mozilla.org/en-US/firefox/aurora/">Firefox Aurora</a></li><li><a href="http://www.mozilla.org/beta/">Firefox Beta</a></li><li><a href="http://www.mozilla.org/en-US/firefox/">Firefox</a></li><li><a href="http://www.mozilla.org/en-US/firefox/organizations/">Firefox for Organizations</a></li></ul></li>
+<li><a href="https://addons.mozilla.org/">Add-ons</a><ul><li><a href="https://addons.mozilla.org/firefox/">Desktop Add-ons</a></li><li><a href="https://addons.mozilla.org/mobile/">Mobile Add-ons</a></li><li><a href="http://www.getpersonas.com/">Personas</a></li></ul></li>
+<li><a href="http://support.mozilla.org/">Support</a><ul><li><a href="http://support.mozilla.org/en-US/kb/">Desktop Support</a></li><li><a href="http://support.mozilla.org/mobile">Mobile Support</a></li></ul></li>
+<li><a href="http://www.mozilla.org/en-US/firefox/about/">About</a><ul><li><a href="http://blog.mozilla.com/">Blog</a></li><li><a href="http://www.mozilla.org/en-US/firefox/about/">About Firefox</a></li><li><a href="http://www.mozilla.org/join">Join Mozilla</a></li><li><a href="http://www.mozilla.org/en-US/about/participate/">Participate</a></li><li><a href="http://www.mozilla.org/en-US/press/">Press Center</a></li><li><a href="http://www.mozilla.org/en-US/firefox/brand/">Brand Toolkit</a></li><li><a href="http://www.mozilla.org/en-US/about/careers.html">Careers</a></li><li><a href="http://www.mozilla.org/en-US/about/partnerships.html">Partnerships</a></li><li><a href="http://www.mozilla.org/en-US/about/contact.html">Contact Us</a></li></ul></li>
+</ul>
+</div>
+<!-- end menu #footer-menu -->
+<div id="copyright">
+<p id="footer-links"><a href="http://www.mozilla.org/en-US/privacy-policy.html">Privacy Policy</a>  | 
+			<a href="http://www.mozilla.org/en-US/about/legal.html">Legal Notices</a>  | 
+                        <a href="http://www.mozilla.org/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a></p>
+<p>Except where otherwise <a href="http://www.mozilla.org/en-US/about/legal.html#site">noted</a>, content on this site is licensed under the <br/><a href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution Share-Alike License v3.0</a> or any later version.</p>
+</div>
+</div>
+</div>
+<!-- end #footer -->
+<script type="text/javascript">
+function dcsMultiTrack() {
+    return false;
+}
+</script>
+<script src="../../tabzilla/media/js/tabzilla.js"></script>
+<script>
+    // <![CDATA[
+
+    // Firefox 3.x update notice. Only show for Firefox 3.x, don't show for
+    // cousins that say they are Firefox 3.x.
+    var isOldVersion = (navigator.userAgent &&
+        navigator.userAgent.indexOf('Firefox/3.') !== -1 &&
+        navigator.userAgent.indexOf('Camino') === -1 &&
+        navigator.userAgent.indexOf('SeaMonkey') === -1);
+
+    if (isOldVersion) {
+        var oldOnload = window.onload;
+        window.onload = function() {
+            var script = document.createElement('script');
+            script.src = '/js/update-v3.js';
+            document.body.appendChild(script);
+            if (typeof oldOnload == 'function') {
+                oldOnload();
+            }
+        }
+    }
+
+    // ]]>
+    </script>
+</body>
+</html>

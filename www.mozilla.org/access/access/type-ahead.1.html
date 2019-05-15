@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>Keyboard Feature: Find As You Type</title>
+<link href="../org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="../org/style/screen.css%3Fdate=2011-01-05.css" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('../img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('../img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="../org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="../org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="../org/script/1.0/mozilla.org.js"></script>
+<meta content="en" http-equiv="Content-Language">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="Aaron Leventhal" name="DC.author">
+<meta content="Aaron Leventhal" name="DC.creator">
+<meta content="Mozilla Keyboard Feature: Find As You Type" name="DC.title">
+<meta content="Mozilla Keyboard Feature: Find As You Type" name="DC.subject">
+<meta content="2004-09-08T19:50:03+11:00" name="DC.date.created" scheme="W3CDTF">
+<meta content="2006-08-07T02:46:03+11:00" name="DC.date.modified" scheme="W3CDTF">
+<link href="https://www.mozilla.org/" rel="top" title="Home of the Mozilla project">
+<link href="index.html" rel="up" title="Back to Mozilla Accessibility project">
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link></link></meta></meta></meta></meta></meta></meta></meta></meta></link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-04.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="type-ahead.1.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="type-ahead.1.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<h1 id="page-title">Find As You Type</h1>
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<p>Find As You Type (formerly called Type Ahead Find) is a feature that allows
+quick web page navigation when you type a succession of characters in the body
+of the displayed page (not in an edit box of or drop down list). The coding of
+Find As You Type was contributed to Mozilla by Netscape Corporation.</p>
+<h2>Features</h2>
+<ul>
+<li>Type several characters into the active browser window to navigate to any
+link with that text in it</li>
+<li>If you repeat the same character, it will start to cycle through
+all the links that begin with that character. However, if it can find a
+match with the exact string you've typed, such as "oo" in "woods" it will
+go there first. Typing "o" more times will then cycle through the links that
+start with "o".</li>
+<li>Use the backspace key to undo the last character typed</li>
+<li>Type a ' before your string to search only links. Type / before
+your string to search all text.</li>
+<li>You can use the text search field to get to buttons, text boxes and other
+form controls. Just search for the text right before it, and then press Tab when
+to move from there.</li>
+<li>To cancel a find, change focus or scroll, press Escape, or wait
+for the timeout</li>
+<li>Press Accel+G or F3 to use "find next". Press Accel+Shift+G or
+Shift+F3 to find previous, with the current string you've typed. This respects
+the current "linksonly" setting. Note: 'accel' means Ctrl on Windows, and Cmd
+on Mac. On Unix, 'accel' usually means Ctrl, but it can be set to Alt.</li>
+<li>Works with any Gecko HTML content window - embedded clients, IM
+conversation window, help, etc.</li>
+<li>works with IME for input of Chinese, Japanese, Korean, etc.</li>
+<li>When focused on a link, the following keys will work:
+  <ul>
+<li>Enter - activate the link</li>
+<li>Shift+Enter - save the page that the link points to</li>
+<li>Ctrl+Enter (Cmd+Enter on Mac) - open the link in a new window</li>
+<li>Insert - open the link in a new foreground or background tab, depending
+on the "Load links in the background" pref. under Preferences - Navigator -
+Tabbed Browsing.</li>
+<li>Shift+Insert - same as Insert, but does the opposite of the
+foreground/background pref</li>
+</ul>
+</li>
+</ul>
+<h2>Deactivating it</h2>
+<p>Find As You Type is currently part of the default install. To turn
+it off, use:<br><br>
+user_pref <kbd>("accessibility.typeaheadfind", false);</kbd></br></br></p>
+<p>Or, to remove it completely, find all files in your installation subdirectories
+that match *typeaheadfind*, and delete those files.</p>
+<h2>Reactivating it</h2>
+<p>To turn it back on, use:<br><br>
+user_pref <kbd>("accessibility.typeaheadfind", true);</kbd></br></br></p>
+<h2>Settings</h2>
+<p>There is a new Keyboard Navigation preferences panel, under Preferences -
+Advanced. It contains a few Find As You Type Preferences, such as startup options,
+and whether the timeout or sound should be enabled.</p>
+<p>If you want to fine tune your settings by hand, Find As You Type uses the following prefs as defaults, which
+can be changed in your prefs.js file:</p>
+<p><kbd>user_pref("accessibility.typeaheadfind.autostart", true); // If true, just typing can automatically start Find As You Type. If false, you must hit / (find text) or ' (find links) before your search</kbd>
+<br><br>
+<kbd>user_pref("accessibility.typeaheadfind.linksonly", true);
+   // If true, defaults to linksonly as user starts typing. User can override
+it by pressing / for all text, or ' for links only<br>
+</br></kbd> <kbd><br>
+user_pref("accessibility.typeaheadfind.startlinksonly", false);   
+// If true, matches only to the start of links when searching only for links</br></kbd><br>
+<br>
+<kbd>user_pref("accessibility.typeaheadfind.timeout", 3000); // if
+&gt; 0, # of milliseconds since user last typed, before the find is cancelled.</kbd><br>
+<br>
+<kbd>user_pref("ui.textSelectBackgroundAttention", "#rrggbb"); // where
+rrggbb is the hex color you want for found text.</kbd> <br><br>
+<kbd>user_pref("accessibility.typeaheadfind.enablesound", false); // error sound on? (it is currently off by default for Linux/Unix, on by default for other platforms)</kbd>
+<br><br>
+<kbd>user_pref("accessibility.typeaheadfind.soundURL", "filename"); // Specify your own wav file for the error sound, or use the string "default" for the default sound or "beep" for the system beep</kbd>
+</br></br></br></br></br></br></br></br></br></br></p>
+<h2>How it works</h2>
+<p>The source is checked into <a href="http://lxr.mozilla.org/seamonkey/source/extensions/typeaheadfind/">mozilla/extensions/typeaheadfind</a></p>
+<p>Basically when it gets initialized as a component, it starts listening
+for domwindowopened events via nsIWindowWatcher, and attaches a keypress
+listeners to these windows. Whenever a keypress occurs in a new window, it
+checks to see if Find As You Type should auto-activate in that window (that
+is, if it's not an editor or mailnews window, etc.).</p>
+<p>If autostart is disabled (when / or ' are required to start typeaheadfind),
+it receives the command through the nsICommand interface. The commands are
+specified in htmlBindings.xml</p>
+<p>After that, it simply keeps track of the characters typed and uses
+the low level nsIFind interface to see if it can find that text. It actually
+does this twice for a page, so that it can prefer text that's visible on
+the page.</p>
+<h2>TypeAheadFind for Embeddors</h2>
+<p>TypeAheadFind is now an option for embeddors (as of September 28,
+2002).</p>
+<ol>
+<li>Find the file called <kbd>mozilla/embedding/config/basebrowser-[yourplatformname]</kbd>
+and uncomment the 2 lines that list files (a binary file and an <kbd>.xpt</kbd>
+file).</li>
+<li>cd <kbd>mozilla/embedding/config</kbd></li>
+<li><kbd>make</kbd></li>
+</ol>
+<p>You should now have typeaheadfind enabled in your <kbd>dist/Embed</kbd>
+directory.</p>
+<h2>To Be Done</h2>
+<ul>
+<li>Have it be able to search button text, as well as alt/title text
+on tooltips for images and objects -- the tooltip would popup with found
+text highlighted. This is <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=158757" title="Status: NEW; Target: Future">bug 158757: Make type ahead find work with button and image labels</a>.</li>
+<li>Change dotted focus outline to something more visible. See <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=53927" title="Status: NEW; Target: Future">bug 53927: Focus outlines (ring) should look like Mac focus outlines on Mac OS</a> and <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=151375" style="text-decoration: line-through;" title="Status: RESOLVED FIXED">bug 151375: focus outline should be drawn outside of element</a>.</li>
+</ul>
+<h2>We Like Feedback</h2>
+<h3>Requests for Enhancement, Bug Reports</h3>
+<p>Please create a <a href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Core">Bugzilla bug report</a>,
+under the Component "Keyboard: Find as you Type".</p>
+<h3>Testing</h3>
+<p>Try out our Find As You Type tests, and report any problems you see! Visit the
+<a href="https://www.mozilla.org/access/type-ahead/testing">Find As You Type - QA Page</a>.</p>
+</div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="../images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/type-ahead/index.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

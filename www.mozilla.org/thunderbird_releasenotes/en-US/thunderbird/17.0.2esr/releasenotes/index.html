@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US" xml:lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Thunderbird ESR Release Notes</title>
+<link href="../../img/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="../../../tabzilla/media/css/tabzilla.css" media="screen" rel="stylesheet"/>
+<link href="../../style/tb5/template.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="../../style/tb5/content.css" media="screen" rel="stylesheet" type="text/css"/>
+<script src="../../js/util.js" type="text/javascript"></script>
+<script src="../../../tabzilla/media/js/tabzilla.js"></script>
+<link href="../../style/thunderbird-notes.css" media="screen" rel="stylesheet" type="text/css"/>
+<script src="../../js/jquery/jquery-1.5.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+<style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body class="" id="thunderbird-relnotes"><div id="archived">You are viewing information archived from Mozilla.org on 2014-10-13.</div>
+<script type="text/javascript">// <![CDATA[
+// add classes to body to indicate browser version and JavaScript availabiliy
+if (document.body.className == '') {
+  document.body.className = 'js';
+} else {
+  document.body.className += ' js';
+}
+
+if (gPlatform == 1) {
+  document.body.className += ' platform-windows';
+} else if (gPlatform == 3 || gPlatform == 4) {
+  document.body.className += ' platform-mac';
+} else if (gPlatform == 2) {
+  document.body.className += ' platform-linux';
+}
+
+// ]]></script>
+<div id="breadcrumbs">
+</div>
+<noscript><div id="no-js-feature"></div></noscript>
+<div id="wrapper">
+<div id="doc">
+<div id="nav-access">
+<a href="index.html#nav-main">skip to navigation</a>
+<a href="index.html#lang_form">switch language</a>
+</div>
+<!-- start #header -->
+<div id="header">
+<div>
+<h1><a href="https://www.mozilla.org/en-US/thunderbird/" title="Back to home page"><img alt="Mozilla Thunderbird" height="56" src="../../img/template/header/logo.png" width="235"/></a></h1>
+<!-- start #nav-main -->
+<div class="yuimenubar yuimenubarnav" id="nav-main">
+<div class="bd">
+<ul class="first-of-type">
+<li class="yuimenubaritem" id="menu_thunderbird"><a href="https://www.mozilla.org/en-US/thunderbird/">Thunderbird</a>
+<div class="yuimenu">
+<div class="bd">
+<ul>
+<li class="yuimenuitem" id="submenu_thunderbird_features"><a href="https://www.mozilla.org/en-US/thunderbird/features/">Features</a></li><li class="yuimenuitem" id="submenu_thunderbird_releasenotes"><a href="https://www.mozilla.org/en-US/thunderbird/31.1.2/releasenotes/">Release Notes</a></li><li class="yuimenuitem" id="submenu_thunderbird_other"><a href="https://www.mozilla.org/en-US/thunderbird/all.html">Other Systems and Languages</a></li><li class="yuimenuitem" id="submenu_thunderbird_channels"><a href="https://www.mozilla.org/en-US/thunderbird/channel/">Future Releases</a></li><li class="yuimenuitem" id="submenu_thunderbird_organizations"><a href="https://www.mozilla.org/en-US/thunderbird/organizations/">Thunderbird for Organizations</a></li></ul>
+</div>
+</div>
+</li><li class="yuimenubaritem" id="menu_addons"><a href="https://addons.mozilla.org/thunderbird/">Add-ons</a>
+<div class="yuimenu">
+<div class="bd">
+<ul>
+<li class="yuimenuitem" id="submenu_addons_all"><a href="https://addons.mozilla.org/thunderbird/">All Add-ons</a></li><li class="yuimenuitem" id="submenu_addons_recommended"><a href="https://addons.mozilla.org/thunderbird/recommended">Recommended</a></li><li class="yuimenuitem" id="submenu_addons_popular"><a href="https://addons.mozilla.org/thunderbird/browse/type:1/cat:all?sort=popular">Popular</a></li><li class="yuimenuitem" id="submenu_addons_themes"><a href="https://addons.mozilla.org/thunderbird/browse/type:2">Themes</a></li></ul>
+</div>
+</div>
+</li><li class="yuimenubaritem" id="menu_support"><a href="https://support.mozilla.org/en-US/products/thunderbird">Support</a></li><li class="yuimenubaritem" id="menu_community"><a href="https://www.mozilla.org/community/">Community</a>
+<div class="yuimenu">
+<div class="bd">
+<ul>
+<li class="yuimenuitem" id="submenu_community_addons"><a href="http://addons.mozilla.org/thunderbird/">Add-ons</a></li><li class="yuimenuitem" id="submenu_community_bugzilla"><a href="https://bugzilla.mozilla.org/">Bugzilla</a></li><li class="yuimenuitem" id="submenu_community_devmo"><a href="https://developer.mozilla.org/">Mozilla Developer Network</a></li><li class="yuimenuitem" id="submenu_community_labs"><a href="http://labs.mozilla.com/">Mozilla Labs</a></li><li class="yuimenuitem" id="submenu_community_mozillaorg"><a href="https://mozilla.org/">Mozilla.org</a></li><li class="yuimenuitem" id="submenu_community_mozillazine"><a href="http://www.mozillazine.org/">MozillaZine</a></li><li class="yuimenuitem" id="submenu_community_planet"><a href="http://planet.mozillamessaging.com/">Planet Mozilla Messaging</a></li><li class="yuimenuitem" id="submenu_community_qmo"><a href="http://quality.mozilla.org/">Quality</a></li></ul>
+</div>
+</div>
+</li><li class="yuimenubaritem" id="menu_aboutus"><a href="https://mozilla.org/about/">About</a></li></ul>
+</div>
+</div>
+<!-- end #nav-main -->
+<a href="https://mozilla.org/" id="tabzilla">Mozilla</a>
+</div>
+</div>
+<!-- end #header -->
+<hr class="hide"/>
+<div id="main-feature">
+<h2><img alt="Thunderbird" src="../../img/relnotes/tb-title.png">Thunderbird ESR<br/>Release Notes</img></h2>
+<p>v.17.0.2, released: January 8, 2013</p>
+<p>Check out whats new and known issues for this version of Thunderbird ESR below. As always, you’re encouraged to <a href="http://getsatisfaction.com/mozilla_messaging/">tell us what you think</a>, or <a href="https://bugzilla.mozilla.org/">file a bug in Bugzilla.</a></p>
+<p>If interested, please see the <a href="https://bugzilla.mozilla.org/buglist.cgi?quicksearch=ALL tracking_thunderbird_esr17:%2218%2B%22%20 status_thunderbird_esr17:fixed">complete list of Thunderbird changes</a> in this release.</p><!-- Firefox/core changes may be found <a href="/firefox/17.0.2/releasenotes/">here</a>.</p>-->
+<!--If interested, please see the <a href="/en-US/thunderbird/17.0.2/releasenotes/buglist.html">complete list of changes</a> in this release.-->
+</div>
+<div id="main-content">
+<section id="whatsnew">
+<h3>What’s New</h3>
+<div class="section-contents">
+<ul>
+<li>
+<span class="tag tag-fixed">FIXED</span>
+<h5>Security fixes can be found <a href="https://mozilla.org/security/known-vulnerabilities/thunderbirdESR.html#thunderbird17.0.2">here</a></h5>
+</li>
+<li>
+<span class="tag tag-fixed">FIXED</span>
+<h5>Pressing the 'x' button on Windows now closes only one window rather than the whole application (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=805185">805185</a>)</h5>
+</li>
+<li>
+<span class="tag tag-fixed">FIXED</span>
+<h5>An issue that caused occasional corruption in local folders after filtering is now fixed (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=815012">815012</a>)</h5>
+</li>
+<li>
+<span class="tag tag-fixed">FIXED</span>
+<h5>An issue that caused deletion of drafts saved in IMAP folders whilst in offline mode is now fixed (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=805626">805626</a>)</h5>
+</li>
+</ul>
+</div>
+</section>
+<!--  <section id="knownissues">
+    <h3>Known Issues</h3>
+    <div class="section-contents">
+      <ul>
+        <li>
+          <span class="tag tag-unresolved">Unresolved</span>
+          <h5>If you are unable to view content for your RSS feeds in the Wide View Layout, you may need to disable the Lightning Calendar add-on if you have it installed or switch to Classic View and restart Thunderbird. (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=531397">531397</a>)</h5>      
+          <span class="status-resolved">
+            <a href="/thunderbird/17.0/releasenotes/">Resolved in 17.0esr</a>
+          </span>
+        </li> -->
+<!-- This is an example
+        <li>
+          <span class="tag tag-unresolved">Unresolved</span>
+          <h5>Thunderbird notifications may not work properly with Growl 1.3 or later (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=691662">691662</a>)</h5>
+          <div class="status">
+            <span class="status-unresolved">Unresolved on v10</span>
+            <span class="status-resolved">
+              <a href="/en-US/firefox/11.0a2/auroranotes">Resolved in v11</a>
+            </span>
+          </div> 
+        </li>
+-->
+<!--      </ul>
+    </div>
+  </section>-->
+</div><!-- end #main-content div -->
+<div id="sidebar">
+<section id="get-involved">
+<h3>Want to get involved?</h3>
+<p>Did you know that most of the content in Thunderbird Support was written by volunteers?</p>
+<a href="https://support.mozilla.org/get-involved">Find out more »</a>
+</section>
+<section id="problems">
+<h3>Having Problems?</h3>
+<ol>
+<li><a href="http://support.mozillamessaging.com/">Search for answers on the Thunderbird Support page »</a></li>
+<li><a href="index.html#knownissues">Look at the known issues list and see if we already know about the problem »</a></li>
+<li><a href="https://bugzilla.mozilla.org/enter_bug.cgi">If you can’t find reference to your issue, please consider filing a technical bug report »</a></li>
+</ol>
+</section>
+<section id="other">
+<h3>Other Resources</h3>
+<p><a href="https://www.mozilla.org/thunderbird/organizations/">Information for Organizations »</a></p>
+<p><a href="https://blog.mozilla.com/thunderbird/">The Thunderbird Blog »</a></p>
+</section>
+</div>
+</div><!-- end #doc -->
+</div><!-- end #wrapper -->
+<!-- start #footer -->
+<div id="footer">
+<div id="footer-contents">
+<div id="footer-right">
+<form action="https://www.mozilla.org/thunderbird/" dir="ltr" id="lang_form" method="get"><div>
+<label for="flang">Other languages:</label>
+<select dir="ltr" id="flang" name="flang" onchange="this.form.submit()"> <option value="af">Afrikaans</option>
+<option value="ar">عربي</option>
+<option value="ast">Asturianu</option>
+<option value="eu">Euskara</option>
+<option value="be">Беларуская</option>
+<option value="bg">Български</option>
+<option value="ca">Català</option>
+<option value="zh-CN">中文 (简体)</option>
+<option value="zh-TW">正體中文 (繁體)</option>
+<option value="cs">Čeština</option>
+<option value="da">Dansk</option>
+<option value="de">Deutsch</option>
+<option value="es-ES">Español (España)</option>
+<option value="en-GB">English (British)</option>
+<option selected="selected" value="en-US">English (US)</option>
+<option value="et">Eesti keel</option>
+<option value="fi">Suomi</option>
+<option value="fr">Français</option>
+<option value="fy-NL">Frysk</option>
+<option value="gd">Gàidhlig</option>
+<option value="gl">Galego</option>
+<option value="ka">ქართული ენა</option>
+<option value="el">Ελληνικά</option>
+<option value="he">עברית</option>
+<option value="hr">Hrvatski</option>
+<option value="hu">Magyar</option>
+<option value="hy-AM">Հայերեն</option>
+<option value="id">Bahasa Indonesia</option>
+<option value="is">Íslenska</option>
+<option value="ga-IE">Gaeilge</option>
+<option value="it">Italiano</option>
+<option value="ja">日本語</option>
+<option value="ko">한국어</option>
+<option value="lt">Lietuvių</option>
+<option value="nl">Nederlands</option>
+<option value="nb-NO">Norsk bokmål</option>
+<option value="nn-NO">Norsk nynorsk</option>
+<option value="pl">Polski</option>
+<option value="pt-BR">Português (do Brasil)</option>
+<option value="pt-PT">Português (Europeu)</option>
+<option value="pa-IN">ਪੰਜਾਬੀ</option>
+<option value="ro">Română</option>
+<option value="ru">Русский</option>
+<option value="sr">Српски</option>
+<option value="si">සිංහල</option>
+<option value="sq">Shqip</option>
+<option value="sk">Slovenčina</option>
+<option value="sl">Slovensko</option>
+<option value="es-AR">Español (Argentina)</option>
+<option value="sv-SE">Svenska</option>
+<option value="ta-LK">Tamil (Sri Lanka)</option>
+<option value="tr">Türkçe</option>
+<option value="vi">Tiếng Việt</option>
+<option value="uk">Українська</option>
+</select>
+<noscript>
+<div><input id="lang_submit" type="submit" value="Go"/></div>
+</noscript>
+</div></form>
+</div>
+<ul id="footer-menu">
+<li><a href="https://www.mozilla.org/en-US/thunderbird/">Thunderbird</a>
+<ul>
+<li><a href="https://www.mozilla.org/en-US/thunderbird/features/">Features</a></li>
+<li><a href="https://www.mozilla.org/en-US/thunderbird/31.1.2/releasenotes/">Release Notes</a></li>
+<li><a href="https://www.mozilla.org/en-US/thunderbird/all.html">Other Systems and Languages</a></li>
+<li><a href="https://www.mozilla.org/en-US/thunderbird/organizations/">Thunderbird for Organizations</a></li>
+</ul>
+</li>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/">Add-ons</a>
+<ul>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/">All Add-ons</a></li>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/recommended">Recommended</a></li>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/browse/type:1/cat:all?sort=popular">Popular</a></li>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/browse/type:2">Themes</a></li>
+</ul>
+</li>
+<li><a href="https://support.mozilla.org/products/thunderbird">Support</a></li>
+<li><a href="https://mozilla.org/community/">Community</a>
+<ul>
+<li><a class="external" href="https://addons.mozilla.org/thunderbird/">Add-ons</a></li>
+<li><a class="external" href="https://bugzilla.mozilla.org/">Bugzilla</a></li>
+<li><a class="external" href="http://developer.mozilla.org/">Mozilla Developer Center</a></li>
+<li><a class="external" href="http://labs.mozilla.com/">Mozilla Labs</a></li>
+<li><a class="external" href="https://mozilla.org/">Mozilla.org</a></li>
+<li><a class="external" href="http://www.mozillazine.org/">MozillaZine</a></li>
+<li><a class="external" href="http://planet.mozilla.org/thunderbird/">Planet Mozilla Messaging</a></li>
+<li><a class="external" href="http://quality.mozilla.org/">Quality</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/about/">About</a></li>
+</ul>
+<div id="copyright">
+<p><strong>Copyright © 2005–2014 Mozilla.</strong> All rights reserved.</p>
+<p id="footer-links"><a href="https://www.mozilla.org/privacy-policy.html">Privacy Policy</a>  | 
+			<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a></p>
+</div>
+</div>
+</div>
+<!-- end #footer -->
+</body>
+</html>

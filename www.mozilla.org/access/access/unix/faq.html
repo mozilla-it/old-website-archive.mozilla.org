@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>FAQ of Accessible Mozilla</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<meta content="en" http-equiv="Content-Language">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<meta content="Jay Yan and Kyle Yuan" name="DC.author">
+<meta content="Kyle Yuan" name="DC.creator">
+<meta content="FAQ of Accessible Mozilla" name="DC.title">
+<meta content="FAQ of Accessible Mozilla" name="DC.subject">
+<meta content="Frequently asked questions about accessibility
+of Mozilla under the Linux/UNIX platform" name="DC.description">
+<meta content="2005-02-06T19:57:03+11:00" name="DC.date.created" scheme="W3CDTF">
+<meta content="2005-08-10T09:54:03+11:00" name="DC.date.modified" scheme="W3CDTF">
+<meta content="Mozilla's Web Browser Accessibility Project Page" name="Description">
+<meta content="web browser accessibility, Mozilla accessibility, MSAA, Active Accessibility, open source accessibility, Section 508, ATK, Accessibility Tool Kit, Netscape accessibility, Gecko accessibility, XUL accessibility" name="KEYWORDS">
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></meta></link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="faq.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="faq.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<h1 id="page-title">FAQ of Accessible Mozilla on Linux/UNIX</h1>
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<address class="author">
+<a href="mailto:jay.yan@sun.com">Jay Yan</a>
+</address>
+<p>Answer frequent asked questions about the accessible mozilla on UNIX/Linux, 
+which will come soon......</p>
+<p>Questions: </p>
+<ul>
+<li><a href="faq.html#q10">What is accessibility?</a></li>
+<li><a href="faq.html#q20">How to make mozilla accessible (in all the platforms)?</a></li>
+<li><a href="faq.html#q30">What is the mozilla's accessibility architecture in 
+  Unix/Linux?</a></li>
+<li><a href="faq.html#q40">What have we done to make mozilla have accessibility 
+  feature in Unix/Linux?</a></li>
+<li><a href="faq.html#q50">What features does the coming Unix/Linux's accessible 
+  mozilla have?</a></li>
+<li><a href="faq.html#q60">What major components are effected if we release 
+  accessiblility feature on Unix/Linux?</a></li>
+<li><a href="faq.html#q70">Is there any new component?</a></li>
+<li><a href="faq.html#q80">Is there any UI modification?</a></li>
+<li><a href="faq.html#q90">What platforms are affected after accessibility on 
+  Unix/Linux is implementated?</a></li>
+<li><a href="faq.html#q100">What is the difference of accessibility feature of mozilla 
+  on Windows and Unix/Linux?</a></li>
+<li><a href="faq.html#q110">Which bugs track the development of this project?</a></li>
+<li><a href="faq.html#q120">What are next milestones and what are the potential risks 
+  to achieve the goals?</a></li>
+<li><a href="faq.html#q130">If we want to release Netscape7.0A as an accessible 
+  browser, from where should we branch the source code?</a></li>
+</ul>
+<p><b><big><a name="q10">What is accessibility?</a></big></b></p>
+<p>Accessibility is "Accessing Ability", that means to add the end-user's 
+  ability to access an software.<br>
+  Accessibility is not only for disable people, but also for all the "normal" 
+  end-users,  to enhance the usability of an software for all "normal" end-users 
+  also belongs to accessibility project.<br>
+  If not noted explicitly, this documentation is only talking about 
+  accessibility for disable people, whom accessibility project is mandatory to.</br></br></p>
+<p><b><big><a name="q20">How to make mozilla accessible (in all platforms)?</a></big></b>
+</p>
+<p>To make an application accessible in a platform is a complicated process 
+  which a lot of layers get involved in. Althought different platforms have 
+  different methods to make an application accessible, they can be summerized 
+  into three layers in genreal:</p>
+<ol>
+<li>OS/Desktop offers an accessibility architecture.  Windows and Gnome are 
+    in OS/Desktop layer.</li>
+<li>Application resides inside the architecture which OS/Desktop offers, the 
+    application's task is to expose its information (content and event) to 
+    OS/Desktop. Mozilla is in this layer.</li>
+<li>Accessibility Technology applications (AT application, usually from the 
+    3rd party) get the information (the content and event) from OS/Desktop, 
+    end-user can get the information via these AT-applications. Some examples in 
+    this layer are screen reader, screen magnifer, onscreen keyboard, etc.</li>
+</ol>
+<p><b><big><a name="q30">What is the mozilla's accessibility architecture in 
+Unix/Linux?</a></big></b></p>
+<p>For detailed info, please see:
+  <a href="https://www.mozilla.org/access/unix/architecture">
+  http://www.mozilla.org/access/unix/architecture</a></p>
+<p><b><big>
+<a name="q40">What have we done to make mozilla have accessibility feature 
+in Unix/Linux?</a></big></b></p>
+<p>Before this project started, mozilla was already accessible in Windows, and 
+  the implementation of accessibility of mozilla on windows is divided into two 
+  parts:</p>
+<ol>
+<li>Crossplatform code, please see the IDL file:
+    <a href="http://lxr.mozilla.org/seamonkey/source/accessible/public/nsIAccessible.idl">
+    http://lxr.mozilla.org/seamonkey/source/accessible/public/nsIAccessible.idl</a></li>
+<li>Windows specific code, it is to bridge nsIAccessible into 
+    MSAA(Microsoft's Accessibility Kit), main implementation file is
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/windows/Accessible.cpp">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/windows/Accessible.cpp</a></li>
+</ol>
+<p>What we did in this project is divided into 4 parts:</p>
+<ol>
+<li>Extend the crossplatform interface to make mozilla expose more 
+    information, we added 8 addtional interface and extended nsIAccessible, 
+    please check:
+    <a href="http://lxr.mozilla.org/seamonkey/source/accessible/public/">
+    http://lxr.mozilla.org/seamonkey/source/accessible/public/</a></li>
+<li>Write Unix/Linux specific code to bridge these interfaces to ATK(Gnome's 
+    Accessibility ToolKit), the main implementation is located in
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/</a>  and there 
+    is a little hookup code in
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/</a></li>
+<li>Because ATK has library dependency on Gtk2/Glib2, so the graphics 
+    toolkit of accessible mozilla in Unix/Linux is GTK2, when this project 
+    started, mozilla(gtk2) was not mature, we did much job in help porting 
+    mozilla to gtk2. the code is located in
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/</a></li>
+<li>At the same time, we are working with module owner and peer on component 
+    "Accessibility API" to fix crossplatform accessibility bug.</li>
+</ol>
+<p><b><big><a name="q50">What features does the coming Unix/Linux's accessible 
+mozilla have?</a></big></b></p>
+<p>The coming accessible mozilla has only accessiblity feature for browser, 
+  mail/news is planed for the next stage, composer is the in the final stage. 
+  For browser, it has these accessibility features:</p>
+<ol>
+<li>Content page of the browser will be accessible, end-users can get the 
+    information of the html(or other doc types) displayed in the content pane. 
+    What is more, it is enhanced much comparing with Windows version</li>
+<li>User interface of browser is accessible, that means xul page is also 
+    accessible.</li>
+<li>Some vital event information is accessible.</li>
+</ol>
+<p><b><big><a name="q60">What major components are effected if we 
+release accessiblility feature on Unix/Linux?</a></big></b></p>
+<p>For source code:</p>
+<ol>
+<li>We added code and modified a lot of code in
+    <a href="http://lxr.mozilla.org/seamonkey/source/accessible/">
+    http://lxr.mozilla.org/seamonkey/source/accessible/</a> to extend 
+    crossplatform code</li>
+<li>We modified and added code in
+    <a href="http://lxr.mozilla.org/seamonkey/source/layout/">
+    http://lxr.mozilla.org/seamonkey/source/layout/</a> to extend crossplatform 
+    code</li>
+<li>We newly created a directory
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/</a> to 
+    implement Unix/Linux specific code: to bridge the interfaces to ATK..</li>
+<li>We modified
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/</a> to hook up MAI 
+    code and port mozilla to GTK2</li>
+</ol>
+<p>For binary file:</p>
+<ol>
+<li>No new component is added.</li>
+<li>For now, a library is added, it is for
+    <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/">
+    http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/</a> directory, 
+     because it is seperated from gtk2 module for the time being, whether MAI 
+    will be integrated with gtk2_widget components and the way of integration is 
+    still under discussion.</li>
+</ol>
+<p>For runtime status:</p>
+<ol>
+<li>For normal user, there is nearly no performance or footprint overhead if 
+    the accessibility feature is not activated except a very little hooking up 
+    code.</li>
+<li>For the users who will use accessibility feature, accessibility library 
+    will be loaded into memory and performance and foorprint will be worse than 
+    mozilla with accessibility not activating.</li>
+</ol>
+<p><b><big><a name="q70">Is there any new component?</a></big></b></p>
+<p>No, only one library is added for newly created directory
+  <a href="http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/">
+  http://lxr.mozilla.org/seamonkey/source/widget/src/gtk2/mai/</a>, and whether 
+  MAI will be integrated with gtk2_widget components and the way of integration 
+  is still under discussion. If  they are integrated together, there will 
+  be no new compoent nor new library.</p>
+<p><b><big><a name="q80">Is there any UI modification?</a></big></b></p>
+<p>No.<br>
+  One potential possible modification is to add a preference seting to switch 
+  on/off the accessibility feature. No decision yet now. There is one bug 
+  tracking it, please see:
+  <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=159306">
+  https://bugzilla.mozilla.org/show_bug.cgi?id=159306</a></br></p>
+<p><b><big><a name="q90">What platforms are affected after 
+accessibility on Unix/Linux is implementated?</a></big></b></p>
+<p>Of course, Mozilla is affected on Unix/Linux in 2 aspects:</p>
+<ol>
+<li>Become Accessible.</li>
+<li>Has to use gtk2 as graphics toolkit.</li>
+</ol>
+<p>If end user does not activate accessibility feature in Unix/Linux, there is 
+  nearly no performance and footprint overhead.<br>
+  Mozilla is also affected on Windows becasue it is possible to bridge from 
+  additional interfact to MSAA to make mozilla more accessible on Windows, no 
+  other issue or risk.<br>
+  Mozilla guys can can take advantage of better crossplatform code to make 
+  mozilla accessible in other platforms.</br></br></p>
+<p><b><big><a name="q100">What is the difference of accessibility feature of mozilla on 
+Windows and Unix/Linux?</a></big></b></p>
+<p>Since new inferfaces are added in crossplatform part and these interfaces 
+  are bridged to ATK in Unix/Linux, but the additional interfaces have not yet 
+  been yet brideged to MSAA on Windows (because of MSAA?), the coming accessible 
+  mozilla on Unix/Linux will be more accessible than that on Windows.</p>
+<p><b><big><a name="q110">Which bugs track the development of this 
+project?</a></big></b></p>
+<p>It is a meta bug tracking crossplatform code and Unix/Linux specific code:<br>
+<a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=136315">
+  https://bugzilla.mozilla.org/showdependencytree.cgi?id=136315</a><br>
+  It is a meta bug tracking gtk2 porting code: (it includes above dependency 
+  tree)<br>
+<a href="https://bugzilla.mozilla.org/showdependencytree.cgi?id=92033">
+  https://bugzilla.mozilla.org/showdependencytree.cgi?id=92033</a><br>
+<br>
+  Besides above work, we are also working with  Aaronl and John on the 
+  components "Accessibility API" to fix accessibility API bugs and add the 
+  usability of mozilla. this URL can track our work:<a href="https://bugzilla.mozilla.org/buglist.cgi?bug_status=RESOLVED&amp;bug_status=VERIFIED&amp;resolution=FIXED&amp;email1=&amp;emailtype1=substring&amp;emailassigned_to1=1&amp;email2=&amp;emailtype2=substring&amp;emailassigned_to2=1&amp;emailreporter2=1&amp;emailqa_contact2=1&amp;bugidtype=include&amp;bug_id=&amp;changedin=&amp;votes=&amp;chfield=%5BBug+creation%5D&amp;chfieldfrom=03%2F01%2F2002&amp;chfieldto=Now&amp;chfieldvalue=&amp;product=Browser&amp;component=Accessibility+APIs&amp;short_desc=&amp;short_desc_type=substring&amp;long_desc=&amp;long_desc_type=substring&amp;bug_file_loc=&amp;bug_file_loc_type=substring&amp;status_whiteboard=&amp;status_whiteboard_type=substring&amp;keywords=&amp;keywords_type=allwords&amp;field0-0-0=noop&amp;type0-0-0=noop&amp;value0-0-0=&amp;cmdtype=doit&amp;namedcmd=All+bugs&amp;newqueryname=&amp;order=Reuse+same+sort+as+last+time"> 
+  Other genreal accessibility bug fixing</a></br></br></br></br></br></p>
+<p><b><big><a name="q120">What are the next milestones and what are 
+the potential risks to achieve the goals?</a></big></b></p>
+<p>We are aiming at the August 5, we hope that at that time all the 
+  crossplatform code, Unix/Linux specific code and gtk2 porting code can be 
+  checked into mozilla trunk, then we will start a QA cycle them beta process.<br>
+  Up to now, all the crossplatform code and Unix/Linux code is checked into 
+  mozilla trunk, the biggest difficulity to achieve next milestone is to land 
+  our gtk2 porting patch in trunk, we are working with Chris Blizzard on it, but 
+  this process is very slow becasue Chris is busy with other stuff now.<br>
+  After next milestone, we hope to get a stable gnome2(with stable gtk2 and 
+  stable AT-applications) ASAP, now a lot of crash happen on Gnome2 of not only 
+  linux but also Solaris, and we have not got runable AT-applications yet. It is 
+  the biggest potential risk.</br></br></p>
+<p><b><big><a name="q130">If we want to release Netscape7.0A as an 
+accessible browser, from where should we branch code?</a></big></b></p>
+<p>Becasue work for this project is regarded as new feature and our project 
+  started nearly at the same time when mozilla 1.0 branched, nearly all the code 
+  has not been checked into mozilla1.0branch, they are only allowed to be 
+  checked into mozilla trunk, and after mozilla1.0 branched, a lot of code 
+  modification happened,  so it needs a lot of work to port these patches from 
+  trunk into 1.0branch even if we get the approval. From this point, we wish to 
+  start to branch code from mozilla trunk.<br>
+  But Netscape7.0 is branched from mozilla1.0 branch.<br>
+  ........<br>
+</br></br></br></p>
+<p><b><big>If there is any question, please feel free to ask
+<a href="mailto:browser-china-atf@sun.com">us</a>, we will update the 
+documentation. Thanks a lot.</big></b></p>
+<p><i>Maintained by <a href="mailto:browser-china-atf@sun.com">
+browser-china-atf@sun.com</a> </i></p>
+</div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/faq.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>

@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* Fixes for IE browsers / 26-Oct-09
+ * Zemoga Inc
+ * Andres Garcia
+ */
+
+/* All IE region */
+@font-face {
+	font-family:"Folk solid";
+	src: url(./Folksolid6.eot);
+}
+
+@font-face {
+	font-family: 'Droid Sans Fallback Regular';
+	src: url(./DroidSansFallback-subset.eot);
+}
+
+#header li {
+	display:inline;
+}
+
+#header p {
+	margin-top:-7px;
+}
+
+#footer ul.footer-nav li {
+	display:inline;
+}
+
+div.video-container div.video-dashboard{
+	margin:21px 25px 0 25px;
+}
+
+/* Just IE6 Region */
+* html h1{
+	background:transparent url(./firefox_logo.gif) no-repeat scroll 0 0;
+}
+
+* html .wishes li a.wishes-tweet{
+	margin-right:2px;
+}
+
+* html .wishes li span.wishes-wish{
+	margin-left:5px;
+}
+
+* html .tweet-down {
+	font-size:1px;
+}
+
+* html a.twitter-add{
+	margin-right:10px;
+}
+
+* html .photo-bottom, .tape-top, .tape-bottom, .firefox-sticker{
+	background-image:none !important;
+}
+
+* html .tape-bottom{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./tape_bottom.png', sizingMethod="crop");
+}
+
+* html .photo-bottom{
+	bottom:-13px !important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./photo_bottom_background.png', sizingMethod="crop");
+	
+}
+
+* html .firefox-sticker{
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='./firefox_sticker.png', sizingMethod="crop");
+}
+
+* html .photo-content{
+	margin-top:0px !important;
+}

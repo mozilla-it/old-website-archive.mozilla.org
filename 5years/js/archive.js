@@ -1,0 +1,1 @@
+document.write('<div id="archive"><div id="archive_text">You are viewing an archived site in the <a href="/">Mozilla Archive</a>. 5 Years of Firefox was created to celebrate the fifth anniversary of Firefox\'s existence!</div></div>');

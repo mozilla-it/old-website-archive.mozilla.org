@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=978" name="viewport"/>
+<title>DropdownListbox</title>
+<link href="https://www.mozilla.org/org/favicon.ico" rel="shortcut icon" type="image/ico"/>
+<link href="https://www.mozilla.org/org/style/screen.css?date=2011-01-05" media="screen, projection" rel="stylesheet">
+<!--[if lt IE 7]><script type="text/javascript" src="/org/script/1.0/unitpngfix.js"></script><![endif]-->
+<style>
+    /* MetaWebPro font family licensed from fontshop.com. WOFF-FTW! */
+    @font-face {
+        font-family: 'MetaBold';
+        src: url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.eot');
+        src: local('☺'), url('https://www.mozilla.org/img/fonts/MetaWebPro-Bold.woff') format('woff');
+        font-weight: bold;
+    }
+    </style>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-1.4.3.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/jquery-ui-1.7.2.custom.min.js"></script>
+<script src="https://www.mozilla.org/org/script/1.0/mozilla.org.js"></script>
+<script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+        _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+
+        _gaq.push(['_setAccount', 'UA-36116321-1']);
+
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_setAllowAnchor', true]);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</link><style type="text/css">
+    body { padding-top: 25px; }
+    #archived { margin: 0; padding: 5px; position: absolute; top: 0;
+    left: 0; height: 25px; width: 100%; z-index: 1000;
+    text-align: center;
+    font: bold 1.143em/1 Arial, Calibri, Helvetica, "Helvetica Neue";
+    color: #f5f3ed; background-color: #4d5151; }
+    #archived a { color: #fff; }
+    #archived a:hover { color: #fff; text-decoration: underline; }
+</style></head>
+<body><div id="archived">You are viewing information archived from Mozilla.org on 2015-08-05.</div>
+<div id="outer-wrapper">
+<ul id="skip">
+<li><a href="DropdownListbox.html#localnav">Skip to Sub Navigation</a></li>
+<li><a href="DropdownListbox.html#main">Skip to Content</a></li>
+</ul>
+<div id="header">
+<h1 class="unitPng"><a href="https://www.mozilla.org/" title="Back to home page">mozilla</a></h1>
+<div id="header-contents">
+<ul id="nav">
+<li class=" first"><a href="https://www.mozilla.org/about/">About Us</a></li>
+<li><a href="https://www.mozilla.org/community/">Community Map</a></li>
+<li><a href="https://www.mozilla.org/projects/">Our Projects</a></li>
+<li><a href="https://www.mozilla.org/contribute/">Get Involved</a></li>
+</ul><!-- end #nav -->
+<!--search removed-->
+</div>
+</div><!-- end #header -->
+<div class="with-menu" id="main">
+<div id="localnav">
+<ul class="first">
+<li class="first"><a href="https://www.mozilla.org/roadmap.html">Roadmap</a></li>
+<li><a href="https://www.mozilla.org/projects/">Projects</a></li>
+<li><a href="https://www.mozilla.org/developer/" title="For developers">Coding</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/about/owners.html">Module Owners</a></li>
+<li><a href="https://www.mozilla.org/hacking/">Hacking</a></li>
+<li><a href="https://developer.mozilla.org/en/Download_Mozilla_Source_Code">Get the Source</a></li>
+<li><a href="https://developer.mozilla.org/en/Build_Documentation">Build It</a></li>
+</ul>
+</li>
+<li><a href="http://quality.mozilla.org/">Testing</a>
+<ul>
+<li class="first"><a href="https://www.mozilla.org/download.html" title="Downloads of mozilla.org software releases">Releases</a></li>
+<li><a href="https://www.mozilla.org/developer/#builds" title="Latest mozilla builds for testers">Nightly Builds</a></li>
+<li><a href="https://bugzilla.mozilla.org/" title="For testers to report bugs">Report A Problem</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/tools.html" title="Tools for mozilla developers">Tools</a>
+<ul>
+<li class="first"><a href="https://bugzilla.mozilla.org/" title="Bug tracking system for mozilla testers.">Bugzilla</a></li>
+<li><a href="http://tinderbox.mozilla.org/showbuilds.cgi?tree=Firefox" title="Latest status of mozilla builds">Tinderbox</a></li>
+<li><a href="http://hg.mozilla.org/" title="Latest checkins">Hg</a></li>
+<li><a href="http://mxr.mozilla.org/" title="Source cross reference">MXR</a></li>
+</ul>
+</li>
+<li><a href="https://www.mozilla.org/faq.html" title="Frequently Asked Questions">FAQ</a></li>
+</ul>
+</div><!-- end #localnav -->
+<div id="main-content">
+<h3>DropdownListbox Test Cases</h3>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr>
+<td valign="top" width="60%">    No Scrollbar:</td>
+<td valign="top">
+<select name="Select list" size="1">
+<option checked="" selected="selected" value="sina">option1		</option>
+<option value="href">option2	</option>
+<option value="avcn">option3	</option>
+<option value="newsft">option4</option>
+<option value="stock">option5</option>
+<option value="down">option6</option>
+<option value="game">option7	</option>
+<option value="dict">option8	</option>
+<option value="home">option9</option>
+</select>
+<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top" width="60%">    Having Scrollbar:  </td>
+<td valign="top">
+<select name="op_sys">
+<option value="All">All         </option>
+<option value="Windows 3.1">Windows 3.1         </option>
+<option value="Windows 95">Windows 95         </option>
+<option value="Windows 98">Windows 98         </option>
+<option value="Windows ME">Windows ME         </option>
+<option value="Windows 2000">Windows 2000         </option>
+<option value="Windows NT">Windows NT         </option>
+<option value="Windows XP">Windows XP         </option>
+<option value="Mac System 7">Mac System 7         </option>
+<option value="Mac System 7.5">Mac System 7.5         </option>
+<option value="Mac System 7.6.1">Mac System 7.6.1         </option>
+<option value="Mac System 8.0">Mac System 8.0         </option>
+<option value="Mac System 8.5">Mac System 8.5         </option>
+<option value="Mac System 8.6">Mac System 8.6         </option>
+<option value="Mac System 9.x">Mac System 9.x         </option>
+<option value="Mac OS X">Mac OS X         </option>
+<option value="Linux">Linux         </option>
+<option value="BSDI">BSDI         </option>
+<option value="FreeBSD">FreeBSD         </option>
+<option value="NetBSD">NetBSD         </option>
+<option value="OpenBSD">OpenBSD         </option>
+<option value="AIX">AIX         </option>
+<option value="BeOS">BeOS         </option>
+<option value="HP-UX">HP-UX         </option>
+<option value="IRIX">IRIX         </option>
+<option value="Neutrino">Neutrino         </option>
+<option value="OpenVMS">OpenVMS         </option>
+<option value="OS/2">OS/2         </option>
+<option value="OSF/1">OSF/1         </option>
+<option value="Solaris">Solaris         </option>
+<option selected="selected" value="SunOS">SunOS         </option>
+<option value="other">other         </option>
+</select>
+<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top" width="60%">
+<p>The option 'Banana' is disabled. The user should not be able to select
+it</p>
+</td>
+<td valign="top">
+<form action="DropdownListbox.html" method="post">
+<select>
+<option>ocolate                 </option>
+<option disabled="disabled">Banana                 </option>
+<option>Tutti Frutti                 </option>
+<option>Coconut Cre        </option>
+</select>
+</form>
+</td>
+</tr>
+<tr>
+<td valign="top">optgroup supported<br>
+</br></td>
+<td valign="top">
+<select>
+<optgroup label="Communicator 4.5 Versions">
+<option>acintosh PPC </option>
+<option>Windows 95 </option>
+<option>Windows NT </option>
+<option>UNIX </option>
+</optgroup><optgroup label="Communicator 4.0.8 Versions">
+<option>Macintosh PPC </option>
+<option>Windows 95 </option>
+<option>Windows NT </option>
+<option>UNIX</option>
+</optgroup>
+</select>
+</td>
+</tr>
+<tr>
+<td valign="top">optgroup disabled<br>
+</br></td>
+<td valign="top">
+<select>
+<optgroup disabled="disabled" name="Favorite Flavors of iMac">
+<option>Chocolate 		</option>
+<option>Banana 		</option>
+<option>Tutti Frutti 		</option>
+<option>Coconut Cream     </option>
+</optgroup>
+</select>
+<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<br>
+    In AT-poke, initially, the DropdownListbox object relate with a Button,
+and after you choose the button and do action click, a new object   will be
+added: Frame, and will be arranged in AT-poke like following          
+<hr noshade="noshade" size="1" width="100%">
+<table border="0" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr>
+<td colspan="3" rowspan="1" valign="top">
+<div align="left">+ Frame</div>
+</td>
+</tr>
+<tr>
+<td valign="top"><br>
+</br></td>
+<td colspan="2" rowspan="1" valign="top">+ Menu<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><br>
+</br></td>
+<td valign="top"><br>
+</br></td>
+<td valign="top">Menu-Item<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><br>
+</br></td>
+<td valign="top"><br>
+</br></td>
+<td valign="top">Menu-Item<br>
+</br></td>
+</tr>
+<tr>
+<td valign="top"><br>
+</br></td>
+<td valign="top"><br>
+</br></td>
+<td valign="top">Menu-Item<br>
+</br></td>
+</tr>
+</tbody>
+</table>
+<hr noshade="noshade" size="1" width="100%">1. Button, please see Button test
+case;<br>
+          2. Menu-Item test case list bellow:<br>
+<br>
+<table border="1" cellpadding="2" cellspacing="2" width="100%">
+<tbody>
+<tr bgcolor="#ccffff">
+<th>Interface</th>
+<th>Feature tested</th>
+<th>Steps</th>
+<th>Expected Result</th>
+</tr>
+</tbody><tbody>
+<tr>
+<td>
+<div align="center">Objects<br>
+</br></div>
+</td>
+<td valign="top">getName<br>
+                         getDescription<br>
+                         getRole<br>
+                         getAttributes<br>
+                         getParent<br>
+<br>
+</br></br></br></br></br></br></td>
+<td valign="top">1. Start AT-poke</td>
+<td valign="top">Type/Name/Value/ Role/ State/should be displayed
+ on AT-poke window<br>
+</br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="middle">AccessibleComponent Interface<br>
+<br>
+<br>
+</br></br></br></td>
+<td colspan="1" rowspan="1" valign="top">getPosition<br>
+                                                 getSize<br>
+                                                 getLayer<br>
+                                                 getMDIZOrder<br>
+<br>
+</br></br></br></br></br></td>
+<td colspan="1" rowspan="1" valign="top">2. In At-poke, check object's
+     position and size, Layer, MDI-Z-order<br>
+<br>
+<br>
+</br></br></br></td>
+<td valign="top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="top">grabFocus</td>
+<td valign="top">3. Click on the Grab focus button in AT-poke</td>
+<td valign="top">Start simple-at, focus event will receive<br>
+<br>
+</br></br></td>
+</tr>
+<tr>
+<td rowspan="2" valign="middle">AccessibleAction Interface<br>
+</br></td>
+<td valign="top">getNActions<br>
+                getName<br>
+                    getDescription<br>
+                    getKeyBinding<br>
+<br>
+</br></br></br></br></br></td>
+<td valign="top">8. In At-poke, see every action's Name/Description/KeyBinding<br>
+           (maybe currently objects have no keybinding)<br>
+</br></br></td>
+<td valign="top"><br>
+</br></td>
+</tr>
+<tr>
+<td valign="top">doAction<br>
+</br></td>
+<td valign="top">9. Select Button, do action click<br>
+<br>
+       10. Select one Menu-Item differ from current selected,  and do action
+  "press"<br>
+</br></br></br></td>
+<td valign="top">After step 9, a new object will be added: Frame<br>
+       After step 10, the selected item will be changed<br>
+</br></br></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="2" valign="middle">Event<br>
+<br>
+</br></br></td>
+<td valign="top"><br>
+</br></td>
+<td valign="top">11. Start simple-at, and click on the first dropdownlistbox<br>
+</br></td>
+<td valign="top">Output of terminal : <br>
+  focus: event from option1<br>
+ object:children-changed event received<br>
+ object:visible-data-changed event received<br>
+   window_state_changed<br>
+</br></br></br></br></br></td>
+</tr>
+<tr>
+<td valign="top"><br>
+</br></td>
+<td valign="top">12. move mouse on another list item, eg. option2<br>
+</br></td>
+<td valign="top">Output of terminal : <br>
+                        focus: event from option2<br>
+                        selection_changed event received<br>
+</br></br></br></td>
+</tr>
+</tbody>
+</table>
+<br>
+<br>
+<div align="right">Maintained by <a href="mailto:mindy.liu@sun.com">Mindy
+Liu</a><br>
+Last modified 2002-08-19<br>
+</br></br></div>
+<br>
+<br>
+<br>
+</br></br></br></br></br></br></br></br></hr></hr></br></div></div><!-- end #main-content and #main -->
+<div id="footer-wrap">
+<div class="cols" id="footer">
+<div class="six-col">
+<a href="https://www.mozilla.org/" id="logo-footer"><img alt="Mozilla" src="https://www.mozilla.org/images/template/screen/logo_footer.png"/></a>
+<p id="copyright">
+                Portions of this content are ©1998–2015 by individual mozilla.org contributors. Content available under a Creative Commons <a href="https://www.mozilla.org/foundation/licensing/website-content.html">license</a>.
+            </p>
+<p id="copyright-links">
+<a class="first" href="https://www.mozilla.org/contact/">Contact Us</a><br/>
+<a href="https://www.mozilla.org/about/policies/privacy-policy.html">Privacy Policy</a><br/>
+<a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a><br/>
+<a href="http://www.mozilla.com/en-US/legal/fraud-report/index.html">Report Trademark Abuse</a>
+</p>
+</div>
+<div class="col-span">
+<a href="http://viewvc.svn.mozilla.org/vc/projects/mozilla.org/trunk/access/unix/testcase/MAI/DropdownListbox.html?view=log">Last modified on February 1, 2012</a> — <a href="https://wiki.mozilla.org/Mozilla.org/Editing_Site_with_SVN#Making_Site_Changes">Edit this Page</a>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>About Us</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/about/mission.html">Our Mission</a></li>
+<li><a href="https://www.mozilla.org/about/forums/">Forums</a></li>
+<li><a href="https://www.mozilla.org/about/governance.html">Governance</a></li>
+<li><a href="https://www.mozilla.org/about/organizations.html">Organizations</a></li>
+<li><a href="https://www.mozilla.org/grants/">Grants</a></li>
+<li><a href="https://www.mozilla.org/about/history.html">History</a></li>
+<li><a href="https://www.mozilla.org/about/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Community Map</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://www.mozilla.org/community/index.html#applications">Applications</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#code">Code</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#incubators">Incubators</a></li>
+<li><a href="https://www.mozilla.org/community/index.html#community-sites">Community Sites</a></li>
+<li><a href="https://www.mozilla.org/community/directory.html">Directory</a></li>
+<li><a href="https://www.mozilla.org/community/">More…</a></li>
+</ul>
+</div>
+<div class="five-col">
+<h5 class="footer-nav-title"><strong>Our Projects</strong></h5>
+<ul class="footer-nav">
+<li><a href="http://www.firefox.com">Firefox</a></li>
+<li><a href="http://www.getthunderbird.com">Thunderbird</a></li>
+<li><a href="http://www.drumbeat.org/projects">Drumbeat</a></li>
+<li><a href="http://www.mozillalabs.com/projects">Mozilla Labs</a></li>
+<li><a href="https://www.mozilla.org/support">Support</a></li>
+<li><a href="https://addons.mozilla.org">Add-ons</a></li>
+<li><a href="http://input.mozilla.com">Feedback</a></li>
+<li><a href="https://www.mozilla.org/security/announce">Security Advisories</a></li>
+<li><a href="https://www.mozilla.org/projects/">More…</a></li>
+</ul>
+</div>
+<div class="five-col last">
+<h5 class="footer-nav-title"><strong>Get Involved</strong></h5>
+<ul class="footer-nav">
+<li><a href="https://developer.mozilla.org/En/Developer_Guide">Developing</a></li>
+<li><a href="https://developer.mozilla.org/Project:en/How_to_Help">Documentation</a></li>
+<li><a href="https://donate.mozilla.org/page/contribute/openwebfund">Donate</a></li>
+<li><a href="https://wiki.mozilla.org/L10n">Localization</a></li>
+<li><a href="http://contribute.mozilla.org/Marketing">Marketing</a></li>
+<li><a href="http://quality.mozilla.org/">Testing</a></li>
+<li><a href="http://blog.mozilla.com/webdev/get-involved/">Webdev</a></li>
+<li><a href="https://www.mozilla.org/contribute">More…</a></li>
+</ul>
+</div>
+</div><!-- end #footer -->
+</div><!-- end #footer-wrap -->
+</div><!-- end #outer-wrapper -->
+</body>
+</html>
