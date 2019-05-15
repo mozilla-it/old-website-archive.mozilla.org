@@ -1,0 +1,1 @@
+document.write('<div id="archive"><div id="archive_text">You are viewing an archived site in the <a href="/">Mozilla Archive</a>.  Mozilla Service Week took place from September 14 - 21, 2009.  Over 11,000 service hours were donated by our awesome community to help organizations and local communities around the world. Thanks for making a difference!</div></div>');

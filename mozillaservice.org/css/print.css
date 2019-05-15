@@ -1,0 +1,75 @@
+/*----------------------------------------------------------------------------
+Screen CSS file for Mozilla Service Week 2009
+Created by Craig Cook - focalcurve.com
+        for the Mozilla Foundation
+        on 18 May, 2009
+-----------------------------------------------------------------------------*/
+
+/* =Reset */
+html, body, form, fieldset, legend, 
+h1, h2, h3, h4, h5, h6, dt, dd { margin: 0; padding: 0; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+fieldset, a img { border: 0; }
+address, caption, cite, code, dfn, th, var { font-style: inherit; font-weight: inherit; }
+abbr, acronym { border: 0; font-variant: normal; }
+input, button, textarea, select, optgroup, option { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+table { border-collapse: collapse; border-spacing: 0; margin: 0 0 1.4em; }
+caption, th { text-align: left; }
+p, pre, blockquote, dl { margin: 0 0 1.4em; padding: 0; }
+ul, ol { margin: 0 0 1.4em 20px; padding: 0; }
+li ul, li ol { margin-bottom: 0; }
+dt { font-style: italic; }
+dd { margin-left: 18px; }
+form ol, form ul { list-style: none; margin: 0 0 1.4em; }
+
+
+html { background: transparent none !important; }
+body { background: #fff none !important; width: auto; margin: .5in; color: #000; font: 12pt/1.4 Georgia, "Calisto MT", Cambria, Palatino, "Times New Roman", Times, serif; }
+
+h1, .page-title { font: bold 150% Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; margin-bottom: .25em; }
+h2 { font: bold 125% Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; margin-bottom: .25em; }
+h3 { font: bold 110% Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; margin-bottom: .25em; }
+h4, h5, h6 { font: 100% Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; }
+
+hr { margin: 2em 0; }
+
+#head,
+#nav-main,
+#nav-access,
+#nav-util,
+#nav-info,
+.nav-share, 
+#nav-top,
+#legal-links, 
+#nav-crumbs, 
+.pagination {
+  display: none !important;
+}
+
+#logo { border-bottom: 2px solid #000; text-align: center; }
+#logo img { border: 0; }
+
+#counter { font-size: 140%; text-align: center; margin: .5em 0; }
+
+#siteinfo { clear: both; border-top: 3px double #ccc; margin-top: 2em; padding: 1em 20px; font: 90% Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; color: #666; }
+#content { padding: 0 20px 2em; }
+#content-main { width: 60%; float: left; }
+#content-sub { width: 35%; float: right; }
+#content-sub .box { border: 3px double #666; margin: 0 0 1.4em; padding: 18px; background: #fafafa; }
+#content-sub .extra { padding: 0 22px; }
+
+#friendfeed { border: 1px solid #ccc; list-style: none; margin: 0 0 1.4em; }
+#friendfeed h3 { border: 0; font-size: 100%; }
+#friendfeed li { border-top: 1px solid #ccc; padding: .5em 10px; }
+
+#content img { max-width: 100%; }
+.figure.full-col { display: block; float: none; clear: both; margin: 0 0 1.4em; }
+.figure.half-col { width: 50%; }
+.figure.third-col { width: 33%; }
+.figure.left { float: left; margin: .25em 18px .5em 0; }
+.figure.right { float: right; margin: .25em 0 .5em 18px; }
+
+.figure .caption, .figure .legend { margin: 0 0 .5em; font: italic .857em Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; color: #666; text-align: left; }
+.figure .credit { text-align: right; font: .714em Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; color: #999; }
+.figure .credit cite { font-style: normal; }

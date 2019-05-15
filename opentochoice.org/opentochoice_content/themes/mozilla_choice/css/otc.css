@@ -1,0 +1,1051 @@
+@charset "UTF-8";
+@import url("zreset.css");
+
+/* Feb-16-10
+ * Zemoga Inc
+ * JD Gomez
+ * Andres Garcia
+*/
+
+/*
+  =======================================
+		1. Fonts
+		2. Titles and paragraph
+		3. Links
+		4. Layout
+			4.1 Header specific
+			4.2 Main-Content specific
+			4.3 Footer specific
+		5. Blog-Content
+		6. Social-Bar
+		7. Comment-List
+		8. Comment-Add
+		9. Choose Your Voice
+		10. Forms
+		11. Boxes
+			11.1 SignUp Form
+		12. Brought to you by
+		13. Validation Warnings
+		14. Brief-Post
+			14.1 Intro
+			14.2 Home
+			14.3 Featured
+			14.4 Assets
+		15. Writer Photo
+		16. Badges
+		17. Recent Lists
+		18. Error 404
+		19. Navigation
+		20. I10n fixes
+  =======================================
+*/
+
+
+/* 1. Fonts ---------------------------------------------- */
+@font-face {
+	font-family: 'YanoneKaffeesatzRegular';
+	src: url('../assets/fonts/Yanone_Kaffeesatz_Regular.eot');
+	src: local('Yanone Kaffeesatz Regular'), local('YanoneKaffeesatz-Regular'), url('../assets/fonts/Yanone_Kaffeesatz_Regular.woff') format('woff'), url('../assets/fonts/Yanone_Kaffeesatz_Regular.otf') format('opentype'), url('../assets/fonts/Yanone_Kaffeesatz_Regular.svg') format('svg');
+}
+@font-face {
+	font-family: 'YanoneKaffeesatzLight';
+	src: url('../assets/fonts/Yanone_Kaffeesatz_Light.eot');
+	src: local('Yanone Kaffeesatz Light'), local('YanoneKaffeesatz-Light'), url('../assets/fonts/Yanone_Kaffeesatz_Light.woff') format('woff'), url('../assets/fonts/Yanone_Kaffeesatz_Light.otf') format('opentype'), url('../assets/fonts/Yanone_Kaffeesatz_Light.svg') format('svg');
+}
+
+/* 2. Titles and paragraph ---------------------------------------------- */
+h1 {
+	color:#5A4A42;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:7em;
+	line-height:1.1em;
+	margin-bottom:35px;
+}
+h2 {
+	color:#A55A3F;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:3em;
+	line-height:1.1em;
+	margin-bottom:25px;
+}
+p {
+	font-size:1.2em;
+}
+
+/* 3. Links ---------------------------------------------- */
+a, a:visited {
+	color:#A35F44;
+	text-decoration:none;
+}
+a:hover, a:focus {
+	color:#A35F44;
+	text-decoration:underline;
+}
+h1 a,
+h1 a:visited,
+h1 a:hover,
+h2 a,
+h2 a:visited,
+h2 a:hover {
+	color:#5A4A42;
+	text-decoration:none;
+}
+
+/* 4. Layout ---------------------------------------------- */
+html {
+	background-color:#F0EBD4;
+}
+body{
+	color:#343434;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	word-wrap:break-word;	
+}
+#header,
+#main-content,
+#footer {
+	margin:0 auto;
+	padding-left:50px;
+	width:900px;
+	position:relative;
+}
+	
+/* 4.1 Header Specific ---------------------------------------------- */
+#header-wrapper {
+	background:url("../assets/images/bg/bg_header.gif") no-repeat center top;
+	height:180px;
+}
+#choice-balloons {
+	height:427px;
+	left:635px;
+	position:absolute;
+	top:18px;
+	width:317px;
+}
+#header {
+}
+#header h1 {
+	color:#5A4A42;
+	font-size:3em;
+	margin:0 0 0 -65px;
+	padding-top:29px;
+}
+#header h1 a{
+	color:#5A4A42;
+	display:block;
+	height:78px;
+	width:230px;
+}
+#header #main-menu {
+	overflow:hidden;
+}
+#header #main-menu li {
+	float:left;
+	margin-right:20px;
+	padding-bottom:48px;
+}
+#header #main-menu li.current {
+	background:url("../assets/images/bg/bg_menu_current.gif") no-repeat center bottom;
+}
+#header #main-menu a,
+#header #main-menu a:visited {
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:2.3em;
+	line-height:1.1em;
+}
+
+/* 4.2 Main-Content Specific ---------------------------------------------- */
+#content-wrapper {
+	background-color:#FFF;
+}
+#main-content {
+	overflow:hidden;
+}
+#main-content .col_1,
+#main-content .col_2 {
+	float:left;
+	padding:25px 0 0 0;
+	width:600px;
+}
+#main-content .col_2 {
+    display: none;
+    
+	color:#6C5E4E;
+	margin-bottom:180px;
+	padding:283px 0 0;
+	width:285px;
+}
+#main-content .col_2 h2 {
+	font-size:2.4em;
+	margin-bottom:15px;
+}
+#main-content p.date {
+	font-family:"YanoneKaffeesatzLight", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:1.8em;
+	margin-bottom:25px;
+}
+#main-content p {
+	max-width:580px;
+}
+
+/* 4.3 Footer Specific ---------------------------------------------- */
+#footer-wrapper {
+	height:118px;
+	padding-top:30px;
+}
+#footer h2 {
+	color:#5A4A42;
+}
+#footer .right-block {
+	padding-right:15px;
+	position:absolute;
+	right:0;
+	width:430px;
+}
+#footer .right-block .footer-nav {
+	float:right;
+	min-width:200px;
+}
+#footer .footer-nav {
+	overflow:hidden;
+	max-width:440px;
+}
+#footer .footer-nav li {
+	background:url("../assets/images/misc/footer-nav-line.gif") no-repeat left center;
+	float:left;
+	padding:0 10px;
+}
+#footer .right-block .footer-nav li {
+	max-width:205px;
+	text-align:right;
+}
+#footer .footer-nav li:first-child {
+	background:none repeat scroll 0 0 transparent;
+	padding-left:0;
+}
+#footer .footer-nav li.last-child {
+	padding-right:0;
+}
+#footer .footer-nav li a {
+	font-size:1.5em;
+	white-space:nowrap;
+}
+#footer .copyright {
+	color:#6C5E4E;
+	clear:left;
+	display:block;
+	font-size:0.9em;
+	margin:10px 0 0;
+	width:435px;
+}
+
+/* 5. Blog-Content ---------------------------------------------- */
+.blog-content {
+}
+.blog-content p {
+	margin-bottom:30px;	
+}
+.blog-content ul {
+	font-size:1.3em;
+	margin-bottom:30px;
+	padding-left:40px;	
+}
+.blog-content ul li {
+	list-style:disc outside none;	
+}
+
+/* 6. Social-Bar ---------------------------------------------- */
+.social-bar {
+    display: none;
+	background:url("../assets/images/bg/bg_social_bar.gif") no-repeat 0 0;
+	clear:both;
+	height:23px;
+	margin-bottom:35px;
+	padding:20px 20px 0 0;
+	width: 566px;
+}
+.social-bar .social {
+	color:#6C5E4E;
+	float:right;
+	font-size:1em;
+	margin:0 0 0 30px;
+}
+.social-bar .social ul,
+.social-bar .social span {
+	float:left;
+	padding:0;
+}
+.social-bar .social span {
+	line-height:21px;
+}
+.social-bar .social li {
+	display:inline;
+	list-style:none;
+}
+.social-bar .social a,
+.social-bar .social a.stbutton {
+	background-image:url("../assets/images/icn/icn_share_this.gif")!important;
+	background-position:0 0;
+	background-repeat:no-repeat;
+	float:left;
+	height:20px;
+	margin:0 1px;
+	padding:0!important;
+	text-indent:-5000px;
+	width:20px;
+}
+.social-bar .social a.rss:hover {
+	background-position:0 -22px;
+}
+.social-bar .social a.twitter {
+	background-position:-22px 0;
+}
+.social-bar .social a.twitter:hover {
+	background-position:-22px -22px;
+}
+.social-bar .social a.facebook {
+	background-position:-45px 0;
+}
+.social-bar .social a.facebook:hover {
+	background-position:-45px -22px;
+}
+.social-bar .social a.dig {
+	background-position:-68px 0;
+}
+.social-bar .social a.dig:hover {
+	background-position:-68px -22px;
+}
+.social-bar .social a.stbutton {
+	background-position:-91px 0!important;
+}
+.social-bar .social a.stbutton:hover {
+	background-position:-91px -22px!important;
+}
+.social-bar .comment-count {
+	float:none;
+	font-size:1em;
+	line-height:21px;
+	margin-left:10px;
+}
+.social-bar .comment-count a,
+.social-bar .comment-count a:hover {
+	color:#6C5E4E;
+	font-weight:normal;
+}
+
+/* 7. Comment-List ---------------------------------------------- */
+#comment-list {
+	background:url("../assets/images/bg/bg_hr.gif") no-repeat 0 100%;
+	margin-bottom:25px;
+	padding-bottom:1px;
+}
+#comment-list .comment {
+	margin-bottom:30px;
+	width:582px;
+}
+#comment-list .comment,
+#comment-list .comment .bottom {
+	background:url("../assets/images/bg/bg_comment.gif") no-repeat 0 0;
+	padding:25px 0 0 0;
+}
+#comment-list .comment .top {
+	background-color:#ECE6CB;
+	margin:0;
+	overflow:hidden;
+	padding:0 25px 0 20px;
+}
+#comment-list .comment .bottom {
+	background-position:0 100%;
+	height:40px;
+	margin-bottom:10px;
+	padding-top:0;
+}
+#comment-list .comment p {
+	color:#6C5E4E;
+	font-size:1em;
+	margin:0 0 10px;
+	padding:0;
+	width:auto;
+}
+#comment-list .comment .posted-by span {
+	color:#343434;
+	font-size:1.3em;
+	margin-right:15px;
+}
+#comment-list .comment .posted-by small {
+	color:#6C5E4E;
+}
+
+/* 8. Comment-Add ---------------------------------------------- */
+#comment-add {
+	padding-bottom:1px;
+}
+#comment-add form label {
+	color:#6C5E4E;
+	display:block;
+	margin-bottom:15px;
+	overflow:hidden;
+}
+#comment-add form input[type="text"] {
+	margin-right:12px;
+}
+#comment-add form .submit-comment {
+	float:right;
+	margin-right:20px;
+}
+
+/* 9. Choose Your Voice ---------------------------------------------- */
+#choose-voice {
+    display: none;
+	float:right;
+	min-height:40px;
+}
+#choose-voice h2 {
+	float:left;
+	font-size:2em;
+	margin:0;
+	max-width:195px;
+}
+#choose-voice .select {
+	float:left;
+	margin:-6px 0 0 10px;
+}
+
+/* 10. Forms ---------------------------------------------- */
+
+textarea, input{
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+}
+
+input[type="text"] {
+	background:url("../assets/images/sprite/sprite_inputs.gif") no-repeat 0 0;
+	border:none;
+	color:#6C5E4E;
+	font-size:1.3em;
+	height:35px;
+	padding:2px 0 0 12px;
+	width:210px;
+}
+textarea {
+	background:url("../assets/images/sprite/sprite_inputs.gif") no-repeat 0 -168px;
+	border:none;
+	color:#6C5E4E;
+	font-size:1.3em;
+	height:118px;
+	overflow:auto;
+	padding:8px 0 0 12px;
+	width:570px;
+}
+button {
+	background:url("../assets/images/sprite/sprite_submit.png") no-repeat 0 0;
+	color:#FFF;
+	cursor:pointer;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:2.2em;
+	height:40px;
+	padding-bottom:5px;
+	width:181px;
+}
+button:hover {
+	background-position:0 100%;
+}
+
+a.selector {
+	background:url("../assets/images/sprite/sprite_inputs.gif") no-repeat 0 -47px;
+	color:#6C5E4E;
+	display:block;
+	font-size:1.4em;
+	height:27px;
+	width:204px;
+	padding:8px 0 0 17px;
+}
+
+ul.options{
+	background:#FFFFFF;
+	border:1px solid #DBCD92;
+	color:#6C5E4E;
+	display:block;
+	font-size:1.4em;
+	height:110px;
+	margin:2px 0 0;
+	overflow:auto;
+	position:absolute;
+	width:219px;
+	z-index:3;
+	top:-119px;
+}
+
+ul.options li {
+	height:18px;
+	padding:2px 0 2px 17px;
+	overflow:hidden;
+	position:relative;
+}
+
+ul.options li a{
+	display:block;
+	width:186px;
+}
+
+.form-style select, .form-style input[type="checkbox"] {
+	display:none;
+}
+
+a.form-style.checkbox{
+	background:url("../assets/images/sprite/sprite_inputs.gif") no-repeat 0 -109px;
+	display:block;
+	height:19px;
+	width:20px;
+}
+
+a.form-style.checkbox.checked{
+	background-position:0 -138px;
+}
+/* 11. Boxes ---------------------------------------------- */
+.box {
+	margin-bottom:25px;
+}
+.box .content-wrapper,
+.box .bottom {
+	background:url("../assets/images/sprite/sprite_boxes.gif") no-repeat 0 0;
+	padding:24px 0 1px 45px;
+	width:240px;
+}
+.box .bottom {
+	background-position:0 100%;
+	height:15px;
+	padding-top:0;
+	width:240px;
+}
+.box .learn {
+	display:block;
+}
+.box .thankyou {
+	/*display:none;*/
+}
+.box.confirm .content-wrapper {
+	background-position:-285px 0;
+}
+.box.confirm .bottom {
+	background-position:-285px 100%;
+}
+.box.confirm .learn {
+	display:none;
+}
+.box.confirm .thankyou {
+	display:block;
+}
+.box.confirm h2 {
+	overflow:hidden;
+}
+.box.confirm h2 span {
+	float:left;
+}
+.box.confirm h2 span.checkmark {
+	background:url("../assets/images/icn/icn_check.gif") no-repeat 0 0;
+	height:20px;
+	margin-left:5px;
+	width:20px;
+}
+.box .content {
+	width:225px;
+}
+.box .extra-pad {
+	padding-left:17px;
+}
+	
+/* 11.1 SignUp Form ---------------------------------------------- */
+#signup-form label {
+	display:block;
+	margin-bottom:13px;
+	overflow:hidden;
+}
+#signup-form label a.checkbox {
+	float:left;
+	margin-right:10px;
+}
+#signup-form label .msg_agree {
+	float:left;
+	font-size:0.9em;
+	width:190px;
+}
+#signup-form label a,
+#signup-form label a:hover {
+	color:#A55A3F;
+}
+
+/* 12. Brought to you by ---------------------------------------------- */
+#brought-by-wrapper {
+	float:left;
+	margin:0 0 5px;
+	padding-left:600px;
+}
+#brought-by {
+	color:#6C5E4E;
+	margin-top:-177px;
+	padding-left:32px;
+}
+#brought-by h2 {
+	font-size:2.4em;
+	margin-bottom:5px;
+}
+#brought-by .box {
+	margin:0;
+}
+#brought-by .box .content {
+	width:208px;
+}
+#brought-by .box .content-wrapper {
+	background-position:-32px 0;
+	padding:24px 0 1px 30px;
+	width:auto;
+}
+#brought-by .box .bottom {
+	background-position:-32px 100%;
+	padding:0;
+	width:253px;
+}
+#brought-by .logo {
+	background:url("../assets/images/logo/logo_mozilla.png") no-repeat 0 0;
+	color:#EE2A24;
+	display:block;
+	font-size:2em;
+	height:29px;
+	text-indent:-5000px;
+	width:112px;
+}
+#brought-by p {
+	margin-bottom:7px;
+}
+#brought-by p span {
+	color:#EE2A24;
+}
+#brought-by .learn-more {
+	display:block;
+	font-size:1.2em;
+	text-align:right;
+}
+
+/* 13. Validations warnings ---------------------------------------------- */
+div.validation-warning{
+	background-color:#ffffff;
+	color:#D54203;
+	display:none;
+	margin:10px 0;
+	position:relative;
+	width:223px;
+}
+div.validation-warning div.validation-warning-content p{
+	display:inline;
+	width:auto;
+}
+div.validation-warning.gray{
+	background-color:#EDEDED;
+	height:27px;
+	overflow:hidden;
+	width:auto;
+}
+div.validation-warning div.validation-warning-top{
+	background:url("../assets/images/bg/bg_validation_box_top.gif") no-repeat 0 0;
+	height:18px;
+	position:absolute;
+	top:0;
+	width:100%;
+}
+div.validation-warning div.validation-warning-bottom{
+	background:url("../assets/images/bg/bg_validation_box_bottom.gif") no-repeat 0 0;
+	height:20px;
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+div.validation-warning div.validation-warning-content{
+	padding:10px;
+	position:relative;
+	z-index:1;
+}
+div.validation-warning.gray div.validation-warning-content{
+	padding:4px 4px 0 10px;
+	height:27px;
+	position:static;
+	background:url("../assets/images/bg/bg_validation_box_gray_right.gif") no-repeat right 0;
+}
+div.validation-warning.gray div.validation-warning-top{
+	background:url("../assets/images/bg/bg_validation_box_gray_left.gif") no-repeat 0 0;
+	height:27px;
+	left:0;
+	width:7px;
+	position:static;
+	float:left;
+}
+
+/* 14. Brief-Post ---------------------------------------------- */
+.brief-post {
+	margin-bottom:35px;
+}
+.brief-post .content {
+	min-height: 1px;
+}
+.brief-post h2 {
+	font-size:3.5em;
+	margin-bottom:5px;
+}
+.brief-post h1 a,
+.brief-post h1 a:visited,
+.brief-post h1 a:hover,
+.brief-post h2 a,
+.brief-post h2 a:visited,
+.brief-post h2 a:hover {
+	color:#A55A3F;
+	text-decoration:none;
+}
+.brief-post a.read-more {
+	color:#A55A3F;
+	display:block;
+	font-size:1.2em;
+	font-weight:bold;
+	margin-top:-15px;
+	max-width:580px;
+	text-align:right;
+}
+.brief-post p {
+	margin-bottom:20px;
+}
+.brief-post .social-bar {
+	margin:0;
+}
+.brief-post ul {
+	font-size:1.3em;
+	margin-bottom:30px;
+	padding-left:40px;	
+}
+.brief-post ul li {
+	list-style:disc outside none;	
+}
+
+/* 14.1 Intro ---------------------------------------------- */
+.brief-post.intro h1,
+.brief-post.intro h2 {
+	font-size:7em;
+}
+.brief-post.intro h1,
+.brief-post.intro h1 a,
+.brief-post.intro h1 a:visited,
+.brief-post.intro h1 a:hover,
+.brief-post.intro h2,
+.brief-post.intro h2 a,
+.brief-post.intro h2 a:visited,
+.brief-post.intro h2 a:hover {
+	color:#5A4A42;
+}
+
+/* 14.2 Home ---------------------------------------------- */
+.brief-post.home .top,
+.brief-post.home .bottom {
+	background:url("../assets/images/bg/bg_post_home.gif") no-repeat 0 0;
+	height:25px;
+}
+.brief-post.home .top,
+.brief-post.home .content,
+.brief-post.home .bottom {
+	margin:0 -20px;
+	padding:0 20px;
+}
+.brief-post.home .content {
+	background-color:#ECE6CB;
+}
+.brief-post.home .bottom {
+	background-position:0 100%;
+}
+.brief-post.home p {
+	margin:0;
+}
+
+/* 14.3 Featured ---------------------------------------------- */
+.brief-post.featured .top,
+.brief-post.featured .bottom {
+	background:url("../assets/images/bg/bg_post_home.gif") no-repeat 0 0;
+	height:25px;
+}
+.brief-post.featured .top,
+.brief-post.featured .content,
+.brief-post.featured .bottom {
+	margin:0 -20px;
+	padding:0 20px;
+}
+.brief-post.featured .top,
+.brief-post.featured .bottom {
+	background-image:url("../assets/images/bg/bg_post_featured.gif");
+}
+.brief-post.featured .content {
+	background-color:#F6F0EE;
+}
+.brief-post.featured .bottom {
+	background-position:0 100%;
+}
+.brief-post.featured h1,
+.brief-post.featured h2 {
+	font-size:7em;
+}
+.brief-post.featured .social-bar {
+	background-position:0 100%;
+}
+.brief-post.featured .writer {
+	margin:-100px -10px 15px 15px;
+}
+	
+/* 14.4 Assets ---------------------------------------------- */
+.brief-post.assets {
+	
+}
+.brief-post.assets h2 {
+	margin-bottom:25px;
+}
+.brief-post.assets .date,
+.brief-post.assets .social-bar,
+.brief-post.assets .read-more {
+	display:none;
+}
+.blog-content.assets .holder,
+.brief-post.assets .holder {
+	margin-left:30px;
+	width:510px;
+}
+.blog-content.assets .holder {
+	margin-bottom:30px;
+}
+.blog-content.assets .image,
+.brief-post.assets .image {
+	height:185px;
+	overflow:hidden;
+	width:510px;
+}
+.blog-content.assets .info,
+.brief-post.assets .info {
+	color:#6C5E4E;
+	background-color:#F1F1F1;
+	overflow:hidden;
+}
+.blog-content.assets .info p,
+.brief-post.assets .info p {
+	padding:5px 10px;
+	margin-bottom:0;
+}
+.blog-content.assets .download,
+.brief-post.assets .download {
+	color:#FFF;
+	background-color:#A35F44;
+	display:block;
+	float:right;
+	font-family:"YanoneKaffeesatzRegular","Lucida Sans Unicode","Lucida Grande","Lucida Sans",helvetica,sans-serif;
+	font-size:2.3em;
+	padding:2px 25px;
+}
+
+
+/* 15. Writer Photo ---------------------------------------------- */
+.writer {
+	float:right;
+	margin:0 -20px 15px 15px;
+}
+.writer strong {
+	display:block;
+	font-family:"YanoneKaffeesatzLight", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:1.8em;
+	font-weight:normal;
+	text-align:center;
+}
+
+/* 16. Badges ---------------------------------------------- */
+.badge {
+	margin:0 0 10px 34px;
+	width:251px;
+}
+.badge a {
+	color:#FFF;
+	cursor:pointer;
+	display:block;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:2.9em;
+	line-height:1.1em;
+}
+.badge a:hover {
+	text-decoration:none;
+}
+.badge a .top,
+.badge a .bottom,
+.badge a .content {
+	display:block;
+}
+.badge a .top,
+.badge a .bottom {
+	background:url("../assets/images/sprite/sprite_badges.gif") no-repeat 0 0;
+	height:13px;
+}
+.badge a .bottom {
+	background-position:0 100%;
+}
+.badge a .content {
+	background-color:#A35F44;
+	padding:0 20px 0 30px;
+}
+.badge.get-involved a .top,
+.badge.get-involved a .bottom {
+	background-position:-251px 0;
+}
+.badge.get-involved a .bottom {
+	background-position:-251px 100%;
+}
+.badge.get-involved a .content {
+	background-color:#D49A56;
+}
+.badge.twitter a .top,
+.badge.twitter a .bottom {
+	background-position:-502px 0;
+}
+.badge.twitter a .bottom {
+	background-position:-502px 100%;
+}
+.badge.twitter a .content {
+	background-color:#7AA5B3;
+}
+
+/* 17. Recent Lists ---------------------------------------------- */
+.recent-list {
+	margin:0 0 10px 34px;
+	width:251px;
+}
+.recent-list .top,
+.recent-list .bottom {
+	background:url("../assets/images/bg/bg_list_recent.gif") no-repeat 0 0;
+	height:13px;
+}
+.recent-list .bottom {
+	background-position:0 100%;
+}
+.recent-list .content {
+	background-color:#ECECEC;
+	padding:0 20px 1px 30px;
+}
+.recent-list .content h2 {
+	color:#5a4a42;
+	margin-bottom:10px!important;
+}
+.recent-list .content ul {
+	padding-left:10px;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:1.8em;
+}
+.recent-list .content li {
+	margin-bottom:10px;
+}
+
+/* 18. Error 404 ---------------------------------------------- */
+.error404 #header-wrapper{
+	height:200px;
+}
+.error404 #content-wrapper {
+	background:none;
+}
+.error404 #choice-balloons {
+	display:none;
+}
+.error404 #main-content {
+	height:800px;
+}
+.error404 .balloons404 {
+	background:url("../assets/images/misc/misc_balloons_404.png") no-repeat 0 0;
+	height: 375px;
+}
+.error404 .balloons404 h1 {
+	color:#FFF;
+	font-size:4.5em;
+	font-weight:bold;
+	left:62px;
+	position:absolute;
+	top:68px;
+}
+.error404 .balloons404 h2 {
+	color:#FFF;
+	font-size:2.8em;
+	font-weight:bold;
+	left:221px;
+	position:absolute;
+	top:120px;
+}
+.error404 .balloons404 .content {
+	left:265px;
+	position:absolute;
+	top:220px;
+}
+.error404 .balloons404 .content p {
+	color:#5A4A42;
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:2.6em;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.error404 .balloons404 .content a {
+	font-size:1.6em;
+}
+
+/* 19. Navigation ---------------------------------------------- */
+.navigation {
+	font-family:"YanoneKaffeesatzRegular", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", helvetica, sans-serif;
+	font-size:2.3em;
+	margin-bottom:25px;
+	overflow:hidden;
+}
+.navigation a {
+	line-height:1.1em;
+}
+.navigation div {
+	max-width:280px;
+}
+.navigation .right {
+	float:right;
+	text-align:right;
+}
+
+/* 20. I10n fixes ---------------------------------------------- */
+/* Greek lang-el ---------------------------------------------- */
+body.lang-el #header #main-menu a,
+body.lang-el #header #main-menu a:visited {
+	font-size:1.6em;
+	line-height:1.6em;
+}
+body.lang-el h1,
+body.lang-el .brief-post.intro h1, 
+body.lang-el .brief-post.intro h2 {
+	font-size:5em;
+}
+body.lang-el .badge a,
+body.lang-el h2 {
+	font-size:2em;
+}
+body.lang-el .badge a {
+	text-align:center;
+}
+body.lang-el #choose-voice h2 {
+	font-size:1.5em;
+}
+body.lang-el #main-content .col_2 h2 {
+	font-size:1.7em;
+}
+body.lang-el input#txt_signUpForm {
+  font-size:1.1em;
+}
+
+/* Bulgarian lang-bg ---------------------------------------------- */
+body.lang-bg .badge a {
+	text-align:center;
+}
+
+/* German lang-de ---------------------------------------------- */
+body.lang-de input#txt_signUpForm {
+  font-size:1.1em;
+}
+
+/* ARCHIVE */
+#archive { margin: 0; padding: 5px; position: relative; text-align: center; padding: 14px 10px 15px 10px; color: #f5f3ed; background-color: #4d5151;  }
+#archive_text { margin-left: auto ; margin-right: auto ; width: 800px; text-align: center; font: bold 1.4em/1 Arial, Calibri, Helvetica, "Helvetica Neue", sans-serif; line-height: 1.2em;}
+#archive_text a, #archive_text a:hover { color: #fff; text-decoration: underline; }
